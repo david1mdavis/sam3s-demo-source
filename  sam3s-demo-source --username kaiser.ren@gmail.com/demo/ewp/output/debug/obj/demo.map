@@ -1,259 +1,261 @@
 ###############################################################################
 #                                                                             #
-# IAR ELF Linker V5.41.0.51741/W32 for ARM              30/Oct/2012  13:43:16 #
+# IAR ELF Linker V5.41.0.51741/W32 for ARM              30/Oct/2012  14:41:51 #
 # Copyright (C) 2007-2009 IAR Systems AB.                                     #
 #                                                                             #
-#    Output file  =  D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\bin\demo.out        #
-#    Map file     =  D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\demo.map        #
-#    Command line =  D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\EccNandFlash.o  #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\MEDNandFlash.o  #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\MSDDStateMachin #
-#                    e.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source #
-#                    \sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\MSDDriver.o #
-#                     D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sa #
-#                    m3s-ek_demo_1.4\demo\ewp\output\debug\obj\MSDDriverDescr #
-#                    iptors.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_s #
-#                    ource\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\MSDIOF #
-#                    ifo.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_sour #
-#                    ce\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\MSDLun.o  #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\ManagedNandFlas #
-#                    h.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source #
-#                    \sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\MappedNandF #
-#                    lash.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_sou #
-#                    rce\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\Media.o  #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\NandFlashModel. #
-#                    o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\s #
-#                    am3s-ek_demo_1.4\demo\ewp\output\debug\obj\NandFlashMode #
-#                    lList.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_so #
-#                    urce\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\NandSpa #
-#                    reScheme.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4 #
-#                    _source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\RawN #
-#                    andFlash.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4 #
-#                    _source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\SBCM #
-#                    ethods.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_s #
-#                    ource\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\Transl #
-#                    atedNandFlash.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_dem #
-#                    o_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj #
-#                    \USBConfigurationDescriptor.o                            #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\USBDCallbacks_I #
-#                    nitialized.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1 #
-#                    .4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\US #
-#                    BDCallbacks_Reset.o D:\Document\Atmel\ARM\sam3s\sam3s-ek #
-#                    _demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug #
-#                    \obj\USBDCallbacks_Resumed.o                             #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\USBDCallbacks_S #
-#                    uspended.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4 #
-#                    _source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\USBD #
-#                    Driver.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_s #
-#                    ource\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\USBDDr #
-#                    iverCb_IfSettingChanged.o D:\Document\Atmel\ARM\sam3s\sa #
-#                    m3s-ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output #
-#                    \debug\obj\USBD_UDP.o D:\Document\Atmel\ARM\sam3s\sam3s- #
-#                    ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\deb #
-#                    ug\obj\USBEndpointDescriptor.o                           #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\USBFeatureReque #
-#                    st.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_sourc #
-#                    e\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\USBGeneric #
-#                    Descriptor.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1 #
-#                    .4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\US #
-#                    BGenericRequest.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_d #
-#                    emo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\o #
-#                    bj\USBGetDescriptorRequest.o                             #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\USBInterfaceReq #
-#                    uest.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_sou #
-#                    rce\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\USBSetAd #
-#                    dressRequest.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo #
-#                    _1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\ #
-#                    USBSetConfigurationRequest.o                             #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\adc.o           #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\ads7843.o       #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\backend_ILI9325 #
-#                    .o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\ #
-#                    sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\board_cstart #
-#                    up_iar.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_s #
-#                    ource\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\board_ #
-#                    dependencies.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo #
-#                    _1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\ #
-#                    board_lowlevel_demo.o D:\Document\Atmel\ARM\sam3s\sam3s- #
-#                    ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\deb #
-#                    ug\obj\board_memories_demo.o                             #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\ccsbcs.o        #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\core_cm3.o      #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\crccu.o         #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\demo_parameters #
-#                    .o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\ #
-#                    sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\diskio.o     #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\disp_backend.o  #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\efc.o           #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\exceptions.o    #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\ff.o            #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\flashd.o        #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\frontend_ADS784 #
-#                    3.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source #
-#                    \sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\frontend_po #
-#                    tentiometer.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_ #
-#                    1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\f #
-#                    rontend_pushbuttons.o D:\Document\Atmel\ARM\sam3s\sam3s- #
-#                    ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\deb #
-#                    ug\obj\frontend_qtouch.o D:\Document\Atmel\ARM\sam3s\sam #
-#                    3s-ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\ #
-#                    debug\obj\ftldrv.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_ #
-#                    demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\ #
-#                    obj\hamming.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_ #
-#                    1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\h #
-#                    eap_1.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_so #
-#                    urce\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\led.o   #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\list.o          #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\main.o          #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\math.o          #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\pio.o           #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\pio_it.o        #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\pmc.o           #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\port.o          #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\portasm.o       #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\pwmc.o          #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\qtouch.o        #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\queue.o         #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\rand.o          #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\rtc.o           #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\rtmedia.o       #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\rtt.o           #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\sam_gui_bitmap_ #
-#                    raw.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_sour #
-#                    ce\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\sam_gui_c #
-#                    olor.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_sou #
-#                    rce\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\sam_gui_ #
-#                    colors.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_s #
-#                    ource\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\sam_gu #
-#                    i_embos.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_ #
-#                    source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\sam_g #
-#                    ui_font.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_ #
-#                    source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\sam_g #
-#                    ui_font10x14.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo #
-#                    _1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\ #
-#                    sam_gui_freertos.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_ #
-#                    demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\ #
-#                    obj\sam_gui_nuttx.o D:\Document\Atmel\ARM\sam3s\sam3s-ek #
-#                    _demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug #
-#                    \obj\sam_gui_point.o D:\Document\Atmel\ARM\sam3s\sam3s-e #
-#                    k_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debu #
-#                    g\obj\sam_gui_size.o D:\Document\Atmel\ARM\sam3s\sam3s-e #
-#                    k_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debu #
-#                    g\obj\scr_TSDCalibration.o D:\Document\Atmel\ARM\sam3s\s #
-#                    am3s-ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\outpu #
-#                    t\debug\obj\scr_audio.o D:\Document\Atmel\ARM\sam3s\sam3 #
-#                    s-ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\d #
-#                    ebug\obj\scr_disp_demo.o D:\Document\Atmel\ARM\sam3s\sam #
-#                    3s-ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\ #
-#                    debug\obj\scr_infos.o D:\Document\Atmel\ARM\sam3s\sam3s- #
-#                    ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\deb #
-#                    ug\obj\scr_intro.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_ #
-#                    demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\ #
-#                    obj\scr_lp_modes.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_ #
-#                    demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\ #
-#                    obj\scr_lp_modes_backup.o D:\Document\Atmel\ARM\sam3s\sa #
-#                    m3s-ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output #
-#                    \debug\obj\scr_lp_modes_sleep.o                          #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\scr_lp_modes_wa #
-#                    it.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_sourc #
-#                    e\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\scr_main.o #
-#                     D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sa #
-#                    m3s-ek_demo_1.4\demo\ewp\output\debug\obj\scr_ppt.o      #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\scr_qtouch.o    #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\scr_settings.o  #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\scr_settings_ba #
-#                    cklight.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_ #
-#                    source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\scr_s #
-#                    ettings_date.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo #
-#                    _1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\ #
-#                    scr_settings_time.o D:\Document\Atmel\ARM\sam3s\sam3s-ek #
-#                    _demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug #
-#                    \obj\spi.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4 #
-#                    _source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\task #
-#                    s.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source #
-#                    \sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\tc.o        #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\uart_console.o  #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\usbmsd.o        #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\wdt.o           #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\wgt_core.o      #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\wgt_core_behavi #
-#                    our.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_sour #
-#                    ce\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\wgt_core_ #
-#                    behaviour_default.o D:\Document\Atmel\ARM\sam3s\sam3s-ek #
-#                    _demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug #
-#                    \obj\wgt_core_frontend.o D:\Document\Atmel\ARM\sam3s\sam #
-#                    3s-ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\ #
-#                    debug\obj\wgt_core_message.o                             #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\wgt_core_pointe #
-#                    r.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source #
-#                    \sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\wgt_core_sc #
-#                    reen.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_sou #
-#                    rce\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\wgt_core #
-#                    _timer.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_s #
-#                    ource\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\wgt_co #
-#                    re_widget.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1. #
-#                    4_source\sam3s-ek_demo_1.4\libraries\drivers\qtouch\libQ #
-#                    TouchIarCfg3SRevB.a -o D:\Document\Atmel\ARM\sam3s\sam3s #
-#                    -ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\de #
-#                    bug\bin\demo.out --redirect _Printf=_PrintfLarge         #
-#                    --redirect _Scanf=_ScanfSmall --map                      #
-#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
-#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\demo.map --log  #
-#                    veneers --log_file D:\Document\Atmel\ARM\sam3s\sam3s-ek_ #
-#                    demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\ #
-#                    obj\demo.log --config D:\Document\Atmel\ARM\sam3s\sam3s- #
-#                    ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\..\..\demo #
-#                    \ewp\mapping\flash.icf --entry __iar_program_start       #
+#    Output file  =  D:\Firmware\ sam3s-demo-source --username                #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\bin\demo.out  #
+#    Map file     =  D:\Firmware\ sam3s-demo-source --username                #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\demo.map  #
+#    Command line =  "D:\Firmware\ sam3s-demo-source --username               #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\EccNandFl #
+#                    ash.o" "D:\Firmware\ sam3s-demo-source --username        #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\MEDNandFl #
+#                    ash.o" "D:\Firmware\ sam3s-demo-source --username        #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\MSDDState #
+#                    Machine.o" "D:\Firmware\ sam3s-demo-source --username    #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\MSDDriver #
+#                    .o" "D:\Firmware\ sam3s-demo-source --username           #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\MSDDriver #
+#                    Descriptors.o" "D:\Firmware\ sam3s-demo-source           #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\MSDIOFifo.o" "D:\Firmware\ sam3s-demo-source           #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\MSDLun.o" "D:\Firmware\ sam3s-demo-source --username   #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\ManagedNa #
+#                    ndFlash.o" "D:\Firmware\ sam3s-demo-source --username    #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\MappedNan #
+#                    dFlash.o" "D:\Firmware\ sam3s-demo-source --username     #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\Media.o"  #
+#                    "D:\Firmware\ sam3s-demo-source --username               #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\NandFlash #
+#                    Model.o" "D:\Firmware\ sam3s-demo-source --username      #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\NandFlash #
+#                    ModelList.o" "D:\Firmware\ sam3s-demo-source --username  #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\NandSpare #
+#                    Scheme.o" "D:\Firmware\ sam3s-demo-source --username     #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\RawNandFl #
+#                    ash.o" "D:\Firmware\ sam3s-demo-source --username        #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\SBCMethod #
+#                    s.o" "D:\Firmware\ sam3s-demo-source --username          #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\Translate #
+#                    dNandFlash.o" "D:\Firmware\ sam3s-demo-source            #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\USBConfigurationDescriptor.o" "D:\Firmware\            #
+#                    sam3s-demo-source --username                             #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\USBDCallb #
+#                    acks_Initialized.o" "D:\Firmware\ sam3s-demo-source      #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\USBDCallbacks_Reset.o" "D:\Firmware\                   #
+#                    sam3s-demo-source --username                             #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\USBDCallb #
+#                    acks_Resumed.o" "D:\Firmware\ sam3s-demo-source          #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\USBDCallbacks_Suspended.o" "D:\Firmware\               #
+#                    sam3s-demo-source --username                             #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\USBDDrive #
+#                    r.o" "D:\Firmware\ sam3s-demo-source --username          #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\USBDDrive #
+#                    rCb_IfSettingChanged.o" "D:\Firmware\ sam3s-demo-source  #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\USBD_UDP.o" "D:\Firmware\ sam3s-demo-source            #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\USBEndpointDescriptor.o" "D:\Firmware\                 #
+#                    sam3s-demo-source --username                             #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\USBFeatur #
+#                    eRequest.o" "D:\Firmware\ sam3s-demo-source --username   #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\USBGeneri #
+#                    cDescriptor.o" "D:\Firmware\ sam3s-demo-source           #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\USBGenericRequest.o" "D:\Firmware\ sam3s-demo-source   #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\USBGetDescriptorRequest.o" "D:\Firmware\               #
+#                    sam3s-demo-source --username                             #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\USBInterf #
+#                    aceRequest.o" "D:\Firmware\ sam3s-demo-source            #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\USBSetAddressRequest.o" "D:\Firmware\                  #
+#                    sam3s-demo-source --username                             #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\USBSetCon #
+#                    figurationRequest.o" "D:\Firmware\ sam3s-demo-source     #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\adc.o" "D:\Firmware\ sam3s-demo-source --username      #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\ads7843.o #
+#                    " "D:\Firmware\ sam3s-demo-source --username             #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\backend_I #
+#                    LI9325.o" "D:\Firmware\ sam3s-demo-source --username     #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\board_cst #
+#                    artup_iar.o" "D:\Firmware\ sam3s-demo-source --username  #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\board_dep #
+#                    endencies.o" "D:\Firmware\ sam3s-demo-source --username  #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\board_low #
+#                    level_demo.o" "D:\Firmware\ sam3s-demo-source            #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\board_memories_demo.o" "D:\Firmware\                   #
+#                    sam3s-demo-source --username                             #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\ccsbcs.o" #
+#                     "D:\Firmware\ sam3s-demo-source --username              #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\core_cm3. #
+#                    o" "D:\Firmware\ sam3s-demo-source --username            #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\crccu.o"  #
+#                    "D:\Firmware\ sam3s-demo-source --username               #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\demo_para #
+#                    meters.o" "D:\Firmware\ sam3s-demo-source --username     #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\diskio.o" #
+#                     "D:\Firmware\ sam3s-demo-source --username              #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\disp_back #
+#                    end.o" "D:\Firmware\ sam3s-demo-source --username        #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\efc.o"    #
+#                    "D:\Firmware\ sam3s-demo-source --username               #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\exception #
+#                    s.o" "D:\Firmware\ sam3s-demo-source --username          #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\ff.o"     #
+#                    "D:\Firmware\ sam3s-demo-source --username               #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\flashd.o" #
+#                     "D:\Firmware\ sam3s-demo-source --username              #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\frontend_ #
+#                    ADS7843.o" "D:\Firmware\ sam3s-demo-source --username    #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\frontend_ #
+#                    potentiometer.o" "D:\Firmware\ sam3s-demo-source         #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\frontend_pushbuttons.o" "D:\Firmware\                  #
+#                    sam3s-demo-source --username                             #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\frontend_ #
+#                    qtouch.o" "D:\Firmware\ sam3s-demo-source --username     #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\ftldrv.o" #
+#                     "D:\Firmware\ sam3s-demo-source --username              #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\hamming.o #
+#                    " "D:\Firmware\ sam3s-demo-source --username             #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\heap_1.o" #
+#                     "D:\Firmware\ sam3s-demo-source --username              #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\led.o"    #
+#                    "D:\Firmware\ sam3s-demo-source --username               #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\list.o"   #
+#                    "D:\Firmware\ sam3s-demo-source --username               #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\main.o"   #
+#                    "D:\Firmware\ sam3s-demo-source --username               #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\math.o"   #
+#                    "D:\Firmware\ sam3s-demo-source --username               #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\pio.o"    #
+#                    "D:\Firmware\ sam3s-demo-source --username               #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\pio_it.o" #
+#                     "D:\Firmware\ sam3s-demo-source --username              #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\pmc.o"    #
+#                    "D:\Firmware\ sam3s-demo-source --username               #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\port.o"   #
+#                    "D:\Firmware\ sam3s-demo-source --username               #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\portasm.o #
+#                    " "D:\Firmware\ sam3s-demo-source --username             #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\pwmc.o"   #
+#                    "D:\Firmware\ sam3s-demo-source --username               #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\qtouch.o" #
+#                     "D:\Firmware\ sam3s-demo-source --username              #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\queue.o"  #
+#                    "D:\Firmware\ sam3s-demo-source --username               #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\rand.o"   #
+#                    "D:\Firmware\ sam3s-demo-source --username               #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\rtc.o"    #
+#                    "D:\Firmware\ sam3s-demo-source --username               #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\rtmedia.o #
+#                    " "D:\Firmware\ sam3s-demo-source --username             #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\rtt.o"    #
+#                    "D:\Firmware\ sam3s-demo-source --username               #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\sam_gui_b #
+#                    itmap_raw.o" "D:\Firmware\ sam3s-demo-source --username  #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\sam_gui_c #
+#                    olor.o" "D:\Firmware\ sam3s-demo-source --username       #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\sam_gui_c #
+#                    olors.o" "D:\Firmware\ sam3s-demo-source --username      #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\sam_gui_e #
+#                    mbos.o" "D:\Firmware\ sam3s-demo-source --username       #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\sam_gui_f #
+#                    ont.o" "D:\Firmware\ sam3s-demo-source --username        #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\sam_gui_f #
+#                    ont10x14.o" "D:\Firmware\ sam3s-demo-source --username   #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\sam_gui_f #
+#                    reertos.o" "D:\Firmware\ sam3s-demo-source --username    #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\sam_gui_n #
+#                    uttx.o" "D:\Firmware\ sam3s-demo-source --username       #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\sam_gui_p #
+#                    oint.o" "D:\Firmware\ sam3s-demo-source --username       #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\sam_gui_s #
+#                    ize.o" "D:\Firmware\ sam3s-demo-source --username        #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\scr_TSDCa #
+#                    libration.o" "D:\Firmware\ sam3s-demo-source --username  #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\scr_audio #
+#                    .o" "D:\Firmware\ sam3s-demo-source --username           #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\scr_disp_ #
+#                    demo.o" "D:\Firmware\ sam3s-demo-source --username       #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\scr_infos #
+#                    .o" "D:\Firmware\ sam3s-demo-source --username           #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\scr_intro #
+#                    .o" "D:\Firmware\ sam3s-demo-source --username           #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\scr_lp_mo #
+#                    des.o" "D:\Firmware\ sam3s-demo-source --username        #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\scr_lp_mo #
+#                    des_backup.o" "D:\Firmware\ sam3s-demo-source            #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\scr_lp_modes_sleep.o" "D:\Firmware\ sam3s-demo-source  #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\scr_lp_modes_wait.o" "D:\Firmware\ sam3s-demo-source   #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\scr_main.o" "D:\Firmware\ sam3s-demo-source            #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\scr_ppt.o" "D:\Firmware\ sam3s-demo-source --username  #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\scr_qtouc #
+#                    h.o" "D:\Firmware\ sam3s-demo-source --username          #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\scr_setti #
+#                    ngs.o" "D:\Firmware\ sam3s-demo-source --username        #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\scr_setti #
+#                    ngs_backlight.o" "D:\Firmware\ sam3s-demo-source         #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\scr_settings_date.o" "D:\Firmware\ sam3s-demo-source   #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\scr_settings_time.o" "D:\Firmware\ sam3s-demo-source   #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\spi.o" "D:\Firmware\ sam3s-demo-source --username      #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\tasks.o"  #
+#                    "D:\Firmware\ sam3s-demo-source --username               #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\tc.o"     #
+#                    "D:\Firmware\ sam3s-demo-source --username               #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\uart_cons #
+#                    ole.o" "D:\Firmware\ sam3s-demo-source --username        #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\usbmsd.o" #
+#                     "D:\Firmware\ sam3s-demo-source --username              #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\wdt.o"    #
+#                    "D:\Firmware\ sam3s-demo-source --username               #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\wgt_core. #
+#                    o" "D:\Firmware\ sam3s-demo-source --username            #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\wgt_core_ #
+#                    behaviour.o" "D:\Firmware\ sam3s-demo-source --username  #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\wgt_core_ #
+#                    behaviour_default.o" "D:\Firmware\ sam3s-demo-source     #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\wgt_core_frontend.o" "D:\Firmware\ sam3s-demo-source   #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\wgt_core_message.o" "D:\Firmware\ sam3s-demo-source    #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\wgt_core_pointer.o" "D:\Firmware\ sam3s-demo-source    #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\wgt_core_screen.o" "D:\Firmware\ sam3s-demo-source     #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\wgt_core_timer.o" "D:\Firmware\ sam3s-demo-source      #
+#                    --username kaiser.ren@gmail.com\demo\ewp\output\debug\ob #
+#                    j\wgt_core_widget.o" "D:\Firmware\ sam3s-demo-source     #
+#                    --username kaiser.ren@gmail.com\libraries\drivers\qtouch #
+#                    \libQTouchIarCfg3SRevB.a" -o "D:\Firmware\               #
+#                    sam3s-demo-source --username                             #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\bin\demo.out" #
+#                     --redirect _Printf=_PrintfLarge --redirect              #
+#                    _Scanf=_ScanfSmall --map "D:\Firmware\                   #
+#                    sam3s-demo-source --username                             #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\demo.map" #
+#                     --log veneers --log_file "D:\Firmware\                  #
+#                    sam3s-demo-source --username                             #
+#                    kaiser.ren@gmail.com\demo\ewp\output\debug\obj\demo.log" #
+#                     --config "D:\Firmware\ sam3s-demo-source --username     #
+#                    kaiser.ren@gmail.com\demo\ewp\..\..\demo\ewp\mapping\fla #
+#                    sh.icf" --entry __iar_program_start                      #
 #                                                                             #
 #                                                                             #
 ###############################################################################
@@ -654,7 +656,7 @@ Copy/packbits (__iar_packbits_init2)
 
     Module                           ro code  ro data  rw data
     ------                           -------  -------  -------
-D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj: [1]
+D:\Firmware\ sam3s-demo-source --username kaiser.ren@gmail.com\demo\ewp\output\debug\obj: [1]
     EccNandFlash.o                       382
     MEDNandFlash.o                       984             8 200
     MSDDStateMachine.o                   920
@@ -2029,7 +2031,7 @@ xTickCount              0x2000b9ec     0x4  Data  Lc  tasks.o [1]
 xTracing                0x20001438     0x4  Data  Lc  tasks.o [1]
 
 
-[1] = D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj
+[1] = D:\Firmware\ sam3s-demo-source --username kaiser.ren@gmail.com\demo\ewp\output\debug\obj
 [2] = command line
 [3] = dl7M_tl_if.a
 [4] = libQTouchIarCfg3SRevB.a
