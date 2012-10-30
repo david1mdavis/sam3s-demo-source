@@ -91,7 +91,7 @@
         </option>
         <option>
           <name>OGLastSavedByProductVersion</name>
-          <state>5.41.2.51798</state>
+          <state>5.41.0.51757</state>
         </option>
         <option>
           <name>GeneralEnableMisra</name>
@@ -520,15 +520,15 @@
         <option>
           <name>OOCOutputFormat</name>
           <version>2</version>
-          <state>2</state>
+          <state>1</state>
         </option>
         <option>
           <name>OCOutputOverride</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state>demo.bin</state>
+          <state>demo.hex</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>
@@ -836,7 +836,7 @@
         <option>
           <name>Variant</name>
           <version>13</version>
-          <state>36</state>
+          <state>0</state>
         </option>
         <option>
           <name>GEndianMode</name>
@@ -909,7 +909,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>AT91SAM3S4	Atmel AT91SAM3S4</state>
+          <state>Default	None</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
