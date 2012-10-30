@@ -1,0 +1,2043 @@
+###############################################################################
+#                                                                             #
+# IAR ELF Linker V5.41.0.51741/W32 for ARM              30/Oct/2012  13:43:16 #
+# Copyright (C) 2007-2009 IAR Systems AB.                                     #
+#                                                                             #
+#    Output file  =  D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\bin\demo.out        #
+#    Map file     =  D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\demo.map        #
+#    Command line =  D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\EccNandFlash.o  #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\MEDNandFlash.o  #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\MSDDStateMachin #
+#                    e.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source #
+#                    \sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\MSDDriver.o #
+#                     D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sa #
+#                    m3s-ek_demo_1.4\demo\ewp\output\debug\obj\MSDDriverDescr #
+#                    iptors.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_s #
+#                    ource\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\MSDIOF #
+#                    ifo.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_sour #
+#                    ce\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\MSDLun.o  #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\ManagedNandFlas #
+#                    h.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source #
+#                    \sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\MappedNandF #
+#                    lash.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_sou #
+#                    rce\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\Media.o  #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\NandFlashModel. #
+#                    o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\s #
+#                    am3s-ek_demo_1.4\demo\ewp\output\debug\obj\NandFlashMode #
+#                    lList.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_so #
+#                    urce\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\NandSpa #
+#                    reScheme.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4 #
+#                    _source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\RawN #
+#                    andFlash.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4 #
+#                    _source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\SBCM #
+#                    ethods.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_s #
+#                    ource\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\Transl #
+#                    atedNandFlash.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_dem #
+#                    o_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj #
+#                    \USBConfigurationDescriptor.o                            #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\USBDCallbacks_I #
+#                    nitialized.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1 #
+#                    .4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\US #
+#                    BDCallbacks_Reset.o D:\Document\Atmel\ARM\sam3s\sam3s-ek #
+#                    _demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug #
+#                    \obj\USBDCallbacks_Resumed.o                             #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\USBDCallbacks_S #
+#                    uspended.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4 #
+#                    _source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\USBD #
+#                    Driver.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_s #
+#                    ource\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\USBDDr #
+#                    iverCb_IfSettingChanged.o D:\Document\Atmel\ARM\sam3s\sa #
+#                    m3s-ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output #
+#                    \debug\obj\USBD_UDP.o D:\Document\Atmel\ARM\sam3s\sam3s- #
+#                    ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\deb #
+#                    ug\obj\USBEndpointDescriptor.o                           #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\USBFeatureReque #
+#                    st.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_sourc #
+#                    e\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\USBGeneric #
+#                    Descriptor.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1 #
+#                    .4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\US #
+#                    BGenericRequest.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_d #
+#                    emo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\o #
+#                    bj\USBGetDescriptorRequest.o                             #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\USBInterfaceReq #
+#                    uest.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_sou #
+#                    rce\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\USBSetAd #
+#                    dressRequest.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo #
+#                    _1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\ #
+#                    USBSetConfigurationRequest.o                             #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\adc.o           #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\ads7843.o       #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\backend_ILI9325 #
+#                    .o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\ #
+#                    sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\board_cstart #
+#                    up_iar.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_s #
+#                    ource\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\board_ #
+#                    dependencies.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo #
+#                    _1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\ #
+#                    board_lowlevel_demo.o D:\Document\Atmel\ARM\sam3s\sam3s- #
+#                    ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\deb #
+#                    ug\obj\board_memories_demo.o                             #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\ccsbcs.o        #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\core_cm3.o      #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\crccu.o         #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\demo_parameters #
+#                    .o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\ #
+#                    sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\diskio.o     #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\disp_backend.o  #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\efc.o           #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\exceptions.o    #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\ff.o            #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\flashd.o        #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\frontend_ADS784 #
+#                    3.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source #
+#                    \sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\frontend_po #
+#                    tentiometer.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_ #
+#                    1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\f #
+#                    rontend_pushbuttons.o D:\Document\Atmel\ARM\sam3s\sam3s- #
+#                    ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\deb #
+#                    ug\obj\frontend_qtouch.o D:\Document\Atmel\ARM\sam3s\sam #
+#                    3s-ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\ #
+#                    debug\obj\ftldrv.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_ #
+#                    demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\ #
+#                    obj\hamming.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_ #
+#                    1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\h #
+#                    eap_1.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_so #
+#                    urce\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\led.o   #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\list.o          #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\main.o          #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\math.o          #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\pio.o           #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\pio_it.o        #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\pmc.o           #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\port.o          #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\portasm.o       #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\pwmc.o          #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\qtouch.o        #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\queue.o         #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\rand.o          #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\rtc.o           #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\rtmedia.o       #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\rtt.o           #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\sam_gui_bitmap_ #
+#                    raw.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_sour #
+#                    ce\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\sam_gui_c #
+#                    olor.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_sou #
+#                    rce\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\sam_gui_ #
+#                    colors.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_s #
+#                    ource\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\sam_gu #
+#                    i_embos.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_ #
+#                    source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\sam_g #
+#                    ui_font.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_ #
+#                    source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\sam_g #
+#                    ui_font10x14.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo #
+#                    _1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\ #
+#                    sam_gui_freertos.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_ #
+#                    demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\ #
+#                    obj\sam_gui_nuttx.o D:\Document\Atmel\ARM\sam3s\sam3s-ek #
+#                    _demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug #
+#                    \obj\sam_gui_point.o D:\Document\Atmel\ARM\sam3s\sam3s-e #
+#                    k_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debu #
+#                    g\obj\sam_gui_size.o D:\Document\Atmel\ARM\sam3s\sam3s-e #
+#                    k_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debu #
+#                    g\obj\scr_TSDCalibration.o D:\Document\Atmel\ARM\sam3s\s #
+#                    am3s-ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\outpu #
+#                    t\debug\obj\scr_audio.o D:\Document\Atmel\ARM\sam3s\sam3 #
+#                    s-ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\d #
+#                    ebug\obj\scr_disp_demo.o D:\Document\Atmel\ARM\sam3s\sam #
+#                    3s-ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\ #
+#                    debug\obj\scr_infos.o D:\Document\Atmel\ARM\sam3s\sam3s- #
+#                    ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\deb #
+#                    ug\obj\scr_intro.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_ #
+#                    demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\ #
+#                    obj\scr_lp_modes.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_ #
+#                    demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\ #
+#                    obj\scr_lp_modes_backup.o D:\Document\Atmel\ARM\sam3s\sa #
+#                    m3s-ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output #
+#                    \debug\obj\scr_lp_modes_sleep.o                          #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\scr_lp_modes_wa #
+#                    it.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_sourc #
+#                    e\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\scr_main.o #
+#                     D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sa #
+#                    m3s-ek_demo_1.4\demo\ewp\output\debug\obj\scr_ppt.o      #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\scr_qtouch.o    #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\scr_settings.o  #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\scr_settings_ba #
+#                    cklight.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_ #
+#                    source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\scr_s #
+#                    ettings_date.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo #
+#                    _1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\ #
+#                    scr_settings_time.o D:\Document\Atmel\ARM\sam3s\sam3s-ek #
+#                    _demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug #
+#                    \obj\spi.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4 #
+#                    _source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\task #
+#                    s.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source #
+#                    \sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\tc.o        #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\uart_console.o  #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\usbmsd.o        #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\wdt.o           #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\wgt_core.o      #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\wgt_core_behavi #
+#                    our.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_sour #
+#                    ce\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\wgt_core_ #
+#                    behaviour_default.o D:\Document\Atmel\ARM\sam3s\sam3s-ek #
+#                    _demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug #
+#                    \obj\wgt_core_frontend.o D:\Document\Atmel\ARM\sam3s\sam #
+#                    3s-ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\ #
+#                    debug\obj\wgt_core_message.o                             #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\wgt_core_pointe #
+#                    r.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source #
+#                    \sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\wgt_core_sc #
+#                    reen.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_sou #
+#                    rce\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\wgt_core #
+#                    _timer.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_s #
+#                    ource\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj\wgt_co #
+#                    re_widget.o D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1. #
+#                    4_source\sam3s-ek_demo_1.4\libraries\drivers\qtouch\libQ #
+#                    TouchIarCfg3SRevB.a -o D:\Document\Atmel\ARM\sam3s\sam3s #
+#                    -ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\de #
+#                    bug\bin\demo.out --redirect _Printf=_PrintfLarge         #
+#                    --redirect _Scanf=_ScanfSmall --map                      #
+#                    D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam #
+#                    3s-ek_demo_1.4\demo\ewp\output\debug\obj\demo.map --log  #
+#                    veneers --log_file D:\Document\Atmel\ARM\sam3s\sam3s-ek_ #
+#                    demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\ #
+#                    obj\demo.log --config D:\Document\Atmel\ARM\sam3s\sam3s- #
+#                    ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\..\..\demo #
+#                    \ewp\mapping\flash.icf --entry __iar_program_start       #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+__endian      = little
+__thumb_aware = enabled
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A1":  place at 0x00400000 { ro section .vectors };
+"P1":  place in [from 0x00400000 to 0x0043fdff] { ro };
+"P3":  place in [from 0x20000000 to 0x2000bfff] {
+          rw, block CSTACK, block HEAP };
+
+  Section            Kind        Address     Size  Object
+  -------            ----        -------     ----  ------
+"A1":                                        0xd0
+  .vectors                    0x00400000     0xd0  <Block>
+    .vectors         const    0x00400000     0xd0  board_cstartup_iar.o [1]
+                            - 0x004000d0     0xd0
+
+"P1":                                     0x118aa
+  ATML_DEMO          ro code  0x004000d0   0x1b30  ff.o [1]
+  .text              ro code  0x00401c00    0xe96  xprintflarge.o [3]
+  ATML_DEMO          ro code  0x00402a98    0xd48  USBD_UDP.o [1]
+  ATML_DEMO          ro code  0x004037e0    0xc70  backend_ILI9325.o [1]
+  ATML_DEMO          ro code  0x00404450    0xba6  SBCMethods.o [1]
+  .rodata            const    0x00404ff8    0x780  sam_gui_font10x14.o [1]
+  ATML_DEMO          ro code  0x00405778    0x758  tasks.o [1]
+  ATML_DEMO          ro code  0x00405ed0    0x664  scr_main.o [1]
+  ATML_DEMO          ro code  0x00406534    0x5c6  ManagedNandFlash.o [1]
+  ATML_DEMO          ro code  0x00406afc    0x594  RawNandFlash.o [1]
+  ATML_DEMO          ro code  0x00407090    0x484  scr_settings_date.o [1]
+  ATML_DEMO          ro code  0x00407514    0x478  scr_settings_time.o [1]
+  ATML_DEMO          ro code  0x0040798c    0x454  USBDDriver.o [1]
+  .text              ro code  0x00407de0    0x448  touch_process.o [4]
+  ATML_DEMO          ro code  0x00408228    0x432  MappedNandFlash.o [1]
+  ATML_DEMO          ro code  0x0040865c    0x402  queue.o [1]
+  .text              ro code  0x00408a60    0x3ec  touch_burst_qt_base.o [4]
+  ATML_DEMO          ro code  0x00408e4c    0x3cc  MEDNandFlash.o [1]
+  ATML_DEMO          ro code  0x00409218    0x3cc  TranslatedNandFlash.o [1]
+  .rodata            const    0x004095e4    0x3c0  ccsbcs.o [1]
+  ATML_DEMO          ro code  0x004099a4    0x3a4  scr_qtouch.o [1]
+  ATML_DEMO          ro code  0x00409d48    0x398  MSDDStateMachine.o [1]
+  ATML_DEMO          ro code  0x0040a0e0    0x394  scr_disp_demo.o [1]
+  .text              ro code  0x0040a474    0x380  touch_rs_qt.o [4]
+  ATML_DEMO          ro code  0x0040a7f4    0x35c  scr_TSDCalibration.o [1]
+  ATML_DEMO          ro code  0x0040ab50    0x2c8  scr_lp_modes_wait.o [1]
+  .rodata            const    0x0040ae18    0x2b8  NandFlashModelList.o [1]
+  ATML_DEMO          ro code  0x0040b0d0    0x272  hamming.o [1]
+  ATML_DEMO          ro code  0x0040b344    0x252  MSDLun.o [1]
+  ATML_DEMO          ro code  0x0040b598    0x248  main.o [1]
+  .text              ro code  0x0040b7e0    0x246  DblDiv.o [5]
+  ATML_DEMO          ro code  0x0040ba28    0x214  frontend_ADS7843.o [1]
+  ATML_DEMO          ro code  0x0040bc3c    0x214  ftldrv.o [1]
+  ATML_DEMO          ro code  0x0040be50    0x204  pio_it.o [1]
+  ATML_DEMO          ro code  0x0040c054    0x1fc  pio.o [1]
+  ATML_DEMO          ro code  0x0040c250    0x1f8  qtouch.o [1]
+  .text              ro code  0x0040c448    0x1f0  touch_burst_qt.o [4]
+  .text              ro code  0x0040c638    0x1dc  touch_api.o [4]
+  .rodata            const    0x0040c814    0x1c4  ftldrv.o [1]
+  ATML_DEMO          ro code  0x0040c9d8    0x1b4  wgt_core_screen.o [1]
+  ATML_DEMO          ro code  0x0040cb8c    0x1ac  scr_lp_modes.o [1]
+  ATML_DEMO          ro code  0x0040cd38    0x1ac  scr_lp_modes_sleep.o [1]
+  ATML_DEMO          ro code  0x0040cee4    0x1a8  scr_settings.o [1]
+  .text              ro code  0x0040d08c    0x1a2  DblMul.o [5]
+  ATML_DEMO          ro code  0x0040d22e    0x18e  NandFlashModel.o [1]
+  ATML_DEMO          ro code  0x0040d3bc    0x180  frontend_potentiometer.o [1]
+  ATML_DEMO          ro code  0x0040d53c    0x180  scr_settings_backlight.o [1]
+  .text              ro code  0x0040d6bc    0x17e  DblSub.o [5]
+  .rodata            const    0x0040d83c    0x17c  scr_qtouch.o [1]
+  ATML_DEMO          ro code  0x0040d9b8    0x17c  MSDDriver.o [1]
+  ATML_DEMO          ro code  0x0040db34    0x16a  EccNandFlash.o [1]
+  ATML_DEMO          ro code  0x0040dca0    0x164  wgt_core.o [1]
+  .rodata            const    0x0040de04    0x138  demo_parameters.o [1]
+  .text              ro code  0x0040df3c    0x12e  I64DivMod.o [5]
+  ATML_DEMO          ro code  0x0040e06c    0x128  diskio.o [1]
+  ATML_DEMO          ro code  0x0040e194    0x118  scr_lp_modes_backup.o [1]
+  .rodata            const    0x0040e2ac    0x108  backend_ILI9325.o [1]
+  .rodata            const    0x0040e3b4    0x100  ccsbcs.o [1]
+  ATML_DEMO          ro code  0x0040e4b4    0x100  scr_ppt.o [1]
+  ATML_DEMO          ro code  0x0040e5b4     0xfc  ads7843.o [1]
+  .rodata            const    0x0040e6b0     0xf8  main.o [1]
+  ATML_DEMO          ro code  0x0040e7a8     0xf0  wgt_core_widget.o [1]
+  ATML_DEMO          ro code  0x0040e898     0xe8  scr_infos.o [1]
+  .text              ro code  0x0040e980     0xe6  DblAdd.o [5]
+  ATML_DEMO          ro code  0x0040ea68     0xe6  board_lowlevel_demo.o [1]
+  ATML_DEMO          ro code  0x0040eb50     0xe4  demo_parameters.o [1]
+  ATML_DEMO          ro code  0x0040ec34     0xe4  flashd.o [1]
+  ATML_DEMO          ro code  0x0040ed18     0xe4  scr_audio.o [1]
+  .rodata            const    0x0040edfc     0xdc  scr_main.o [1]
+  .rodata            const    0x0040eed8     0xd4  scr_lp_modes_sleep.o [1]
+  ATML_DEMO          ro code  0x0040efac     0xd2  rtmedia.o [1]
+  .rodata            const    0x0040f080     0xcc  scr_lp_modes_wait.o [1]
+  ATML_DEMO          ro code  0x0040f14c     0xc8  adc.o [1]
+  .text              ro code  0x0040f214     0xc6  xdnorm.o [3]
+  .rodata            const    0x0040f2dc     0xc4  scr_lp_modes_backup.o [1]
+  ATML_DEMO          ro code  0x0040f3a0     0xc4  scr_intro.o [1]
+  .text              ro code  0x0040f464     0xbc  xxmemxmalloc.o [3]
+  ATML_DEMO          ro code  0x0040f520     0xb4  uart_console.o [1]
+  .rodata            const    0x0040f5d4     0xb0  scr_settings.o [1]
+  ATML_DEMO          ro code  0x0040f684     0xb0  wgt_core_behaviour_default.o [1]
+  ATML_DEMO          ro code  0x0040f734     0xa8  usbmsd.o [1]
+  ATML_DEMO          ro code  0x0040f7dc     0xa4  pmc.o [1]
+  ATML_DEMO          ro code  0x0040f880     0x9c  port.o [1]
+  .rodata            const    0x0040f91c     0x98  scr_TSDCalibration.o [1]
+  .text              ro code  0x0040f9b4     0x96  packbits_init2.o [5]
+  .rodata            const    0x0040fa4c     0x94  ff.o [1]
+  ATML_DEMO          ro code  0x0040fae0     0x94  list.o [1]
+  ATML_DEMO          ro code  0x0040fb74     0x90  NandSpareScheme.o [1]
+  ATML_DEMO          ro code  0x0040fc04     0x8c  USBConfigurationDescriptor.o [1]
+  .text              ro code  0x0040fc90     0x88  xxmemxfree.o [3]
+  .text              ro code  0x0040fd18     0x88  xsyslock.o [3]
+  ATML_DEMO          ro code  0x0040fda0     0x88  efc.o [1]
+  CODE               ro code  0x0040fe28     0x88  portasm.o [1]
+  .rodata            const    0x0040feb0     0x84  NandSpareScheme.o [1]
+  .rodata            const    0x0040ff34     0x84  NandSpareScheme.o [1]
+  .rodata            const    0x0040ffb8     0x84  NandSpareScheme.o [1]
+  .rodata            const    0x0041003c     0x84  scr_lp_modes.o [1]
+  .rodata            const    0x004100c0     0x80  pio_it.o [1]
+  .rodata            const    0x00410140     0x80  pio_it.o [1]
+  .rodata            const    0x004101c0     0x80  pio_it.o [1]
+  .rodata            const    0x00410240     0x7c  scr_infos.o [1]
+  .rodata            const    0x004102bc     0x7c  scr_settings_backlight.o [1]
+  ATML_DEMO          ro code  0x00410338     0x78  board_dependencies.o [1]
+  .text              ro code  0x004103b0     0x70  ABImemcpy.o [5]
+  ATML_DEMO          ro code  0x00410420     0x70  wgt_core_message.o [1]
+  .rodata            const    0x00410490     0x6c  ff.o [1]
+  .text              ro code  0x004104fc     0x6c  strncpy.o [5]
+  ATML_DEMO          ro code  0x00410568     0x6c  led.o [1]
+  .text              ro code  0x004105d4     0x68  cppinit.o [3]
+  ATML_DEMO          ro code  0x0041063c     0x68  ccsbcs.o [1]
+  .text              ro code  0x004106a4     0x66  ABImemset.o [5]
+  ATML_DEMO          ro code  0x0041070c     0x64  wgt_core_frontend.o [1]
+  .text              ro code  0x00410770     0x62  memcmp.o [5]
+  .rodata            const    0x004107d4     0x58  scr_lp_modes.o [1]
+  .text              ro code  0x0041082c     0x58  memchr.o [5]
+  .rodata            const    0x00410884     0x54  scr_settings_date.o [1]
+  .rodata            const    0x004108d8     0x54  scr_settings_time.o [1]
+  .text              ro code  0x0041092c     0x50  xencoding_sb.o [3]
+  ATML_DEMO          ro code  0x0041097c     0x4c  heap_1.o [1]
+  .rodata            const    0x004109c8     0x48  backend_ILI9325.o [1]
+  .rodata            const    0x00410a10     0x48  scr_audio.o [1]
+  .rodata            const    0x00410a58     0x48  scr_audio.o [1]
+  .rodata            const    0x00410aa0     0x48  scr_settings_date.o [1]
+  .rodata            const    0x00410ae8     0x48  xlocale_c.o [3]
+  .text              ro code  0x00410b30     0x48  MtxWrapper.o [3]
+  ATML_DEMO          ro code  0x00410b78     0x48  disp_backend.o [1]
+  ATML_DEMO          ro code  0x00410bc0     0x44  exceptions.o [1]
+  .rodata            const    0x00410c04     0x40  scr_settings_time.o [1]
+  .text              ro code  0x00410c44     0x40  snprintf.o [3]
+  .rodata            const    0x00410c84     0x3c  ads7843.o [1]
+  .rodata            const    0x00410cc0     0x3c  scr_settings_backlight.o [1]
+  .rodata            const    0x00410cfc     0x3c  wgt_core_frontend.o [1]
+  .rodata            const    0x00410d38     0x38  scr_disp_demo.o [1]
+  .rodata            const    0x00410d70     0x38  scr_main.o [1]
+  .rodata            const    0x00410da8     0x38  scr_settings.o [1]
+  ATML_DEMO          ro code  0x00410de0     0x38  board_memories_demo.o [1]
+  .text              ro code  0x00410e18     0x36  strlen.o [5]
+  .rodata            const    0x00410e50     0x34  scr_TSDCalibration.o [1]
+  .rodata            const    0x00410e84     0x34  scr_qtouch.o [1]
+  ATML_DEMO          ro code  0x00410eb8     0x34  USBGenericRequest.o [1]
+  .rodata            const    0x00410eec     0x30  backend_ILI9325.o [1]
+  .rodata            const    0x00410f1c     0x30  qtouch.o [1]
+  .rodata            const    0x00410f4c     0x30  wgt_core.o [1]
+  .text              ro code  0x00410f7c     0x30  sprintf.o [3]
+  ATML_DEMO          ro code  0x00410fac     0x30  frontend_pushbuttons.o [1]
+  .text              ro code  0x00410fdc     0x2e  DblCmpLe.o [5]
+  .rodata            const    0x0041100c     0x2c  backend_ILI9325.o [1]
+  .rodata            const    0x00411038     0x2c  backend_ILI9325.o [1]
+  .rodata            const    0x00411064     0x2c  main.o [1]
+  .text              ro code  0x00411090     0x2a  DblToI32.o [5]
+  .rodata            const    0x004110bc     0x28  MSDDriverDescriptors.o [1]
+  .rodata            const    0x004110e4     0x28  scr_intro.o [1]
+  .text              ro code  0x0041110c     0x28  xgetmemchunk.o [3]
+  ATML_DEMO          ro code  0x00411134     0x28  spi.o [1]
+  .rodata            const    0x0041115c     0x24  led.o [1]
+  .rodata            const    0x00411180     0x24  main.o [1]
+  .rodata            const    0x004111a4     0x24  wgt_core_screen.o [1]
+  ATML_DEMO          ro code  0x004111c8     0x24  rand.o [1]
+  ATML_DEMO          ro code  0x004111ec     0x24  USBEndpointDescriptor.o [1]
+  .iar.init_table    const    0x00411210     0x2c  - Linker created -
+  .rodata            const    0x0041123c     0x20  MSDDriverDescriptors.o [1]
+  .rodata            const    0x0041125c     0x20  MSDDriverDescriptors.o [1]
+  .rodata            const    0x0041127c     0x20  scr_main.o [1]
+  .text              ro code  0x0041129c     0x20  printf.o [3]
+  .text              ro code  0x004112bc     0x20  data_init2.o [5]
+  .text              ro code  0x004112dc     0x20  xmbtowc.o [3]
+  .text              ro code  0x004112fc     0x1e  strcat.o [3]
+  ATML_DEMO          ro code  0x0041131a     0x1e  USBDCallbacks_Resumed.o [1]
+  .rodata            const    0x00411338     0x1c  MSDDriverDescriptors.o [1]
+  .rodata            const    0x00411354     0x1c  scr_ppt.o [1]
+  .rodata            const    0x00411370     0x1c  scr_ppt.o [1]
+  ATML_DEMO          ro code  0x0041138c     0x1c  USBDCallbacks_Initialized.o [1]
+  ATML_DEMO          ro code  0x004113a8     0x1c  tc.o [1]
+  .text              ro code  0x004113c4     0x1a  I32ToDbl.o [5]
+  .text              ro code  0x004113de     0x1a  xsnprout.o [3]
+  .text              ro code  0x004113f8     0x1a  xwctomb.o [3]
+  .text              ro code  0x00411412     0x1a  zero_init2.o [5]
+  .rodata            const    0x0041142c     0x18  frontend_ADS7843.o [1]
+  .rodata            const    0x00411444     0x18  frontend_pushbuttons.o [1]
+  .rodata            const    0x0041145c     0x18  main.o [1]
+  .rodata            const    0x00411474     0x18  wgt_core_screen.o [1]
+  .text              ro code  0x0041148c     0x18  cmain.o [5]
+  ATML_DEMO          ro code  0x004114a4     0x18  board_cstartup_iar.o [1]
+  .text              ro code  0x004114bc     0x16  strchr.o [5]
+  .text              ro code  0x004114d2     0x16  xprout.o [3]
+  .rodata            const    0x004114e8     0x14  MSDDriverDescriptors.o [1]
+  .rodata            const    0x004114fc     0x14  tasks.o [1]
+  .rodata            const    0x00411510     0x14  tasks.o [1]
+  .text              ro code  0x00411524     0x14  localeconv.o [3]
+  .text              ro code  0x00411538     0x14  setlocale.o [3]
+  ATML_DEMO          ro code  0x0041154c     0x14  EccNandFlash.o [1]
+  ATML_DEMO          ro code  0x00411560     0x14  USBGenericDescriptor.o [1]
+  ATML_DEMO          ro code  0x00411574     0x14  USBGetDescriptorRequest.o [1]
+  ATML_DEMO          ro code  0x00411588     0x14  USBInterfaceRequest.o [1]
+  ATML_DEMO          ro code  0x0041159c     0x12  USBDCallbacks_Suspended.o [1]
+  .rodata            const    0x004115b0     0x10  ff.o [1]
+  .rodata            const    0x004115c0     0x10  sam_gui_font.o [1]
+  .rodata            const    0x004115d0     0x10  xprintflarge.o [3]
+  ATML_DEMO          ro code  0x004115e0     0x10  wdt.o [1]
+  ATML_DEMO          ro code  0x004115f0     0x10  math.o [1]
+  .text              ro code  0x00411600      0xe  cexit.o [5]
+  .text              ro code  0x0041160e      0xe  div.o [3]
+  .rodata            const    0x0041161c      0xc  MSDDriverDescriptors.o [1]
+  .rodata            const    0x00411628      0xc  frontend_ADS7843.o [1]
+  .rodata            const    0x00411634      0xc  frontend_potentiometer.o [1]
+  .rodata            const    0x00411640      0xc  frontend_pushbuttons.o [1]
+  .rodata            const    0x0041164c      0xc  frontend_qtouch.o [1]
+  .rodata            const    0x00411658      0xc  uart_console.o [1]
+  .rodata            const    0x00411664      0xc  usbmsd.o [1]
+  .text              ro code  0x00411670      0xc  XXexit.o [5]
+  ATML_DEMO          ro code  0x0041167c      0xc  MEDNandFlash.o [1]
+  ATML_DEMO          ro code  0x00411688      0xc  USBSetAddressRequest.o [1]
+  .text              ro code  0x00411694      0xa  xsprout.o [3]
+  .text              ro code  0x0041169e      0xa  xmbcurmax.o [3]
+  ATML_DEMO          ro code  0x004116a8      0xa  USBFeatureRequest.o [1]
+  ATML_DEMO          ro code  0x004116b2      0xa  USBSetConfigurationRequest.o [1]
+  .rodata            const    0x004116bc      0x8  scr_settings_date.o [1]
+  .rodata            const    0x004116c4      0x8  scr_settings_time.o [1]
+  .rodata            const    0x004116cc      0x8  tasks.o [1]
+  .rodata            const    0x004116d4      0x8  xprintflarge.o [3]
+  .rodata            const    0x004116dc      0x8  localeconv.o [3]
+  .rodata            const    0x004116e4      0x8  localeconv.o [3]
+  .rodata            const    0x004116ec      0x8  xencoding_sb.o [3]
+  .rodata            const    0x004116f4      0x8  xencoding_sb.o [3]
+  .rodata            const    0x004116fc      0x8  xlocale_c.o [3]
+  .rodata            const    0x00411704      0x8  xlocale_c.o [3]
+  ATML_DEMO          ro code  0x0041170c      0x8  frontend_qtouch.o [1]
+  .text              ro code  0x00411714      0x6  exit.o [3]
+  .rodata            const    0x0041171c      0x4  MSDDriverDescriptors.o [1]
+  .rodata            const    0x00411720      0x4  SBCMethods.o [1]
+  .rodata            const    0x00411724      0x4  ff.o [1]
+  .rodata            const    0x00411728      0x4  scr_qtouch.o [1]
+  .rodata            const    0x0041172c      0x4  wgt_core.o [1]
+  .text              ro code  0x00411730      0x2  I64DivZer.o [5]
+  ATML_DEMO          ro code  0x00411732      0x4  sam_gui_freertos.o [1]
+  .rodata            const    0x00411736      0x2  localeconv.o [3]
+  .rodata            const    0x00411738      0x2  xlocale_c.o [3]
+  ATML_DEMO          ro code  0x0041173a      0x2  USBDCallbacks_Reset.o [1]
+  ATML_DEMO          ro code  0x0041173c      0x2  USBDDriverCb_IfSettingChanged.o [1]
+  .rodata            const    0x0041173e      0x1  localeconv.o [3]
+  .rodata            const    0x0041173f      0x1  setlocale.o [3]
+  .rodata            const    0x00411740      0x1  xlocale_c.o [3]
+  Initializer bytes  ro data  0x00411741    0x239  <for P3 s0>
+                            - 0x0041197a  0x118aa
+
+"P3", part 1 of 3:                          0xa48
+  CSTACK                      0x20000000    0x600  <Block>
+    CSTACK           uninit   0x20000000    0x600  <Block tail>
+  .iar.dynexit                0x20000600    0x1e0  <Block>
+    .iar.dynexit     uninit   0x20000600      0xc  cppinit.o [3]
+    .iar.dynexit     uninit   0x2000060c    0x1d4  <Block tail>
+  .noinit            uninit   0x200007e0    0x188  scr_qtouch.o [1]
+  .noinit            uninit   0x20000968     0x8c  scr_ppt.o [1]
+  .noinit            uninit   0x200009f4     0x18  scr_settings_date.o [1]
+  .noinit            uninit   0x20000a0c     0x18  scr_settings_time.o [1]
+  .noinit            uninit   0x20000a24     0x10  wgt_core_frontend.o [1]
+  .noinit            uninit   0x20000a34      0xc  scr_disp_demo.o [1]
+  HEAP                        0x20000a40      0x0  <Block>
+  .noinit            uninit   0x20000a40      0x8  disp_backend.o [1]
+                            - 0x20000a48    0xa48
+
+"P3", part 2 of 3:                          0xb5c
+  P3 s0                       0x20000a48    0xb5c  <Init block>
+    .data            inited   0x20000a48    0x2e4  scr_settings_time.o [1]
+    .data            inited   0x20000d2c     0x84  setlocale.o [3]
+    .data            inited   0x20000db0     0x6c  scr_TSDCalibration.o [1]
+    .data            inited   0x20000e1c     0x64  scr_audio.o [1]
+    .data            inited   0x20000e80     0x64  scr_disp_demo.o [1]
+    .data            inited   0x20000ee4     0x64  scr_infos.o [1]
+    .data            inited   0x20000f48     0x64  scr_intro.o [1]
+    .data            inited   0x20000fac     0x64  scr_lp_modes.o [1]
+    .data            inited   0x20001010     0x64  scr_lp_modes_backup.o [1]
+    .data            inited   0x20001074     0x64  scr_lp_modes_sleep.o [1]
+    .data            inited   0x200010d8     0x64  scr_lp_modes_wait.o [1]
+    .data            inited   0x2000113c     0x64  scr_main.o [1]
+    .data            inited   0x200011a0     0x64  scr_ppt.o [1]
+    .data            inited   0x20001204     0x64  scr_qtouch.o [1]
+    .data            inited   0x20001268     0x64  scr_settings.o [1]
+    .data            inited   0x200012cc     0x64  scr_settings_backlight.o [1]
+    .data            inited   0x20001330     0x64  scr_settings_date.o [1]
+    .data            inited   0x20001394     0x60  MSDLun.o [1]
+    .data            inited   0x200013f4     0x4c  tasks.o [1]
+    .data            inited   0x20001440     0x4c  localeconv.o [3]
+    .data            inited   0x2000148c     0x40  backend_ILI9325.o [1]
+    .data            inited   0x200014cc     0x40  xfiles.o [3]
+    .data            inited   0x2000150c     0x40  xfiles.o [3]
+    .data            inited   0x2000154c     0x3c  demo_parameters.o [1]
+    .data            inited   0x20001588     0x10  MSDDriverDescriptors.o [1]
+    .data            inited   0x20001598      0x4  port.o [1]
+    .data            inited   0x2000159c      0x4  rand.o [1]
+    .data            inited   0x200015a0      0x4  cppinit.o [3]
+                            - 0x200015a4    0xb5c
+
+"P3", part 3 of 3:                         0xa850
+  .bss               zero     0x200015a8   0x2c08  heap_1.o [1]
+  .bss               zero     0x200041b0   0x2bac  ftldrv.o [1]
+  .bss               zero     0x20006d5c   0x2008  MEDNandFlash.o [1]
+  .bss               zero     0x20008d64   0x1860  usbmsd.o [1]
+  .bss               zero     0x2000a5c4    0x800  backend_ILI9325.o [1]
+  .bss               zero     0x2000adc4    0x280  scr_settings_date.o [1]
+  .bss               zero     0x2000b044    0x218  scr_main.o [1]
+  .bss               zero     0x2000b25c    0x140  scr_settings.o [1]
+  .bss               zero     0x2000b39c    0x100  flashd.o [1]
+  .bss               zero     0x2000b49c    0x100  main.o [1]
+  .bss               zero     0x2000b59c    0x100  scr_lp_modes.o [1]
+  .bss               zero     0x2000b69c    0x100  scr_settings_backlight.o [1]
+  .bss               zero     0x2000b79c    0x100  touch_process.o [4]
+  .bss               zero     0x2000b89c     0xe0  USBD_UDP.o [1]
+  .bss               zero     0x2000b97c     0xac  tasks.o [1]
+  .bss               zero     0x2000ba28     0x8c  touch_api.o [4]
+  .bss               zero     0x2000bab4     0x80  scr_audio.o [1]
+  .bss               zero     0x2000bb34     0x68  MSDDriver.o [1]
+  .bss               zero     0x2000bb9c     0x50  xfiles.o [3]
+  .bss               zero     0x2000bbec     0x50  xfiles.o [3]
+  .bss               zero     0x2000bc3c     0x4c  scr_TSDCalibration.o [1]
+  .bss               zero     0x2000bc88     0x34  tasks.o [1]
+  .bss               zero     0x2000bcbc     0x20  frontend_ADS7843.o [1]
+  .bss               zero     0x2000bcdc     0x20  wgt_core.o [1]
+  .bss               zero     0x2000bcfc     0x20  touch_burst_qt.o [4]
+  .bss               zero     0x2000bd1c     0x20  touch_process.o [4]
+  .bss               zero     0x2000bd3c     0x14  scr_infos.o [1]
+  .bss               zero     0x2000bd50     0x14  scr_lp_modes_wait.o [1]
+  .bss               zero     0x2000bd64     0x14  touch_api.o [4]
+  .bss               zero     0x2000bd78     0x14  xsyslock.o [3]
+  .bss               zero     0x2000bd8c     0x10  touch_rs_qt.o [4]
+  .bss               zero     0x2000bd9c      0xc  usbmsd.o [1]
+  .bss               zero     0x2000bda8      0x8  ff.o [1]
+  .bss               zero     0x2000bdb0      0x8  qtouch.o [1]
+  .bss               zero     0x2000bdb8      0x8  scr_lp_modes_sleep.o [1]
+  .bss               zero     0x2000bdc0      0x8  xxmemxmalloc.o [3]
+  .bss               zero     0x2000bdc8      0x4  efc.o [1]
+  .bss               zero     0x2000bdcc      0x4  frontend_potentiometer.o [1]
+  .bss               zero     0x2000bdd0      0x4  scr_intro.o [1]
+  .bss               zero     0x2000bdd4      0x4  tasks.o [1]
+  .bss               zero     0x2000bdd8      0x4  xgetmemchunk.o [3]
+  .bss               zero     0x2000bddc      0x4  MtxWrapper.o [3]
+  .bss               zero     0x2000bde0      0x4  MtxWrapper.o [3]
+  .bss               zero     0x2000bde4      0x4  MtxWrapper.o [3]
+  .bss               zero     0x2000bde8      0x4  MtxWrapper.o [3]
+  .bss               zero     0x2000bdec      0x2  USBDDriver.o [1]
+  .bss               zero     0x2000bdee      0x2  USBDDriver.o [1]
+  .bss               zero     0x2000bdf0      0x2  USBD_UDP.o [1]
+  .bss               zero     0x2000bdf2      0x2  touch_process.o [4]
+  .bss               zero     0x2000bdf4      0x1  uart_console.o [1]
+  .bss               zero     0x2000bdf5      0x1  touch_burst_qt_base.o [4]
+                            - 0x2000bdf6   0xa84e
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init2)
+    1 destination range, total size 0xa84e:
+          0x200015a8  0xa84e
+
+Copy/packbits (__iar_packbits_init2)
+    1 source range, total size 0x239 (19% of destination):
+          0x00411741   0x239
+    1 destination range, total size 0xb5c:
+          0x20000a48   0xb5c
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                           ro code  ro data  rw data
+    ------                           -------  -------  -------
+D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj: [1]
+    EccNandFlash.o                       382
+    MEDNandFlash.o                       984             8 200
+    MSDDStateMachine.o                   920
+    MSDDriver.o                          380               104
+    MSDDriverDescriptors.o                        171       16
+    MSDLun.o                             594       19       96
+    ManagedNandFlash.o                 1 478
+    MappedNandFlash.o                  1 074
+    NandFlashModel.o                     398
+    NandFlashModelList.o                          696
+    NandSpareScheme.o                    144      396
+    RawNandFlash.o                     1 428
+    SBCMethods.o                       2 982        4
+    TranslatedNandFlash.o                972
+    USBConfigurationDescriptor.o         140
+    USBDCallbacks_Initialized.o           28
+    USBDCallbacks_Reset.o                  2
+    USBDCallbacks_Resumed.o               30
+    USBDCallbacks_Suspended.o             18
+    USBDDriver.o                       1 108                 4
+    USBDDriverCb_IfSettingChanged.o        2
+    USBD_UDP.o                         3 400               226
+    USBEndpointDescriptor.o               36
+    USBFeatureRequest.o                   10
+    USBGenericDescriptor.o                20
+    USBGenericRequest.o                   52
+    USBGetDescriptorRequest.o             20
+    USBInterfaceRequest.o                 20
+    USBSetAddressRequest.o                12
+    USBSetConfigurationRequest.o          10
+    adc.o                                200
+    ads7843.o                            252       60
+    backend_ILI9325.o                  3 184      484    2 112
+    board_cstartup_iar.o                  24      208
+    board_dependencies.o                 120
+    board_lowlevel_demo.o                230
+    board_memories_demo.o                 56
+    ccsbcs.o                             104    1 216
+    demo_parameters.o                    228      324       60
+    diskio.o                             296
+    disp_backend.o                        72                 8
+    efc.o                                136                 4
+    exceptions.o                          68
+    ff.o                               6 960      276        8
+    flashd.o                             228               256
+    frontend_ADS7843.o                   532       36       32
+    frontend_potentiometer.o             384       12        4
+    frontend_pushbuttons.o                48       36
+    frontend_qtouch.o                      8       12
+    ftldrv.o                             532      452   11 180
+    hamming.o                            626
+    heap_1.o                              76            11 272
+    led.o                                108       36
+    list.o                               148
+    main.o                               584      352      256
+    math.o                                16
+    pio.o                                508
+    pio_it.o                             516      384
+    pmc.o                                164
+    port.o                               156        1        4
+    portasm.o                            136
+    qtouch.o                             504       48        8
+    queue.o                            1 026
+    rand.o                                36        1        4
+    rtmedia.o                            210
+    sam_gui_font.o                                 16
+    sam_gui_font10x14.o                         1 920
+    sam_gui_freertos.o                     4
+    scr_TSDCalibration.o                 860      225      184
+    scr_audio.o                          228      164      228
+    scr_disp_demo.o                      916       75      112
+    scr_infos.o                          232      144      120
+    scr_intro.o                          196       60      104
+    scr_lp_modes.o                       428      239      356
+    scr_lp_modes_backup.o                280      216      100
+    scr_lp_modes_sleep.o                 428      231      108
+    scr_lp_modes_wait.o                  712      224      120
+    scr_main.o                         1 636      327      636
+    scr_ppt.o                            256       76      240
+    scr_qtouch.o                         932      455      492
+    scr_settings.o                       424      252      420
+    scr_settings_backlight.o             384      204      356
+    scr_settings_date.o                1 156      183      764
+    scr_settings_time.o                1 144      300      764
+    spi.o                                 40
+    tasks.o                            1 880       63      304
+    tc.o                                  28
+    uart_console.o                       180       12        1
+    usbmsd.o                             168       12    6 252
+    wdt.o                                 16
+    wgt_core.o                           356       52       32
+    wgt_core_behaviour_default.o         176
+    wgt_core_frontend.o                  100       60       16
+    wgt_core_message.o                   112
+    wgt_core_screen.o                    436       60
+    wgt_core_widget.o                    240
+    ----------------------------------------------------------
+    Total:                            49 068   10 794   45 563
+
+command line: [2]
+    ----------------------------------------------------------
+    Total:
+
+dl7M_tl_if.a: [3]
+    MtxWrapper.o                          72                16
+    cppinit.o                            104        1       16
+    div.o                                 14
+    exit.o                                 6
+    localeconv.o                          20       34       76
+    printf.o                              32
+    setlocale.o                           20       27      132
+    snprintf.o                            64
+    sprintf.o                             48
+    strcat.o                              30
+    xdnorm.o                             198
+    xencoding_sb.o                        80       16
+    xfiles.o                                       25      288
+    xgetmemchunk.o                        40                 4
+    xlocale_c.o                                    91
+    xmbcurmax.o                           10
+    xmbtowc.o                             32
+    xprintflarge.o                     3 734       24
+    xprout.o                              22
+    xsnprout.o                            26
+    xsprout.o                             10
+    xsyslock.o                           136                20
+    xwctomb.o                             26
+    xxmemxfree.o                         136
+    xxmemxmalloc.o                       188                 8
+    ----------------------------------------------------------
+    Total:                             5 048      218      560
+
+libQTouchIarCfg3SRevB.a: [4]
+    touch_api.o                          476               160
+    touch_burst_qt.o                     496                32
+    touch_burst_qt_base.o              1 004                 1
+    touch_process.o                    1 096               290
+    touch_rs_qt.o                        896                16
+    ----------------------------------------------------------
+    Total:                             3 968               499
+
+rt7M_tl.a: [5]
+    ABImemcpy.o                          112
+    ABImemset.o                          102
+    DblAdd.o                             230
+    DblCmpLe.o                            46
+    DblDiv.o                             582
+    DblMul.o                             418
+    DblSub.o                             382
+    DblToI32.o                            42
+    I32ToDbl.o                            26
+    I64DivMod.o                          302
+    I64DivZer.o                            2
+    XXexit.o                              12
+    cexit.o                               14
+    cmain.o                               24
+    data_init2.o                          32
+    memchr.o                              88
+    memcmp.o                              98
+    packbits_init2.o                     150
+    strchr.o                              22
+    strlen.o                              54
+    strncpy.o                            108
+    zero_init2.o                          26
+    ----------------------------------------------------------
+    Total:                             2 872
+
+    Gaps                                  24       22
+    Linker created                                 44    2 004
+--------------------------------------------------------------
+    Grand Total:                      60 980   11 078   48 626
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address    Size  Type      Object
+-----                      -------    ----  ----      ------
+.iar.dynexit$$Base      0x20000600           --   Gb  - Linker created -
+.iar.dynexit$$Limit     0x200007e0           --   Gb  - Linker created -
+.vectors$$Base          0x00400000           --   Gb  - Linker created -
+.vectors$$Limit         0x004000d0           --   Gb  - Linker created -
+ACC_IrqHandler          0x00410c03     0x2  Code  Wk  exceptions.o [1]
+ADC_GetConvertedData    0x0040f1c1    0x10  Code  Gb  adc.o [1]
+ADC_Initialize          0x0040f14d    0x6e  Code  Gb  adc.o [1]
+ADC_IrqHandler          0x0040d3f3    0x58  Code  Gb  frontend_potentiometer.o [1]
+ADC_SetCompareChannel   0x0040f1d1    0x30  Code  Gb  adc.o [1]
+ADC_SetCompareMode      0x0040f201    0x10  Code  Gb  adc.o [1]
+ADC_SetComparisonWindow
+                        0x0040f211     0x4  Code  Gb  adc.o [1]
+ADS7843_GetPosition     0x0040e61b    0x1e  Code  Gb  ads7843.o [1]
+ADS7843_Initialize      0x0040e639    0x58  Code  Gb  ads7843.o [1]
+AllocateBlock           0x0040929d    0xba  Code  Lc  TranslatedNandFlash.o [1]
+BOARD_ConfigureNandFlash
+                        0x00410de1    0x38  Code  Gb  board_memories_demo.o [1]
+BOARD_ConfigurePmc      0x0040ea69    0xc0  Code  Lc  board_lowlevel_demo.o [1]
+BlockCanBeAllocated     0x00409219    0x24  Code  Lc  TranslatedNandFlash.o [1]
+BusFault_Handler        0x00410bc9     0x2  Code  Wk  exceptions.o [1]
+CRCCU_IrqHandler        0x00410c01     0x2  Code  Wk  exceptions.o [1]
+CSTACK$$Base            0x20000000           --   Gb  - Linker created -
+CSTACK$$Limit           0x20000600           --   Gb  - Linker created -
+CheckBlock              0x0040659b    0x5c  Code  Lc  ManagedNandFlash.o [1]
+Compute256              0x0040b107   0x108  Code  Lc  hamming.o [1]
+ConfigureTc0            0x0040d3d1    0x22  Code  Lc  frontend_potentiometer.o [1]
+CopyPage                0x00406d37    0xe6  Code  Lc  RawNandFlash.o [1]
+CountBitsInByte         0x0040b0d1    0x16  Code  Lc  hamming.o [1]
+CountBitsInCode256      0x0040b0e7    0x20  Code  Lc  hamming.o [1]
+DAC_IrqHandler          0x00410bfd     0x2  Code  Wk  exceptions.o [1]
+DISP_GetBackend         0x00410b91    0x28  Code  Gb  disp_backend.o [1]
+DISP_Initialize         0x00410b79    0x18  Code  Gb  disp_backend.o [1]
+DebugMon_Handler        0x00410bcd     0x2  Code  Wk  exceptions.o [1]
+Demo_Parameters_CommitChanges
+                        0x0040ec03    0x22  Code  Gb  demo_parameters.o [1]
+Demo_Parameters_Initialize
+                        0x0040eb51    0xb2  Code  Gb  demo_parameters.o [1]
+DtorRecArray            0x20000600     0xc  Data  Lc  cppinit.o [3]
+EEFC_IrqHandler         0x00410bdb     0x2  Code  Wk  exceptions.o [1]
+EFC_ComputeAddress      0x0040fdd1    0x2a  Code  Gb  efc.o [1]
+EFC_PerformCommand      0x0040fdfb    0x20  Code  Gb  efc.o [1]
+EFC_TranslateAddress    0x0040fda1    0x30  Code  Gb  efc.o [1]
+EccNandFlash_Initialize
+                        0x0040db35    0x38  Code  Gb  EccNandFlash.o [1]
+EccNandFlash_ReadPage   0x0040db6d    0x9e  Code  Gb  EccNandFlash.o [1]
+EccNandFlash_WritePage  0x0040dc0b    0x94  Code  Gb  EccNandFlash.o [1]
+EraseBlock              0x00406c1b    0x48  Code  Lc  RawNandFlash.o [1]
+FLASHD_Write            0x0040ec35    0xde  Code  Gb  flashd.o [1]
+FatFs                   0x2000bdac     0x4  Data  Lc  ff.o [1]
+FindLogicalMappingBlock
+                        0x00408229    0xba  Code  Lc  MappedNandFlash.o [1]
+FlushCurrentPage        0x00408e4d    0x3e  Code  Lc  MEDNandFlash.o [1]
+Fsid                    0x2000bda8     0x2  Data  Lc  ff.o [1]
+GetConfiguration        0x004079fb    0x16  Code  Lc  USBDDriver.o [1]
+GetDescriptor           0x00407a95   0x17a  Code  Lc  USBDDriver.o [1]
+GetDeviceStatus         0x00407a11    0x50  Code  Lc  USBDDriver.o [1]
+GetEndpointStatus       0x00407a61    0x34  Code  Lc  USBDDriver.o [1]
+GetInterface            0x00407c4b    0x26  Code  Lc  USBDDriver.o [1]
+HEAP$$Base              0x20000a40           --   Gb  - Linker created -
+HEAP$$Limit             0x20000a40           --   Gb  - Linker created -
+Hamming_Compute256x     0x0040b2eb    0x24  Code  Gb  hamming.o [1]
+Hamming_Verify256x      0x0040b30f    0x34  Code  Gb  hamming.o [1]
+HardFault_Handler       0x00410bc5     0x2  Code  Wk  exceptions.o [1]
+IrqHandlerNotUsed       0x00410bc1     0x2  Code  Gb  exceptions.o [1]
+IsDeviceVirgin          0x00406535    0x66  Code  Lc  ManagedNandFlash.o [1]
+IsOperationComplete     0x00406b95    0x1a  Code  Lc  RawNandFlash.o [1]
+LED_Clear               0x004105a9    0x28  Code  Gb  led.o [1]
+LED_Configure           0x00410569    0x18  Code  Gb  led.o [1]
+LED_Set                 0x00410581    0x28  Code  Gb  led.o [1]
+LUN_Read                0x0040b547    0x50  Code  Gb  MSDLun.o [1]
+LUN_Write               0x0040b4ed    0x5a  Code  Gb  MSDLun.o [1]
+LfnOfs                  0x004115b0    0x10  Data  Lc  ff.o [1]
+LoadLogicalMapping      0x004082e3   0x106  Code  Lc  MappedNandFlash.o [1]
+LowLevelInit            0x0040eb4d     0x2  Code  Gb  board_lowlevel_demo.o [1]
+MCI_IrqHandler          0x00410be7     0x2  Code  Wk  exceptions.o [1]
+MEDNandFlash_Flush      0x0040916f    0x2e  Code  Lc  MEDNandFlash.o [1]
+MEDNandFlash_Initialize
+                        0x0040919f    0x66  Code  Gb  MEDNandFlash.o [1]
+MEDNandFlash_InterruptHandler
+                        0x0040919d     0x2  Code  Lc  MEDNandFlash.o [1]
+MEDNandFlash_Read       0x004090a5    0xca  Code  Lc  MEDNandFlash.o [1]
+MEDNandFlash_Write      0x00408f3f    0xca  Code  Lc  MEDNandFlash.o [1]
+MED_Flush               0x00404451     0xc  Code  Lc  SBCMethods.o [1]
+MED_Flush               0x0040e06d     0xc  Code  Lc  diskio.o [1]
+MSDCallbacks_Data       0x0040f761    0x26  Code  Gb  usbmsd.o [1]
+MSDD_GetCommandInformation
+                        0x00409d5b    0x20  Code  Lc  MSDDStateMachine.o [1]
+MSDD_Halt               0x0040da01    0x1a  Code  Gb  MSDDriver.o [1]
+MSDD_IsHalted           0x0040da1b    0x22  Code  Gb  MSDDriver.o [1]
+MSDD_PostProcessCommand
+                        0x00409e91    0x38  Code  Lc  MSDDStateMachine.o [1]
+MSDD_PreProcessCommand  0x00409d7b   0x116  Code  Lc  MSDDStateMachine.o [1]
+MSDD_ProcessCommand     0x00409ec9    0xea  Code  Lc  MSDDStateMachine.o [1]
+MSDD_Read               0x0040d9dd    0x12  Code  Gb  MSDDriver.o [1]
+MSDD_StateMachine       0x00409fb3   0x120  Code  Gb  MSDDStateMachine.o [1]
+MSDD_Write              0x0040d9ef    0x12  Code  Gb  MSDDriver.o [1]
+MSDDriver_Callback      0x00409d49    0x12  Code  Lc  MSDDStateMachine.o [1]
+MSDDriver_Callback      0x0040445d    0x12  Code  Lc  SBCMethods.o [1]
+MSDDriver_Initialize    0x0040da3d    0x34  Code  Gb  MSDDriver.o [1]
+MSDDriver_RequestHandler
+                        0x0040da71    0xa2  Code  Gb  MSDDriver.o [1]
+MSDDriver_Reset         0x0040d9b9    0x16  Code  Lc  MSDDriver.o [1]
+MSDDriver_StateMachine  0x0040db13    0x12  Code  Gb  MSDDriver.o [1]
+ManagedNandFlash_AllocateBlock
+                        0x004067cf    0x3c  Code  Gb  ManagedNandFlash.o [1]
+ManagedNandFlash_CopyBlock
+                        0x004069e5    0x46  Code  Gb  ManagedNandFlash.o [1]
+ManagedNandFlash_CopyPage
+                        0x004068ff    0xe6  Code  Gb  ManagedNandFlash.o [1]
+ManagedNandFlash_CountBlocks
+                        0x00406ac3    0x30  Code  Gb  ManagedNandFlash.o [1]
+ManagedNandFlash_EraseBlock
+                        0x00406847    0x54  Code  Gb  ManagedNandFlash.o [1]
+ManagedNandFlash_EraseDirtyBlocks
+                        0x00406a2b    0x3a  Code  Gb  ManagedNandFlash.o [1]
+ManagedNandFlash_FindYoungestBlock
+                        0x00406a65    0x5e  Code  Gb  ManagedNandFlash.o [1]
+ManagedNandFlash_GetDeviceSizeInBlocks
+                        0x00406af3     0x8  Code  Gb  ManagedNandFlash.o [1]
+ManagedNandFlash_Initialize
+                        0x00406633   0x19c  Code  Gb  ManagedNandFlash.o [1]
+ManagedNandFlash_ReadPage
+                        0x0040689b    0x36  Code  Gb  ManagedNandFlash.o [1]
+ManagedNandFlash_ReleaseBlock
+                        0x0040680b    0x3c  Code  Gb  ManagedNandFlash.o [1]
+ManagedNandFlash_WritePage
+                        0x004068d1    0x2e  Code  Gb  ManagedNandFlash.o [1]
+MappedNandFlash_Initialize
+                        0x004083e9    0xa2  Code  Gb  MappedNandFlash.o [1]
+MappedNandFlash_LogicalToPhysical
+                        0x00408523    0x1c  Code  Gb  MappedNandFlash.o [1]
+MappedNandFlash_Map     0x004084cf    0x54  Code  Gb  MappedNandFlash.o [1]
+MappedNandFlash_PhysicalToLogical
+                        0x0040853f    0x3a  Code  Gb  MappedNandFlash.o [1]
+MappedNandFlash_ReadPage
+                        0x0040848b    0x22  Code  Gb  MappedNandFlash.o [1]
+MappedNandFlash_SaveLogicalMapping
+                        0x00408579    0xe2  Code  Gb  MappedNandFlash.o [1]
+MappedNandFlash_WritePage
+                        0x004084ad    0x22  Code  Gb  MappedNandFlash.o [1]
+MarkAllPagesClean       0x0040928f     0xe  Code  Lc  TranslatedNandFlash.o [1]
+MarkPageDirty           0x00409267    0x28  Code  Lc  TranslatedNandFlash.o [1]
+MemManage_Handler       0x00410bc7     0x2  Code  Wk  exceptions.o [1]
+NMI_Handler             0x00410bc3     0x2  Code  Wk  exceptions.o [1]
+NVIC_ClearPendingIRQ    0x0040be79    0x14  Code  Lc  pio_it.o [1]
+NVIC_DisableIRQ         0x0040be65    0x14  Code  Lc  pio_it.o [1]
+NVIC_EnableIRQ          0x0041138d    0x14  Code  Lc  USBDCallbacks_Initialized.o [1]
+NVIC_EnableIRQ          0x0040d3bd    0x14  Code  Lc  frontend_potentiometer.o [1]
+NVIC_EnableIRQ          0x0040be51    0x14  Code  Lc  pio_it.o [1]
+NVIC_EnableIRQ          0x0040cd3d    0x14  Code  Lc  scr_lp_modes_sleep.o [1]
+NVIC_SetPriority        0x0040b599    0x1a  Code  Lc  main.o [1]
+NVIC_SetPriority        0x0040be8d    0x1a  Code  Lc  pio_it.o [1]
+NVIC_SetPriority        0x0040cd51    0x1a  Code  Lc  scr_lp_modes_sleep.o [1]
+NandFlashInitialize     0x0040bc3d   0x1ee  Code  Gb  ftldrv.o [1]
+NandFlashModel_Find     0x0040d22f    0xaa  Code  Gb  NandFlashModel.o [1]
+NandFlashModel_GetBlockSizeInBytes
+                        0x0040d385     0x6  Code  Gb  NandFlashModel.o [1]
+NandFlashModel_GetBlockSizeInPages
+                        0x0040d377     0xe  Code  Gb  NandFlashModel.o [1]
+NandFlashModel_GetDataBusWidth
+                        0x0040d397     0xe  Code  Gb  NandFlashModel.o [1]
+NandFlashModel_GetDeviceSizeInBlocks
+                        0x0040d345    0x12  Code  Gb  NandFlashModel.o [1]
+NandFlashModel_GetDeviceSizeInBytes
+                        0x0040d36b     0xc  Code  Gb  NandFlashModel.o [1]
+NandFlashModel_GetDeviceSizeInPages
+                        0x0040d357    0x14  Code  Gb  NandFlashModel.o [1]
+NandFlashModel_GetPageDataSize
+                        0x0040d38b     0x4  Code  Gb  NandFlashModel.o [1]
+NandFlashModel_GetPageSpareSize
+                        0x0040d38f     0x8  Code  Gb  NandFlashModel.o [1]
+NandFlashModel_GetScheme
+                        0x0040d341     0x4  Code  Gb  NandFlashModel.o [1]
+NandFlashModel_HasSmallBlocks
+                        0x0040d3a5     0xe  Code  Gb  NandFlashModel.o [1]
+NandFlashModel_SupportsCopyBack
+                        0x0040d3b3     0xa  Code  Gb  NandFlashModel.o [1]
+NandFlashModel_TranslateAccess
+                        0x0040d2d9    0x68  Code  Gb  NandFlashModel.o [1]
+NandSpareScheme_ReadBadBlockMarker
+                        0x0040fb75     0x8  Code  Gb  NandSpareScheme.o [1]
+NandSpareScheme_ReadEcc
+                        0x0040fb7d    0x1a  Code  Gb  NandSpareScheme.o [1]
+NandSpareScheme_ReadExtra
+                        0x0040fbb1    0x2a  Code  Gb  NandSpareScheme.o [1]
+NandSpareScheme_WriteEcc
+                        0x0040fb97    0x1a  Code  Gb  NandSpareScheme.o [1]
+NandSpareScheme_WriteExtra
+                        0x0040fbdb    0x2a  Code  Gb  NandSpareScheme.o [1]
+PIOA_Irq0Handler        0x0040bea7     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq10Handler       0x0040bebb     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq11Handler       0x0040bebd     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq12Handler       0x0040bebf     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq13Handler       0x0040bec1     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq14Handler       0x0040bec3     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq15Handler       0x0040bec5     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq16Handler       0x0040bb43    0x18  Code  Gb  frontend_ADS7843.o [1]
+PIOA_Irq17Handler       0x0040bec7     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq18Handler       0x0040bec9     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq19Handler       0x0040becb     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq1Handler        0x0040bea9     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq20Handler       0x0040becd     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq21Handler       0x0040becf     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq22Handler       0x0040bed1     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq23Handler       0x0040bed3     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq24Handler       0x0040bed5     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq25Handler       0x0040bed7     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq26Handler       0x0040bed9     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq27Handler       0x0040bedb     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq28Handler       0x0040bedd     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq29Handler       0x0040bedf     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq2Handler        0x0040beab     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq30Handler       0x0040bee1     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq31Handler       0x0040bee3     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq3Handler        0x0040bead     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq4Handler        0x0040beaf     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq5Handler        0x0040beb1     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq6Handler        0x0040beb3     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq7Handler        0x0040beb5     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq8Handler        0x0040beb7     0x2  Code  Wk  pio_it.o [1]
+PIOA_Irq9Handler        0x0040beb9     0x2  Code  Wk  pio_it.o [1]
+PIOA_IrqHandler         0x0040bf89     0x6  Code  Gb  pio_it.o [1]
+PIOB_Irq0Handler        0x0040bee5     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq10Handler       0x0040bef7     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq11Handler       0x0040bef9     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq12Handler       0x0040befb     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq13Handler       0x0040befd     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq14Handler       0x0040beff     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq15Handler       0x0040bf01     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq16Handler       0x0040bf03     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq17Handler       0x0040bf05     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq18Handler       0x0040bf07     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq19Handler       0x0040bf09     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq1Handler        0x0040bee7     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq20Handler       0x0040bf0b     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq21Handler       0x0040bf0d     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq22Handler       0x0040bf0f     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq23Handler       0x0040bf11     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq24Handler       0x0040bf13     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq25Handler       0x0040bf15     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq26Handler       0x0040bf17     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq27Handler       0x0040bf19     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq28Handler       0x0040bf1b     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq29Handler       0x0040bf1d     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq2Handler        0x0040bee9     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq30Handler       0x0040bf1f     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq31Handler       0x0040bf21     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq3Handler        0x00410355    0x28  Code  Gb  board_dependencies.o [1]
+PIOB_Irq4Handler        0x0040beeb     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq5Handler        0x0040beed     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq6Handler        0x0040beef     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq7Handler        0x0040bef1     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq8Handler        0x0040bef3     0x2  Code  Wk  pio_it.o [1]
+PIOB_Irq9Handler        0x0040bef5     0x2  Code  Wk  pio_it.o [1]
+PIOB_IrqHandler         0x0040bf8f     0x6  Code  Gb  pio_it.o [1]
+PIOC_Irq0Handler        0x0040bf23     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq10Handler       0x0040bf37     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq11Handler       0x0040bf39     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq12Handler       0x0041037d    0x28  Code  Gb  board_dependencies.o [1]
+PIOC_Irq13Handler       0x0040bf3b     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq14Handler       0x0040bf3d     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq15Handler       0x0040bf3f     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq16Handler       0x0040bf41     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq17Handler       0x0040bf43     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq18Handler       0x0040bf45     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq19Handler       0x0040bf47     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq1Handler        0x0040bf25     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq20Handler       0x0040bf49     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq21Handler       0x00410339    0x1c  Code  Gb  board_dependencies.o [1]
+PIOC_Irq22Handler       0x0040bf4b     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq23Handler       0x0040bf4d     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq24Handler       0x0040bf4f     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq25Handler       0x0040bf51     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq26Handler       0x0040bf53     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq27Handler       0x0040bf55     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq28Handler       0x0040bf57     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq29Handler       0x0040bf59     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq2Handler        0x0040bf27     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq30Handler       0x0040bf5b     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq31Handler       0x0040bf5d     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq3Handler        0x0040bf29     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq4Handler        0x0040bf2b     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq5Handler        0x0040bf2d     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq6Handler        0x0040bf2f     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq7Handler        0x0040bf31     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq8Handler        0x0040bf33     0x2  Code  Wk  pio_it.o [1]
+PIOC_Irq9Handler        0x0040bf35     0x2  Code  Wk  pio_it.o [1]
+PIOC_IrqHandler         0x0040bf95     0x6  Code  Gb  pio_it.o [1]
+PIO_Clear               0x0040c227     0x8  Code  Gb  pio.o [1]
+PIO_Configure           0x0040c159    0xc6  Code  Gb  pio.o [1]
+PIO_DisableIt           0x0040bfa5     0xe  Code  Gb  pio_it.o [1]
+PIO_EnableIt            0x0040bf9b     0xa  Code  Gb  pio_it.o [1]
+PIO_Get                 0x0040c22f    0x22  Code  Gb  pio.o [1]
+PIO_InitializeInterrupts
+                        0x0040bfb3    0x6a  Code  Gb  pio_it.o [1]
+PIO_IrqHandler          0x0040bf5f    0x2a  Code  Lc  pio_it.o [1]
+PIO_Set                 0x0040c21f     0x8  Code  Gb  pio.o [1]
+PIO_SetInput            0x0040c0db    0x24  Code  Lc  pio.o [1]
+PIO_SetInterrupt        0x0040c12b    0x2c  Code  Lc  pio.o [1]
+PIO_SetOutput           0x0040c0ff    0x2c  Code  Lc  pio.o [1]
+PIO_SetPeripheralA      0x0040c055    0x2a  Code  Lc  pio.o [1]
+PIO_SetPeripheralB      0x0040c07f    0x20  Code  Lc  pio.o [1]
+PIO_SetPeripheralC      0x0040c09f    0x20  Code  Lc  pio.o [1]
+PIO_SetPeripheralD      0x0040c0bf    0x1c  Code  Lc  pio.o [1]
+PMC_DisablePeripheral   0x0040f80f    0x32  Code  Gb  pmc.o [1]
+PMC_EnablePeripheral    0x0040f7dd    0x32  Code  Gb  pmc.o [1]
+PMC_IrqHandler          0x00410bd9     0x2  Code  Wk  exceptions.o [1]
+PMC_IsPeriphEnabled     0x0040f841    0x26  Code  Gb  pmc.o [1]
+PWM_IrqHandler          0x00410bff     0x2  Code  Wk  exceptions.o [1]
+PageIsClean             0x0040923d    0x2a  Code  Lc  TranslatedNandFlash.o [1]
+PendSV_Handler          0x0040fe2f          Code  Gb  portasm.o [1]
+PreProcessMessage_Default
+                        0x0040f685    0xb0  Code  Gb  wgt_core_behaviour_default.o [1]
+QTouchInitialize        0x0040c2d1    0x1e  Code  Gb  qtouch.o [1]
+RSTC_IrqHandler         0x00410bd1     0x2  Code  Wk  exceptions.o [1]
+RTC_IrqHandler          0x00410bd3     0x2  Code  Wk  exceptions.o [1]
+RTLUN_Init              0x0040b345   0x1a4  Code  Gb  MSDLun.o [1]
+RTMEDIA_Flush           0x0040f057    0x28  Code  Gb  rtmedia.o [1]
+RTMEDIA_Init            0x0040efad    0x16  Code  Gb  rtmedia.o [1]
+RTMEDIA_Read            0x0040f00d    0x4a  Code  Gb  rtmedia.o [1]
+RTMEDIA_Write           0x0040efc3    0x4a  Code  Gb  rtmedia.o [1]
+RTT_IrqHandler          0x00410bd5     0x2  Code  Wk  exceptions.o [1]
+RawNandFlash_CopyPage   0x00407003    0x3e  Code  Gb  RawNandFlash.o [1]
+RawNandFlash_EraseBlock
+                        0x00406edd    0x24  Code  Gb  RawNandFlash.o [1]
+RawNandFlash_GetDataBuffer
+                        0x00407041    0x14  Code  Gb  RawNandFlash.o [1]
+RawNandFlash_GetSpareBuffer
+                        0x00407067    0x18  Code  Gb  RawNandFlash.o [1]
+RawNandFlash_Initialize
+                        0x00406e1d    0x56  Code  Gb  RawNandFlash.o [1]
+RawNandFlash_ReadId     0x00406e9d    0x40  Code  Gb  RawNandFlash.o [1]
+RawNandFlash_ReadPage   0x00406f01    0xc2  Code  Gb  RawNandFlash.o [1]
+RawNandFlash_ReleaseDataBuffer
+                        0x00407055    0x12  Code  Gb  RawNandFlash.o [1]
+RawNandFlash_ReleaseSpareBuffer
+                        0x0040707f    0x12  Code  Gb  RawNandFlash.o [1]
+RawNandFlash_Reset      0x00406e79    0x24  Code  Gb  RawNandFlash.o [1]
+RawNandFlash_WritePage  0x00406fc3    0x40  Code  Gb  RawNandFlash.o [1]
+ReadData                0x00406be5    0x36  Code  Lc  RawNandFlash.o [1]
+Region$$Table$$Base     0x00411210           --   Gb  - Linker created -
+Region$$Table$$Limit    0x0041123c           --   Gb  - Linker created -
+SAMGUI_TaskDelay        0x00411733     0x4  Code  Gb  sam_gui_freertos.o [1]
+SBCLunCanBeWritten      0x004044ad    0x2c  Code  Lc  SBCMethods.o [1]
+SBCLunIsReady           0x0040446f    0x3e  Code  Lc  SBCMethods.o [1]
+SBC_GetCommandInformation
+                        0x00404ec9    0xb6  Code  Gb  SBCMethods.o [1]
+SBC_Inquiry             0x00404d13    0x72  Code  Lc  SBCMethods.o [1]
+SBC_ModeSense6          0x00404def    0x78  Code  Lc  SBCMethods.o [1]
+SBC_ProcessCommand      0x00404f7f    0x78  Code  Gb  SBCMethods.o [1]
+SBC_Read10              0x0040489d   0x406  Code  Lc  SBCMethods.o [1]
+SBC_ReadCapacity10      0x00404ca3    0x70  Code  Lc  SBCMethods.o [1]
+SBC_RequestSense        0x00404d85    0x6a  Code  Lc  SBCMethods.o [1]
+SBC_TestUnitReady       0x00404e71    0x46  Code  Lc  SBCMethods.o [1]
+SBC_UpdateSenseData     0x00404eb7    0x12  Code  Gb  SBCMethods.o [1]
+SBC_Write10             0x004044d9   0x3c2  Code  Lc  SBCMethods.o [1]
+SMC_IrqHandler          0x00410be1     0x2  Code  Wk  exceptions.o [1]
+SPI_Configure           0x0041113b    0x1a  Code  Gb  spi.o [1]
+SPI_ConfigureNPCS       0x00411155     0x8  Code  Gb  spi.o [1]
+SPI_Enable              0x00411135     0x6  Code  Gb  spi.o [1]
+SPI_IrqHandler          0x00410bed     0x2  Code  Wk  exceptions.o [1]
+SSC_IrqHandler          0x00410bef     0x2  Code  Wk  exceptions.o [1]
+SUPC_IrqHandler         0x00410bcf     0x2  Code  Wk  exceptions.o [1]
+SVC_Handler             0x0040fe81          Code  Gb  portasm.o [1]
+ScrAudio                0x20000e1c    0x64  Data  Gb  scr_audio.o [1]
+ScrAudio_OnDrawBackground
+                        0x0040ed7d    0x4c  Code  Lc  scr_audio.o [1]
+ScrAudio_OnInitialize   0x0040ed19    0x64  Code  Lc  scr_audio.o [1]
+ScrAudio_ProcessMessage
+                        0x0040edc9    0x16  Code  Lc  scr_audio.o [1]
+ScrDISPDemo             0x20000e80    0x64  Data  Gb  scr_disp_demo.o [1]
+ScrInfos                0x20000ee4    0x64  Data  Gb  scr_infos.o [1]
+ScrInfos_OnDrawBackground
+                        0x0040e8c9    0x82  Code  Lc  scr_infos.o [1]
+ScrInfos_OnInitialize   0x0040e899    0x30  Code  Lc  scr_infos.o [1]
+ScrInfos_ProcessMessage
+                        0x0040e94b    0x16  Code  Lc  scr_infos.o [1]
+ScrIntro                0x20000f48    0x64  Data  Gb  scr_intro.o [1]
+ScrIntro_OnDrawBackground
+                        0x0040f3d1    0x36  Code  Lc  scr_intro.o [1]
+ScrIntro_OnInitialize   0x0040f3a1    0x30  Code  Lc  scr_intro.o [1]
+ScrIntro_ProcessMessage
+                        0x0040f407    0x44  Code  Lc  scr_intro.o [1]
+ScrLPModes              0x20000fac    0x64  Data  Gb  scr_lp_modes.o [1]
+ScrLPModes_Backup       0x20001010    0x64  Data  Gb  scr_lp_modes_backup.o [1]
+ScrLPModes_Backup_OnDrawBackground
+                        0x0040e1a9    0x8c  Code  Lc  scr_lp_modes_backup.o [1]
+ScrLPModes_Backup_OnInitialize
+                        0x0040e199    0x10  Code  Lc  scr_lp_modes_backup.o [1]
+ScrLPModes_Backup_ProcessMessage
+                        0x0040e235    0x5e  Code  Lc  scr_lp_modes_backup.o [1]
+ScrLPModes_OnDrawBackground
+                        0x0040cc47    0x7a  Code  Lc  scr_lp_modes.o [1]
+ScrLPModes_OnInitialize
+                        0x0040cb8d    0xba  Code  Lc  scr_lp_modes.o [1]
+ScrLPModes_ProcessMessage
+                        0x0040ccc1    0x50  Code  Lc  scr_lp_modes.o [1]
+ScrLPModes_Sleep        0x20001074    0x64  Data  Gb  scr_lp_modes_sleep.o [1]
+ScrLPModes_Sleep_OnDrawBackground
+                        0x0040cd7b    0x8c  Code  Lc  scr_lp_modes_sleep.o [1]
+ScrLPModes_Sleep_OnInitialize
+                        0x0040cd6b    0x10  Code  Lc  scr_lp_modes_sleep.o [1]
+ScrLPModes_Sleep_ProcessMessage
+                        0x0040ce07    0xaa  Code  Lc  scr_lp_modes_sleep.o [1]
+ScrLPModes_Wait         0x200010d8    0x64  Data  Gb  scr_lp_modes_wait.o [1]
+ScrLPModes_Wait_OnDrawBackground
+                        0x0040ac3b    0x8c  Code  Lc  scr_lp_modes_wait.o [1]
+ScrLPModes_Wait_OnInitialize
+                        0x0040ac2b    0x10  Code  Lc  scr_lp_modes_wait.o [1]
+ScrLPModes_Wait_ProcessMessage
+                        0x0040acc7   0x108  Code  Lc  scr_lp_modes_wait.o [1]
+ScrMain                 0x2000113c    0x64  Data  Gb  scr_main.o [1]
+ScrMain_DrawStatus      0x00405ed1    0x54  Code  Lc  scr_main.o [1]
+ScrMain_OnEraseBackground
+                        0x004060bf    0x42  Code  Lc  scr_main.o [1]
+ScrMain_OnInitialize    0x00405f25   0x19a  Code  Lc  scr_main.o [1]
+ScrMain_ProcessMessage  0x00406101   0x3dc  Code  Lc  scr_main.o [1]
+ScrPPT                  0x200011a0    0x64  Data  Gb  scr_ppt.o [1]
+ScrPPT_OnDrawBackground
+                        0x0040e4f3    0x1e  Code  Lc  scr_ppt.o [1]
+ScrPPT_OnInitialize     0x0040e4b5    0x3e  Code  Lc  scr_ppt.o [1]
+ScrPPT_ProcessMessage   0x0040e511    0x8c  Code  Lc  scr_ppt.o [1]
+ScrQTouch               0x20001204    0x64  Data  Gb  scr_qtouch.o [1]
+ScrSettings             0x20001268    0x64  Data  Gb  scr_settings.o [1]
+ScrSettings_Backlight   0x200012cc    0x64  Data  Gb  scr_settings_backlight.o [1]
+ScrSettings_Backlight_OnDrawBackground
+                        0x0040d5f7    0x3a  Code  Lc  scr_settings_backlight.o [1]
+ScrSettings_Backlight_OnInitialize
+                        0x0040d53d    0xba  Code  Lc  scr_settings_backlight.o [1]
+ScrSettings_Backlight_ProcessMessage
+                        0x0040d631    0x6c  Code  Lc  scr_settings_backlight.o [1]
+ScrSettings_Date        0x20001330    0x64  Data  Gb  scr_settings_date.o [1]
+ScrSettings_OnDrawBackground
+                        0x0040cfc5    0x3a  Code  Lc  scr_settings.o [1]
+ScrSettings_OnInitialize
+                        0x0040cee5    0xe0  Code  Lc  scr_settings.o [1]
+ScrSettings_ProcessMessage
+                        0x0040cfff    0x60  Code  Lc  scr_settings.o [1]
+ScrSettings_Time        0x20000cc8    0x64  Data  Gb  scr_settings_time.o [1]
+ScrTSDCalibration       0x20000db0    0x64  Data  Gb  scr_TSDCalibration.o [1]
+SendCommand             0x0040e5b5    0x66  Code  Lc  ads7843.o [1]
+SetConfiguration        0x0040799f    0x5c  Code  Lc  USBDDriver.o [1]
+SetInterface            0x00407c0f    0x3c  Code  Lc  USBDDriver.o [1]
+SysTick_Handler         0x0040f8eb    0x12  Code  Gb  port.o [1]
+TC0_IrqHandler          0x00410bf1     0x2  Code  Wk  exceptions.o [1]
+TC1_IrqHandler          0x00410bf3     0x2  Code  Wk  exceptions.o [1]
+TC2_IrqHandler          0x00410bf5     0x2  Code  Wk  exceptions.o [1]
+TC3_IrqHandler          0x00410bf7     0x2  Code  Wk  exceptions.o [1]
+TC4_IrqHandler          0x00410bf9     0x2  Code  Wk  exceptions.o [1]
+TC5_IrqHandler          0x00410bfb     0x2  Code  Wk  exceptions.o [1]
+TC_Configure            0x004113a9    0x14  Code  Gb  tc.o [1]
+TC_Start                0x004113bd     0x8  Code  Gb  tc.o [1]
+TWI0_IrqHandler         0x00410be9     0x2  Code  Wk  exceptions.o [1]
+TWI1_IrqHandler         0x00410beb     0x2  Code  Wk  exceptions.o [1]
+TaskFtl                 0x0040be2b    0x12  Code  Gb  ftldrv.o [1]
+TaskQTouch              0x0040c2ef   0x142  Code  Gb  qtouch.o [1]
+TaskUsbMsd              0x0040f78b    0x3c  Code  Gb  usbmsd.o [1]
+Tbl                     0x0040e3b4   0x100  Data  Lc  ccsbcs.o [1]
+TerminateCtrlInWithNull
+                        0x0040798d    0x12  Code  Lc  USBDDriver.o [1]
+TranslatedNandFlash_Flush
+                        0x004094eb    0x7a  Code  Gb  TranslatedNandFlash.o [1]
+TranslatedNandFlash_GetDeviceSizeInBlocks
+                        0x0040959f    0x1c  Code  Gb  TranslatedNandFlash.o [1]
+TranslatedNandFlash_GetDeviceSizeInBytes
+                        0x004095cf    0x16  Code  Gb  TranslatedNandFlash.o [1]
+TranslatedNandFlash_GetDeviceSizeInPages
+                        0x004095bb    0x14  Code  Gb  TranslatedNandFlash.o [1]
+TranslatedNandFlash_Initialize
+                        0x00409357    0x60  Code  Gb  TranslatedNandFlash.o [1]
+TranslatedNandFlash_ReadPage
+                        0x004093b7    0x94  Code  Gb  TranslatedNandFlash.o [1]
+TranslatedNandFlash_SaveLogicalMapping
+                        0x00409565    0x3a  Code  Gb  TranslatedNandFlash.o [1]
+TranslatedNandFlash_WritePage
+                        0x0040944b    0xa0  Code  Gb  TranslatedNandFlash.o [1]
+UART0_IrqHandler        0x00410bdd     0x2  Code  Wk  exceptions.o [1]
+UART1_IrqHandler        0x00410bdf     0x2  Code  Wk  exceptions.o [1]
+UART_Configure          0x0040f521    0x48  Code  Lc  uart_console.o [1]
+UART_PutChar            0x0040f569    0x22  Code  Gb  uart_console.o [1]
+UDP_ClearRxFlag         0x00402b45    0xae  Code  Lc  USBD_UDP.o [1]
+UDP_DisableEndpoints    0x00402df1    0x24  Code  Lc  USBD_UDP.o [1]
+UDP_DisablePeripheralClock
+                        0x00402ab3     0x6  Code  Lc  USBD_UDP.o [1]
+UDP_DisableTransceiver  0x00402adb    0x10  Code  Lc  USBD_UDP.o [1]
+UDP_DisableUsbClock     0x00402ac3     0xa  Code  Lc  USBD_UDP.o [1]
+UDP_EnablePeripheralClock
+                        0x00402a99    0x1a  Code  Lc  USBD_UDP.o [1]
+UDP_EnableTransceiver   0x00402acd     0xe  Code  Lc  USBD_UDP.o [1]
+UDP_EnableUsbClock      0x00402ab9     0xa  Code  Lc  USBD_UDP.o [1]
+UDP_EndOfTransfer       0x00402aeb    0x5a  Code  Lc  USBD_UDP.o [1]
+UDP_EndpointHandler     0x00402e59   0x48e  Code  Lc  USBD_UDP.o [1]
+UDP_IsTransferFinished  0x00402e15    0x44  Code  Lc  USBD_UDP.o [1]
+UDP_MblUpdate           0x00402bf3    0x62  Code  Lc  USBD_UDP.o [1]
+UDP_MblWriteFifo        0x00402c55    0xc2  Code  Lc  USBD_UDP.o [1]
+UDP_ReadPayload         0x00402d5b    0x4c  Code  Lc  USBD_UDP.o [1]
+UDP_ReadRequest         0x00402da7    0x16  Code  Lc  USBD_UDP.o [1]
+UDP_ResetEndpoints      0x00402dbd    0x34  Code  Lc  USBD_UDP.o [1]
+UDP_WritePayload        0x00402d17    0x44  Code  Lc  USBD_UDP.o [1]
+USART0_IrqHandler       0x00410be3     0x2  Code  Wk  exceptions.o [1]
+USART1_IrqHandler       0x00410be5     0x2  Code  Wk  exceptions.o [1]
+USBConfigurationDescriptor_GetTotalLength
+                        0x0040fc05     0x4  Code  Gb  USBConfigurationDescriptor.o [1]
+USBConfigurationDescriptor_IsSelfPowered
+                        0x0040fc09    0x10  Code  Gb  USBConfigurationDescriptor.o [1]
+USBConfigurationDescriptor_Parse
+                        0x0040fc19    0x78  Code  Gb  USBConfigurationDescriptor.o [1]
+USBDCallbacks_Initialized
+                        0x004113a5     0x4  Code  Gb  USBDCallbacks_Initialized.o [1]
+USBDCallbacks_RequestReceived
+                        0x0040d9cf     0x2  Code  Gb  MSDDriver.o [1]
+USBDCallbacks_Reset     0x0041173b     0x2  Code  Gb  USBDCallbacks_Reset.o [1]
+USBDCallbacks_Resumed   0x0041131b    0x1e  Code  Gb  USBDCallbacks_Resumed.o [1]
+USBDCallbacks_Suspended
+                        0x0041159d    0x12  Code  Gb  USBDCallbacks_Suspended.o [1]
+USBDDriverCallbacks_ConfigurationChanged
+                        0x0040d9d1     0xc  Code  Gb  MSDDriver.o [1]
+USBDDriverCallbacks_InterfaceSettingChanged
+                        0x0041173d     0x2  Code  Gb  USBDDriverCb_IfSettingChanged.o [1]
+USBDDriver_Initialize   0x00407c71    0x1c  Code  Gb  USBDDriver.o [1]
+USBDDriver_RequestHandler
+                        0x00407c8d   0x144  Code  Gb  USBDDriver.o [1]
+USBD_ConfigureEndpoint  0x004033d7    0xd4  Code  Gb  USBD_UDP.o [1]
+USBD_Connect            0x00403733    0x1c  Code  Gb  USBD_UDP.o [1]
+USBD_Disconnect         0x0040374f    0x30  Code  Gb  USBD_UDP.o [1]
+USBD_GetState           0x004037b3     0x6  Code  Gb  USBD_UDP.o [1]
+USBD_Halt               0x004035b7    0x60  Code  Gb  USBD_UDP.o [1]
+USBD_Init               0x0040377f    0x34  Code  Gb  USBD_UDP.o [1]
+USBD_IrqHandler         0x004032e7    0xf0  Code  Gb  USBD_UDP.o [1]
+USBD_IsHalted           0x00403681    0x16  Code  Gb  USBD_UDP.o [1]
+USBD_IsHighSpeed        0x00403697     0x4  Code  Gb  USBD_UDP.o [1]
+USBD_Read               0x0040357b    0x3c  Code  Gb  USBD_UDP.o [1]
+USBD_SetAddress         0x004036e9    0x26  Code  Gb  USBD_UDP.o [1]
+USBD_SetConfiguration   0x0040370f    0x24  Code  Gb  USBD_UDP.o [1]
+USBD_Stall              0x0040369b    0x48  Code  Gb  USBD_UDP.o [1]
+USBD_Unhalt             0x00403625    0x58  Code  Gb  USBD_UDP.o [1]
+USBD_Write              0x004034ab    0xd0  Code  Gb  USBD_UDP.o [1]
+USBEndpointDescriptor_GetDirection
+                        0x004111f5    0x10  Code  Gb  USBEndpointDescriptor.o [1]
+USBEndpointDescriptor_GetMaxPacketSize
+                        0x0041120d     0x4  Code  Gb  USBEndpointDescriptor.o [1]
+USBEndpointDescriptor_GetNumber
+                        0x004111ed     0x8  Code  Gb  USBEndpointDescriptor.o [1]
+USBEndpointDescriptor_GetType
+                        0x00411205     0x8  Code  Gb  USBEndpointDescriptor.o [1]
+USBFeatureRequest_GetFeatureSelector
+                        0x004116a9     0xa  Code  Gb  USBFeatureRequest.o [1]
+USBGenericDescriptor_GetLength
+                        0x00411561     0x4  Code  Gb  USBGenericDescriptor.o [1]
+USBGenericDescriptor_GetNextDescriptor
+                        0x00411569     0xc  Code  Gb  USBGenericDescriptor.o [1]
+USBGenericDescriptor_GetType
+                        0x00411565     0x4  Code  Gb  USBGenericDescriptor.o [1]
+USBGenericRequest_GetDirection
+                        0x00410edd    0x10  Code  Gb  USBGenericRequest.o [1]
+USBGenericRequest_GetEndpointNumber
+                        0x00410ec9     0xc  Code  Gb  USBGenericRequest.o [1]
+USBGenericRequest_GetIndex
+                        0x00410ec1     0x4  Code  Gb  USBGenericRequest.o [1]
+USBGenericRequest_GetLength
+                        0x00410ec5     0x4  Code  Gb  USBGenericRequest.o [1]
+USBGenericRequest_GetRecipient
+                        0x00410ed5     0x8  Code  Gb  USBGenericRequest.o [1]
+USBGenericRequest_GetRequest
+                        0x00410eb9     0x4  Code  Gb  USBGenericRequest.o [1]
+USBGenericRequest_GetValue
+                        0x00410ebd     0x4  Code  Gb  USBGenericRequest.o [1]
+USBGetDescriptorRequest_GetDescriptorIndex
+                        0x0041157f     0xa  Code  Gb  USBGetDescriptorRequest.o [1]
+USBGetDescriptorRequest_GetDescriptorType
+                        0x00411575     0xa  Code  Gb  USBGetDescriptorRequest.o [1]
+USBInterfaceRequest_GetAlternateSetting
+                        0x00411593     0xa  Code  Gb  USBInterfaceRequest.o [1]
+USBInterfaceRequest_GetInterface
+                        0x00411589     0xa  Code  Gb  USBInterfaceRequest.o [1]
+USBSetAddressRequest_GetAddress
+                        0x00411689     0xc  Code  Gb  USBSetAddressRequest.o [1]
+USBSetConfigurationRequest_GetConfiguration
+                        0x004116b3     0xa  Code  Gb  USBSetConfigurationRequest.o [1]
+UnalignedReadPage       0x00409009    0x9c  Code  Lc  MEDNandFlash.o [1]
+UnalignedWritePage      0x00408e8b    0xb4  Code  Lc  MEDNandFlash.o [1]
+UsageFault_Handler      0x00410bcb     0x2  Code  Wk  exceptions.o [1]
+UsbMsdInitialize        0x0040f787     0x4  Code  Gb  usbmsd.o [1]
+VBus_Configure          0x0040f735    0x2c  Code  Lc  usbmsd.o [1]
+Verify256               0x0040b20f    0xdc  Code  Lc  hamming.o [1]
+WDT_Disable             0x004115e1     0xa  Code  Gb  wdt.o [1]
+WDT_IrqHandler          0x00410bd7     0x2  Code  Wk  exceptions.o [1]
+WGT_CreateWidget        0x0040e7a9    0x38  Code  Gb  wgt_core_widget.o [1]
+WGT_Draw                0x0040e821    0x72  Code  Gb  wgt_core_widget.o [1]
+WGT_Frontend_GetFrontend
+                        0x00410723    0x34  Code  Gb  wgt_core_frontend.o [1]
+WGT_Frontend_Initialize
+                        0x0041070d    0x16  Code  Gb  wgt_core_frontend.o [1]
+WGT_Initialize          0x0040dcdb    0x56  Code  Gb  wgt_core.o [1]
+WGT_PostMessage         0x00410445    0x24  Code  Gb  wgt_core_message.o [1]
+WGT_Screen_AddWidget    0x0040c9f7    0x26  Code  Gb  wgt_core_screen.o [1]
+WGT_Screen_GetPointedWidget
+                        0x0040ca1d    0x72  Code  Gb  wgt_core_screen.o [1]
+WGT_Screen_GetSelectedWidget
+                        0x0040ca8f    0x18  Code  Gb  wgt_core_screen.o [1]
+WGT_Screen_Initialize   0x0040c9d9    0x1e  Code  Gb  wgt_core_screen.o [1]
+WGT_Screen_OnEraseBackground
+                        0x0040cb41    0x40  Code  Gb  wgt_core_screen.o [1]
+WGT_Screen_OnPaint      0x0040cb19    0x28  Code  Gb  wgt_core_screen.o [1]
+WGT_Screen_SetSelectedWidget
+                        0x0040caa7    0x72  Code  Gb  wgt_core_screen.o [1]
+WGT_SendMessage         0x00410421    0x24  Code  Gb  wgt_core_message.o [1]
+WGT_SendMessageISR      0x00410469    0x24  Code  Gb  wgt_core_message.o [1]
+WGT_SetBitmap           0x0040e80f    0x12  Code  Gb  wgt_core_widget.o [1]
+WGT_SetBkgndColor       0x0040e7e1     0xe  Code  Gb  wgt_core_widget.o [1]
+WGT_SetCurrentScreen    0x0040ddc3    0x30  Code  Gb  wgt_core.o [1]
+WGT_SetText             0x0040e7fd    0x12  Code  Gb  wgt_core_widget.o [1]
+WGT_SetTextColor        0x0040e7ef     0xe  Code  Gb  wgt_core_widget.o [1]
+WGT_Start               0x0040dd31    0x92  Code  Gb  wgt_core.o [1]
+WaitReady               0x00406b65    0x30  Code  Lc  RawNandFlash.o [1]
+WriteBlockStatus        0x004065f7    0x3c  Code  Lc  ManagedNandFlash.o [1]
+WriteColumnAddress      0x00406afd    0x3a  Code  Lc  RawNandFlash.o [1]
+WriteData               0x00406baf    0x36  Code  Lc  RawNandFlash.o [1]
+WritePage               0x00406c63    0xd4  Code  Lc  RawNandFlash.o [1]
+WriteRowAddress         0x00406b37    0x2e  Code  Lc  RawNandFlash.o [1]
+_DBE_ILI9325_DrawBitmap
+                        0x00404251    0x94  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_DrawBitmapBMP
+                        0x00403ecd   0x21e  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_DrawBitmapBMPFile
+                        0x004040eb   0x166  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_DrawChar   0x004042e5    0xa2  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_DrawCircle
+                        0x00403c97    0xbc  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_DrawFilledCircle
+                        0x00403d53    0xa6  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_DrawFilledRectangle
+                        0x00403e4b    0x82  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_DrawLine   0x00403bf7    0xa0  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_DrawLineBresenham
+                        0x00403b4b    0xac  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_DrawPixel  0x00403b0d    0x3e  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_DrawRectangle
+                        0x00403df9    0x52  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_DrawText   0x00404387    0x56  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_GetPixel   0x00403aed    0x20  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_IOCtl      0x004043dd    0x44  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_Initialize
+                        0x00403901   0x1ec  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_LCD_Off    0x00403853     0x6  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_LCD_On     0x0040384b     0x8  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_RAMAccess_Prepare
+                        0x004037f3     0xe  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_ReadRAM    0x00403815    0x20  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_Reset      0x00403859     0x4  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_SetBacklight
+                        0x0040385d    0x62  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_SetCursor  0x00403835    0x16  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_SetOrientation
+                        0x004038bf     0x2  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_SetRGBMode
+                        0x004038c1     0x8  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_SetWindow  0x004038c9    0x38  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_WriteRAM   0x00403801    0x14  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_WriteReg   0x004037e1    0x12  Code  Lc  backend_ILI9325.o [1]
+_DBE_ILI9325_aucFileData
+                        0x2000a5c4   0x800  Data  Lc  backend_ILI9325.o [1]
+_EncodingSb_Mbtowc      0x00410947    0x2e  Code  Gb  xencoding_sb.o [3]
+_EncodingSb_Wctomb      0x0041092d    0x1a  Code  Gb  xencoding_sb.o [3]
+_GenldLarge             0x00402805   0x242  Code  Lc  xprintflarge.o [3]
+_IsdstStr               0x20000d50     0x4  Data  Gb  setlocale.o [3]
+_LdtobLarge             0x0040257d   0x272  Code  Lc  xprintflarge.o [3]
+_LitobLarge             0x0040246f   0x10e  Code  Lc  xprintflarge.o [3]
+_LocaleC_lconv          0x00410ae8    0x48  Data  Gb  xlocale_c.o [3]
+_LocaleEncoding         0x00411539    0x10  Code  Gb  setlocale.o [3]
+_LocaleReturnString     0x20000d60    0x50  Data  Lc  setlocale.o [3]
+_Locale_LconvArray      0x20000d5c     0x4  Data  Gb  setlocale.o [3]
+_Locale_Profile         0x20000d2c    0x1c  Data  Gb  setlocale.o [3]
+_Locale_lconv           0x20001444    0x48  Data  Gb  localeconv.o [3]
+_Mbtowc                 0x004112dd    0x20  Code  Gb  xmbtowc.o [3]
+_PrintfLarge            0x00401c01   0x59c  Code  Gb  xprintflarge.o [3]
+_Prout                  0x004114d3    0x16  Code  Gb  xprout.o [3]
+_PutcharsLarge          0x00402a65    0x32  Code  Lc  xprintflarge.o [3]
+_PutstrLarge            0x0040219d   0x2d2  Code  Lc  xprintflarge.o [3]
+_SNProut                0x004113df    0x1a  Code  Gb  xsnprout.o [3]
+_SProut                 0x00411695     0xa  Code  Gb  xsprout.o [3]
+_ScrDISPDemo_Draw       0x0040a3a1    0x16  Code  Lc  scr_disp_demo.o [1]
+_ScrDISPDemo_DrawBitmaps
+                        0x0040a39f     0x2  Code  Lc  scr_disp_demo.o [1]
+_ScrDISPDemo_DrawColors
+                        0x0040a2b1    0xee  Code  Lc  scr_disp_demo.o [1]
+_ScrDISPDemo_DrawPrimitives
+                        0x0040a169   0x148  Code  Lc  scr_disp_demo.o [1]
+_ScrDISPDemo_GetRand    0x0040a0e1     0xe  Code  Lc  scr_disp_demo.o [1]
+_ScrDISPDemo_IncState   0x0040a3b7    0x28  Code  Lc  scr_disp_demo.o [1]
+_ScrDISPDemo_OnDrawBackground
+                        0x0040a113    0x56  Code  Lc  scr_disp_demo.o [1]
+_ScrDISPDemo_OnInitialize
+                        0x0040a0ef    0x24  Code  Lc  scr_disp_demo.o [1]
+_ScrDISPDemo_ProcessMessage
+                        0x0040a3df    0x7a  Code  Lc  scr_disp_demo.o [1]
+_ScrDISPDemo_dwState    0x20000a34     0x4  Data  Lc  scr_disp_demo.o [1]
+_ScrDISPDemo_dwTimeStamp
+                        0x20000a38     0x4  Data  Lc  scr_disp_demo.o [1]
+_ScrDISPDemo_iDone      0x20000a3c     0x4  Data  Lc  scr_disp_demo.o [1]
+_ScrQTouch_DrawProgress
+                        0x004099a5    0x76  Code  Lc  scr_qtouch.o [1]
+_ScrQTouch_OnDrawBackground
+                        0x00409b2b    0x56  Code  Lc  scr_qtouch.o [1]
+_ScrQTouch_OnInitialize
+                        0x00409a1b   0x110  Code  Lc  scr_qtouch.o [1]
+_ScrQTouch_ProcessMessage
+                        0x00409b81   0x180  Code  Lc  scr_qtouch.o [1]
+_ScrSettings_Date_OnDrawBackground
+                        0x0040730d    0x76  Code  Lc  scr_settings_date.o [1]
+_ScrSettings_Date_OnInitialize
+                        0x00407107   0x206  Code  Lc  scr_settings_date.o [1]
+_ScrSettings_Date_ProcessMessage
+                        0x00407389   0x14a  Code  Lc  scr_settings_date.o [1]
+_ScrSettings_Date_SetDay
+                        0x00407091    0x26  Code  Lc  scr_settings_date.o [1]
+_ScrSettings_Date_SetMonth
+                        0x004070b7    0x26  Code  Lc  scr_settings_date.o [1]
+_ScrSettings_Date_SetYear
+                        0x004070dd    0x2a  Code  Lc  scr_settings_date.o [1]
+_ScrSettings_Time_OnDrawBackground
+                        0x0040778f    0x74  Code  Lc  scr_settings_time.o [1]
+_ScrSettings_Time_OnInitialize
+                        0x00407587   0x208  Code  Lc  scr_settings_time.o [1]
+_ScrSettings_Time_ProcessMessage
+                        0x00407809   0x140  Code  Lc  scr_settings_time.o [1]
+_ScrSettings_Time_SetHour
+                        0x00407515    0x26  Code  Lc  scr_settings_time.o [1]
+_ScrSettings_Time_SetMin
+                        0x0040753b    0x26  Code  Lc  scr_settings_time.o [1]
+_ScrSettings_Time_SetSec
+                        0x00407561    0x26  Code  Lc  scr_settings_time.o [1]
+_ScrTSDCalibration_OnDrawBackground
+                        0x0040a83b    0x3a  Code  Lc  scr_TSDCalibration.o [1]
+_ScrTSDCalibration_OnInitialize
+                        0x0040a7f5    0x46  Code  Lc  scr_TSDCalibration.o [1]
+_ScrTSDCalibration_ProcessMessage
+                        0x0040a8f3   0x23a  Code  Lc  scr_TSDCalibration.o [1]
+_ScrTSDCalibration_ProcessSlopes
+                        0x0040a875    0x7e  Code  Lc  scr_TSDCalibration.o [1]
+_SetupHardware          0x0040b5c1    0x3e  Code  Lc  main.o [1]
+_TaskMonitoring         0x0040b675    0x36  Code  Lc  main.o [1]
+_TimeUpdate             0x0040b601    0x58  Code  Lc  main.o [1]
+_TzoneStr               0x20000d48     0x4  Data  Gb  setlocale.o [3]
+_WFE_ADS7843_GetPenPosition
+                        0x0040ba29    0x80  Code  Lc  frontend_ADS7843.o [1]
+_WFE_ADS7843_IOCtl      0x0040bbff    0x2a  Code  Lc  frontend_ADS7843.o [1]
+_WFE_ADS7843_Initialize
+                        0x0040bb5b    0xa4  Code  Lc  frontend_ADS7843.o [1]
+_WFE_ADS7843_Task       0x0040baa9    0x9a  Code  Lc  frontend_ADS7843.o [1]
+_WFE_ADS7843_pinPenIRQ  0x00411438     0xc  Data  Lc  frontend_ADS7843.o [1]
+_WFE_Potentiometer_IOCtl
+                        0x0040d50b    0x16  Code  Lc  frontend_potentiometer.o [1]
+_WFE_Potentiometer_Initialize
+                        0x0040d44b    0xc0  Code  Lc  frontend_potentiometer.o [1]
+_WFE_PushButtons_IOCtl  0x00410fd9     0x4  Code  Lc  frontend_pushbuttons.o [1]
+_WFE_PushButtons_Initialize
+                        0x00410fad    0x28  Code  Lc  frontend_pushbuttons.o [1]
+_WFE_QTouch_IOCtl       0x00411711     0x4  Code  Lc  frontend_qtouch.o [1]
+_WFE_QTouch_Initialize  0x0041170d     0x4  Code  Lc  frontend_qtouch.o [1]
+_WGT_TaskMessageLoop    0x0040dca1    0x3a  Code  Lc  wgt_core.o [1]
+_Wctomb                 0x004113f9    0x1a  Code  Gb  xwctomb.o [3]
+__WFE                   0x0040e195     0x4  Code  Lc  scr_lp_modes_backup.o [1]
+__WFE                   0x0040ab51     0x4  Code  Lc  scr_lp_modes_wait.o [1]
+__WFI                   0x0040cd39     0x4  Code  Lc  scr_lp_modes_sleep.o [1]
+__aeabi_cdcmple         0x00410fdd          Code  Gb  DblCmpLe.o [5]
+__aeabi_d2uiz           0x00411091          Code  Gb  DblToI32.o [5]
+__aeabi_dadd            0x0040e981          Code  Gb  DblAdd.o [5]
+__aeabi_ddiv            0x0040b7e1          Code  Gb  DblDiv.o [5]
+__aeabi_dmul            0x0040d08d          Code  Gb  DblMul.o [5]
+__aeabi_dsub            0x0040d6bd          Code  Gb  DblSub.o [5]
+__aeabi_ldiv0           0x00411731          Code  Gb  I64DivZer.o [5]
+__aeabi_ldivmod         0x0040df3d          Code  Gb  I64DivMod.o [5]
+__aeabi_memcpy          0x004103b1          Code  Gb  ABImemcpy.o [5]
+__aeabi_memcpy4         0x004103cb          Code  Gb  ABImemcpy.o [5]
+__aeabi_memcpy8         0x004103cb          Code  Gb  ABImemcpy.o [5]
+__aeabi_memset          0x004106a5          Code  Gb  ABImemset.o [5]
+__aeabi_ui2d            0x004113c5          Code  Gb  I32ToDbl.o [5]
+__aeabi_uldivmod        0x0040df51          Code  Gb  I64DivMod.o [5]
+__call_dtors            0x004105f9     0x2  Code  Gb  cppinit.o [3]
+__cstart_call_dtors     0x00411603          Code  Gb  cexit.o [5]
+__cxa_atexit            0x004105d5    0x24  Code  Gb  cppinit.o [3]
+__cxa_finalize          0x004105fb    0x36  Code  Gb  cppinit.o [3]
+__data_Aldata           0x2000bdc0     0x8  Data  Gb  xxmemxmalloc.o [3]
+__data_GetMemChunk      0x0041110d    0x28  Code  Gb  xgetmemchunk.o [3]
+__exit                  0x00411671          Code  Gb  XXexit.o [5]
+__iar_Dnorm             0x0040f215    0xc6  Code  Gb  xdnorm.o [3]
+__iar_Locksyslock       0x0040fd3f    0x46  Code  Gb  xsyslock.o [3]
+__iar_Mbcurmax          0x0041169f     0xa  Code  Gb  xmbcurmax.o [3]
+__iar_Memchr            0x0041082d          Code  Gb  memchr.o [5]
+__iar_Memset            0x004106a5          Code  Gb  ABImemset.o [5]
+__iar_Memset_word       0x004106ad          Code  Gb  ABImemset.o [5]
+__iar_Mtxdst            0x00410b3f     0xe  Code  Gb  MtxWrapper.o [3]
+__iar_Mtxinit           0x00410b31     0xe  Code  Gb  MtxWrapper.o [3]
+__iar_Mtxlock           0x00410b4d     0xe  Code  Gb  MtxWrapper.o [3]
+__iar_Mtxunlock         0x00410b5b     0xe  Code  Gb  MtxWrapper.o [3]
+__iar_Stderr            0x2000150c    0x40  Data  Gb  xfiles.o [3]
+__iar_Stdout            0x200014cc    0x40  Data  Gb  xfiles.o [3]
+__iar_Strchr            0x004114bd          Code  Gb  strchr.o [5]
+__iar_Tls_setup__IsdstStr
+                        0x20000d54     0x4  Data  Gb  setlocale.o [3]
+__iar_Tls_setup__Locale_Profile
+                        0x20000d58     0x4  Data  Gb  setlocale.o [3]
+__iar_Tls_setup__Locale_lconv
+                        0x20001440     0x4  Data  Gb  localeconv.o [3]
+__iar_Tls_setup__TzoneStr
+                        0x20000d4c     0x4  Data  Gb  setlocale.o [3]
+__iar_Unlocksyslock     0x0040fd85    0x14  Code  Gb  xsyslock.o [3]
+__iar_d2uiz             0x0041109b          Code  Gb  DblToI32.o [5]
+__iar_dadd              0x0040e993          Code  Gb  DblAdd.o [5]
+__iar_data_init2        0x004112bd    0x20  Code  Gb  data_init2.o [5]
+__iar_dsub              0x0040d6cf          Code  Gb  DblSub.o [5]
+__iar_dsubStart         0x0040d6e1          Code  Gb  DblSub.o [5]
+__iar_packbits_init2    0x0040f9b5    0x96  Code  Gb  packbits_init2.o [5]
+__iar_program_start     0x0041148d          Code  Gb  cmain.o [5]
+__iar_ui2d              0x004113c7          Code  Gb  I32ToDbl.o [5]
+__iar_zero_init2        0x00411413    0x1a  Code  Gb  zero_init2.o [5]
+__low_level_init        0x004114a5    0x18  Code  Gb  board_cstartup_iar.o [1]
+__offset_parameters__   0x0043fe00           --   Gb  command line/config [2]
+__vector_start__        0x00400000           --   Gb  command line/config [2]
+__vector_table          0x00400000    0xd0  Data  Gb  board_cstartup_iar.o [1]
+_aDISP_Backends         0x20000a40     0x8  Data  Lc  disp_backend.o [1]
+_aWGT_Frontends         0x20000a24    0x10  Data  Lc  wgt_core_frontend.o [1]
+_exit                   0x00411601          Code  Gb  cexit.o [5]
+_main                   0x0041149f          Code  Gb  cmain.o [5]
+aCalibrationMeasures    0x2000bc3c    0x30  Data  Lc  scr_TSDCalibration.o [1]
+absv                    0x004115f9     0x8  Code  Gb  math.o [1]
+aucFont10x14            0x00404ff8   0x780  Data  Gb  sam_gui_font10x14.o [1]
+auto_mount              0x00400d51   0x27c  Code  Lc  ff.o [1]
+burst                   0x0040c499    0x38  Code  Gb  touch_burst_qt.o [4]
+burst_5__PIOA_PIOA__PIOC_PIOC
+                        0x00408a61   0x3ec  Code  Gb  touch_burst_qt_base.o [4]
+burst_init              0x0040c449    0x28  Code  Gb  touch_burst_qt.o [4]
+burst_mask_sns          0x2000bcfc    0x10  Data  Gb  touch_burst_qt.o [4]
+burst_mask_snsk         0x2000bd0c    0x10  Data  Gb  touch_burst_qt.o [4]
+burst_proc              0x2000bd74     0x4  Data  Gb  touch_api.o [4]
+burst_reset             0x0040c471    0x28  Code  Gb  touch_burst_qt.o [4]
+calc_burst_masks        0x0040c4d1   0x164  Code  Lc  touch_burst_qt.o [4]
+calc_rotor_slider_sensor_delta
+                        0x0040a4f9    0x52  Code  Gb  touch_rs_qt.o [4]
+calc_rotor_slider_value
+                        0x0040a5a1   0x1cc  Code  Gb  touch_rs_qt.o [4]
+calibrate_channel       0x00407e57    0x64  Code  Lc  touch_process.o [4]
+calibrate_sensor        0x00407e35    0x22  Code  Lc  touch_process.o [4]
+check_fs                0x00400ced    0x64  Code  Lc  ff.o [1]
+chk_chr                 0x00400113    0x12  Code  Lc  ff.o [1]
+clearlocks              0x0040fd19    0x26  Code  Lc  xsyslock.o [3]
+clust2sect              0x00400525    0x18  Code  Lc  ff.o [1]
+cmp_lfn                 0x004006d1    0x56  Code  Lc  ff.o [1]
+config_sensors_at91     0x0040c26d    0x64  Code  Lc  qtouch.o [1]
+configurationDescriptorsFS
+                        0x0041123c    0x20  Data  Lc  MSDDriverDescriptors.o [1]
+create_chain            0x00400481    0xa4  Code  Lc  ff.o [1]
+create_name             0x00400a67   0x202  Code  Lc  ff.o [1]
+currentReadBlock        0x20006d60     0x2  Data  Lc  MEDNandFlash.o [1]
+currentReadPage         0x20006d62     0x2  Data  Lc  MEDNandFlash.o [1]
+currentWriteBlock       0x20006d5c     0x2  Data  Lc  MEDNandFlash.o [1]
+currentWritePage        0x20006d5e     0x2  Data  Lc  MEDNandFlash.o [1]
+current_time_ms_touch   0x2000bdb2     0x2  Data  Lc  qtouch.o [1]
+deviceDescriptor        0x004114e8    0x14  Data  Lc  MSDDriverDescriptors.o [1]
+deviceState             0x2000bdf0     0x1  Data  Lc  USBD_UDP.o [1]
+dht_counter             0x2000bdf3     0x1  Data  Gb  touch_process.o [4]
+dir_find                0x00400815    0xe8  Code  Lc  ff.o [1]
+dir_next                0x004005d3    0xfe  Code  Lc  ff.o [1]
+dir_register            0x004008fd   0x16a  Code  Lc  ff.o [1]
+dir_seek                0x0040053d    0x96  Code  Lc  ff.o [1]
+dirs                    0x20004428    0x24  Data  Lc  ftldrv.o [1]
+disk_initialize         0x0040e079    0x14  Code  Gb  diskio.o [1]
+disk_ioctl              0x0040e121    0x66  Code  Gb  diskio.o [1]
+disk_read               0x0040e0a1    0x40  Code  Gb  diskio.o [1]
+disk_status             0x0040e08d    0x14  Code  Gb  diskio.o [1]
+disk_write              0x0040e0e1    0x40  Code  Gb  diskio.o [1]
+div                     0x0041160f     0xe  Code  Gb  div.o [3]
+divide                  0x0040a54b    0x56  Code  Lc  touch_rs_qt.o [4]
+drift_channel           0x00407f07    0x88  Code  Lc  touch_process.o [4]
+drift_ctrs              0x2000bd1c    0x20  Data  Lc  touch_process.o [4]
+drift_sensor            0x00407ee5    0x22  Code  Lc  touch_process.o [4]
+ebuf                    0x2000bb9c    0x50  Data  Lc  xfiles.o [3]
+endpoints               0x2000b89c    0xe0  Data  Lc  USBD_UDP.o [1]
+exit                    0x00411715     0x6  Code  Gb  exit.o [3]
+f_close                 0x004013eb    0x12  Code  Gb  ff.o [1]
+f_lseek                 0x004013fd   0x156  Code  Gb  ff.o [1]
+f_mkfs                  0x004015c1   0x62e  Code  Gb  ff.o [1]
+f_mount                 0x00400ff5    0x22  Code  Gb  ff.o [1]
+f_open                  0x00401039   0x16c  Code  Gb  ff.o [1]
+f_opendir               0x00401553    0x6e  Code  Gb  ff.o [1]
+f_read                  0x004011a5   0x190  Code  Gb  ff.o [1]
+f_sync                  0x00401335    0xb6  Code  Gb  ff.o [1]
+ff_convert              0x0041063d    0x3c  Code  Gb  ccsbcs.o [1]
+ff_wtoupper             0x00410679    0x22  Code  Gb  ccsbcs.o [1]
+fill_out_rotor_slider_deltas
+                        0x0040a789    0x64  Code  Lc  touch_rs_qt.o [4]
+fit_lfn                 0x00400727    0x5c  Code  Lc  ff.o [1]
+follow_path             0x00400c69    0x84  Code  Lc  ff.o [1]
+fputc                   0x0040f58b    0x22  Code  Gb  uart_console.o [1]
+free                    0x0040fc91    0x84  Code  Gb  xxmemxfree.o [3]
+freq_shift              0x2000bab1     0x1  Data  Gb  touch_api.o [4]
+fs                      0x200041f8   0x230  Data  Lc  ftldrv.o [1]
+gMsdLun                 0x20008d64    0x60  Data  Gb  usbmsd.o [1]
+gPinButton1             0x00411444     0xc  Data  Gb  frontend_pushbuttons.o [1]
+gPinButton2             0x00411450     0xc  Data  Gb  frontend_pushbuttons.o [1]
+gPinVbus                0x00411664     0xc  Data  Gb  usbmsd.o [1]
+gRtNandMedias           0x200041b0    0x48  Data  Gb  ftldrv.o [1]
+gTsCalibrated           0x2000bcbc     0x1  Data  Gb  frontend_ADS7843.o [1]
+gTsSemaphore            0x2000bcd8     0x4  Data  Lc  frontend_ADS7843.o [1]
+g_Font10x14             0x004115c0    0x10  Data  Gb  sam_gui_font.o [1]
+g_MckrValBackup         0x2000bd60     0x4  Data  Lc  scr_lp_modes_wait.o [1]
+g_PllarValBackup        0x2000bd58     0x4  Data  Lc  scr_lp_modes_wait.o [1]
+g_PllbrValBackup        0x2000bd5c     0x4  Data  Lc  scr_lp_modes_wait.o [1]
+g_WGT_CoreData          0x2000bcdc    0x20  Data  Gb  wgt_core.o [1]
+g_bmpUnderConstruction  0x2000bab4    0x40  Data  Lc  scr_audio.o [1]
+g_btnAudio              0x2000b048    0x40  Data  Lc  scr_main.o [1]
+g_btnBack               0x2000baf4    0x40  Data  Lc  scr_audio.o [1]
+g_btnBack               0x2000b65c    0x40  Data  Lc  scr_lp_modes.o [1]
+g_btnBack               0x20000928    0x40  Data  Lc  scr_qtouch.o [1]
+g_btnBack               0x2000b25c    0x40  Data  Lc  scr_settings.o [1]
+g_btnBack               0x2000b69c    0x40  Data  Lc  scr_settings_backlight.o [1]
+g_btnBack               0x2000b004    0x40  Data  Lc  scr_settings_date.o [1]
+g_btnBack               0x20000c88    0x40  Data  Lc  scr_settings_time.o [1]
+g_btnBacklight          0x2000b31c    0x40  Data  Lc  scr_settings.o [1]
+g_btnBacklight          0x2000b75c    0x40  Data  Lc  scr_settings_backlight.o [1]
+g_btnBackup             0x2000b59c    0x40  Data  Lc  scr_lp_modes.o [1]
+g_btnDate               0x2000b29c    0x40  Data  Lc  scr_settings.o [1]
+g_btnDown               0x2000b71c    0x40  Data  Lc  scr_settings_backlight.o [1]
+g_btnDownDay            0x2000ae04    0x40  Data  Lc  scr_settings_date.o [1]
+g_btnDownHour           0x20000a88    0x40  Data  Lc  scr_settings_time.o [1]
+g_btnDownMin            0x20000b48    0x40  Data  Lc  scr_settings_time.o [1]
+g_btnDownMonth          0x2000aec4    0x40  Data  Lc  scr_settings_date.o [1]
+g_btnDownSec            0x20000c08    0x40  Data  Lc  scr_settings_time.o [1]
+g_btnDownYear           0x2000af84    0x40  Data  Lc  scr_settings_date.o [1]
+g_btnInfos              0x2000b1c8    0x40  Data  Lc  scr_main.o [1]
+g_btnK1                 0x200007e8    0x40  Data  Lc  scr_qtouch.o [1]
+g_btnK2                 0x20000828    0x40  Data  Lc  scr_qtouch.o [1]
+g_btnK3                 0x20000868    0x40  Data  Lc  scr_qtouch.o [1]
+g_btnK4                 0x200008a8    0x40  Data  Lc  scr_qtouch.o [1]
+g_btnK5                 0x200008e8    0x40  Data  Lc  scr_qtouch.o [1]
+g_btnLPModes            0x2000b148    0x40  Data  Lc  scr_main.o [1]
+g_btnQTouch             0x2000b108    0x40  Data  Lc  scr_main.o [1]
+g_btnSettings           0x2000b188    0x40  Data  Lc  scr_main.o [1]
+g_btnSleep              0x2000b61c    0x40  Data  Lc  scr_lp_modes.o [1]
+g_btnSlideShow          0x2000b0c8    0x40  Data  Lc  scr_main.o [1]
+g_btnTSD                0x2000b35c    0x40  Data  Lc  scr_settings.o [1]
+g_btnTime               0x2000b2dc    0x40  Data  Lc  scr_settings.o [1]
+g_btnUp                 0x2000b6dc    0x40  Data  Lc  scr_settings_backlight.o [1]
+g_btnUpDay              0x2000adc4    0x40  Data  Lc  scr_settings_date.o [1]
+g_btnUpHour             0x20000a48    0x40  Data  Lc  scr_settings_time.o [1]
+g_btnUpMin              0x20000b08    0x40  Data  Lc  scr_settings_time.o [1]
+g_btnUpMonth            0x2000ae84    0x40  Data  Lc  scr_settings_date.o [1]
+g_btnUpSec              0x20000bc8    0x40  Data  Lc  scr_settings_time.o [1]
+g_btnUpYear             0x2000af44    0x40  Data  Lc  scr_settings_date.o [1]
+g_btnVideo              0x2000b088    0x40  Data  Lc  scr_main.o [1]
+g_btnWait               0x2000b5dc    0x40  Data  Lc  scr_lp_modes.o [1]
+g_demo_parameters       0x2000154c    0x3c  Data  Gb  demo_parameters.o [1]
+g_dwScrTSDCalibration_state
+                        0x2000bc84     0x4  Data  Lc  scr_TSDCalibration.o [1]
+g_irq                   0x2000bdb8     0x8  Data  Lc  scr_lp_modes_sleep.o [1]
+g_irq                   0x2000bd50     0x8  Data  Lc  scr_lp_modes_wait.o [1]
+g_wgt_Day               0x2000ae44    0x40  Data  Lc  scr_settings_date.o [1]
+g_wgt_Hour              0x20000ac8    0x40  Data  Lc  scr_settings_time.o [1]
+g_wgt_Min               0x20000b88    0x40  Data  Lc  scr_settings_time.o [1]
+g_wgt_Month             0x2000af04    0x40  Data  Lc  scr_settings_date.o [1]
+g_wgt_Sec               0x20000c48    0x40  Data  Lc  scr_settings_time.o [1]
+g_wgt_Status            0x2000b208    0x40  Data  Lc  scr_main.o [1]
+g_wgt_Year              0x2000afc4    0x40  Data  Lc  scr_settings_date.o [1]
+gdwPotentiometerValue   0x2000bdcc     0x4  Data  Lc  frontend_potentiometer.o [1]
+gen_numname             0x00400783    0x74  Code  Gb  ff.o [1]
+get_channel_delta       0x0040820f    0x14  Code  Gb  touch_process.o [4]
+get_fat                 0x0040024b    0xdc  Code  Lc  ff.o [1]
+get_fattime             0x0040e187     0x4  Code  Gb  diskio.o [1]
+goto_detect             0x00407ebb    0x2a  Code  Lc  touch_process.o [4]
+goto_no_detect          0x00407dfd    0x38  Code  Lc  touch_process.o [4]
+gs_ADS7843CalibParameters
+                        0x2000bcc0    0x18  Data  Lc  frontend_ADS7843.o [1]
+gs_ProgressBorder       0x200007e4     0x4  Data  Lc  scr_qtouch.o [1]
+gs_ProgressInside       0x200007e0     0x4  Data  Lc  scr_qtouch.o [1]
+gs_TsdCalibParameters   0x2000bc6c    0x18  Data  Lc  scr_TSDCalibration.o [1]
+gs_dwDay                0x200009f4     0x4  Data  Lc  scr_settings_date.o [1]
+gs_dwHour               0x20000a0c     0x4  Data  Lc  scr_settings_time.o [1]
+gs_dwLastSwitchTime     0x20000968     0x4  Data  Lc  scr_ppt.o [1]
+gs_dwMin                0x20000a10     0x4  Data  Lc  scr_settings_time.o [1]
+gs_dwMonth              0x200009f8     0x4  Data  Lc  scr_settings_date.o [1]
+gs_dwSec                0x20000a14     0x4  Data  Lc  scr_settings_time.o [1]
+gs_dwSlideIndex         0x20000970     0x4  Data  Lc  scr_ppt.o [1]
+gs_dwSwitchDelay        0x2000096c     0x4  Data  Lc  scr_ppt.o [1]
+gs_dwYear               0x200009fc     0x4  Data  Lc  scr_settings_date.o [1]
+gs_szDay                0x20000a00     0x4  Data  Lc  scr_settings_date.o [1]
+gs_szHour               0x20000a18     0x4  Data  Lc  scr_settings_time.o [1]
+gs_szMin                0x20000a1c     0x4  Data  Lc  scr_settings_time.o [1]
+gs_szMonth              0x20000a04     0x4  Data  Lc  scr_settings_date.o [1]
+gs_szSec                0x20000a20     0x4  Data  Lc  scr_settings_time.o [1]
+gs_szSlidePath          0x20000974    0x80  Data  Lc  scr_ppt.o [1]
+gs_szYear               0x20000a08     0x4  Data  Lc  scr_settings_date.o [1]
+init_rotor_slider       0x0040a4a3    0x50  Code  Lc  touch_rs_qt.o [4]
+inquiryData             0x20001394    0x60  Data  Lc  MSDLun.o [1]
+isConsolInitialized     0x2000bdf4     0x1  Data  Lc  uart_console.o [1]
+languageIdDescriptor    0x0041171c     0x4  Data  Lc  MSDDriverDescriptors.o [1]
+lib_status_flags        0x2000bab0     0x1  Data  Gb  touch_api.o [4]
+localeconv              0x00411525    0x10  Code  Gb  localeconv.o [3]
+main                    0x0040b6ab    0xf4  Code  Gb  main.o [1]
+malloc                  0x0040f465    0xb6  Code  Gb  xxmemxmalloc.o [3]
+manufacturerDescriptor  0x0041161c     0xc  Data  Lc  MSDDriverDescriptors.o [1]
+mem_cmp                 0x004000f5    0x1e  Code  Lc  ff.o [1]
+mem_cpy                 0x004000d1    0x14  Code  Lc  ff.o [1]
+mem_set                 0x004000e5    0x10  Code  Lc  ff.o [1]
+memchr                  0x0041082d          Code  Gb  memchr.o [5]
+memcmp                  0x00410771          Code  Gb  memcmp.o [5]
+memcpy                  0x0041167d     0xc  Code  Gb  MEDNandFlash.o [1]
+memset                  0x0041154d    0x14  Code  Gb  EccNandFlash.o [1]
+min                     0x004115f1     0x8  Code  Gb  math.o [1]
+modeParameterHeader6    0x00411720     0x4  Data  Lc  SBCMethods.o [1]
+move_window             0x00400125    0x6e  Code  Lc  ff.o [1]
+msdBuffer               0x20008dc4  0x1800  Data  Gb  usbmsd.o [1]
+msdDriver               0x2000bb34    0x5c  Data  Lc  MSDDriver.o [1]
+msdDriverDescriptors    0x004110bc    0x28  Data  Gb  MSDDriverDescriptors.o [1]
+msdFullCnt              0x2000bd9c     0x2  Data  Gb  usbmsd.o [1]
+msdNullCnt              0x2000bd9e     0x2  Data  Gb  usbmsd.o [1]
+msdReadTotal            0x2000bda0     0x4  Data  Gb  usbmsd.o [1]
+msdWriteTotal           0x2000bda4     0x4  Data  Gb  usbmsd.o [1]
+mtx                     0x2000bd7c    0x10  Data  Lc  xsyslock.o [3]
+mtxdst                  0x2000bde0     0x4  Data  Lc  MtxWrapper.o [3]
+mtxinit                 0x2000bddc     0x4  Data  Lc  MtxWrapper.o [3]
+mtxlock                 0x2000bde4     0x4  Data  Lc  MtxWrapper.o [3]
+mtxunlock               0x2000bde8     0x4  Data  Lc  MtxWrapper.o [3]
+nandFlashModelList      0x0040ae18   0x2b8  Data  Gb  NandFlashModelList.o [1]
+nandSpareScheme2048     0x0040ffb8    0x84  Data  Gb  NandSpareScheme.o [1]
+nandSpareScheme256      0x0040feb0    0x84  Data  Gb  NandSpareScheme.o [1]
+nandSpareScheme512      0x0040ff34    0x84  Data  Gb  NandSpareScheme.o [1]
+next                    0x2000159c     0x4  Data  Lc  rand.o [1]
+next_abi_dtor_rec       0x200015a0     0x4  Data  Lc  cppinit.o [3]
+nfCePin                 0x0040c814     0xc  Data  Lc  ftldrv.o [1]
+nfRbPin                 0x0040c820     0xc  Data  Lc  ftldrv.o [1]
+num_rotors_sliders      0x2000bd8c     0x1  Data  Gb  touch_rs_qt.o [4]
+num_sensors             0x2000bdf2     0x1  Data  Gb  touch_process.o [4]
+obuf                    0x2000bbec    0x50  Data  Lc  xfiles.o [3]
+pPageBuffer             0x2000b39c   0x100  Data  Lc  flashd.o [1]
+pPinsNf                 0x0040c984    0x54  Data  Lc  ftldrv.o [1]
+pageReadBuffer          0x20007d64  0x1000  Data  Lc  MEDNandFlash.o [1]
+pageWriteBuffer         0x20006d64  0x1000  Data  Lc  MEDNandFlash.o [1]
+pcStatusString          0x2000bc88    0x34  Data  Lc  tasks.o [1]
+pcTraceBuffer           0x2000142c     0x4  Data  Lc  tasks.o [1]
+pcTraceBufferEnd        0x20001434     0x4  Data  Lc  tasks.o [1]
+pcTraceBufferStart      0x20001430     0x4  Data  Lc  tasks.o [1]
+pinBusy                 0x00410cb4     0xc  Data  Lc  ads7843.o [1]
+pinsLeds                0x0041115c    0x24  Data  Lc  led.o [1]
+pinsSPI                 0x00410c84    0x30  Data  Lc  ads7843.o [1]
+pioAHandlers            0x004100c0    0x80  Data  Lc  pio_it.o [1]
+pioBHandlers            0x00410140    0x80  Data  Lc  pio_it.o [1]
+pioCHandlers            0x004101c0    0x80  Data  Lc  pio_it.o [1]
+pos_delta               0x00408205     0xa  Code  Lc  touch_process.o [4]
+previousDeviceState     0x2000bdf1     0x1  Data  Lc  USBD_UDP.o [1]
+printf                  0x0041129d    0x20  Code  Gb  printf.o [3]
+process_sensor          0x00407f95   0x264  Code  Gb  touch_process.o [4]
+productDescriptor       0x0041125c    0x20  Data  Lc  MSDDriverDescriptors.o [1]
+prvAllocateTCBAndStack  0x00405d55    0x32  Code  Lc  tasks.o [1]
+prvCheckTasksWaitingTermination
+                        0x00405d53     0x2  Code  Lc  tasks.o [1]
+prvCopyDataFromQueue    0x00408999    0x28  Code  Lc  queue.o [1]
+prvCopyDataToQueue      0x00408935    0x64  Code  Lc  queue.o [1]
+prvIdleTask             0x00405cc3    0x10  Code  Lc  tasks.o [1]
+prvInitialiseTCBVariables
+                        0x00405cd3    0x3a  Code  Lc  tasks.o [1]
+prvInitialiseTaskLists  0x00405d0d    0x46  Code  Lc  tasks.o [1]
+prvIsQueueEmpty         0x00408a29    0x18  Code  Lc  queue.o [1]
+prvIsQueueFull          0x00408a41    0x1e  Code  Lc  queue.o [1]
+prvListTaskWithinSingleList
+                        0x00405d87    0x70  Code  Lc  tasks.o [1]
+prvSetupTimerInterrupt  0x0040f8fd     0xe  Code  Lc  port.o [1]
+prvUnlockQueue          0x004089c1    0x68  Code  Lc  queue.o [1]
+put_fat                 0x00400327    0xfe  Code  Lc  ff.o [1]
+putchar                 0x0040f5ad     0x4  Code  Gb  uart_console.o [1]
+pvPortMalloc            0x0041097d    0x3a  Code  Gb  heap_1.o [1]
+pxCurrentTCB            0x2000b97c     0x4  Data  Gb  tasks.o [1]
+pxDelayedTaskList       0x2000b9e4     0x4  Data  Lc  tasks.o [1]
+pxOverflowDelayedTaskList
+                        0x2000b9e8     0x4  Data  Lc  tasks.o [1]
+pxPortInitialiseStack   0x0040f881    0x18  Code  Gb  port.o [1]
+pxReadyTasksLists       0x2000b980    0x64  Data  Lc  tasks.o [1]
+qt_config_data          0x2000bd64     0x8  Data  Gb  touch_api.o [4]
+qt_enable_key           0x0040c77d    0x30  Code  Gb  touch_api.o [4]
+qt_enable_slider        0x0040a475    0x2e  Code  Gb  touch_rs_qt.o [4]
+qt_filter_callback      0x2000bd70     0x4  Data  Gb  touch_api.o [4]
+qt_get_sensor_delta     0x0040c7ad    0x5a  Code  Gb  touch_api.o [4]
+qt_init_sensing_with_burst
+                        0x0040c639    0x2a  Code  Gb  touch_api.o [4]
+qt_measure_data         0x2000ba28    0x88  Data  Gb  touch_api.o [4]
+qt_measure_sensors      0x0040c699    0xe4  Code  Gb  touch_api.o [4]
+qt_reset_sensing        0x0040c665    0x34  Code  Gb  touch_api.o [4]
+qt_set_parameters       0x0040c251    0x1c  Code  Lc  qtouch.o [1]
+rand                    0x004111cf    0x14  Code  Gb  rand.o [1]
+remove_chain            0x00400425    0x5c  Code  Lc  ff.o [1]
+restoreClock            0x0040aba7    0x84  Code  Lc  scr_lp_modes_wait.o [1]
+rotor_slider_deltas     0x2000bd94     0x8  Data  Lc  touch_rs_qt.o [4]
+rotor_slider_enter_detect
+                        0x0040a76d    0x18  Code  Gb  touch_rs_qt.o [4]
+rotors_sliders          0x2000bd90     0x4  Data  Lc  touch_rs_qt.o [4]
+sDISP_Backend_ILI9325   0x2000148c    0x40  Data  Gb  backend_ILI9325.o [1]
+sWGT_Frontend_ADS7843   0x00411628     0xc  Data  Gb  frontend_ADS7843.o [1]
+sWGT_Frontend_Potentiometer
+                        0x00411634     0xc  Data  Gb  frontend_potentiometer.o [1]
+sWGT_Frontend_PushButtons
+                        0x00411640     0xc  Data  Gb  frontend_pushbuttons.o [1]
+sWGT_Frontend_QTouch    0x0041164c     0xc  Data  Gb  frontend_qtouch.o [1]
+sensors                 0x2000b79c   0x100  Data  Gb  touch_process.o [4]
+serialNumberDescriptor  0x00411338    0x1c  Data  Lc  MSDDriverDescriptors.o [1]
+snprintf                0x00410c45    0x40  Code  Gb  snprintf.o [3]
+sprintf                 0x00410f7d    0x30  Code  Gb  sprintf.o [3]
+srand                   0x004111c9     0x6  Code  Gb  rand.o [1]
+start_cal_sensor        0x00407de1    0x1c  Code  Gb  touch_process.o [4]
+strcat                  0x004112fd    0x1e  Code  Gb  strcat.o [3]
+strchr                  0x004114bd          Code  Gb  strchr.o [5]
+stringDescriptors       0x20001588    0x10  Data  Lc  MSDDriverDescriptors.o [1]
+strlen                  0x00410e19          Code  Gb  strlen.o [5]
+strncpy                 0x004104fd          Code  Gb  strncpy.o [5]
+sum_sfn                 0x004007f7    0x1e  Code  Lc  ff.o [1]
+switchMckFastRC         0x0040ab55    0x52  Code  Lc  scr_lp_modes_wait.o [1]
+sync                    0x00400193    0xb8  Code  Lc  ff.o [1]
+syslock_o               0x2000bd78     0x4  Data  Lc  xsyslock.o [3]
+szStatusText            0x2000b248    0x14  Data  Lc  scr_main.o [1]
+szVersionText           0x2000bd3c    0x14  Data  Lc  scr_infos.o [1]
+time_of_last_call_ms    0x2000bd6c     0x2  Data  Lc  touch_api.o [4]
+time_to_measure_touch   0x2000bdb0     0x1  Data  Lc  qtouch.o [1]
+timer_prescale          0x2000bab2     0x2  Data  Lc  touch_api.o [4]
+translatedNf            0x2000444c  0x2910  Data  Lc  ftldrv.o [1]
+usTaskCheckFreeStackSpace
+                        0x00405df7    0x16  Code  Lc  tasks.o [1]
+usbdDriver              0x2000bb90     0xc  Data  Lc  MSDDriver.o [1]
+uxCriticalNesting       0x20001598     0x4  Data  Lc  port.o [1]
+uxCurrentNumberOfTasks  0x2000141c     0x4  Data  Lc  tasks.o [1]
+uxMissedTicks           0x2000b9f8     0x4  Data  Lc  tasks.o [1]
+uxPreviousTask          0x2000143c     0x4  Data  Lc  tasks.o [1]
+uxSchedulerSuspended    0x2000b9f4     0x4  Data  Lc  tasks.o [1]
+uxTaskGetNumberOfTasks  0x004059c5     0x8  Code  Gb  tasks.o [1]
+uxTaskNumber            0x2000b9fc     0x4  Data  Lc  tasks.o [1]
+uxTopReadyPriority      0x2000b9f0     0x4  Data  Lc  tasks.o [1]
+uxTopUsedPriority       0x20001420     0x4  Data  Lc  tasks.o [1]
+vApplicationIdleHook    0x0040b5ff     0x2  Code  Gb  main.o [1]
+vApplicationStackOverflowHook
+                        0x0040b5b3     0xe  Code  Gb  main.o [1]
+vApplicationTickHook    0x0040b659    0x1c  Code  Gb  main.o [1]
+vListInitialise         0x0040fae1    0x1a  Code  Gb  list.o [1]
+vListInitialiseItem     0x0040fafb     0x6  Code  Gb  list.o [1]
+vListInsert             0x0040fb1d    0x34  Code  Gb  list.o [1]
+vListInsertEnd          0x0040fb01    0x1c  Code  Gb  list.o [1]
+vListRemove             0x0040fb51    0x24  Code  Gb  list.o [1]
+vPortClearInterruptMask
+                        0x0040fe73          Code  Gb  portasm.o [1]
+vPortEnterCritical      0x0040f8c9    0x10  Code  Gb  port.o [1]
+vPortExitCritical       0x0040f8d9    0x12  Code  Gb  port.o [1]
+vPortFree               0x004109b7     0x2  Code  Gb  heap_1.o [1]
+vPortSetInterruptMask   0x0040fe65          Code  Gb  portasm.o [1]
+vPortStartFirstTask     0x0040fe9d          Code  Gb  portasm.o [1]
+vPortYieldFromISR       0x0040f8bf     0xa  Code  Gb  port.o [1]
+vSetMSP                 0x0040fe29          Code  Gb  portasm.o [1]
+vTaskDelay              0x00405867    0x4a  Code  Gb  tasks.o [1]
+vTaskIncrementTick      0x00405a47    0x92  Code  Gb  tasks.o [1]
+vTaskList               0x004059cd    0x7a  Code  Gb  tasks.o [1]
+vTaskMissedYield        0x00405cbb     0x8  Code  Gb  tasks.o [1]
+vTaskPlaceOnEventList   0x00405b9b    0x52  Code  Gb  tasks.o [1]
+vTaskPriorityDisinherit
+                        0x00405e6f    0x3e  Code  Gb  tasks.o [1]
+vTaskPriorityInherit    0x00405e13    0x5c  Code  Gb  tasks.o [1]
+vTaskSetTimeOutState    0x00405c4d     0xe  Code  Gb  tasks.o [1]
+vTaskStartScheduler     0x004058b1    0x3e  Code  Gb  tasks.o [1]
+vTaskSuspendAll         0x004058ef     0xc  Code  Gb  tasks.o [1]
+vTaskSwitchContext      0x00405ad9    0xc2  Code  Gb  tasks.o [1]
+validate                0x00400fcd    0x28  Code  Lc  ff.o [1]
+xDelayedTaskList1       0x2000ba00    0x14  Data  Lc  tasks.o [1]
+xDelayedTaskList2       0x2000ba14    0x14  Data  Lc  tasks.o [1]
+xHeap                   0x200015b0  0x2c00  Data  Lc  heap_1.o [1]
+xMissedYield            0x20001428     0x4  Data  Lc  tasks.o [1]
+xNextFreeByte           0x200015a8     0x4  Data  Lc  heap_1.o [1]
+xNumOfOverflows         0x2000bdd4     0x4  Data  Lc  tasks.o [1]
+xPendingReadyList       0x200013f4    0x14  Data  Lc  tasks.o [1]
+xPortGetFreeHeapSize    0x004109b9     0xa  Code  Gb  heap_1.o [1]
+xPortStartScheduler     0x0040f899    0x26  Code  Gb  port.o [1]
+xQueueCreate            0x0040865d    0x64  Code  Gb  queue.o [1]
+xQueueCreateMutex       0x004086c1    0x48  Code  Gb  queue.o [1]
+xQueueGenericReceive    0x00408827   0x10e  Code  Gb  queue.o [1]
+xQueueGenericSend       0x00408709    0xcc  Code  Gb  queue.o [1]
+xQueueGenericSendFromISR
+                        0x004087d5    0x52  Code  Gb  queue.o [1]
+xSchedulerRunning       0x20001424     0x4  Data  Lc  tasks.o [1]
+xSuspendedTaskList      0x20001408    0x14  Data  Lc  tasks.o [1]
+xTaskCheckForTimeOut    0x00405c61    0x5a  Code  Gb  tasks.o [1]
+xTaskGenericCreate      0x00405779    0xee  Code  Gb  tasks.o [1]
+xTaskGetCurrentTaskHandle
+                        0x00405e0d     0x6  Code  Gb  tasks.o [1]
+xTaskGetTickCount       0x004059b1    0x14  Code  Gb  tasks.o [1]
+xTaskRemoveFromEventList
+                        0x00405bed    0x60  Code  Gb  tasks.o [1]
+xTaskResumeAll          0x004058fb    0xb6  Code  Gb  tasks.o [1]
+xTickCount              0x2000b9ec     0x4  Data  Lc  tasks.o [1]
+xTracing                0x20001438     0x4  Data  Lc  tasks.o [1]
+
+
+[1] = D:\Document\Atmel\ARM\sam3s\sam3s-ek_demo_1.4_source\sam3s-ek_demo_1.4\demo\ewp\output\debug\obj
+[2] = command line
+[3] = dl7M_tl_if.a
+[4] = libQTouchIarCfg3SRevB.a
+[5] = rt7M_tl.a
+
+  60 980 bytes of readonly  code memory
+  11 078 bytes of readonly  data memory
+  48 626 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
