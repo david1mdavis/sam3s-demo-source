@@ -38,6 +38,15 @@ extern const uint8_t aucBmp_logo_atmel[] ;
 //extern const uint8_t aucBmp_lena128x128x8[] ;
 //extern const uint8_t aucBmp_lena128x128x24clr[] ;
 extern const uint8_t bmp_config_backlight[];
-
+extern const uint8_t bmp_under_construction[];
+extern const uint8_t btn_back[];
+extern const uint8_t btn_audio[];
+extern const uint8_t btn_video[];
+extern const uint8_t btn_slideshow[];
+extern const uint8_t btn_settings[] ;
+extern const uint8_t btn_qtouch[];
+extern const uint8_t btn_low_power_modes[];
+extern const uint8_t btn_infos[] ;
+extern const uint8_t bmp_intro_sam3s_ek[];
 
 #endif // _DEMO_BITMAPS_

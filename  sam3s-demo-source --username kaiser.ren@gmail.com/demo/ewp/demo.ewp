@@ -2696,7 +2696,43 @@
     <group>
       <name>excluded</name>
       <file>
+        <name>$PROJ_DIR$\..\src\bitmaps\bmp_config_backlight.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\src\bitmaps\bmp_intro_sam3s_ek.c</name>
+      </file>
+      <file>
         <name>$PROJ_DIR$\..\src\bitmaps\bmp_logo_atmel.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\src\bitmaps\bmp_under_construction.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\src\bitmaps\btn_audio.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\src\bitmaps\btn_back.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\src\bitmaps\btn_infos.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\src\bitmaps\btn_low_power_modes.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\src\bitmaps\btn_qt_down.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\src\bitmaps\btn_qtouch.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\src\bitmaps\btn_settings.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\src\bitmaps\btn_slideshow.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\src\bitmaps\btn_video.c</name>
       </file>
       <file>
         <name>$PROJ_DIR$\..\src\bitmaps\lena128x128x24.c</name>
@@ -2713,9 +2749,6 @@
     </group>
     <file>
       <name>$PROJ_DIR$\..\src\bitmaps\bitmaps.h</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\src\bitmaps\bmp_config_backlight.c</name>
     </file>
   </group>
   <group>
