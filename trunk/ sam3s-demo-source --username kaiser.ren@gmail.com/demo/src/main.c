@@ -225,7 +225,7 @@ extern int main( void )
     _SetupHardware() ;
 
     /** Initialize and start SAM-GUI. */
-    if ( WGT_Initialize() == SAMGUI_E_OK )
+    if ( WGT_Initialize() == SAMGUI_E_OK ) //Task_Create, _WGT_TaskMessageLoop
     {
 #    if 0
         // For tests only

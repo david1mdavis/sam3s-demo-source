@@ -36,6 +36,10 @@
 #include "board.h"
 #include <stdio.h>
 
+
+/* Bitmaps */
+#include "bitmaps/bitmaps.h"
+
 /**
  * \addtogroup screens
  * @{
