@@ -37,6 +37,9 @@
 #include <stdio.h>
 #include <string.h>
 
+/* Bitmaps */
+#include "bitmaps/bitmaps.h"
+
 /**
  * \addtogroup screens
  * @{
@@ -135,7 +138,7 @@ static uint32_t ScrMain_OnEraseBackground( SWGTScreen* pScreen )
      SGUIColor clr ;
 
     // Draw Atmel logo
-	g_WGT_CoreData.pBE->DrawBitmap( 4, 8, 87, 40, (void*)"/demo/bitmaps/bmp_logo atmel.bmp" ) ;
+	g_WGT_CoreData.pBE->DrawBitmap( 4, 8, 87, 40, (uint8_t*)aucBmp_logo_atmel ) ;
 
     // Draw labels
     clr.u.dwRGBA=GUICLR_ATMEL_BLUE ;

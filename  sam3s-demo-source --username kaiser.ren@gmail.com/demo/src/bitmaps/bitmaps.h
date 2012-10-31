@@ -30,13 +30,14 @@
 #ifndef _DEMO_BITMAPS_
 #define _DEMO_BITMAPS_
 
-//extern const uint8_t aucBmp_logo_atmel[] ;
+extern const uint8_t aucBmp_logo_atmel[] ;
 
 
 //extern const uint8_t aucBmp_lena256x256x8[] ;
 //extern const uint8_t aucBmp_lena128x128x24[] ;
 //extern const uint8_t aucBmp_lena128x128x8[] ;
 //extern const uint8_t aucBmp_lena128x128x24clr[] ;
+extern const uint8_t bmp_config_backlight[];
 
 
 #endif // _DEMO_BITMAPS_
