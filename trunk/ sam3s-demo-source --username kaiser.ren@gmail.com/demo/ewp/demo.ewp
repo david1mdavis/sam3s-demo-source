@@ -2695,9 +2695,6 @@
     <name>bitmaps</name>
     <group>
       <name>excluded</name>
-      <excluded>
-        <configuration>Debug</configuration>
-      </excluded>
       <file>
         <name>$PROJ_DIR$\..\src\bitmaps\bmp_logo_atmel.c</name>
       </file>
@@ -2716,6 +2713,9 @@
     </group>
     <file>
       <name>$PROJ_DIR$\..\src\bitmaps\bitmaps.h</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\src\bitmaps\bmp_config_backlight.c</name>
     </file>
   </group>
   <group>
