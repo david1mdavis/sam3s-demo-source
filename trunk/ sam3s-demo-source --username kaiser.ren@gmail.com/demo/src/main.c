@@ -227,24 +227,6 @@ extern int main( void )
     /** Initialize and start SAM-GUI. */
     if ( WGT_Initialize() == SAMGUI_E_OK ) //Task_Create, _WGT_TaskMessageLoop
     {
-#    if 0
-        // For tests only
-//        WGT_SetCurrentScreen( &ScrIntro ) ;
-//        WGT_SetCurrentScreen( &ScrMain ) ;
-//        WGT_SetCurrentScreen( &ScrAudio ) ;
-//        WGT_SetCurrentScreen( &ScrLPModes ) ;
-//        WGT_SetCurrentScreen( &ScrLPModes_Backup ) ;
-//        WGT_SetCurrentScreen( &ScrLPModes_Wait ) ;
-//        WGT_SetCurrentScreen( &ScrLPModes_Sleep ) ;
-//        WGT_SetCurrentScreen( &ScrSettings ) ;
-//        WGT_SetCurrentScreen( &ScrSettings_Date ) ;
-//        WGT_SetCurrentScreen( &ScrSettings_Time ) ;
-//        WGT_SetCurrentScreen( &ScrSettings_Backlight ) ;
-//        WGT_SetCurrentScreen( &ScrInfos ) ;
-//        WGT_SetCurrentScreen( &ScrPPT ) ;
-//        WGT_SetCurrentScreen( &ScrTSDCalibration ) ;
-        WGT_SetCurrentScreen( &ScrDISPDemo ) ;
-#    else
         /** if no TSD calibration done */
         if ( g_demo_parameters.sCalibration.lSlopeX == 0 )
         {
@@ -256,7 +238,6 @@ extern int main( void )
             /** Set Intro as first screen to be handled. */
             WGT_SetCurrentScreen( &ScrIntro ) ;
         }
-#    endif
 
         /** Start task to monitor processor activity */
         if ( xTaskCreate( _TaskMonitoring, "Monitor", TASK_MONITOR_STACK_SIZE, NULL, TASK_MONITOR_STACK_PRIORITY, NULL ) != pdPASS )

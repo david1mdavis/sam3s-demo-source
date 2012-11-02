@@ -177,6 +177,11 @@ extern uint32_t WGT_GetTimerPeriod( void )
 
 /** \brief
 */
+/*
+	This function evaluate pScreen with new value. The element are
+	always function portal.
+*/
+//@code
 extern uint32_t WGT_SetCurrentScreen( SWGTScreen* pScreen )
 {
     if ( pScreen == NULL )

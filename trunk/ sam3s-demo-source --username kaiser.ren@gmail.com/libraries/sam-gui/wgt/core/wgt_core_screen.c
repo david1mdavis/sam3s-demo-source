@@ -43,6 +43,10 @@
 // ------------------------------------------------------------------------------------------------
 // Screen functions
 // ------------------------------------------------------------------------------------------------
+/*
+	Clear apWidgets entity for new screen.
+*/
+//@code
 extern uint32_t WGT_Screen_Initialize( SWGTScreen* pScreen, uint32_t dwClrBackground, uint8_t* pucBmpBackground )
 {
     memset( pScreen->apWidgets, 0, sizeof( pScreen->apWidgets ) ) ;
@@ -55,7 +59,7 @@ extern uint32_t WGT_Screen_Initialize( SWGTScreen* pScreen, uint32_t dwClrBackgr
 
     return SAMGUI_E_OK ;
 }
-
+//@endcode
 extern uint32_t WGT_Screen_AddWidget( SWGTScreen* pScreen, SWGT_Widget* pWidget )
 {
     if ( pScreen->dwWidgets == WGT_MAX_WIDGETS )
