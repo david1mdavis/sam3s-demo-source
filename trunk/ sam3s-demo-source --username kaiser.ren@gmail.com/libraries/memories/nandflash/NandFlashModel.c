@@ -76,7 +76,7 @@ unsigned int CALINT(unsigned int result, unsigned int input)
 {
 	unsigned int i=0;
 	unsigned int tmpInput=0;
-        
+
     while(1)
     {
     	tmpInput +=input;
@@ -93,7 +93,7 @@ unsigned int CALINT(unsigned int result, unsigned int input)
 /*----------------------------------------------------------------------------
  *        Exported functions
  *----------------------------------------------------------------------------*/
- 
+
 /**
  * \brief Looks for a NandFlashModel corresponding to the given ID inside a list of
  * model. If found, the model variable is filled with the correct values.
@@ -118,7 +118,7 @@ unsigned char NandFlashModel_Find(
     id2 = (unsigned char)(chipId>>8);
     id4 = (unsigned char)(chipId>>24);
 
-    TRACE_INFO("Nandflash ID is 0x%08X\n\r", chipId);
+    TRACE_INFO("Nandflash ID is 0x%08X\r\n", chipId);
 
     for(i=0; i<size; i++) {
         if(modelList[i].deviceId == id2) {
@@ -159,7 +159,7 @@ unsigned char NandFlashModel_Find(
                         case 1024: pageSize = AT91C_HSMC4_PAGESIZE_1056_Bytes; break;
                         case 2048: pageSize = AT91C_HSMC4_PAGESIZE_2112_Bytes; break;
                         case 4096: pageSize = AT91C_HSMC4_PAGESIZE_4224_Bytes; break;
-                        default: TRACE_ERROR("Unsupportted page size for NAND Flash Controller\n\r");
+                        default: TRACE_ERROR("Unsupportted page size for NAND Flash Controller\r\n");
                     }
                     HSMC4_SetMode(pageSize | AT91C_HSMC4_DTOMUL_1048576 | AT91C_HSMC4_EDGECTRL |AT91C_HSMC4_DTOCYC | AT91C_HSMC4_RSPARE);
                 #endif
@@ -209,7 +209,7 @@ unsigned char NandFlashModel_TranslateAccess(
     #if !defined(OP_BOOTSTRAP_on)
     if ((address + size) > NandFlashModel_GetDeviceSizeInBytes(model)) {
 
-        TRACE_DEBUG("NandFlashModel_TranslateAccess: out-of-bounds access.\n\r");
+        TRACE_DEBUG("NandFlashModel_TranslateAccess: out-of-bounds access.\r\n");
         return NandCommon_ERROR_OUTOFBOUNDS;
     }
 	#endif

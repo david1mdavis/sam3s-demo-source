@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
- *         ATMEL Microcontroller Software Support 
+ *         ATMEL Microcontroller Software Support
  * ----------------------------------------------------------------------------
  * Copyright (c) 2008, Atmel Corporation
  *
@@ -56,7 +56,7 @@ unsigned char RTMEDIA_Init( RtMedia       *pRtMedia)
     /* Initialize driver mutex */
     pRtMedia->mutex = xSemaphoreCreateMutex();
     if (pRtMedia->mutex == NULL) {
-        TRACE_ERROR("Unable to allocate a mutex for Nand media\n\r");
+        TRACE_ERROR("Unable to allocate a mutex for Nand media\r\n");
         return 1;
     }
     return 0;
@@ -76,23 +76,23 @@ unsigned char RTMEDIA_Init( RtMedia       *pRtMedia)
  */
 unsigned char RTMEDIA_Write( RtMedia       *pRtMedia,
                              unsigned int  address,
-                             void          *data,                                      
+                             void          *data,
                              unsigned int  length,
                              MediaCallback callback,
                              void          *argument)
 {
   unsigned char result;
   Media *pMedia = &(pRtMedia->media);
-  
+
   /* Take the mutex */
   xSemaphoreTake( pRtMedia->mutex, ( portTickType ) 0 );
-  
+
   /* Invoke the Media Write function */
   result = pMedia->write(pMedia, address, data, length, callback, argument);
- 
-  /* Release the mutex */ 
+
+  /* Release the mutex */
   xSemaphoreGive( pRtMedia->mutex );
-  
+
   return result;
 }
 
@@ -110,23 +110,23 @@ unsigned char RTMEDIA_Write( RtMedia       *pRtMedia,
  */
 unsigned char RTMEDIA_Read( RtMedia       *pRtMedia,
                           unsigned int   address,
-                          void           *data,                                     
+                          void           *data,
                           unsigned int   length,
                           MediaCallback  callback,
                           void           *argument)
 {
   unsigned char result;
   Media *pMedia = &(pRtMedia->media);
-  
+
   /* Take the mutex */
   xSemaphoreTake( pRtMedia->mutex, ( portTickType ) 0 );
-  
+
   /* Invoke the Media Write function */
   result = pMedia->read(pMedia, address, data, length, callback, argument);
-    
-  /* Release the mutex */ 
+
+  /* Release the mutex */
   xSemaphoreGive( pRtMedia->mutex );
-  
+
   return result;
 }
 
@@ -140,15 +140,15 @@ unsigned char RTMEDIA_Flush( RtMedia       *pRtMedia)
 {
   unsigned char result;
   Media *pMedia = &(pRtMedia->media);
-  
+
   /* Take the mutex */
   xSemaphoreTake( pRtMedia->mutex, ( portTickType ) 0 );
-  
+
   /* Invoke the Media Write function */
   result = pMedia->flush(pMedia);
- 
-  /* Release the mutex */ 
+
+  /* Release the mutex */
   xSemaphoreGive( pRtMedia->mutex );
-  
+
   return result;
 }

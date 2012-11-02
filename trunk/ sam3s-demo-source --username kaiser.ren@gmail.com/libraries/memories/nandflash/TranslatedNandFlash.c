@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
- *         ATMEL Microcontroller Software Support 
+ *         ATMEL Microcontroller Software Support
  * ----------------------------------------------------------------------------
  * Copyright (c) 2008, Atmel Corporation
  *
@@ -95,7 +95,7 @@ static unsigned char PageIsClean(
     unsigned short page)
 {
     ASSERT(page < NandFlashModel_GetBlockSizeInPages(MODEL(translated)),
-           "PageIsClean: Page out-of-bounds\n\r");
+           "PageIsClean: Page out-of-bounds\r\n");
 
     return ((translated->currentBlockPageStatuses[page / 8] >> (page % 8)) & 1) == 0;
 }
@@ -110,7 +110,7 @@ static void MarkPageDirty(
     unsigned short page)
 {
     ASSERT(page < NandFlashModel_GetBlockSizeInPages(MODEL(translated)),
-           "PageIsClean: Page out-of-bounds\n\r");
+           "PageIsClean: Page out-of-bounds\r\n");
 
     translated->currentBlockPageStatuses[page / 8] |= 1 << (page % 8);
 }
@@ -140,37 +140,37 @@ static unsigned char AllocateBlock(
     unsigned char error;
     signed int eraseDifference;
 
-    TRACE_DEBUG("Allocating a new block\n\r");
+    TRACE_DEBUG("Allocating a new block\r\n");
 
     // Find youngest free block and youngest live block
     if (ManagedNandFlash_FindYoungestBlock(MANAGED(translated),
                                            NandBlockStatus_FREE,
                                            &freeBlock)) {
 
-        TRACE_ERROR("AllocateBlock: Could not find a free block\n\r");
+        TRACE_ERROR("AllocateBlock: Could not find a free block\r\n");
         return NandCommon_ERROR_NOBLOCKFOUND;
     }
 
     // If this is the last free block, save the logical mapping in it and
     // clean dirty blocks
-    TRACE_DEBUG("Number of FREE blocks: %d\n\r",
+    TRACE_DEBUG("Number of FREE blocks: %d\r\n",
               ManagedNandFlash_CountBlocks(MANAGED(translated), NandBlockStatus_FREE));
     if (ManagedNandFlash_CountBlocks(MANAGED(translated),
                                      NandBlockStatus_FREE) == 1) {
 
         // Save mapping and clean dirty blocks
-        TRACE_DEBUG("Last FREE block, cleaning up ...\n\r");
+        TRACE_DEBUG("Last FREE block, cleaning up ...\r\n");
 
         error = MappedNandFlash_SaveLogicalMapping(MAPPED(translated), freeBlock);
         if (error) {
 
-            TRACE_ERROR("AllocateBlock: Failed to save mapping\n\r");
+            TRACE_ERROR("AllocateBlock: Failed to save mapping\r\n");
             return error;
         }
         error = ManagedNandFlash_EraseDirtyBlocks(MANAGED(translated));
         if (error) {
 
-            TRACE_ERROR("AllocatedBlock: Failed to erase dirty blocks\n\r");
+            TRACE_ERROR("AllocatedBlock: Failed to erase dirty blocks\r\n");
             return error;
         }
 
@@ -184,15 +184,15 @@ static unsigned char AllocateBlock(
                                             &liveBlock)) {
 
         // Calculate erase count difference
-        TRACE_DEBUG("Free block erase count = %d\n\r", MANAGED(translated)->blockStatuses[freeBlock].eraseCount);
-        TRACE_DEBUG("Live block erase count = %d\n\r", MANAGED(translated)->blockStatuses[liveBlock].eraseCount);
+        TRACE_DEBUG("Free block erase count = %d\r\n", MANAGED(translated)->blockStatuses[freeBlock].eraseCount);
+        TRACE_DEBUG("Live block erase count = %d\r\n", MANAGED(translated)->blockStatuses[liveBlock].eraseCount);
         eraseDifference = absv(MANAGED(translated)->blockStatuses[freeBlock].eraseCount
                               - MANAGED(translated)->blockStatuses[liveBlock].eraseCount);
 
         // Check if it is too big
         if (eraseDifference > MAXERASEDIFFERENCE) {
 
-            TRACE_WARNING("Erase difference too big, switching blocks\n\r");
+            TRACE_WARNING("Erase difference too big, switching blocks\r\n");
             MappedNandFlash_Map(
                 MAPPED(translated),
                 MappedNandFlash_PhysicalToLogical(
@@ -209,7 +209,7 @@ static unsigned char AllocateBlock(
     }
 
     // Map block
-    TRACE_DEBUG("Allocating PB#%d for LB#%d\n\r", freeBlock, block);
+    TRACE_DEBUG("Allocating PB#%d for LB#%d\r\n", freeBlock, block);
     MappedNandFlash_Map(MAPPED(translated), block, freeBlock);
 
     return 0;
@@ -280,7 +280,7 @@ unsigned char TranslatedNandFlash_ReadPage(
 {
     unsigned char error;
 
-    TRACE_INFO("TranslatedNandFlash_ReadPage(B#%d:P#%d)\n\r", block, page);
+    TRACE_INFO("TranslatedNandFlash_ReadPage(B#%d:P#%d)\r\n", block, page);
 
     // If the page to read is in the current block, there is a previous physical
     // block and the page is clean -> read the page in the old block since the
@@ -289,7 +289,7 @@ unsigned char TranslatedNandFlash_ReadPage(
         && (translated->previousPhysicalBlock != -1)
         && (PageIsClean(translated, page))) {
 
-        TRACE_DEBUG("Reading page from current block\n\r");
+        TRACE_DEBUG("Reading page from current block\r\n");
         return ManagedNandFlash_ReadPage(MANAGED(translated),
                                          translated->previousPhysicalBlock,
                                          page,
@@ -300,35 +300,35 @@ unsigned char TranslatedNandFlash_ReadPage(
 
         // Try to read the page from the logical block
         error = MappedNandFlash_ReadPage(MAPPED(translated), block, page, data, spare);
-    
+
         // Block was not mapped
         if (error == NandCommon_ERROR_BLOCKNOTMAPPED) {
-    
-            ASSERT(!spare, "Cannot read the spare information of an unmapped block\n\r");
-    
+
+            ASSERT(!spare, "Cannot read the spare information of an unmapped block\r\n");
+
             // Check if a block can be allocated
             if (BlockCanBeAllocated(translated)) {
-    
+
                 // Return 0xFF in buffers with no error
-                TRACE_DEBUG("Block #%d is not mapped but can be allocated, filling buffer with 0xFF\n\r", block);
+                TRACE_DEBUG("Block #%d is not mapped but can be allocated, filling buffer with 0xFF\r\n", block);
                 if (data) {
-    
+
                     memset(data, 0xFF, NandFlashModel_GetPageDataSize(MODEL(translated)));
                 }
                 if (spare) {
-    
+
                     memset(spare, 0xFF, NandFlashModel_GetPageSpareSize(MODEL(translated)));
                 }
             }
             else {
 
-                TRACE_ERROR("Block #%d is not mapped and there are no more blocks available\n\r", block);
+                TRACE_ERROR("Block #%d is not mapped and there are no more blocks available\r\n", block);
                 return NandCommon_ERROR_NOMOREBLOCKS;
             }
         }
         // Error
         else if (error) {
-    
+
             return error;
         }
     }
@@ -355,7 +355,7 @@ unsigned char TranslatedNandFlash_WritePage(
     unsigned char allocate = 1;
     unsigned char error;
 
-    TRACE_INFO("TranslatedNandFlash_WritePage(B#%d:P#%d)\n\r", block, page);
+    TRACE_INFO("TranslatedNandFlash_WritePage(B#%d:P#%d)\r\n", block, page);
 
     // A new block must be allocated unless:
     // 1. the block is not mapped and there are no more blocks to allocate
@@ -364,10 +364,10 @@ unsigned char TranslatedNandFlash_WritePage(
         // Block is not mapped, check if it can be
         if (!BlockCanBeAllocated(translated)) {
 
-            TRACE_ERROR("TranslatedNandFlash_WritePage: Not enough free blocks\n\r");
+            TRACE_ERROR("TranslatedNandFlash_WritePage: Not enough free blocks\r\n");
             return NandCommon_ERROR_NOMOREBLOCKS;
         }
-        TRACE_DEBUG("Allocate because block not mapped\n\r");
+        TRACE_DEBUG("Allocate because block not mapped\r\n");
     }
     // or 2. the block to write is the current one and the page to write is
     // clean
@@ -375,17 +375,17 @@ unsigned char TranslatedNandFlash_WritePage(
 
         if (PageIsClean(translated, page)) {
 
-            TRACE_DEBUG("NO allocate because write in current block\n\r");
+            TRACE_DEBUG("NO allocate because write in current block\r\n");
             allocate = 0;
         }
         else {
 
-            TRACE_DEBUG("Allocate because page DIRTY in current block\n\r");
+            TRACE_DEBUG("Allocate because page DIRTY in current block\r\n");
         }
     }
     else {
 
-        TRACE_DEBUG("Allocate because block is mapped and different from current block\n\r");
+        TRACE_DEBUG("Allocate because block is mapped and different from current block\r\n");
     }
 
     // Allocate block if needed
@@ -400,7 +400,7 @@ unsigned char TranslatedNandFlash_WritePage(
         translated->previousPhysicalBlock = MappedNandFlash_LogicalToPhysical(
                                                 MAPPED(translated),
                                                 block);
-        TRACE_DEBUG("Previous physical block is now #%d\n\r",
+        TRACE_DEBUG("Previous physical block is now #%d\r\n",
                   translated->previousPhysicalBlock);
         error = AllocateBlock(translated, block);
         if (error) {
@@ -447,7 +447,7 @@ unsigned char TranslatedNandFlash_Flush(struct TranslatedNandFlash *translated)
         return 0;
     }
 
-    TRACE_INFO("TranslatedNandFlash_Flush(PB#%d -> LB#%d)\n\r",
+    TRACE_INFO("TranslatedNandFlash_Flush(PB#%d -> LB#%d)\r\n",
               translated->previousPhysicalBlock, translated->currentLogicalBlock);
 
     // Copy missing pages in the current block
@@ -459,7 +459,7 @@ unsigned char TranslatedNandFlash_Flush(struct TranslatedNandFlash *translated)
 
         if (PageIsClean(translated, i)) {
 
-            TRACE_DEBUG("Copying back page #%d of block #%d\n\r", i,
+            TRACE_DEBUG("Copying back page #%d of block #%d\r\n", i,
                       translated->previousPhysicalBlock);
 
             // Copy page
@@ -470,7 +470,7 @@ unsigned char TranslatedNandFlash_Flush(struct TranslatedNandFlash *translated)
                                               i);
             if (error) {
 
-                TRACE_ERROR("FinishCurrentWrite: copy page #%d\n\r", i);
+                TRACE_ERROR("FinishCurrentWrite: copy page #%d\r\n", i);
                 return error;
             }
         }
@@ -510,7 +510,7 @@ unsigned char TranslatedNandFlash_SaveLogicalMapping(
     unsigned char error;
     unsigned short freeBlock;
 
-    TRACE_INFO("TranslatedNandFlash_SaveLogicalMapping()\n\r");
+    TRACE_INFO("TranslatedNandFlash_SaveLogicalMapping()\r\n");
 
     // Save logical mapping in the youngest free block
     // Find the youngest block
@@ -519,7 +519,7 @@ unsigned char TranslatedNandFlash_SaveLogicalMapping(
                                                &freeBlock);
     if (error) {
 
-        TRACE_ERROR("TranNF_SaveLogicalMapping: No free block\n\r");
+        TRACE_ERROR("TranNF_SaveLogicalMapping: No free block\r\n");
         return error;
     }
 
@@ -531,8 +531,8 @@ unsigned char TranslatedNandFlash_SaveLogicalMapping(
         TranslatedNandFlash_Flush(translated);
         error = ManagedNandFlash_EraseDirtyBlocks(MANAGED(translated));
         if (error) {
-        
-            TRACE_ERROR("TranNF_Flush: Could not erase dirty blocks\n\r");
+
+            TRACE_ERROR("TranNF_Flush: Could not erase dirty blocks\r\n");
             return error;
         }
     }
@@ -541,7 +541,7 @@ unsigned char TranslatedNandFlash_SaveLogicalMapping(
     error = MappedNandFlash_SaveLogicalMapping(MAPPED(translated), freeBlock);
     if (error) {
 
-        TRACE_ERROR("TranNF_Flush: Failed to save mapping in #%d\n\r",
+        TRACE_ERROR("TranNF_Flush: Failed to save mapping in #%d\r\n",
                     freeBlock);
         return error;
     }

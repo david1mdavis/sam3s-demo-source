@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
- *         ATMEL Microcontroller Software Support 
+ *         ATMEL Microcontroller Software Support
  * ----------------------------------------------------------------------------
  * Copyright (c) 2008, Atmel Corporation
  *
@@ -71,14 +71,14 @@ static unsigned char IsDeviceVirgin(const struct ManagedNandFlash *managed,
                             NandFlashModel_GetScheme(MODEL(managed));
     unsigned short baseBlock = managed->baseBlock;
     unsigned char badBlockMarker;
-    
+
     unsigned char error;
 
-    ASSERT(spare, "ManagedNandFlash_IsDeviceVirgin: spare\n\r");
+    ASSERT(spare, "ManagedNandFlash_IsDeviceVirgin: spare\r\n");
 
     // Read spare area of page #0
     error = RawNandFlash_ReadPage(RAW(managed), baseBlock, 0, 0, spare);
-    ASSERT(!error, "ManagedNandFlash_IsDeviceVirgin: Failed to read page #0\n\r");
+    ASSERT(!error, "ManagedNandFlash_IsDeviceVirgin: Failed to read page #0\r\n");
 
     // Retrieve bad block marker and block status from spare area
     NandSpareScheme_ReadBadBlockMarker(scheme, spare, &badBlockMarker);
@@ -117,13 +117,13 @@ static unsigned char CheckBlock(
     unsigned int i;
     unsigned char pageSpareSize = NandFlashModel_GetPageSpareSize(MODEL(managed));
 
-    ASSERT(spare, "ManagedNandFlash_CheckBlock: spare\n\r");
+    ASSERT(spare, "ManagedNandFlash_CheckBlock: spare\r\n");
 
     // Read spare area of first page of block
     error = RawNandFlash_ReadPage(RAW(managed), block, 0, 0, spare);
     if (error) {
 
-        TRACE_ERROR("CheckBlock: Cannot read page #0 of block #%d\n\r", block);
+        TRACE_ERROR("CheckBlock: Cannot read page #0 of block #%d\r\n", block);
         return error;
     }
 
@@ -140,7 +140,7 @@ static unsigned char CheckBlock(
     error = RawNandFlash_ReadPage(RAW(managed), block, 1, 0, spare);
     if (error) {
 
-        TRACE_ERROR("CheckBlock: Cannot read page #1 of block #%d\n\r", block);
+        TRACE_ERROR("CheckBlock: Cannot read page #1 of block #%d\r\n", block);
         return error;
     }
 
@@ -170,7 +170,7 @@ static unsigned char WriteBlockStatus(
     struct NandBlockStatus *pStatus,
     unsigned char *spare)
 {
-    ASSERT(spare, "ManagedNandFlash_WriteBlockStatus: spare\n\r");
+    ASSERT(spare, "ManagedNandFlash_WriteBlockStatus: spare\r\n");
 
     memset(spare, 0xFF, NandCommon_MAXPAGESPARESIZE);
     NandSpareScheme_WriteExtra(NandFlashModel_GetScheme(MODEL(managed)),
@@ -219,7 +219,7 @@ unsigned char ManagedNandFlash_Initialize(
     unsigned char badBlockMarker;
     unsigned int eraseCount, minEraseCount, maxEraseCount;
 
-    TRACE_DEBUG("ManagedNandFlash_Initialize()\n\r");
+    TRACE_DEBUG("ManagedNandFlash_Initialize()\r\n");
 
     // Initialize EccNandFlash
     error = EccNandFlash_Initialize(ECC(managed),
@@ -246,12 +246,12 @@ unsigned char ManagedNandFlash_Initialize(
     else if (baseBlock + sizeInBlocks > numBlocks) {
         sizeInBlocks = numBlocks - baseBlock;
     }
-    TRACE_INFO("Managed NF area: %d + %d\n\r", baseBlock, sizeInBlocks);
-    
+    TRACE_INFO("Managed NF area: %d + %d\r\n", baseBlock, sizeInBlocks);
+
     if (sizeInBlocks > NandCommon_MAXNUMBLOCKS) {
-        TRACE_ERROR("Out of Maxmized Managed Size: %d > %d\n\r",
+        TRACE_ERROR("Out of Maxmized Managed Size: %d > %d\r\n",
                     sizeInBlocks, NandCommon_MAXNUMBLOCKS);
-        TRACE_INFO("Change NandCommon_MAXNUMBLOCKS or sizeInBlocks\n\r");
+        TRACE_INFO("Change NandCommon_MAXNUMBLOCKS or sizeInBlocks\r\n");
         return NandCommon_ERROR_OUTOFBOUNDS;
     }
 
@@ -262,7 +262,7 @@ unsigned char ManagedNandFlash_Initialize(
     // First, check if device is virgin
     if (IsDeviceVirgin(managed, spare)) {
 
-        TRACE_WARNING("Device is virgin, doing initial block scanning ...\n\r");
+        TRACE_WARNING("Device is virgin, doing initial block scanning ...\r\n");
 
         // Perform initial scan of the device area
         for (block=0; block < sizeInBlocks; block++) {
@@ -274,13 +274,13 @@ unsigned char ManagedNandFlash_Initialize(
             if (error == BADBLOCK) {
 
                 // Mark block as bad
-                TRACE_DEBUG("Block #%d is bad\n\r", block);
+                TRACE_DEBUG("Block #%d is bad\r\n", block);
                 managed->blockStatuses[block].status = NandBlockStatus_BAD;
             }
             else if (error == GOODBLOCK) {
 
                 // Mark block as free with erase count 0
-                TRACE_DEBUG("Block #%d is free\n\r", block);
+                TRACE_DEBUG("Block #%d is free\r\n", block);
                 managed->blockStatuses[block].status = NandBlockStatus_FREE;
                 managed->blockStatuses[block].eraseCount = 0;
 
@@ -291,20 +291,20 @@ unsigned char ManagedNandFlash_Initialize(
                                          spare);
                 if (error) {
 
-                    TRACE_ERROR("ManagedNandFlash_Initialize: WR spare\n\r");
+                    TRACE_ERROR("ManagedNandFlash_Initialize: WR spare\r\n");
                     return error;
                 }
             }
             else {
 
-                TRACE_ERROR("ManagedNandFlash_Initialize: Scan device\n\r");
+                TRACE_ERROR("ManagedNandFlash_Initialize: Scan device\r\n");
                 return error;
             }
         }
     }
     else {
 
-        TRACE_INFO("Managed, retrieving information ...\n\r");
+        TRACE_INFO("Managed, retrieving information ...\r\n");
 
         // Retrieve block statuses from their first page spare area
         // (find maximum and minimum wear at the same time)
@@ -318,7 +318,7 @@ unsigned char ManagedNandFlash_Initialize(
             error = RawNandFlash_ReadPage(RAW(managed), phyBlock, 0, 0, spare);
             if (error) {
 
-                TRACE_ERROR("ManagedNandFlash_Initialize: Read block #%d(%d)\n\r",
+                TRACE_ERROR("ManagedNandFlash_Initialize: Read block #%d(%d)\r\n",
                             block, phyBlock);
             }
 
@@ -330,20 +330,20 @@ unsigned char ManagedNandFlash_Initialize(
             if (   (badBlockMarker != 0xFF)
                 && (blockStatus.status != NandBlockStatus_BAD)) {
 
-                TRACE_DEBUG("Block #%d(%d) is bad\n\r", block, phyBlock);
+                TRACE_DEBUG("Block #%d(%d) is bad\r\n", block, phyBlock);
                 managed->blockStatuses[block].status = NandBlockStatus_BAD;
             }
-            // Check that block status is not default 
+            // Check that block status is not default
             //    (meaning block is not managed)
             else if (blockStatus.status == NandBlockStatus_DEFAULT) {
 
-                TRACE_ERROR("Block #%d(%d) is not managed\n\r", block, phyBlock);
+                TRACE_ERROR("Block #%d(%d) is not managed\r\n", block, phyBlock);
                 return NandCommon_ERROR_NOMAPPING;
             }
             // Otherwise block status is accurate
             else {
 
-                TRACE_DEBUG("Block #%03d(%d) : status = %2d | eraseCount = %d\n\r",
+                TRACE_DEBUG("Block #%03d(%d) : status = %2d | eraseCount = %d\r\n",
                             block, phyBlock,
                             blockStatus.status, blockStatus.eraseCount);
                 managed->blockStatuses[block] = blockStatus;
@@ -373,9 +373,9 @@ unsigned char ManagedNandFlash_Initialize(
         }
 
         // Display erase count information
-        TRACE_ERROR_WP("|--------|------------|--------|--------|--------|\n\r");
-        TRACE_ERROR_WP("|  Wear  |   Count    |  Free  |  Live  | Dirty  |\n\r");
-        TRACE_ERROR_WP("|--------|------------|--------|--------|--------|\n\r");
+        TRACE_ERROR_WP("\r\n|--------|------------|--------|--------|--------|\r\n");
+        TRACE_ERROR_WP("|  Wear  |   Count    |  Free  |  Live  | Dirty  |\r\n");
+        TRACE_ERROR_WP("|--------|------------|--------|--------|--------|\r\n");
 
         for (eraseCount=minEraseCount; eraseCount <= maxEraseCount; eraseCount++) {
 
@@ -386,7 +386,7 @@ unsigned char ManagedNandFlash_Initialize(
                     && (managed->blockStatuses[block].status != NandBlockStatus_BAD)) {
 
                     count++;
-                
+
                     switch (managed->blockStatuses[block].status) {
                         case NandBlockStatus_LIVE: live++; break;
                         case NandBlockStatus_DIRTY: dirty++; break;
@@ -396,12 +396,12 @@ unsigned char ManagedNandFlash_Initialize(
             }
 
             if (count > 0) {
-            
-                TRACE_ERROR_WP("|  %4d  |  %8d  |  %4d  |  %4d  |  %4d  |\n\r",
+
+                TRACE_ERROR_WP("|  %4d  |  %8d  |  %4d  |  %4d  |  %4d  |\r\n",
                           eraseCount, count, free, live, dirty);
             }
         }
-        TRACE_ERROR_WP("|--------|------------|--------|--------|--------|\n\r");
+        TRACE_ERROR_WP("|--------|------------|--------|--------|--------|\r\n");
     }
 
     return 0;
@@ -419,12 +419,12 @@ unsigned char ManagedNandFlash_AllocateBlock(
     unsigned short block)
 {
     unsigned char spare[NandCommon_MAXPAGESPARESIZE];
-    TRACE_INFO("ManagedNandFlash_AllocateBlock(%d)\n\r", block);
+    TRACE_INFO("ManagedNandFlash_AllocateBlock(%d)\r\n", block);
 
     // Check that block is FREE
     if (managed->blockStatuses[block].status != NandBlockStatus_FREE) {
 
-        TRACE_ERROR("ManagedNandFlash_AllocateBlock: Block must be FREE\n\r");
+        TRACE_ERROR("ManagedNandFlash_AllocateBlock: Block must be FREE\r\n");
         return NandCommon_ERROR_WRONGSTATUS;
     }
 
@@ -448,12 +448,12 @@ unsigned char ManagedNandFlash_ReleaseBlock(
     unsigned short block)
 {
     unsigned char spare[NandCommon_MAXPAGESPARESIZE];
-    TRACE_INFO("ManagedNandFlash_ReleaseBlock(%d)\n\r", block);
+    TRACE_INFO("ManagedNandFlash_ReleaseBlock(%d)\r\n", block);
 
     // Check that block is LIVE
     if (managed->blockStatuses[block].status != NandBlockStatus_LIVE) {
 
-        TRACE_ERROR("ManagedNandFlash_ReleaseBlock: Block must be LIVE\n\r");
+        TRACE_ERROR("ManagedNandFlash_ReleaseBlock: Block must be LIVE\r\n");
         return NandCommon_ERROR_WRONGSTATUS;
     }
 
@@ -478,12 +478,12 @@ unsigned char ManagedNandFlash_EraseBlock(
     unsigned int phyBlock = managed->baseBlock + block;
     unsigned char spare[NandCommon_MAXPAGESPARESIZE];
     unsigned char error;
-    TRACE_INFO("ManagedNandFlash_EraseBlock(%d)\n\r", block);
+    TRACE_INFO("ManagedNandFlash_EraseBlock(%d)\r\n", block);
 
     // Check block status
     if (managed->blockStatuses[block].status != NandBlockStatus_DIRTY) {
 
-        TRACE_ERROR("ManagedNandFlash_EraseBlock: Block must be DIRTY\n\r");
+        TRACE_ERROR("ManagedNandFlash_EraseBlock: Block must be DIRTY\r\n");
         return NandCommon_ERROR_WRONGSTATUS;
     }
 
@@ -525,7 +525,7 @@ unsigned char ManagedNandFlash_ReadPage(
     if ((managed->blockStatuses[block].status != NandBlockStatus_LIVE)
         && (managed->blockStatuses[block].status != NandBlockStatus_DIRTY)) {
 
-        TRACE_ERROR("ManagedNandFlash_ReadPage: Block must be LIVE or DIRTY.\n\r");
+        TRACE_ERROR("ManagedNandFlash_ReadPage: Block must be LIVE or DIRTY.\r\n");
         return NandCommon_ERROR_WRONGSTATUS;
     }
 
@@ -555,7 +555,7 @@ unsigned char ManagedNandFlash_WritePage(
     // Check that the block is LIVE
     if (managed->blockStatuses[block].status != NandBlockStatus_LIVE) {
 
-        TRACE_ERROR("ManagedNandFlash_WritePage: Block must be LIVE.\n\r");
+        TRACE_ERROR("ManagedNandFlash_WritePage: Block must be LIVE.\r\n");
         return NandCommon_ERROR_WRONGSTATUS;
     }
 
@@ -589,21 +589,21 @@ unsigned char ManagedNandFlash_CopyPage(
     unsigned char error;
 
     ASSERT((sourcePage & 1) == (destPage & 1),
-           "ManagedNandFlash_CopyPage: source & dest pages must have the same parity\n\r");
+           "ManagedNandFlash_CopyPage: source & dest pages must have the same parity\r\n");
 
-    TRACE_INFO("ManagedNandFlash_CopyPage(B#%d:P#%d -> B#%d:P#%d)\n\r",
+    TRACE_INFO("ManagedNandFlash_CopyPage(B#%d:P#%d -> B#%d:P#%d)\r\n",
               sourceBlock, sourcePage, destBlock, destPage);
 
     // Check block statuses
     if ((managed->blockStatuses[sourceBlock].status != NandBlockStatus_LIVE)
          && (managed->blockStatuses[sourceBlock].status != NandBlockStatus_DIRTY)) {
 
-        TRACE_ERROR("ManagedNandFlash_CopyPage: Source block must be LIVE or DIRTY.\n\r");
+        TRACE_ERROR("ManagedNandFlash_CopyPage: Source block must be LIVE or DIRTY.\r\n");
         return NandCommon_ERROR_WRONGSTATUS;
     }
     if (managed->blockStatuses[destBlock].status != NandBlockStatus_LIVE) {
 
-        TRACE_ERROR("ManagedNandFlash_CopyPage: Destination block must be LIVE.\n\r");
+        TRACE_ERROR("ManagedNandFlash_CopyPage: Destination block must be LIVE.\r\n");
         return NandCommon_ERROR_WRONGSTATUS;
     }
 
@@ -670,9 +670,9 @@ unsigned char ManagedNandFlash_CopyBlock(
     unsigned short page;
 
     ASSERT(sourceBlock != destBlock,
-           "ManagedNandFlash_CopyBlock: Source block must be different from dest. block\n\r");
+           "ManagedNandFlash_CopyBlock: Source block must be different from dest. block\r\n");
 
-    TRACE_INFO("ManagedNandFlash_CopyBlock(B#%d->B#%d)\n\r",
+    TRACE_INFO("ManagedNandFlash_CopyBlock(B#%d->B#%d)\r\n",
               sourceBlock, destBlock);
 
     // Copy all pages
@@ -685,7 +685,7 @@ unsigned char ManagedNandFlash_CopyBlock(
                                           page);
         if (error) {
 
-            TRACE_ERROR("ManagedNandFlash_CopyPage: Failed to copy page %d\n\r", page);
+            TRACE_ERROR("ManagedNandFlash_CopyPage: Failed to copy page %d\r\n", page);
             return error;
         }
     }
@@ -827,7 +827,7 @@ unsigned char ManagedNandFlash_EraseAll(struct ManagedNandFlash *managed,
             // Reset block status
             managed->blockStatuses[i].eraseCount = 0;
             if (error) {
-                TRACE_WARNING("Managed_FullErase: %d(%d)\n\r",
+                TRACE_WARNING("Managed_FullErase: %d(%d)\r\n",
                               i, managed->baseBlock + i);
                 managed->blockStatuses[i].status     = NandBlockStatus_BAD;
                 continue;
@@ -839,7 +839,7 @@ unsigned char ManagedNandFlash_EraseAll(struct ManagedNandFlash *managed,
         for (i=0; i < managed->sizeInBlocks; i++) {
             error = ManagedNandFlash_EraseBlock(managed, i);
             if (error) {
-                TRACE_WARNING("Managed_DataErase: %d(%d)\n\r",
+                TRACE_WARNING("Managed_DataErase: %d(%d)\r\n",
                               i, managed->baseBlock + i);
             }
         }
@@ -849,12 +849,12 @@ unsigned char ManagedNandFlash_EraseAll(struct ManagedNandFlash *managed,
             if (managed->blockStatuses[i].status == NandBlockStatus_DIRTY) {
                 error = ManagedNandFlash_EraseBlock(managed, i);
                 if (error) {
-                    TRACE_WARNING("Managed_DirtyErase: %d(%d)\n\r",
+                    TRACE_WARNING("Managed_DirtyErase: %d(%d)\r\n",
                                   i, managed->baseBlock + i);
                 }
             }
         }
     }
-    
+
     return error;
 }

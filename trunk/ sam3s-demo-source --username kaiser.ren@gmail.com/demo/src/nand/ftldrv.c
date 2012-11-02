@@ -112,13 +112,13 @@ int NandFlashInitialize(void)
                                    nfCePin,
                                    nfRbPin);
     if (nfRc) {
-        printf("Nand not found\n\r");
+        printf("Nand not found\r\n");
         return 1;
     }
     else {
-        printf("NF\tNb Blocks %d\n\r", NandFlashModel_GetDeviceSizeInBlocks(pModel));
-        printf("\tBlock Size %dK\n\r", NandFlashModel_GetBlockSizeInBytes(pModel)/1024);
-        printf("\tPage Size %d\n\r", NandFlashModel_GetPageDataSize(pModel));
+        printf("NF\tNb Blocks %d\r\n", NandFlashModel_GetDeviceSizeInBlocks(pModel));
+        printf("\tBlock Size %dK\r\n", NandFlashModel_GetBlockSizeInBytes(pModel)/1024);
+        printf("\tPage Size %d\r\n", NandFlashModel_GetPageDataSize(pModel));
 
     }
 
@@ -134,8 +134,8 @@ int NandFlashInitialize(void)
                                    nfCePin,
                                    nfRbPin,
                                    NF_LUN_BASE, NF_LUN_SIZE/NandFlashModel_GetBlockSizeInBytes(pModel)/*NandFlashModel_GetDeviceSizeInBlocks(pModel)*/)) {
-        printf("Nand init error\n\r");
-        printf("Erase All to force format\n\r");
+        printf("Nand init error\r\n");
+        printf("Erase All to force format\r\n");
         for (block = 0;
              block < NandFlashModel_GetDeviceSizeInBlocks(pModel);
              block ++) {
@@ -149,7 +149,7 @@ int NandFlashInitialize(void)
                                        nfCePin,
                                        nfRbPin,
                                        NF_LUN_BASE, NF_LUN_SIZE/NandFlashModel_GetBlockSizeInBytes(pModel)/*NandFlashModel_GetDeviceSizeInBlocks(pModel)*/)) {
-            printf("Nand init fatal error\n\r");
+            printf("Nand init fatal error\r\n");
             return 1;
         }
     }
@@ -164,30 +164,30 @@ int NandFlashInitialize(void)
 
     FRESULT res;
 
-    printf("-I- Mount disk 0\n\r");
+    printf("-I- Mount disk 0\r\n");
     memset(&fs, 0, sizeof(FATFS));  // Clear file system object
     res = f_mount(0, &fs);
     if( res != FR_OK ) {
-        printf("-E- f_mount pb\n\r");
+        printf("-E- f_mount pb\r\n");
         return 1;
     }
     // Test if the disk is formated
     res = f_opendir (&dirs,STR_ROOT_DIRECTORY);
     if(res == FR_OK ){
-        printf("-I- The disk is already formated.\n\r");
+        printf("-I- The disk is already formated.\r\n");
     }
 
     // Format disk
     if (res == FR_NO_FILESYSTEM) {
-        printf("-I- Format disk 0\n\r");
-        printf("-I- Please wait a moment during formating...\n\r");
+        printf("-I- Format disk 0\r\n");
+        printf("-I- Please wait a moment during formating...\r\n");
         res = f_mkfs(0,    // Drv
                      0,    // FDISK partition
                      512); // AllocSize
-        printf("-I- Format disk finished !\n\r");
+        printf("-I- Format disk finished !\r\n");
         RTMEDIA_Flush(&(gRtNandMedias));
         if( res != FR_OK ) {
-            printf("-E- f_mkfs 0x%Xpb\n\r", res);
+            printf("-E- f_mkfs 0x%Xpb\r\n", res);
             return 1; //0;
         }
     }
@@ -203,7 +203,7 @@ int NandFlashInitialize(void)
 void TaskFtl( void* pParameter )
 {
     for ( ; ; ) {
-//        printf("-I- TaskFTL flush\n\r");
+//        printf("-I- TaskFTL flush\r\n");
         RTMEDIA_Flush(&(gRtNandMedias));
         vTaskDelay( FTL_FLUSH_RATE/portTICK_RATE_MS ) ;
     }
@@ -223,10 +223,10 @@ void TaskFtlTestWrite ( void* pParameter )
 
     for ( ; ; ) {
        // Create a new file
-        printf("-I- Create a file : \"%s\" of %ld bytes\n\r", gTestFileName, fileLength);
+        printf("-I- Create a file : \"%s\" of %ld bytes\r\n", gTestFileName, fileLength);
         res = f_open(&FileObject, gTestFileName, FA_CREATE_ALWAYS|FA_WRITE);
         if( res != FR_OK ) {
-            printf("-E- f_open create pb: 0x%X \n\r", res);
+            printf("-E- f_open create pb: 0x%X \r\n", res);
             return ; //0;
         }
         // Write a  pattern in the buffer
@@ -236,7 +236,7 @@ void TaskFtlTestWrite ( void* pParameter )
             if ((++i % sizeof(data)) == 0) {
                 res = f_write(&FileObject, data, sizeof(data), &ByteWritten);
                 if( res != FR_OK ) {
-                    printf("-E- f_write pb: 0x%X\n\r", res);
+                    printf("-E- f_write pb: 0x%X\r\n", res);
                     return ; //0;
                 }
             }
@@ -244,13 +244,13 @@ void TaskFtlTestWrite ( void* pParameter )
         if ((i % sizeof(data)) > 0) {
                 res = f_write(&FileObject, data, i % sizeof(data), &ByteWritten);
                 if( res != FR_OK ) {
-                    printf("-E- f_write pb: 0x%X\n\r", res);
+                    printf("-E- f_write pb: 0x%X\r\n", res);
                     return ; //0;
                 }
         }
         res = f_close(&FileObject);
         if( res != FR_OK ) {
-            printf("-E- f_close pb: 0x%X\n\r", res);
+            printf("-E- f_close pb: 0x%X\r\n", res);
             return ; //0;
         }
 
@@ -273,28 +273,28 @@ void TaskFtlTestRead ( void* pParameter )
        // Create a new file
         res = f_open(&FileObject, gTestFileName, FA_OPEN_EXISTING|FA_READ);
         if( res != FR_OK ) {
-            printf("-E- f_open create pb: 0x%X \n\r", res);
+            printf("-E- f_open create pb: 0x%X \r\n", res);
         }
         else {
             i = 0;
             do {
                 res = f_read(&FileObject, data, sizeof(data), &byteRead);
                 if( res != FR_OK ) {
-                    printf("-E- f_write pb: 0x%X\n\r", res);
+                    printf("-E- f_write pb: 0x%X\r\n", res);
                     return ; //0;
                 }
                 for (j = 0; j < byteRead; ++j) {
                     if (data[j] != (unsigned char)(i++)) {
-                        printf("-E- Wrong value\n\r");
+                        printf("-E- Wrong value\r\n");
                     }
                 }
             } while (byteRead);
             res = f_close(&FileObject);
             if( res != FR_OK ) {
-                printf("-E- f_close pb: 0x%X\n\r", res);
+                printf("-E- f_close pb: 0x%X\r\n", res);
                 return ; //0;
             }
-            printf("-I- Read a file : \"%s\" of %ld bytes\n\r", gTestFileName, i);
+            printf("-I- Read a file : \"%s\" of %ld bytes\r\n", gTestFileName, i);
         }
         vTaskDelay( 100/portTICK_RATE_MS ) ;
      }

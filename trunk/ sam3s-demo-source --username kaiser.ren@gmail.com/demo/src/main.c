@@ -217,9 +217,9 @@ extern int main( void )
     WDT_Disable() ;
 
     /** Output demo infomation. */
-    printf( "-- Demo AT91SAM3S4C %s --\n\r", DEMO_VERSION ) ;
-    printf( "-- %s\n\r", BOARD_NAME ) ;
-    printf( "-- Compiled: %s %s --\n\r", __DATE__, __TIME__ ) ;
+    printf( "-- Demo AT91SAM3S4C %s --\r\n", DEMO_VERSION ) ;
+    printf( "-- %s\r\n", BOARD_NAME ) ;
+    printf( "-- Compiled: %s %s --\r\n", __DATE__, __TIME__ ) ;
 
     /** Prepare the hardware. */
     _SetupHardware() ;

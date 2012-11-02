@@ -33,7 +33,7 @@
  * SkipBlockNandFlash layer supplies application a set of interface to operate nandflash.
  *
  */
- 
+
 /*----------------------------------------------------------------------------
  *        Headers
  *----------------------------------------------------------------------------*/
@@ -117,7 +117,7 @@
 /*----------------------------------------------------------------------------
  *        Internal functions
  *----------------------------------------------------------------------------*/
- 
+
 /**
  * \brief Sends the column address to the NandFlash chip.
  *
@@ -137,7 +137,7 @@ static void WriteColumnAddress(
     }
 
     while (pageDataSize > 0) {
-    
+
         if (NandFlashModel_GetDataBusWidth(MODEL(raw)) == 16) {
             WRITE_ADDRESS16(raw, columnAddress & 0xFF);
         }
@@ -162,7 +162,7 @@ static void WriteRowAddress(
     unsigned int numPages = NandFlashModel_GetDeviceSizeInPages(MODEL(raw));
 
     while (numPages > 0) {
-    
+
         if (NandFlashModel_GetDataBusWidth(MODEL(raw)) == 16) {
             WRITE_ADDRESS16(raw, rowAddress & 0xFF);
         }
@@ -183,10 +183,10 @@ static void WaitReady(const struct RawNandFlash *raw)
 {
     if (raw->pinReadyBusy.mask) {
         PIO_EnableIt(&(raw->pinReadyBusy));
-        
+
         while (!PIO_Get(&(raw->pinReadyBusy)));
         //if (!PIO_Get(&(raw->pinReadyBusy)) {
-            
+
         //}
     }
     else {
@@ -311,7 +311,7 @@ static unsigned char EraseBlock(
 	#if !defined (OP_BOOTSTRAP_on)
     if (!IsOperationComplete(raw)) {
         TRACE_ERROR(
-                 "EraseBlock: Could not erase block %d.\n\r",
+                 "EraseBlock: Could not erase block %d.\r\n",
                  block);
         error = NandCommon_ERROR_CANNOTERASE;
     }
@@ -367,9 +367,9 @@ static unsigned char WritePage(
             WriteData(raw, (unsigned char *) spare, spareDataSize);
         }
         else {
-            // Note: special case when ECC parity generation. 
+            // Note: special case when ECC parity generation.
             // ECC results are available as soon as the counter reaches the end of the main area.
-            // But when reach PageSize for an example, it could not generate last ECC_PR, The 
+            // But when reach PageSize for an example, it could not generate last ECC_PR, The
             // workaround is to receive PageSize+1 word.
             ReadData(raw, (unsigned char *) (&dummyByte), 2);
         }
@@ -377,7 +377,7 @@ static unsigned char WritePage(
 
         WaitReady(raw);
         if (!IsOperationComplete(raw)) {
-            TRACE_ERROR("WritePage: Failed writing data area.\n\r");
+            TRACE_ERROR("WritePage: Failed writing data area.\r\n");
             error = NandCommon_ERROR_CANNOTWRITE;
         }
     }
@@ -393,7 +393,7 @@ static unsigned char WritePage(
 
         WaitReady(raw);
         if (!IsOperationComplete(raw)) {
-            TRACE_ERROR("WritePage: Failed writing data area.\n\r");
+            TRACE_ERROR("WritePage: Failed writing data area.\r\n");
             error = NandCommon_ERROR_CANNOTWRITE;
         }
     }
@@ -429,9 +429,9 @@ static unsigned char CopyPage(
     unsigned char error = 0;
 
     ASSERT((sourcePage & 1) == (destPage & 1),
-           "CopyPage: Source and destination page must have the same parity.\n\r");
+           "CopyPage: Source and destination page must have the same parity.\r\n");
 
-    TRACE_DEBUG("CopyPage(B#%d:P#%d -> B#%d:P#%d)\n\r",
+    TRACE_DEBUG("CopyPage(B#%d:P#%d -> B#%d:P#%d)\r\n",
               sourceBlock, sourcePage, destBlock, destPage);
 
     // Use the copy-back facility if available
@@ -456,7 +456,7 @@ static unsigned char CopyPage(
 
         // Check status
         if (!IsOperationComplete(raw)) {
-            TRACE_ERROR("CopyPage: Failed to copy page.\n\r");
+            TRACE_ERROR("CopyPage: Failed to copy page.\r\n");
             error = NandCommon_ERROR_CANNOTCOPY;
         }
 
@@ -467,12 +467,12 @@ static unsigned char CopyPage(
         // Software copy
         if (RawNandFlash_ReadPage(raw, sourceBlock, sourcePage, RawNandFlash_GetDataBuffer(raw), RawNandFlash_GetSpareBuffer(raw))) {
 
-            TRACE_ERROR("CopyPage: Failed to read page to copy\n\r");
+            TRACE_ERROR("CopyPage: Failed to read page to copy\r\n");
             error = NandCommon_ERROR_CANNOTREAD;
         }
         else if (RawNandFlash_WritePage(raw, destBlock, destPage, RawNandFlash_GetDataBuffer(raw), RawNandFlash_GetSpareBuffer(raw))) {
 
-            TRACE_ERROR("CopyPage: Failed to write dest. page\n\r");
+            TRACE_ERROR("CopyPage: Failed to write dest. page\r\n");
             error = NandCommon_ERROR_CANNOTWRITE;
         }
     }
@@ -483,7 +483,7 @@ static unsigned char CopyPage(
 /*----------------------------------------------------------------------------
  *        Exported functions
  *----------------------------------------------------------------------------*/
- 
+
 /**
  * \brief Initializes a RawNandFlash instance based on the given model and physical interface.
  *
@@ -520,14 +520,14 @@ unsigned char RawNandFlash_Initialize(
     // If model is not provided, autodetect it
     if (!model) {
 
-        TRACE_DEBUG("No model provided, trying autodetection ...\n\r");
+        TRACE_DEBUG("No model provided, trying autodetection ...\r\n");
         if (NandFlashModel_Find(nandFlashModelList,
                                 NandFlashModelList_SIZE,
                                 RawNandFlash_ReadId(raw),
                                 &(raw->model))) {
 
             TRACE_ERROR(
-                      "RawNandFlash_Initialize: Could not autodetect chip.\n\r");
+                      "RawNandFlash_Initialize: Could not autodetect chip.\r\n");
             return NandCommon_ERROR_UNKNOWNMODEL;
         }
     }
@@ -539,7 +539,7 @@ unsigned char RawNandFlash_Initialize(
 
     raw->dataLock  = 0;
     raw->spareLock = 0;
-    
+
     return 0;
 }
 
@@ -550,7 +550,7 @@ unsigned char RawNandFlash_Initialize(
  */
 void RawNandFlash_Reset(const struct RawNandFlash *raw)
 {
-    TRACE_DEBUG("RawNandFlash_Reset()\n\r");
+    TRACE_DEBUG("RawNandFlash_Reset()\r\n");
 
     ENABLE_CE(raw);
     WRITE_COMMAND(raw, COMMAND_RESET);
@@ -569,7 +569,7 @@ unsigned int RawNandFlash_ReadId(const struct RawNandFlash *raw)
 {
     unsigned int chipId;
 
-    TRACE_DEBUG("RawNandFlash_ReadId()\n\r");
+    TRACE_DEBUG("RawNandFlash_ReadId()\r\n");
 
     ENABLE_CE(raw);
     //WRITE_COMMAND16(raw, COMMAND_READID);
@@ -584,7 +584,7 @@ unsigned int RawNandFlash_ReadId(const struct RawNandFlash *raw)
     return chipId;
 }
 
- 
+
 /**
  * \brief Erases the specified block of the device, retrying several time if it fails.
  *
@@ -599,7 +599,7 @@ unsigned char RawNandFlash_EraseBlock(
 	#if !defined(OP_BOOTSTRAP_on)
     unsigned char numTries = NUMERASETRIES;
 
-    TRACE_DEBUG("RawNandFlash_EraseBlock(B#%d)\n\r", block);
+    TRACE_DEBUG("RawNandFlash_EraseBlock(B#%d)\r\n", block);
 
     while (numTries > 0) {
 
@@ -610,7 +610,7 @@ unsigned char RawNandFlash_EraseBlock(
         numTries--;
     }
 
-    TRACE_ERROR("RawNandFlash_EraseBlock: Failed to erase %d after %d tries\n\r",
+    TRACE_ERROR("RawNandFlash_EraseBlock: Failed to erase %d after %d tries\r\n",
                 block, NUMERASETRIES);
     return NandCommon_ERROR_BADBLOCK;
 	#else
@@ -642,7 +642,7 @@ unsigned char RawNandFlash_ReadPage(
     unsigned int colAddress;
     unsigned int rowAddress;
 
-    ASSERT(data || spare, "RawNandFlash_ReadPage: At least one area must be read\n\r");
+    ASSERT(data || spare, "RawNandFlash_ReadPage: At least one area must be read\r\n");
     TRACE_DEBUG("RawNandFlash_ReadPage(B#%d:P#%d)\r\n", block, page);
 
     // Calculate actual address of the page
@@ -729,7 +729,7 @@ unsigned char RawNandFlash_WritePage(
         numTries--;
     }
 
-    TRACE_ERROR("RawNandFlash_WritePage: Failed to write page after %d tries\n\r", NUMWRITETRIES);
+    TRACE_ERROR("RawNandFlash_WritePage: Failed to write page after %d tries\r\n", NUMWRITETRIES);
     return NandCommon_ERROR_BADBLOCK;
 }
 
@@ -754,7 +754,7 @@ unsigned char RawNandFlash_CopyPage(
 {
     unsigned char numTries = NUMCOPYTRIES;
 
-    TRACE_DEBUG("RawNandFlash_CopyPage(B#%d:P#%d -> B#%d:P#%d)\n\r",
+    TRACE_DEBUG("RawNandFlash_CopyPage(B#%d:P#%d -> B#%d:P#%d)\r\n",
               sourceBlock, sourcePage, destBlock, destPage);
 
     while (numTries) {
@@ -766,7 +766,7 @@ unsigned char RawNandFlash_CopyPage(
         numTries--;
     }
 
-    TRACE_ERROR("RawNandFlash_CopyPage: Failed to copy page after %d tries\n\r", NUMCOPYTRIES);
+    TRACE_ERROR("RawNandFlash_CopyPage: Failed to copy page after %d tries\r\n", NUMCOPYTRIES);
     return NandCommon_ERROR_BADBLOCK;
 }
 
@@ -787,8 +787,8 @@ unsigned char RawNandFlash_CopyBlock(
     unsigned int i;
 
     ASSERT(sourceBlock != destBlock,
-           "RawNandFlash_CopyBlock: Source block must be different from dest block\n\r");
-    TRACE_DEBUG("RawNandFlash_CopyBlock(B#%d->B#%d)\n\r",
+           "RawNandFlash_CopyBlock: Source block must be different from dest block\r\n");
+    TRACE_DEBUG("RawNandFlash_CopyBlock(B#%d->B#%d)\r\n",
               sourceBlock, destBlock);
 
     // Copy all pages
@@ -797,7 +797,7 @@ unsigned char RawNandFlash_CopyBlock(
         if (RawNandFlash_CopyPage(raw, sourceBlock, i, destBlock, i)) {
 
             TRACE_ERROR(
-                      "RawNandFlash_CopyBlock: Failed to copy page %u\n\r",
+                      "RawNandFlash_CopyBlock: Failed to copy page %u\r\n",
                       i);
             return NandCommon_ERROR_BADBLOCK;
         }
@@ -809,7 +809,7 @@ unsigned char RawNandFlash_CopyBlock(
 unsigned char *RawNandFlash_GetDataBuffer(
     struct RawNandFlash *raw)
 {
-    ASSERT(raw->dataLock == 0, "Data buffer is busy\n\r")  
+    ASSERT(raw->dataLock == 0, "Data buffer is busy\r\n")
     raw->dataLock = 1;
     return raw->tmpData;
 }
@@ -817,14 +817,14 @@ unsigned char *RawNandFlash_GetDataBuffer(
 void RawNandFlash_ReleaseDataBuffer(
     struct RawNandFlash *raw)
 {
-    ASSERT(raw->dataLock == 1, "Data buffer is not busy\n\r")  
+    ASSERT(raw->dataLock == 1, "Data buffer is not busy\r\n")
     raw->dataLock = 0;
 }
 
 unsigned char *RawNandFlash_GetSpareBuffer(
     struct RawNandFlash *raw)
 {
-    ASSERT(raw->spareLock == 0, "Spare buffer is busy\n\r")  
+    ASSERT(raw->spareLock == 0, "Spare buffer is busy\r\n")
     raw->spareLock = 1;
     return raw->tmpSpare;
 }
@@ -832,7 +832,7 @@ unsigned char *RawNandFlash_GetSpareBuffer(
 void RawNandFlash_ReleaseSpareBuffer(
     struct RawNandFlash *raw)
 {
-    ASSERT(raw->spareLock == 1, "Spare buffer is not busy\n\r")  
+    ASSERT(raw->spareLock == 1, "Spare buffer is not busy\r\n")
     raw->spareLock = 0;
 }
 
