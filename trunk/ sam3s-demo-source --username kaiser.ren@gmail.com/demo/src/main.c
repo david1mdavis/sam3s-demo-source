@@ -193,14 +193,14 @@ extern void vApplicationTickHook( void )
  */
 static void _TaskMonitoring( void *pvParameters )
 {
-    static char szList[256] ;
+    //static char szList[256] ;
 
     for ( ; ; )
     {
-        printf( "--- free heap %u\r\n", xPortGetFreeHeapSize() ) ;
-        printf( "--- task ## %u", uxTaskGetNumberOfTasks() ) ;
-        vTaskList( (signed char*)szList ) ;
-        printf( szList ) ;
+        //printf( "--- free heap %u\r\n", xPortGetFreeHeapSize() ) ;
+        //printf( "--- task ## %u", uxTaskGetNumberOfTasks() ) ;
+        //vTaskList( (signed char*)szList ) ;
+        //printf( szList ) ;
 //        printf( "\r\n" ) ;
         SAMGUI_TaskDelay( 10000 ) ;
     }
