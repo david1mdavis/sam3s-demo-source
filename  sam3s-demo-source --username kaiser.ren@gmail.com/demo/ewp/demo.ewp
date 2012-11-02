@@ -87,7 +87,7 @@
         </option>
         <option>
           <name>OGLastSavedByProductVersion</name>
-          <state>5.41.0.51757</state>
+          <state>6.10.1.52170</state>
         </option>
         <option>
           <name>GeneralEnableMisra</name>
@@ -150,7 +150,7 @@
           <state>flash</state>
           <state>USE_IAP_FEATURE</state>
           <state>SAM_PORTING=1</state>
-          <state>TRACE_LEVEL=0</state>
+          <state>TRACE_LEVEL=3</state>
         </option>
         <option>
           <name>CCPreprocFile</name>

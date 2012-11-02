@@ -34,9 +34,6 @@
 #include "sam-gui/wgt/core/wgt_core.h"
 #include <stdio.h>
 
-/* Bitmaps */
-#include "bitmaps/bitmaps.h"
-
 /**
  * \addtogroup screens
  * @{
@@ -54,11 +51,11 @@ static uint32_t ScrAudio_OnInitialize( SWGTScreen* pScreen )
     WGT_Screen_Initialize( pScreen, GUICLR_WHITE, NULL ) ;
 
     WGT_CreateWidget( &g_bmpUnderConstruction, WGT_TYPE_BITMAP, 87, 81, 70, 84 ) ;
-    WGT_SetBitmap( &g_bmpUnderConstruction, (uint8_t*)bmp_under_construction ) ;
+    WGT_SetBitmap( &g_bmpUnderConstruction, (void*)"/demo/bitmaps/bmp_under_construction.bmp" ) ;
     WGT_Screen_AddWidget( pScreen, &g_bmpUnderConstruction ) ;
 
     WGT_CreateWidget( &g_btnBack, WGT_TYPE_BUTTON, 12, 252, 48, 48 ) ;
-    WGT_SetBitmap( &g_btnBack, (uint8_t*)btn_back ) ;
+    WGT_SetBitmap( &g_btnBack, (void*)"/demo/bitmaps/btn_back.bmp" ) ;
     WGT_Screen_AddWidget( pScreen, &g_btnBack ) ;
 
     return SAMGUI_E_OK ;

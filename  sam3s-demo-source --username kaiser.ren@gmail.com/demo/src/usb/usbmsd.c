@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
- *         ATMEL Microcontroller Software Support 
+ *         ATMEL Microcontroller Software Support
  * ----------------------------------------------------------------------------
  * Copyright (c) 2008, Atmel Corporation
  *
@@ -83,7 +83,7 @@ const Pin gPinVbus = PIN_USB_VBUS;
  */
 static void VBus_Configure( void )
 {
-    TRACE_INFO("VBus configuration\n\r");
+    TRACE_INFO("VBus configuration\r\n");
 
     /* Configure PIO */
     PIO_Configure(&gPinVbus, 1);
@@ -95,7 +95,7 @@ static void VBus_Configure( void )
     if (PIO_Get(&gPinVbus)) {
 
         /* if VBUS present, force the connect */
-        TRACE_INFO("conn\n\r");
+        TRACE_INFO("conn\r\n");
         USBD_Connect();
     }
     else {
@@ -129,7 +129,7 @@ void MSDCallbacks_Data(unsigned char flowDirection,
     msdNullCnt += fifoNullCount;
 }
 
-int UsbMsdInitialize( void ) 
+int UsbMsdInitialize( void )
 {
 
     return 0;
@@ -145,12 +145,12 @@ void TaskUsbMsd ( void* pParameter )
              MSDCallbacks_Data);
 
     /* USB clock source has been initialized in Lowlevel Init */
-    
+
     /* BOT driver initialization */
     MSDDriver_Initialize(&(gMsdLun), 1);
 
     VBus_Configure();
-    
+
     for ( ; ; ) {
         /* Invoke Mass storage state machine */
         MSDDriver_StateMachine();

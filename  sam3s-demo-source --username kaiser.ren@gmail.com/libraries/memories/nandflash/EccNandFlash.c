@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
- *         ATMEL Microcontroller Software Support 
+ *         ATMEL Microcontroller Software Support
  * ----------------------------------------------------------------------------
  * Copyright (c) 2008, Atmel Corporation
  *
@@ -39,7 +39,7 @@
 #include <utility/assert.h>
 #ifdef HARDWARE_ECC
 #include <hsmc4/hsmc4_ecc.h>
-#endif 
+#endif
 #include <string.h>
 
 //------------------------------------------------------------------------------
@@ -50,7 +50,7 @@
 #define MODEL(ecc)  ((struct NandFlashModel *) ecc)
 #define RAW(ecc)    ((struct RawNandFlash *) ecc)
 
-    
+
 
 //------------------------------------------------------------------------------
 //         Exported functions
@@ -91,7 +91,7 @@ unsigned char EccNandFlash_Initialize(
         case 2048: ecc_page = AT91C_HSMC4_PAGESIZE_2112_Bytes; break;
         case 4096: ecc_page = AT91C_HSMC4_PAGESIZE_4224_Bytes; break;
         default:
-            TRACE_ERROR("PageSize %d not compatible with ECC\n\r",
+            TRACE_ERROR("PageSize %d not compatible with ECC\r\n",
                         NandFlashModel_GetPageDataSize(MODEL(ecc)));
             return NandCommon_ERROR_ECC_NOT_COMPATIBLE;
         }
@@ -127,16 +127,16 @@ unsigned char EccNandFlash_ReadPage(
     unsigned char *pDataBuffer;
     unsigned char *pSpareBuffer;
 
-    TRACE_DEBUG("EccNandFlash_ReadPage(B#%d:P#%d)\n\r", block, page);
+    TRACE_DEBUG("EccNandFlash_ReadPage(B#%d:P#%d)\r\n", block, page);
 
     pDataBuffer = (data)   ? data  : RawNandFlash_GetDataBuffer(RAW(ecc));
     pSpareBuffer = (spare) ? spare : RawNandFlash_GetSpareBuffer(RAW(ecc));
-    
+
 #ifndef HARDWARE_ECC
     // Start by reading the spare and the data
     error = RawNandFlash_ReadPage(RAW(ecc), block, page, pDataBuffer, pSpareBuffer);
     if (error) {
-       TRACE_ERROR("EccNandFlash_ReadPage: $page %d.%d\n\r",
+       TRACE_ERROR("EccNandFlash_ReadPage: $page %d.%d\r\n",
                 block, page);
         goto error;
     }
@@ -147,7 +147,7 @@ unsigned char EccNandFlash_ReadPage(
 #else
     error = RawNandFlash_ReadPage(RAW(ecc), block, page, (unsigned char*)data, tmpSpare);
     if (error) {
-        TRACE_ERROR("EccNandFlash_ReadPage: $page %d.%d\n\r",
+        TRACE_ERROR("EccNandFlash_ReadPage: $page %d.%d\r\n",
                 block, page);
         goto error;
     }
@@ -157,14 +157,14 @@ unsigned char EccNandFlash_ReadPage(
     HSMC4_GetEccParity(pageDataSize, hsiao, NandFlashModel_GetDataBusWidth(MODEL(ecc)));
     // Verify the data
     error = HSMC4_VerifyHsiao((unsigned char*) data,
-                              pageDataSize, 
+                              pageDataSize,
                               ecc->hsiaoInSpare,
                               ecc->hsiao,
                               NandFlashModel_GetDataBusWidth(MODEL(ecc)));
-#endif    
+#endif
     if (error && (error != Hamming_ERROR_SINGLEBIT)) {
         error = NandCommon_ERROR_CORRUPTEDDATA;
-        TRACE_ERROR("EccNandFlash_ReadPage: $page %d.%d\n\r",
+        TRACE_ERROR("EccNandFlash_ReadPage: $page %d.%d\r\n",
                 block, page);
         goto error;
     }
@@ -173,14 +173,14 @@ unsigned char EccNandFlash_ReadPage(
      if (spare) {
 
         memcpy(spare, pSpareBuffer, pageSpareSize);
-    }    
+    }
 #endif
-error: 
+error:
     if (data == (unsigned char *) 0)
       RawNandFlash_ReleaseDataBuffer(RAW(ecc));
     if (spare == (unsigned char *) 0)
         RawNandFlash_ReleaseSpareBuffer(RAW(ecc));
-    return error;   
+    return error;
 }
 
 //------------------------------------------------------------------------------
@@ -208,8 +208,8 @@ unsigned char EccNandFlash_WritePage(
     unsigned short pageSpareSize = NandFlashModel_GetPageSpareSize(MODEL(ecc));
     unsigned char *pSpareBuffer = RawNandFlash_GetSpareBuffer(RAW(ecc));
 
-    ASSERT(data || spare, "EccNandFlash_WritePage: At least one area must be written\n\r");
-    TRACE_DEBUG("EccNandFlash_WritePage(B#%d:P#%d)\n\r", block, page);
+    ASSERT(data || spare, "EccNandFlash_WritePage: At least one area must be written\r\n");
+    TRACE_DEBUG("EccNandFlash_WritePage(B#%d:P#%d)\r\n", block, page);
 #ifndef HARDWARE_ECC
     // Compute ECC on the new data, if provided
     // If not provided, hamming code set to 0xFFFF.. to keep existing bytes
@@ -248,15 +248,15 @@ unsigned char EccNandFlash_WritePage(
     // Perform write operation
     NandSpareScheme_WriteEcc(NandFlashModel_GetScheme(MODEL(ecc)), spare, hsiao);
     error = RawNandFlash_WritePage(RAW(ecc), block, page, 0, spare);
-    if (error) 
+    if (error)
       goto error;
-#endif        
+#endif
     RawNandFlash_ReleaseSpareBuffer(RAW(ecc));
     return 0;
-    
+
 error:
       RawNandFlash_ReleaseSpareBuffer(RAW(ecc));
-      TRACE_ERROR("EccNandFlash_WritePage: Failed to write page\n\r");
+      TRACE_ERROR("EccNandFlash_WritePage: Failed to write page\r\n");
       return error;
 }
 

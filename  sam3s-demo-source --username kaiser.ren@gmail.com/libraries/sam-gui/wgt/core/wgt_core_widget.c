@@ -124,10 +124,10 @@ extern uint32_t WGT_SetBitmap( SWGT_Widget* pWidget, uint8_t* pucBitmap )
 //        if ( f_read( &fp, &sHeader, sizeof( sHeader ), &dwLength ) == FR_OK )
 //        {
 ////            printf( "read %c%c\r\n", (char)(sHeader.type&0xff), (char)(sHeader.type>>8) ) ;
-////            printf( " -> .compression = %u\n\r", sHeader.compression ) ;
-////            printf( " -> .width = %u\n\r", sHeader.width ) ;
-////            printf( " -> .height = %u\n\r", sHeader.height ) ;
-////            printf( " -> .bits = %u\n\r", sHeader.bits ) ;
+////            printf( " -> .compression = %u\r\n", sHeader.compression ) ;
+////            printf( " -> .width = %u\r\n", sHeader.width ) ;
+////            printf( " -> .height = %u\r\n", sHeader.height ) ;
+////            printf( " -> .bits = %u\r\n", sHeader.bits ) ;
 //
 //            dwLineLength=(((sHeader.width*sHeader.bits)+31)/32)*4 ;
 //            printf( "free heap %u, needed %u\r\n", xPortGetFreeHeapSize(), dwLineLength ) ;

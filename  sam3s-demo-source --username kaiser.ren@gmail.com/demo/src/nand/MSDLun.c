@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
- *         ATMEL Microcontroller Software Support 
+ *         ATMEL Microcontroller Software Support
  * ----------------------------------------------------------------------------
  * Copyright (c) 2008, Atmel Corporation
  *
@@ -129,7 +129,7 @@ void RTLUN_Init(MSDLun        *lun,
 {
     unsigned int logicalBlockAddress;
     Media *media = &(rtMedia->media);
-    TRACE_INFO("LUN init\n\r");
+    TRACE_INFO("LUN init\r\n");
 
     // Initialize inquiry data
     lun->inquiryData = &inquiryData;
@@ -194,8 +194,8 @@ void RTLUN_Init(MSDLun        *lun,
         //        lun->size = media->size;
         //}
     }
-    
-    TRACE_INFO("LUN: blkSize %d, size %d\n\r", (int)lun->blockSize, (int)lun->size);
+
+    TRACE_INFO("LUN: blkSize %d, size %d\r\n", (int)lun->blockSize, (int)lun->size);
     if (protected) lun->protected = 1;
     else           lun->protected = media->protected;
 
@@ -263,16 +263,16 @@ unsigned char LUN_Write(MSDLun        *lun,
     // Check that the data is not too big
     if ((length + blockAddress) * lun->blockSize > lun->size) {
 
-        TRACE_WARNING("LUN_Write: Data too big\n\r");
+        TRACE_WARNING("LUN_Write: Data too big\r\n");
         status = USBD_STATUS_ABORTED;
     }
     else if (lun->rtMedia == 0 || lun->status != LUN_READY) {
 
-        TRACE_WARNING("LUN_Write: Media not ready\n\r");
+        TRACE_WARNING("LUN_Write: Media not ready\r\n");
         status = USBD_STATUS_ABORTED;
     }
     else if (lun->protected) {
-        TRACE_WARNING("LUN_Write: LUN is readonly\n\r");
+        TRACE_WARNING("LUN_Write: LUN is readonly\r\n");
         status = USBD_STATUS_ABORTED;
     }
     else {
@@ -296,7 +296,7 @@ unsigned char LUN_Write(MSDLun        *lun,
         }
         else {
 
-            TRACE_WARNING("LUN_Write: Cannot write media\n\r");
+            TRACE_WARNING("LUN_Write: Cannot write media\r\n");
             status = USBD_STATUS_ABORTED;
         }
     }
@@ -326,13 +326,13 @@ unsigned char LUN_Read(MSDLun        *lun,
     // Check that the data is not too big
     if ((length + blockAddress) * lun->blockSize > lun->size) {
 
-        TRACE_WARNING("LUN_Read: Area: (%d + %d)*%d > %d\n\r",
+        TRACE_WARNING("LUN_Read: Area: (%d + %d)*%d > %d\r\n",
                       (int)length, (int)blockAddress, (int)lun->blockSize, (int)lun->size);
         status = USBD_STATUS_ABORTED;
     }
     else if (lun->rtMedia == 0 || lun->status != LUN_READY) {
 
-        TRACE_WARNING("LUN_Read: Media not present\n\r");
+        TRACE_WARNING("LUN_Read: Media not present\r\n");
         status = USBD_STATUS_ABORTED;
     }
     else {
@@ -358,7 +358,7 @@ unsigned char LUN_Read(MSDLun        *lun,
         }
         else {
 
-            TRACE_WARNING("LUN_Read: Cannot read media\n\r");
+            TRACE_WARNING("LUN_Read: Cannot read media\r\n");
             status = USBD_STATUS_ABORTED;
         }
     }

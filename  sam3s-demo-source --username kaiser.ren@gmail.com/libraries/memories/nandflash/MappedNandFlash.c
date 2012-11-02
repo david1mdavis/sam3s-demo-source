@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
- *         ATMEL Microcontroller Software Support 
+ *         ATMEL Microcontroller Software Support
  * ----------------------------------------------------------------------------
  * Copyright (c) 2008, Atmel Corporation
  *
@@ -78,8 +78,8 @@ static unsigned char FindLogicalMappingBlock(
     unsigned char error;
     //unsigned char data[NandCommon_MAXPAGEDATASIZE];
     unsigned int i;
-    
-    TRACE_INFO("FindLogicalMappingBlock()~%d\n\r", numBlocks);
+
+    TRACE_INFO("FindLogicalMappingBlock()~%d\r\n", numBlocks);
 
     // Search each LIVE block
     found = 0;
@@ -90,7 +90,7 @@ static unsigned char FindLogicalMappingBlock(
         if (MANAGED(mapped)->blockStatuses[block].status == NandBlockStatus_LIVE) {
 
             // Read block
-            TRACE_INFO("Checking LIVE block #%d\n\r", block);
+            TRACE_INFO("Checking LIVE block #%d\r\n", block);
             error = ManagedNandFlash_ReadPage(MANAGED(mapped), block, 0, pDataBuffer, 0);
             if (!error) {
 
@@ -100,19 +100,19 @@ static unsigned char FindLogicalMappingBlock(
                 while ((i < pageDataSize) && found) {
 
                     if (pDataBuffer[i] != PATTERN(i)) {
-    
+
                         found = 0;
                     }
                     i++;
                 }
-    
+
                 // If this is the mapping, stop looking
                 if (found) {
-    
-                    TRACE_WARNING_WP("-I- Logical mapping in block #%d\n\r",
+
+                    TRACE_WARNING_WP("-I- Logical mapping in block #%d\r\n",
                                      block);
                     if (logicalMappingBlock) {
-    
+
                         *logicalMappingBlock = block;
                     }
                     RawNandFlash_ReleaseDataBuffer(RAW(mapped));
@@ -120,9 +120,9 @@ static unsigned char FindLogicalMappingBlock(
                 }
             }
             else if (error != NandCommon_ERROR_WRONGSTATUS) {
-    
+
                 TRACE_ERROR(
-                          "FindLogicalMappingBlock: Failed to scan block #%d\n\r",
+                          "FindLogicalMappingBlock: Failed to scan block #%d\r\n",
                           block);
                 RawNandFlash_ReleaseDataBuffer(RAW(mapped));
                 return error;
@@ -133,7 +133,7 @@ static unsigned char FindLogicalMappingBlock(
     }
 
     RawNandFlash_ReleaseDataBuffer(RAW(mapped));
-    TRACE_WARNING("No logical mapping found in device\n\r");
+    TRACE_WARNING("No logical mapping found in device\r\n");
     return NandCommon_ERROR_NOMAPPING;
 }
 
@@ -162,7 +162,7 @@ static unsigned char LoadLogicalMapping(
     signed short logicalBlock;
     //signed short firstBlock, lastBlock;
 
-    TRACE_INFO("LoadLogicalMapping(B#%d)\n\r", physicalBlock);
+    TRACE_INFO("LoadLogicalMapping(B#%d)\r\n", physicalBlock);
 
     // Load mapping from pages #1 - #XXX of block
     currentBuffer = (unsigned char *) mapped->logicalMapping;
@@ -181,7 +181,7 @@ static unsigned char LoadLogicalMapping(
 
             RawNandFlash_ReleaseDataBuffer(RAW(mapped));
             TRACE_ERROR(
-                      "LoadLogicalMapping: Failed to load mapping\n\r");
+                      "LoadLogicalMapping: Failed to load mapping\r\n");
             return error;
         }
 
@@ -211,7 +211,7 @@ static unsigned char LoadLogicalMapping(
                 // Block is not mapped -> release it
                 if (logicalBlock == -1) {
 
-                    TRACE_WARNING_WP("-I- Release unmapped LIVE #%d\n\r",
+                    TRACE_WARNING_WP("-I- Release unmapped LIVE #%d\r\n",
                                      i);
                     ManagedNandFlash_ReleaseBlock(MANAGED(mapped), i);
                 }
@@ -222,7 +222,7 @@ static unsigned char LoadLogicalMapping(
                 // Block is mapped -> fake it as live
                 if (logicalBlock != -1) {
 
-                    TRACE_WARNING_WP("-I- Mark mapped DIRTY #%d -> LIVE\n\r",
+                    TRACE_WARNING_WP("-I- Mark mapped DIRTY #%d -> LIVE\r\n",
                                      i);
                     mapped->managed.blockStatuses[i].status =
                                                     NandBlockStatus_LIVE;
@@ -234,7 +234,7 @@ static unsigned char LoadLogicalMapping(
                 // Block is mapped -> remove it from mapping
                 if (logicalBlock != -1) {
 
-                    TRACE_WARNING_WP("-I- Unmap FREE or BAD #%d\n\r", i);
+                    TRACE_WARNING_WP("-I- Unmap FREE or BAD #%d\r\n", i);
                     mapped->logicalMapping[logicalBlock] = -1;
                 }
             }
@@ -242,7 +242,7 @@ static unsigned char LoadLogicalMapping(
     }
 
     RawNandFlash_ReleaseDataBuffer(RAW(mapped));
-    TRACE_WARNING_WP("-I- Mapping loaded from block #%d\n\r", physicalBlock);
+    TRACE_WARNING_WP("-I- Mapping loaded from block #%d\r\n", physicalBlock);
 
     return 0;
 }
@@ -282,7 +282,7 @@ unsigned char MappedNandFlash_Initialize(
     unsigned short block;
     signed short logicalMappingBlock = 0;
 
-    TRACE_INFO("MappedNandFlash_Initialize()\n\r");
+    TRACE_INFO("MappedNandFlash_Initialize()\r\n");
 
     // Initialize ManagedNandFlash
     error = ManagedNandFlash_Initialize(MANAGED(mapped),
@@ -319,8 +319,8 @@ unsigned char MappedNandFlash_Initialize(
         }
     }
     else {
-        
-        TRACE_ERROR("MappedNandFlash_Initialize: Initialize device\n\r");
+
+        TRACE_ERROR("MappedNandFlash_Initialize: Initialize device\r\n");
         return error;
     }
 
@@ -346,13 +346,13 @@ unsigned char MappedNandFlash_ReadPage(
 {
     signed short physicalBlock;
 
-    TRACE_INFO("MappedNandFlash_ReadPage(LB#%d:P#%d)\n\r", block, page);
+    TRACE_INFO("MappedNandFlash_ReadPage(LB#%d:P#%d)\r\n", block, page);
 
     // Check if block is mapped
     physicalBlock = mapped->logicalMapping[block];
     if (physicalBlock == -1) {
 
-        TRACE_INFO( "MappedNandFlash_ReadPage: Block %d not mapped\n\r", block);
+        TRACE_INFO( "MappedNandFlash_ReadPage: Block %d not mapped\r\n", block);
         return NandCommon_ERROR_BLOCKNOTMAPPED;
     }
 
@@ -385,13 +385,13 @@ unsigned char MappedNandFlash_WritePage(
 {
     signed short physicalBlock;
 
-    TRACE_INFO("MappedNandFlash_WritePage(LB#%d:P#%d)\n\r", block, page);
+    TRACE_INFO("MappedNandFlash_WritePage(LB#%d:P#%d)\r\n", block, page);
 
     // Check if block is mapped
     physicalBlock = mapped->logicalMapping[block];
     if (physicalBlock == -1) {
 
-        TRACE_ERROR("MappedNandFlash_WritePage: Block must be mapped\n\r");
+        TRACE_ERROR("MappedNandFlash_WritePage: Block must be mapped\r\n");
         return NandCommon_ERROR_BLOCKNOTMAPPED;
     }
 
@@ -420,14 +420,14 @@ unsigned char MappedNandFlash_Map(
     unsigned char error;
     signed short oldPhysicalBlock;
 
-    TRACE_INFO("MappedNandFlash_Map(LB#%d -> PB#%d)\n\r",
+    TRACE_INFO("MappedNandFlash_Map(LB#%d -> PB#%d)\r\n",
                logicalBlock, physicalBlock);
     ASSERT(
        logicalBlock < ManagedNandFlash_GetDeviceSizeInBlocks(MANAGED(mapped)),
-       "MappedNandFlash_Map: logicalBlock out-of-range\n\r");
+       "MappedNandFlash_Map: logicalBlock out-of-range\r\n");
     ASSERT(
        physicalBlock < ManagedNandFlash_GetDeviceSizeInBlocks(MANAGED(mapped)),
-       "MappedNandFlash_Map: physicalBlock out-of-range\n\r");
+       "MappedNandFlash_Map: physicalBlock out-of-range\r\n");
 
     // Allocate physical block
     error = ManagedNandFlash_AllocateBlock(MANAGED(mapped), physicalBlock);
@@ -445,7 +445,7 @@ unsigned char MappedNandFlash_Map(
         if (error) {
 
             return error;
-        }                                      
+        }
     }
 
     // Set mapping
@@ -456,7 +456,7 @@ unsigned char MappedNandFlash_Map(
 }
 
 //------------------------------------------------------------------------------
-/// Unmaps a logical block by releasing the corresponding physical block (if 
+/// Unmaps a logical block by releasing the corresponding physical block (if
 /// any).
 /// Returns 0 if successful; otherwise returns a NandCommon_ERROR code.
 /// \param mapped  Pointer to a MappedNandFlash instance.
@@ -469,10 +469,10 @@ unsigned char MappedNandFlash_Unmap(
     signed short physicalBlock = mapped->logicalMapping[logicalBlock];
     unsigned char error;
 
-    TRACE_INFO("MappedNandFlash_Unmap(LB#%d)\n\r", logicalBlock);
+    TRACE_INFO("MappedNandFlash_Unmap(LB#%d)\r\n", logicalBlock);
     ASSERT(
         logicalBlock < ManagedNandFlash_GetDeviceSizeInBlocks(MANAGED(mapped)),
-        "MappedNandFlash_Unmap: logicalBlock out-of-range\n\r");
+        "MappedNandFlash_Unmap: logicalBlock out-of-range\r\n");
 
     if (physicalBlock != -1) {
 
@@ -500,7 +500,7 @@ signed short MappedNandFlash_LogicalToPhysical(
 {
     ASSERT(
         logicalBlock < ManagedNandFlash_GetDeviceSizeInBlocks(MANAGED(mapped)),
-        "MappedNandFlash_LogicalToPhysical: logicalBlock out-of-range\n\r");
+        "MappedNandFlash_LogicalToPhysical: logicalBlock out-of-range\r\n");
 
     return mapped->logicalMapping[logicalBlock];
 }
@@ -521,7 +521,7 @@ signed short MappedNandFlash_PhysicalToLogical(
 
     ASSERT(
        physicalBlock < ManagedNandFlash_GetDeviceSizeInBlocks(MANAGED(mapped)),
-       "MappedNandFlash_PhysicalToLogical: physicalBlock out-of-range\n\r");
+       "MappedNandFlash_PhysicalToLogical: physicalBlock out-of-range\r\n");
 
     // Search the mapping for the desired physical block
     for (logicalBlock=0; logicalBlock < numBlocks; logicalBlock++) {
@@ -561,14 +561,14 @@ unsigned char MappedNandFlash_SaveLogicalMapping(
     unsigned int writeSize;
     signed short previousPhysicalBlock;
 
-    TRACE_INFO("MappedNandFlash_SaveLogicalMapping(B#%d)\n\r", physicalBlock);
+    TRACE_INFO("MappedNandFlash_SaveLogicalMapping(B#%d)\r\n", physicalBlock);
 
     // If mapping has not been modified, do nothing
     if (!mapped->mappingModified) {
         return 0;
     }
     pDataBuffer =  RawNandFlash_GetDataBuffer(RAW(mapped));
-    
+
     // Allocate new block
     error = ManagedNandFlash_AllocateBlock(MANAGED(mapped), physicalBlock);
     if (error) {
@@ -595,7 +595,7 @@ unsigned char MappedNandFlash_SaveLogicalMapping(
                                            0);
         if (error) {
             TRACE_ERROR(
-             "MappedNandFlash_SaveLogicalMapping: Failed to write mapping\n\r");
+             "MappedNandFlash_SaveLogicalMapping: Failed to write mapping\r\n");
             goto error;
         }
 
@@ -615,7 +615,7 @@ unsigned char MappedNandFlash_SaveLogicalMapping(
                                        pDataBuffer, 0);
     if (error) {
         TRACE_ERROR(
-            "MappedNandFlash_SaveLogicalMapping: Failed to write pattern\n\r");
+            "MappedNandFlash_SaveLogicalMapping: Failed to write pattern\r\n");
         goto error;
     }
 
@@ -625,7 +625,7 @@ unsigned char MappedNandFlash_SaveLogicalMapping(
     // Release previous block (if any)
     if (previousPhysicalBlock != -1) {
 
-        TRACE_DEBUG("Previous physical block was #%d\n\r",
+        TRACE_DEBUG("Previous physical block was #%d\r\n",
                     previousPhysicalBlock);
         error = ManagedNandFlash_ReleaseBlock(MANAGED(mapped),
                                               previousPhysicalBlock);
@@ -634,9 +634,9 @@ unsigned char MappedNandFlash_SaveLogicalMapping(
         }
     }
 
-    TRACE_INFO("Mapping saved on block #%d\n\r", physicalBlock);
+    TRACE_INFO("Mapping saved on block #%d\r\n", physicalBlock);
 
-error:    
+error:
     RawNandFlash_ReleaseDataBuffer(RAW(mapped));
     return 0;
 }

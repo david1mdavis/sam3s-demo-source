@@ -37,12 +37,6 @@
 #include <stdio.h>
 #include <string.h>
 
-/* Bitmaps */
-#include "bitmaps/bitmaps.h"
-
-/* Bitmaps */
-#include "bitmaps/bitmaps.h"
-
 /**
  * \addtogroup screens
  * @{
@@ -90,32 +84,32 @@ static uint32_t ScrMain_OnInitialize( SWGTScreen* pScreen )
     }
 
     WGT_CreateWidget( &g_btnAudio, WGT_TYPE_BUTTON, 14, 62, 64, 64 ) ;
-    WGT_SetBitmap( &g_btnAudio, (uint8_t*)btn_audio ) ;
+    WGT_SetBitmap( &g_btnAudio, (void*)"/demo/bitmaps/btn_audio.bmp" ) ;
     WGT_Screen_AddWidget( pScreen, &g_btnAudio ) ;
 
     WGT_CreateWidget( &g_btnVideo, WGT_TYPE_BUTTON, 92, 60, 64, 64 ) ;
-    WGT_SetBitmap( &g_btnVideo, (uint8_t*)btn_video ) ;
+    WGT_SetBitmap( &g_btnVideo, (void*)"/demo/bitmaps/btn_video.bmp" ) ;
     WGT_Screen_AddWidget( pScreen, &g_btnVideo ) ;
 
     WGT_CreateWidget( &g_btnSlideShow, WGT_TYPE_BUTTON, 166, 61, 70, 63 ) ;
-    WGT_SetBitmap( &g_btnSlideShow, (uint8_t*)btn_slideshow ) ;
+    WGT_SetBitmap( &g_btnSlideShow, (void*)"/demo/bitmaps/btn_slideshow.bmp" ) ;
     WGT_Screen_AddWidget( pScreen, &g_btnSlideShow ) ;
 
     WGT_CreateWidget( &g_btnSettings, WGT_TYPE_BUTTON, 18, 140, 59, 60 ) ;
-    WGT_SetBitmap( &g_btnSettings, (uint8_t*)btn_settings ) ;
+    WGT_SetBitmap( &g_btnSettings, (void*)"/demo/bitmaps/btn_settings.bmp" ) ;
     WGT_Screen_AddWidget( pScreen, &g_btnSettings ) ;
 
 #if defined DEMO_USE_QTOUCH
     WGT_CreateWidget( &g_btnQTouch, WGT_TYPE_BUTTON, 95, 165-26, 69, 69 ) ;
-    WGT_SetBitmap( &g_btnQTouch, (uint8_t*)btn_qtouch ) ;
+    WGT_SetBitmap( &g_btnQTouch, (void*)"/demo/bitmaps/btn_qtouch.bmp" ) ;
     WGT_Screen_AddWidget( pScreen, &g_btnQTouch ) ;
 
     WGT_CreateWidget( &g_btnLPModes, WGT_TYPE_BUTTON, 184, 140, 47, 67 ) ;
-    WGT_SetBitmap( &g_btnLPModes, (uint8_t*)btn_low_power_modes ) ;
+    WGT_SetBitmap( &g_btnLPModes, (void*)"/demo/bitmaps/btn_low_power_modes.bmp" ) ;
     WGT_Screen_AddWidget( pScreen, &g_btnLPModes ) ;
 
     WGT_CreateWidget( &g_btnInfos, WGT_TYPE_BUTTON, 100, 217, 62, 62 ) ;
-    WGT_SetBitmap( &g_btnInfos, (uint8_t*)btn_infos ) ;
+    WGT_SetBitmap( &g_btnInfos, (void*)"/demo/bitmaps/btn_infos.bmp" ) ;
     WGT_Screen_AddWidget( pScreen, &g_btnInfos ) ;
 #else
     WGT_CreateWidget( &g_btnLPModes, WGT_TYPE_BUTTON, 98, 140, 47, 67 ) ;
@@ -141,7 +135,7 @@ static uint32_t ScrMain_OnEraseBackground( SWGTScreen* pScreen )
      SGUIColor clr ;
 
     // Draw Atmel logo
-	g_WGT_CoreData.pBE->DrawBitmap( 4, 8, 87, 40, (uint8_t*)aucBmp_logo_atmel ) ;
+	g_WGT_CoreData.pBE->DrawBitmap( 4, 8, 87, 40, (void*)"/demo/bitmaps/bmp_logo atmel.bmp" ) ;
 
     // Draw labels
     clr.u.dwRGBA=GUICLR_ATMEL_BLUE ;

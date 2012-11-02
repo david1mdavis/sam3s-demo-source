@@ -70,12 +70,12 @@ void PIOC_Irq21Handler(unsigned char id)
     /* Check current level on VBus */
     if (PIO_Get(&gPinVbus)) {
 
-        TRACE_INFO("VBUS conn\n\r");
+        TRACE_INFO("VBUS conn\r\n");
         USBD_Connect();
     }
     else {
 
-        TRACE_INFO("VBUS discon\n\r");
+        TRACE_INFO("VBUS discon\r\n");
         USBD_Disconnect();
     }
 }

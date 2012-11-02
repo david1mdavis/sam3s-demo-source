@@ -1070,7 +1070,7 @@ static uint32_t _DBE_ILI9325_DrawBitmapBMP( uint32_t dwX, uint32_t dwY, uint32_t
     // Read header information
     pHeader=(SBMPHeader*)pucData ;
 
-//    printf( "_DBE_ILI9325_DrawBitmapBMP\n\r" ) ;
+//    printf( "_DBE_ILI9325_DrawBitmapBMP\r\n" ) ;
 
     dwScanLineBits=pHeader->dwWidth*pHeader->wBits ;
     dwScanLineBytes=((dwScanLineBits+31)/32)*4 ;
@@ -1078,13 +1078,13 @@ static uint32_t _DBE_ILI9325_DrawBitmapBMP( uint32_t dwX, uint32_t dwY, uint32_t
     // Check that parameters match
     if ( (pHeader->dwCompression != 0) || (pHeader->dwWidth != dwWidth) || (pHeader->dwHeight != dwHeight) )
     {
-        printf( "BMP_Decode: File format not supported\n\r" ) ;
-        printf( " -> .compression = %u\n\r", pHeader->dwCompression ) ;
-        printf( " -> .width = %u %u\n\r", pHeader->dwWidth, dwWidth ) ;
-        printf( " -> .height = %u %u\n\r", pHeader->dwHeight, dwHeight ) ;
-        printf( " -> .bits = %u\n\r", pHeader->wBits ) ;
-        printf( " -> .scanline_bits = %u\n\r", dwScanLineBits ) ;
-        printf( " -> .scanline_bytes = %u\n\r", dwScanLineBytes ) ;
+        printf( "BMP_Decode: File format not supported\r\n" ) ;
+        printf( " -> .compression = %u\r\n", pHeader->dwCompression ) ;
+        printf( " -> .width = %u %u\r\n", pHeader->dwWidth, dwWidth ) ;
+        printf( " -> .height = %u %u\r\n", pHeader->dwHeight, dwHeight ) ;
+        printf( " -> .bits = %u\r\n", pHeader->wBits ) ;
+        printf( " -> .scanline_bits = %u\r\n", dwScanLineBits ) ;
+        printf( " -> .scanline_bytes = %u\r\n", dwScanLineBytes ) ;
 
         _DBE_ILI9325_DrawFilledRectangle( dwX, dwY, dwX+dwWidth-1, dwY+dwHeight-1, NULL, &clr ) ;
         clr.u.dwRGBA=0x000000 ;
@@ -1110,7 +1110,7 @@ static uint32_t _DBE_ILI9325_DrawBitmapBMP( uint32_t dwX, uint32_t dwY, uint32_t
         for ( dwRow=0 ; dwRow < dwMinHeight ; dwRow++ )
         {
             pucLine=pucImage+((dwHeight-dwRow-1)*dwScanLineBytes) ;
-//            printf( "_DBE_ILI9325_DrawBitmapBMP - Line %u/%u\n\r", dwRow, ((dwHeight-dwRow-1)*(dwWidth*3)) ) ;
+//            printf( "_DBE_ILI9325_DrawBitmapBMP - Line %u/%u\r\n", dwRow, ((dwHeight-dwRow-1)*(dwWidth*3)) ) ;
 
             for ( dwCol=0 ; dwCol < dwMinWidth ; dwCol++ )
             {
@@ -1152,7 +1152,7 @@ static uint32_t _DBE_ILI9325_DrawBitmapBMP( uint32_t dwX, uint32_t dwY, uint32_t
                 _DBE_ILI9325_SetCursor( dwX, dwY+dwRow ) ;
                 _DBE_ILI9325_RAMAccess_Prepare() ;
                 pucLine=pucImage+((dwHeight-dwRow-1)*dwWidth) ;
-//                printf( "_DBE_ILI9325_DrawBitmapBMP - Line %u/%u/%u\n\r", dwRow, dwMinWidth, ((dwHeight-dwRow-1)*dwWidth) ) ;
+//                printf( "_DBE_ILI9325_DrawBitmapBMP - Line %u/%u/%u\r\n", dwRow, dwMinWidth, ((dwHeight-dwRow-1)*dwWidth) ) ;
 
                 for ( dwCol=0 ; dwCol < dwMinWidth ; dwCol++ )
                 {
@@ -1164,8 +1164,8 @@ static uint32_t _DBE_ILI9325_DrawBitmapBMP( uint32_t dwX, uint32_t dwY, uint32_t
         }
         else
         {
-            printf( "BMP_Decode: Input resolution not supported\n\r" ) ;
-            printf( "header->bits 0x%X \n\r", pHeader->wBits ) ;
+            printf( "BMP_Decode: Input resolution not supported\r\n" ) ;
+            printf( "header->bits 0x%X \r\n", pHeader->wBits ) ;
 
 
             _DBE_ILI9325_DrawFilledRectangle( dwX, dwY, dwX+dwWidth-1, dwY+dwHeight-1, NULL, &clr ) ;
@@ -1202,10 +1202,10 @@ static uint32_t _DBE_ILI9325_DrawBitmapBMPFile( uint32_t dwX, uint32_t dwY, uint
         if ( f_read( &fp, &sHeader, sizeof( sHeader ), &dwLength ) == FR_OK )
         {
 //            printf( "read %c%c\r\n", (char)(sHeader.type&0xff), (char)(sHeader.type>>8) ) ;
-//            printf( " -> .compression = %u\n\r", sHeader.compression ) ;
-//            printf( " -> .width = %u\n\r", sHeader.width ) ;
-//            printf( " -> .height = %u\n\r", sHeader.height ) ;
-//            printf( " -> .bits = %u\n\r", sHeader.bits ) ;
+//            printf( " -> .compression = %u\r\n", sHeader.compression ) ;
+//            printf( " -> .width = %u\r\n", sHeader.width ) ;
+//            printf( " -> .height = %u\r\n", sHeader.height ) ;
+//            printf( " -> .bits = %u\r\n", sHeader.bits ) ;
 
             dwLineLength=(((sHeader.width*sHeader.bits)+31)/32)*4 ;
 
@@ -1314,10 +1314,10 @@ static uint32_t _DBE_ILI9325_DrawBitmapBMPFile( uint32_t dwX, uint32_t dwY, uint
         if ( f_read( &fp, &sHeader, sizeof( sHeader ), &dwLength ) == FR_OK )
         {
 //            printf( "read %c%c\r\n", (char)(sHeader.type&0xff), (char)(sHeader.type>>8) ) ;
-//            printf( " -> .compression = %u\n\r", sHeader.compression ) ;
-//            printf( " -> .width = %u\n\r", sHeader.width ) ;
-//            printf( " -> .height = %u\n\r", sHeader.height ) ;
-//            printf( " -> .bits = %u\n\r", sHeader.bits ) ;
+//            printf( " -> .compression = %u\r\n", sHeader.compression ) ;
+//            printf( " -> .width = %u\r\n", sHeader.width ) ;
+//            printf( " -> .height = %u\r\n", sHeader.height ) ;
+//            printf( " -> .bits = %u\r\n", sHeader.bits ) ;
 
             dwLineLength=(((sHeader.width*sHeader.bits)+31)/32)*4 ;
 

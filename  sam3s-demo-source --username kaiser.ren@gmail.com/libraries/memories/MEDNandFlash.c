@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
- *         ATMEL Microcontroller Software Support 
+ *         ATMEL Microcontroller Software Support
  * ----------------------------------------------------------------------------
  * Copyright (c) 2008, Atmel Corporation
  *
@@ -78,7 +78,7 @@ static unsigned char FlushCurrentPage(Media *media)
         return 0;
     }
 
-    TRACE_DEBUG("FlushCurrentPage(B#%d:P#%d)\n\r",
+    TRACE_DEBUG("FlushCurrentPage(B#%d:P#%d)\r\n",
               currentWriteBlock, currentWritePage);
 
     // Write page
@@ -88,7 +88,7 @@ static unsigned char FlushCurrentPage(Media *media)
                                       pageWriteBuffer,
                                       0)) {
 
-        TRACE_ERROR("FlushCurrentPage: Failed to write page.\n\r");
+        TRACE_ERROR("FlushCurrentPage: Failed to write page.\r\n");
         return 1;
     }
 
@@ -123,10 +123,10 @@ static unsigned char UnalignedWritePage(
     unsigned short pageDataSize = NandFlashModel_GetPageDataSize(MODEL(media->interface));
     unsigned char writePage = ((size + offset) == pageDataSize);
 
-    TRACE_DEBUG("UnalignedWritePage(B%d:P%d@%d, %d)\n\r",
+    TRACE_DEBUG("UnalignedWritePage(B%d:P%d@%d, %d)\r\n",
               block, page, offset, size);
     ASSERT((size + offset) <= pageDataSize,
-           "UnalignedWrite: Write size and offset exceed page data size\n\r");
+           "UnalignedWrite: Write size and offset exceed page data size\r\n");
 
     // If size is 0, return immediately
     if (size == 0) {
@@ -139,7 +139,7 @@ static unsigned char UnalignedWritePage(
 
         // Flush and make page the new current page
         FlushCurrentPage(media);
-        TRACE_DEBUG("Current write page: B#%d:P#%d\n\r", block, page);
+        TRACE_DEBUG("Current write page: B#%d:P#%d\r\n", block, page);
         currentWriteBlock = block;
         currentWritePage = page;
 
@@ -153,9 +153,9 @@ static unsigned char UnalignedWritePage(
                                                  pageWriteBuffer,
                                                  0);
             if (error) {
-    
+
                 TRACE_ERROR(
-                          "UnalignedWrite: Could not read existing page data\n\r");
+                          "UnalignedWrite: Could not read existing page data\r\n");
                 return 1;
             }
         }
@@ -167,7 +167,7 @@ static unsigned char UnalignedWritePage(
     if ((currentReadPage == currentWritePage)
         && (currentReadBlock == currentWriteBlock)) {
 
-        TRACE_DEBUG("Updating current read buffer\n\r");
+        TRACE_DEBUG("Updating current read buffer\r\n");
         memcpy(&(pageReadBuffer[offset]), buffer, size);
     }
 
@@ -210,7 +210,7 @@ static unsigned char MEDNandFlash_Write(
     unsigned int remainingLength;
     unsigned char status;
 
-    TRACE_INFO("MEDNandFlash_Write(0x%08X, %d)\n\r", address, length);
+    TRACE_INFO("MEDNandFlash_Write(0x%08X, %d)\r\n", address, length);
 
     // Translate access
     if (NandFlashModel_TranslateAccess(MODEL(media->interface),
@@ -220,11 +220,11 @@ static unsigned char MEDNandFlash_Write(
                                        &page,
                                        &offset)) {
 
-        TRACE_ERROR("MEDNandFlash_Write: Could not start write.\n\r");
+        TRACE_ERROR("MEDNandFlash_Write: Could not start write.\r\n");
         return MED_STATUS_ERROR;
     }
 
-    TRACE_DEBUG("MEDNandFlash_Write(B#%d:P#%d@%d, %d)\n\r",
+    TRACE_DEBUG("MEDNandFlash_Write(B#%d:P#%d@%d, %d)\r\n",
               block, page, offset, length);
 
     // Write pages
@@ -236,7 +236,7 @@ static unsigned char MEDNandFlash_Write(
         writeSize = min(pageDataSize-offset, remainingLength);
         if (UnalignedWritePage(media, block, page, offset, buffer, writeSize)) {
 
-            TRACE_ERROR("MEDNandFlash_Write: Failed to write page\n\r");
+            TRACE_ERROR("MEDNandFlash_Write: Failed to write page\r\n");
             status = MED_STATUS_ERROR;
         }
         else {
@@ -247,7 +247,7 @@ static unsigned char MEDNandFlash_Write(
             offset = 0;
             page++;
             if (page == blockSize) {
-    
+
                 page = 0;
                 block++;
             }
@@ -288,16 +288,16 @@ static unsigned char UnalignedReadPage(
     unsigned char error;
     unsigned short pageDataSize = NandFlashModel_GetPageDataSize(MODEL(media->interface));
 
-    TRACE_DEBUG("UnalignedReadPage(B%d:P%d@%d, %d)\n\r", block, page, offset, size);
+    TRACE_DEBUG("UnalignedReadPage(B%d:P%d@%d, %d)\r\n", block, page, offset, size);
 
     // Check that one page is read at most
     ASSERT((size + offset) <= pageDataSize,
-           "UnalignedReadPage: Read size & offset exceed page data size\n\r");
+           "UnalignedReadPage: Read size & offset exceed page data size\r\n");
 
     // Check if this is not the current read page
     if ((block != currentReadBlock) || (page != currentReadPage)) {
 
-        TRACE_DEBUG("Current read page: B#%d:P#%d\n\r", block, page);
+        TRACE_DEBUG("Current read page: B#%d:P#%d\r\n", block, page);
         currentReadBlock = block;
         currentReadPage = page;
 
@@ -305,7 +305,7 @@ static unsigned char UnalignedReadPage(
         if ((currentReadBlock == currentWriteBlock)
             && (currentReadPage == currentWritePage)) {
 
-            TRACE_DEBUG("Reading current write page\n\r");
+            TRACE_DEBUG("Reading current write page\r\n");
             memcpy(pageReadBuffer, pageWriteBuffer, NandCommon_MAXPAGEDATASIZE);
         }
         else {
@@ -318,7 +318,7 @@ static unsigned char UnalignedReadPage(
                                                  0);
             if (error) {
 
-                TRACE_ERROR("UnalignedRead: Could not read page\n\r");
+                TRACE_ERROR("UnalignedRead: Could not read page\r\n");
                 return 1;
             }
         }
@@ -357,7 +357,7 @@ static unsigned char MEDNandFlash_Read(
     unsigned char *buffer = (unsigned char *) data;
     unsigned char status;
 
-    TRACE_INFO("MEDNandFlash_Read(0x%08X, %d)\n\r", address, length);
+    TRACE_INFO("MEDNandFlash_Read(0x%08X, %d)\r\n", address, length);
 
     // Translate access into block, page and offset
     if (NandFlashModel_TranslateAccess(MODEL(media->interface),
@@ -367,7 +367,7 @@ static unsigned char MEDNandFlash_Read(
                                        &page,
                                        &offset)) {
 
-        TRACE_ERROR("MEDNandFlash_Read: Cannot perform access\n\r");
+        TRACE_ERROR("MEDNandFlash_Read: Cannot perform access\r\n");
         return MED_STATUS_ERROR;
     }
 
@@ -380,18 +380,18 @@ static unsigned char MEDNandFlash_Read(
         readSize = min(pageDataSize-offset, remainingLength);
         if (UnalignedReadPage(media, block, page, offset, buffer, readSize)) {
 
-            TRACE_ERROR("MEDNandFlash_Read: Could not read page\n\r");
+            TRACE_ERROR("MEDNandFlash_Read: Could not read page\r\n");
             status = MED_STATUS_ERROR;
         }
         else {
-        
+
             // Update values
             remainingLength -= readSize;
             buffer += readSize;
             offset = 0;
             page++;
             if (page == blockSizeInPages) {
-    
+
                 page = 0;
                 block++;
             }
@@ -414,23 +414,23 @@ static unsigned char MEDNandFlash_Read(
 //------------------------------------------------------------------------------
 static unsigned char MEDNandFlash_Flush(Media *media)
 {
-    TRACE_INFO("MEDNandFlash_Flush()\n\r");
+    TRACE_INFO("MEDNandFlash_Flush()\r\n");
 
     if (FlushCurrentPage(media)) {
 
-        TRACE_ERROR("MEDNandFlash_Flush: Could not flush current page\n\r");
+        TRACE_ERROR("MEDNandFlash_Flush: Could not flush current page\r\n");
         return MED_STATUS_ERROR;
     }
 
     if (TranslatedNandFlash_Flush(TRANSLATED(media->interface))) {
 
-        TRACE_ERROR("MEDNandFlash_Flush: Could not flush translated nand\n\r");
+        TRACE_ERROR("MEDNandFlash_Flush: Could not flush translated nand\r\n");
         return MED_STATUS_ERROR;
     }
 
     if (TranslatedNandFlash_SaveLogicalMapping(TRANSLATED(media->interface))) {
 
-        TRACE_ERROR("MEDNandFlash_Flush: Could not save the logical mapping\n\r");
+        TRACE_ERROR("MEDNandFlash_Flush: Could not save the logical mapping\r\n");
         return MED_STATUS_ERROR;
     }
 
@@ -446,7 +446,7 @@ static void MEDNandFlash_InterruptHandler(Media *media)
 {
     //volatile unsigned int dummy;
 
-    TRACE_DEBUG("Flush timer expired\n\r");
+    TRACE_DEBUG("Flush timer expired\r\n");
     MEDNandFlash_Flush(media);
 
     // Acknowledge interrupt
@@ -465,7 +465,7 @@ static void MEDNandFlash_InterruptHandler(Media *media)
 void MEDNandFlash_Initialize(Media *media,
                              struct TranslatedNandFlash *translated)
 {
-    TRACE_INFO("MEDNandFlash_Initialize()\n\r");
+    TRACE_INFO("MEDNandFlash_Initialize()\r\n");
 
     media->write = MEDNandFlash_Write;
     media->read = MEDNandFlash_Read;
@@ -479,8 +479,8 @@ void MEDNandFlash_Initialize(Media *media,
     media->baseAddress = 0;
     media->blockSize   = 1;
     media->size = TranslatedNandFlash_GetDeviceSizeInBytes(translated);
-    
-    TRACE_INFO("NF Size: %d\n\r", media->size);
+
+    TRACE_INFO("NF Size: %d\r\n", media->size);
 
     media->mappedRD  = 0;
     media->mappedWR  = 0;
