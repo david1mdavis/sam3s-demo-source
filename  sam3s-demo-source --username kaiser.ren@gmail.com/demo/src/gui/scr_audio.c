@@ -48,7 +48,8 @@ static SWGT_Widget g_btnBack ;
 
 static uint32_t ScrAudio_OnInitialize( SWGTScreen* pScreen )
 {
-    WGT_Screen_Initialize( pScreen, GUICLR_WHITE, NULL ) ;
+//@code
+    WGT_Screen_Initialize( pScreen, GUICLR_WHITE, NULL ) ;//initial data structure
 
     WGT_CreateWidget( &g_bmpUnderConstruction, WGT_TYPE_BITMAP, 87, 81, 70, 84 ) ;
     WGT_SetBitmap( &g_bmpUnderConstruction, (void*)"/demo/bitmaps/bmp_under_construction.bmp" ) ;
@@ -57,7 +58,7 @@ static uint32_t ScrAudio_OnInitialize( SWGTScreen* pScreen )
     WGT_CreateWidget( &g_btnBack, WGT_TYPE_BUTTON, 12, 252, 48, 48 ) ;
     WGT_SetBitmap( &g_btnBack, (void*)"/demo/bitmaps/btn_back.bmp" ) ;
     WGT_Screen_AddWidget( pScreen, &g_btnBack ) ;
-
+//@endcode
     return SAMGUI_E_OK ;
 }
 

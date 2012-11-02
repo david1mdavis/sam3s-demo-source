@@ -91,30 +91,43 @@ extern uint32_t PreProcessMessage_Default( struct _SWGTScreen* pScreen, SWGTCore
         break ;
 
         case WGT_MSG_INIT :
-            // Reset selected widget
+//@code
+            // Reset selected widget, switch to this screen just now,
+			 	// so old and current is NULL
             pScreen->pWidgetOld=pScreen->pWidgetCurrent=NULL ;
+
             if ( g_WGT_CoreData.pCurrentScreen->OnInitialize )
             {
+				  	//go to customized screen function.
+				  	//prepare new widgets if have
                 g_WGT_CoreData.pCurrentScreen->OnInitialize( g_WGT_CoreData.pCurrentScreen ) ;
             }
+//@endcode
         break ;
 
         case WGT_MSG_ERASE_BKGND :
+//@code
+			 	//draw bmp background if have; otherwise, draw fillretangle
             WGT_Screen_OnEraseBackground( g_WGT_CoreData.pCurrentScreen ) ;
 
             if ( g_WGT_CoreData.pCurrentScreen->OnEraseBackground )
             {
+				  	//go to customized screen function.
                 g_WGT_CoreData.pCurrentScreen->OnEraseBackground( g_WGT_CoreData.pCurrentScreen ) ;
             }
+//@endcode
         break ;
 
         case WGT_MSG_PAINT :
+//@code
+			 	//common function, draw widgets if have.
             WGT_Screen_OnPaint( g_WGT_CoreData.pCurrentScreen ) ;
 
-            if ( g_WGT_CoreData.pCurrentScreen->OnPaint )
+            if ( g_WGT_CoreData.pCurrentScreen->OnPaint )	//this field always NULL
             {
                 g_WGT_CoreData.pCurrentScreen->OnPaint( g_WGT_CoreData.pCurrentScreen ) ;
             }
+//@endcode
         break ;
     }
 

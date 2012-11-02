@@ -41,22 +41,26 @@
 
 #include "FreeRTOS.h"
 #include "queue.h"
-
+//@code
 typedef struct _SWGTCoreData
 {
-    xQueueHandle hMessagesQueue ;
+    xQueueHandle hMessagesQueue ;//entity of xCreateMessage()
 
-    SDISPBackend* pBE ;
+	 //Back-end entiry for display
+    SDISPBackend* pBE ;//FPTR, include all 9325 driver function portal
 
-    SWGTFrontend* pTSD ;
-    SWGTFrontend* pQTouch ;
-    SWGTFrontend* pPotentiometer ;
-    SWGTFrontend* pPushbuttons ;
+	 //Front-end entity, GUI
+    SWGTFrontend* pTSD ;//para and FPTR, include param and touch calibration function portal
+    SWGTFrontend* pQTouch ;//qtouch function portal
+    SWGTFrontend* pPotentiometer ;//potentiometer portal
+    SWGTFrontend* pPushbuttons ;//button portal
 
-    SWGTScreen* pCurrentScreen ;
+	 //Widget
+    SWGTScreen* pCurrentScreen ;//include everything of current screen
+	
     uint32_t dwTimerDelay ;
 } SWGTCoreData ;
-
+//@endcode
 extern SWGTCoreData g_WGT_CoreData ;
 
 // ------------------------------------------------------------------------------------------------
