@@ -66,6 +66,8 @@ static void _WGT_TaskMessageLoop( void* pParameter )
         // Wait for a widget message
 
 //        if ( xQueueReceive( pData->hMessagesQueue, &xMessage, portMAX_DELAY ) == pdPASS )
+		 //owing to xTicksToWait is not NULL, so TASK to block state when queue is empty,
+		 //it like a delay function.
         if ( xQueueReceive( pData->hMessagesQueue, &xMessage, g_WGT_CoreData.dwTimerDelay/portTICK_RATE_MS ) == pdTRUE )
         {
             if ( g_WGT_CoreData.pCurrentScreen != NULL )
