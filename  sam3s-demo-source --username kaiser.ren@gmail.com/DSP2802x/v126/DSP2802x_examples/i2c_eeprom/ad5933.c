@@ -27,5 +27,12 @@ void ad5933_init(void)
 {
 }
 
+/*
+ * ad5933 mode switch
+ */
+void ad5933_mode(ad5933_state_t state)
+{
+}
+
 
 //eof

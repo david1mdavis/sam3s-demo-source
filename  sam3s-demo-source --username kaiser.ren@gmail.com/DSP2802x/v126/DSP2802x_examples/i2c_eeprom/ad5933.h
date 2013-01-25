@@ -9,8 +9,28 @@
 #define AD5933_H_
 
 /**********************************************************
+ * 				Include
+ **********************************************************/
+#include "DSP28x_Project.h"     // Device Headerfile and Examples Include File
+
+/**********************************************************
  * 				Macro
  **********************************************************/
+#define AD5933_ADDR_SLAVE	0X0D	//AD5933 I2C slave addr
+
+#define AD5933_BOARD_SYS_CLK_SRC	(1 << 3)
+#define AD5933_BOARD_SYS_CLK_FREQ	16000000ul
+
+#define AD5933_BOARD_FREQ_START 	1000ul
+#define AD5933_BOARD_FREQ_END		100000ul
+#define AD5933_BOARD_FREQ_ICMT		125ul
+#define AD5933_BOARD_CNT_ICMT		( (AD5933_BOARD_FREQ_END - AD5933_BOARD_FREQ_START)\
+									/AD5933_BOARD_FREQ_ICMT + 1 )
+
+#define AD5933_CMD_CODE_BLOCK_WR	0XA0	//command code, block write
+#define AD5933_CMD_CODE_BLOCK_RD	0XA1	//command code, block read
+#define AD5933_CMD_CODE_ADDRS_PTR	0XB1	//command code, address pointer
+
 #define AD5933_ADDR_CTRL_REG_MSB	0x80	//control reg addr msb
 #define AD5933_ADDR_CTRL_REG_LSB	0x81	//control reg addr lsb
 
@@ -38,5 +58,22 @@
 
 #define AD5933_ADDR_IMGN_REG_MSB	0x96	//Imaginary data  addr msb
 #define AD5933_ADDR_IMGN_REG_LSB	0x97	//Imaginary data  addr lsb
+
+#define AD5933_STATUS_TEMP_RDY		(1 << 0)	//temperature is ready
+#define AD5933_STATUS_DATA_RDY		(1 << 1)	//data is ready
+#define AD5933_STATUS_SWEEP_RDY		(1 << 2)	//sweep is ready
+
+/**********************************************************
+ * 				Typedef
+ **********************************************************/
+typedef enum _ad5933_state_tag_{
+	init_freq = 0x11,
+	start_sweep = 0x21,
+	icmt_freq = 0x31,
+	rpet_freq = 0x41,
+	meas_temp = 0x91,
+	powr_down = 0xa1,
+	stand_by = 0xb1
+}ad5933_state_t;
 
 #endif /* AD5933_H_ */
