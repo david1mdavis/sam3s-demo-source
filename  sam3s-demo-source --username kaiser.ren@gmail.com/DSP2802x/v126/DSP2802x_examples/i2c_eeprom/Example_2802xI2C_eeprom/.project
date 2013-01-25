@@ -71,6 +71,11 @@
 			<locationURI>SRC_ROOT/DSP2802x_common/source/DSP2802x_PieVect.c</locationURI>
 		</link>
 		<link>
+			<name>DSP2802x_Sci.c</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/DSP2802x_common/source/DSP2802x_Sci.c</locationURI>
+		</link>
+		<link>
 			<name>DSP2802x_SysCtrl.c</name>
 			<type>1</type>
 			<locationURI>SRC_ROOT/DSP2802x_common/source/DSP2802x_SysCtrl.c</locationURI>
@@ -89,6 +94,16 @@
 			<name>Example_2802xI2C_eeprom.pjt</name>
 			<type>1</type>
 			<locationURI>SRC_ROOT/DSP2802x_examples/i2c_eeprom/Example_2802xI2C_eeprom.pjt</locationURI>
+		</link>
+		<link>
+			<name>ad5933.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/ad5933.c</locationURI>
+		</link>
+		<link>
+			<name>ad5933.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/ad5933.h</locationURI>
 		</link>
 		<link>
 			<name>Debug/Example_2802xI2C_eeprom.out</name>
