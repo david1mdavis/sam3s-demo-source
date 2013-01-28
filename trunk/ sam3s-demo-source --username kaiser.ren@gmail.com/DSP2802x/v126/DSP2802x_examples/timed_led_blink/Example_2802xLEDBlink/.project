@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Example_2802xI2C_eeprom</name>
+	<name>Example_2802xLEDBlink</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -112,11 +112,6 @@
 			<locationURI>SRC_ROOT/DSP2802x_headers/cmd/DSP2802x_Headers_nonBIOS.cmd</locationURI>
 		</link>
 		<link>
-			<name>DSP2802x_I2C.c</name>
-			<type>1</type>
-			<locationURI>SRC_ROOT/DSP2802x_common/source/DSP2802x_I2C.c</locationURI>
-		</link>
-		<link>
 			<name>DSP2802x_PieCtrl.c</name>
 			<type>1</type>
 			<locationURI>SRC_ROOT/DSP2802x_common/source/DSP2802x_PieCtrl.c</locationURI>
@@ -125,11 +120,6 @@
 			<name>DSP2802x_PieVect.c</name>
 			<type>1</type>
 			<locationURI>SRC_ROOT/DSP2802x_common/source/DSP2802x_PieVect.c</locationURI>
-		</link>
-		<link>
-			<name>DSP2802x_Sci.c</name>
-			<type>1</type>
-			<locationURI>PARENT-3-PROJECT_LOC/DSP2802x_common/source/DSP2802x_Sci.c</locationURI>
 		</link>
 		<link>
 			<name>DSP2802x_SysCtrl.c</name>
@@ -142,27 +132,17 @@
 			<locationURI>SRC_ROOT/DSP2802x_common/source/DSP2802x_usDelay.asm</locationURI>
 		</link>
 		<link>
-			<name>Example_2802xI2C_eeprom.c</name>
+			<name>Example_2802xLEDBlink.c</name>
 			<type>1</type>
-			<locationURI>SRC_ROOT/DSP2802x_examples/i2c_eeprom/Example_2802xI2C_eeprom.c</locationURI>
+			<locationURI>SRC_ROOT/DSP2802x_examples/timed_led_blink/Example_2802xLEDBlink.c</locationURI>
 		</link>
 		<link>
-			<name>Example_2802xI2C_eeprom.pjt</name>
+			<name>Example_2802xLEDBlink.pjt</name>
 			<type>1</type>
-			<locationURI>SRC_ROOT/DSP2802x_examples/i2c_eeprom/Example_2802xI2C_eeprom.pjt</locationURI>
+			<locationURI>SRC_ROOT/DSP2802x_examples/timed_led_blink/Example_2802xLEDBlink.pjt</locationURI>
 		</link>
 		<link>
-			<name>ad5933.c</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/ad5933.c</locationURI>
-		</link>
-		<link>
-			<name>ad5933.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/ad5933.h</locationURI>
-		</link>
-		<link>
-			<name>Debug/Example_2802xI2C_eeprom.out</name>
+			<name>Debug/Example_2802xLEDBlink.out</name>
 			<type>1</type>
 			<locationURI>EXTERNAL_BUILD_ARTIFACT</locationURI>
 		</link>
@@ -170,7 +150,7 @@
 	<variableList>
 		<variable>
 			<name>SRC_ROOT</name>
-			<value>$%7BPARENT-3-PROJECT_LOC%7D</value>
+			<value>$%7BPARENT-3-PROJECT_LOC%7D/</value>
 		</variable>
 	</variableList>
 </projectDescription>
