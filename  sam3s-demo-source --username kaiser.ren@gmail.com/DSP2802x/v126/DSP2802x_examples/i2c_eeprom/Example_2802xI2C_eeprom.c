@@ -77,7 +77,7 @@ interrupt void i2c_int1a_isr(void);
 void pass(void);
 void fail(void);
 
-#define I2C_SLAVE_ADDR        0x50
+#define I2C_SLAVE_ADDR        0x0d
 #define I2C_NUMBYTES          2
 #define I2C_EEPROM_HIGH_ADDR  0x00
 #define I2C_EEPROM_LOW_ADDR   0x30
@@ -165,7 +165,7 @@ void main(void)
    // Clear incoming message buffer
    for (i = 0; i < (I2C_MAX_BUFFER_SIZE - 2); i++)
    {
-       I2cMsgIn1.MsgBuffer[i] = 0x0000;
+       I2cMsgIn1.MsgBuffer[i] = i;
    }
 
 // Enable interrupts required for this example
@@ -186,7 +186,7 @@ void main(void)
 
       // Check the outgoing message to see if it should be sent.
       // In this example it is initialized to send with a stop bit.
-      if(I2cMsgOut1.MsgStatus == I2C_MSGSTAT_SEND_WITHSTOP)
+      //if(I2cMsgOut1.MsgStatus == I2C_MSGSTAT_SEND_WITHSTOP)
       {
          Error = I2CA_WriteData(&I2cMsgOut1);
          // If communication is correctly initiated, set msg status to busy
@@ -207,7 +207,7 @@ void main(void)
 
       // Check outgoing message status. Bypass read section if status is
       // not inactive.
-      if (I2cMsgOut1.MsgStatus == I2C_MSGSTAT_INACTIVE)
+      /*if (I2cMsgOut1.MsgStatus == I2C_MSGSTAT_INACTIVE)
       {
          // Check incoming message status.
          if(I2cMsgIn1.MsgStatus == I2C_MSGSTAT_SEND_NOSTOP)
@@ -244,7 +244,7 @@ void main(void)
             I2cMsgIn1.MsgStatus = I2C_MSGSTAT_READ_BUSY;
          }
       }  // end of read section
-
+		*/
    }   // end of for(;;)
 }   // end of main
 
