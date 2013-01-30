@@ -16,7 +16,10 @@
 /**********************************************************
  * 				Macro
  **********************************************************/
-#define AD5933_ADDR_SLAVE	0X0D	//AD5933 I2C slave addr
+#define AD5933_ADDR_SLAVE	0x0D	//AD5933 I2C slave addr
+
+#defien AD5933_ADDR_SLAVE_WR	0x00	//write bit following addr
+#define AD5933_ADDR_SLAVE_RD	0x01	//read bit following addr
 
 #define AD5933_BOARD_SYS_CLK_SRC	(1 << 3)
 #define AD5933_BOARD_SYS_CLK_FREQ	16000000ul
