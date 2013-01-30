@@ -186,7 +186,7 @@ void main(void)
 
       // Check the outgoing message to see if it should be sent.
       // In this example it is initialized to send with a stop bit.
-      //if(I2cMsgOut1.MsgStatus == I2C_MSGSTAT_SEND_WITHSTOP)
+      if(I2cMsgOut1.MsgStatus == I2C_MSGSTAT_SEND_WITHSTOP)
       {
          Error = I2CA_WriteData(&I2cMsgOut1);
          // If communication is correctly initiated, set msg status to busy
@@ -207,7 +207,7 @@ void main(void)
 
       // Check outgoing message status. Bypass read section if status is
       // not inactive.
-      /*if (I2cMsgOut1.MsgStatus == I2C_MSGSTAT_INACTIVE)
+      if (I2cMsgOut1.MsgStatus == I2C_MSGSTAT_INACTIVE)
       {
          // Check incoming message status.
          if(I2cMsgIn1.MsgStatus == I2C_MSGSTAT_SEND_NOSTOP)
@@ -244,7 +244,7 @@ void main(void)
             I2cMsgIn1.MsgStatus = I2C_MSGSTAT_READ_BUSY;
          }
       }  // end of read section
-		*/
+
    }   // end of for(;;)
 }   // end of main
 
@@ -297,11 +297,11 @@ Uint16 I2CA_WriteData(struct I2CMSG *msg)
 
    // Setup number of bytes to send
    // MsgBuffer + Address
-   I2caRegs.I2CCNT = msg->NumOfBytes+2;
+   I2caRegs.I2CCNT = msg->NumOfBytes;
 
    // Setup data to send
-   I2caRegs.I2CDXR = msg->MemoryHighAddr;
-   I2caRegs.I2CDXR = msg->MemoryLowAddr;
+   //I2caRegs.I2CDXR = msg->MemoryHighAddr;
+   //I2caRegs.I2CDXR = msg->MemoryLowAddr;
 // for (i=0; i<msg->NumOfBytes-2; i++)
    for (i=0; i<msg->NumOfBytes; i++)
 
