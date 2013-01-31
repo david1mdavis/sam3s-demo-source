@@ -12,13 +12,13 @@
  * 				Include
  **********************************************************/
 #include "DSP28x_Project.h"     // Device Headerfile and Examples Include File
-
+#include "DSP2802x_Device.h"     // Headerfile Include File
 /**********************************************************
  * 				Macro
  **********************************************************/
 #define AD5933_ADDR_SLAVE	0x0D	//AD5933 I2C slave addr
 
-#defien AD5933_ADDR_SLAVE_WR	0x00	//write bit following addr
+#define AD5933_ADDR_SLAVE_WR	0x00	//write bit following addr
 #define AD5933_ADDR_SLAVE_RD	0x01	//read bit following addr
 
 #define AD5933_BOARD_SYS_CLK_SRC	(1 << 3)
@@ -78,5 +78,22 @@ typedef enum _ad5933_state_tag_{
 	powr_down = 0xa1,
 	stand_by = 0xb1
 }ad5933_state_t;
+
+/**********************************************************
+ * 				Extern
+ **********************************************************/
+extern struct I2CMSG I2cMsgOut1;
+extern struct I2CMSG I2cMsgIn1;
+extern struct I2CMSG *CurrentMsgPtr;
+extern Uint16 PassCount;
+extern Uint16 FailCount;
+
+/**********************************************************
+ * 				Prototype
+ **********************************************************/
+void   I2CA_Init(void);
+Uint16 I2CA_WriteData(struct I2CMSG *msg);
+Uint16 I2CA_ReadData(struct I2CMSG *msg);
+interrupt void i2c_int1a_isr(void);
 
 #endif /* AD5933_H_ */

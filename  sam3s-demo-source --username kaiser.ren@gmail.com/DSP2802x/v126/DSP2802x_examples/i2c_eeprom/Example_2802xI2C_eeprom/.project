@@ -142,11 +142,6 @@
 			<locationURI>SRC_ROOT/DSP2802x_common/source/DSP2802x_usDelay.asm</locationURI>
 		</link>
 		<link>
-			<name>Example_2802xI2C_eeprom.c</name>
-			<type>1</type>
-			<locationURI>SRC_ROOT/DSP2802x_examples/i2c_eeprom/Example_2802xI2C_eeprom.c</locationURI>
-		</link>
-		<link>
 			<name>Example_2802xI2C_eeprom.pjt</name>
 			<type>1</type>
 			<locationURI>SRC_ROOT/DSP2802x_examples/i2c_eeprom/Example_2802xI2C_eeprom.pjt</locationURI>
@@ -160,6 +155,11 @@
 			<name>ad5933.h</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/ad5933.h</locationURI>
+		</link>
+		<link>
+			<name>man.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/man.c</locationURI>
 		</link>
 		<link>
 			<name>Debug/Example_2802xI2C_eeprom.out</name>
