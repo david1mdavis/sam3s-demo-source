@@ -69,8 +69,11 @@
 // Note: I2C Macros used in this example can be found in the
 // DSP2802x_I2C_defines.h file
 
-// Prototype statements for functions found within this file.
 
+// Prototype statements for functions found within this file.
+void led_init(void);
+void led_on(Uint16 led_msk);
+void button_init(void);
 //void pass(void);
 //void fail(void);
 
@@ -138,6 +141,16 @@ void main(void)
    // Clear Counters
    PassCount = 0;
    FailCount = 0;
+
+// Step 6. LEDs and Button init
+   led_init();
+   button_init();
+
+   led_on(0x000f);
+   led_on(0x0000);
+   led_on(0x000f);
+   led_on(0x0000);
+   led_on(0x000f);
 
    // Clear incoming message buffer
    for (i = 0; i < (I2C_MAX_BUFFER_SIZE - 2); i++)
@@ -226,7 +239,59 @@ void main(void)
 }   // end of main
 
 
+void led_init(void)
+{
+	EALLOW;
+	// gpio0, 1, 2, 3 as general purpose
+	GpioCtrlRegs.GPAMUX1.bit.GPIO0 = 0;
+	GpioCtrlRegs.GPAMUX1.bit.GPIO1 = 0;
+	GpioCtrlRegs.GPAMUX1.bit.GPIO2 = 0;
+	GpioCtrlRegs.GPAMUX1.bit.GPIO3 = 0;
 
+	GpioCtrlRegs.GPADIR.bit.GPIO0 = 1;    //gpio0 output dir
+	GpioCtrlRegs.GPADIR.bit.GPIO1 = 1;    //gpio1 output dir
+	GpioCtrlRegs.GPADIR.bit.GPIO2 = 1;    //gpio2 output dir
+	GpioCtrlRegs.GPADIR.bit.GPIO3 = 1;    //gpio3 output dir
+	EDIS;
+}
+void led_on(Uint16 led_msk)
+{
+	//led0
+	if(led_msk & ( 0x0001 << 0) ){
+		GpioDataRegs.GPASET.bit.GPIO0 = 1;
+	}
+	else{
+		GpioDataRegs.GPACLEAR.bit.GPIO0 = 1;
+	}
+	//led1
+	if(led_msk & ( 0x0001 << 1) ){
+		GpioDataRegs.GPASET.bit.GPIO1 = 1;
+	}
+	else{
+		GpioDataRegs.GPACLEAR.bit.GPIO1 = 1;
+	}
+	//led2
+	if(led_msk & ( 0x0001 << 2) ){
+		GpioDataRegs.GPASET.bit.GPIO2 = 1;
+	}
+	else{
+		GpioDataRegs.GPACLEAR.bit.GPIO2 = 1;
+	}
+	//led2
+	if(led_msk & ( 0x0001 << 3) ){
+		GpioDataRegs.GPASET.bit.GPIO3 = 1;
+	}
+	else{
+		GpioDataRegs.GPACLEAR.bit.GPIO3 = 1;
+	}
+}
+
+void button_init(void)
+{
+	GpioCtrlRegs.GPAMUX1.bit.GPIO12 = 0;	// gpio12 as general purpose
+	GpioCtrlRegs.GPADIR.bit.GPIO12 = 0;    	// gpio12 input dir
+	GpioCtrlRegs.GPAPUD.bit.GPIO12 = 1;		// gpio12 pull-up enable
+}
 
 /*
 void pass()
