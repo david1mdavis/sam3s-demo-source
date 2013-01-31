@@ -162,9 +162,9 @@
 			<locationURI>PARENT-1-PROJECT_LOC/ad5933.h</locationURI>
 		</link>
 		<link>
-			<name>man.c</name>
+			<name>main.c</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/man.c</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/main.c</locationURI>
 		</link>
 		<link>
 			<name>Debug/Example_2802xI2C_eeprom.out</name>
