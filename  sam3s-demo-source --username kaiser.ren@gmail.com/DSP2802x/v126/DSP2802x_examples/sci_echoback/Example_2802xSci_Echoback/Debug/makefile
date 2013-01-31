@@ -4,7 +4,7 @@
 
 SHELL = cmd.exe
 
-CG_TOOL_ROOT := D:/Program Files/ti ccsv5/ccsv5/tools/compiler/c2000_6.1.0
+CG_TOOL_ROOT := F:/ti/ccsv5/tools/compiler/c2000_6.1.0
 
 ORDERED_OBJS += \
 $(GEN_CMDS__FLAG) \
@@ -18,8 +18,8 @@ $(GEN_CMDS__FLAG) \
 "C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/sci_echoback/Debug/DSP2802x_DefaultIsr.obj" \
 "C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/sci_echoback/Debug/DSP2802x_CodeStartBranch.obj" \
 -l"rts2800_ml.lib" \
-"D:/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/cmd/28027_RAM_lnk.cmd" \
-"D:/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_headers/cmd/DSP2802x_Headers_nonBIOS.cmd" \
+"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/cmd/28027_RAM_lnk.cmd" \
+"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_headers/cmd/DSP2802x_Headers_nonBIOS.cmd" \
 
 -include ../makefile.init
 
@@ -118,19 +118,19 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: D:/Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/sci_echoback/Example_2802xSci_Echoback/../../../DSP2802x_examples/sci_echoback/Debug/Example_2802xSci_echoback.out
+all: F:/\ Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/sci_echoback/Example_2802xSci_Echoback/../../../DSP2802x_examples/sci_echoback/Debug/Example_2802xSci_echoback.out
 
 # Tool invocations
-D:/Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/sci_echoback/Example_2802xSci_Echoback/../../../DSP2802x_examples/sci_echoback/Debug/Example_2802xSci_echoback.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+F:/\ Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/sci_echoback/Example_2802xSci_Echoback/../../../DSP2802x_examples/sci_echoback/Debug/Example_2802xSci_echoback.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: C2000 Linker'
-	"D:/Program Files/ti ccsv5/ccsv5/tools/compiler/c2000_6.1.0/bin/cl2000" -v28 -ml -mt -g --define="_DEBUG" --define="LARGE_MODEL" --quiet --display_error_number --issue_remarks --output_all_syms --asm_directory="C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/sci_echoback/Debug" --obj_directory="C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/sci_echoback/Debug" -z --stack_size=0x300 -m"D:/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/sci_echoback/Debug/Example_2802xSci_echoback.map" --warn_sections -i"D:/Program Files/ti ccsv5/ccsv5/tools/compiler/c2000_6.1.0/lib" -i"D:/Program Files/ti ccsv5/ccsv5/tools/compiler/c2000_6.1.0/include" -i"D:/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/sci_echoback/Example_2802xSci_Echoback" -i"D:/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/sci_echoback" -i"D:/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_headers/include" --reread_libs --display_error_number --entry_point=code_start --rom_model -o "D:/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/sci_echoback/Example_2802xSci_Echoback/../../../DSP2802x_examples/sci_echoback/Debug/Example_2802xSci_echoback.out" $(ORDERED_OBJS)
+	"F:/ti/ccsv5/tools/compiler/c2000_6.1.0/bin/cl2000" -v28 -ml -mt -g --define="_DEBUG" --define="LARGE_MODEL" --quiet --display_error_number --issue_remarks --output_all_syms --asm_directory="C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/sci_echoback/Debug" --obj_directory="C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/sci_echoback/Debug" -z --stack_size=0x300 -m"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/sci_echoback/Debug/Example_2802xSci_echoback.map" --warn_sections -i"F:/ti/ccsv5/tools/compiler/c2000_6.1.0/lib" -i"F:/ti/ccsv5/tools/compiler/c2000_6.1.0/include" -i"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/sci_echoback/Example_2802xSci_Echoback" -i"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/sci_echoback" -i"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_headers/include" --reread_libs --display_error_number --entry_point=code_start --rom_model -o "F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/sci_echoback/Example_2802xSci_Echoback/../../../DSP2802x_examples/sci_echoback/Debug/Example_2802xSci_echoback.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(C2000_EXECUTABLE_OUTPUTS__QUOTED) "D:\Firmware\sam3s-demo-source\trunk\ sam3s-demo-source --username kaiser.ren@gmail.com\DSP2802x\v126\DSP2802x_examples\sci_echoback\Debug\Example_2802xSci_echoback.out"
+	-$(RM) $(C2000_EXECUTABLE_OUTPUTS__QUOTED) "F:\ Firmware\sam3s-demo-source\trunk\ sam3s-demo-source --username kaiser.ren@gmail.com\DSP2802x\v126\DSP2802x_examples\sci_echoback\Debug\Example_2802xSci_echoback.out"
 	-$(RM) "DSP2802x_DefaultIsr.pp" "DSP2802x_GlobalVariableDefs.pp" "DSP2802x_PieCtrl.pp" "DSP2802x_PieVect.pp" "DSP2802x_Sci.pp" "DSP2802x_SysCtrl.pp" "Example_2802xSci_Echoback.pp" 
 	-$(RM) "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\sci_echoback\Debug\DSP2802x_CodeStartBranch.obj" "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\sci_echoback\Debug\DSP2802x_DefaultIsr.obj" "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\sci_echoback\Debug\DSP2802x_GlobalVariableDefs.obj" "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\sci_echoback\Debug\DSP2802x_PieCtrl.obj" "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\sci_echoback\Debug\DSP2802x_PieVect.obj" "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\sci_echoback\Debug\DSP2802x_Sci.obj" "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\sci_echoback\Debug\DSP2802x_SysCtrl.obj" "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\sci_echoback\Debug\DSP2802x_usDelay.obj" "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\sci_echoback\Debug\Example_2802xSci_Echoback.obj" 
 	-$(RM) "DSP2802x_CodeStartBranch.pp" "DSP2802x_usDelay.pp" 

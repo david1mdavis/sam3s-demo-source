@@ -170,70 +170,9 @@ void main(void)
    // Application loop
    for(;;)
    {
-      //////////////////////////////////
-      // Write data to EEPROM section //
-      //////////////////////////////////
-
-      // Check the outgoing message to see if it should be sent.
-      // In this example it is initialized to send with a stop bit.
-      if(I2cMsgOut1.MsgStatus == I2C_MSGSTAT_SEND_WITHSTOP)
-      {
-         Error = I2CA_WriteData(&I2cMsgOut1);
-         // If communication is correctly initiated, set msg status to busy
-         // and update CurrentMsgPtr for the interrupt service routine.
-         // Otherwise, do nothing and try again next loop. Once message is
-         // initiated, the I2C interrupts will handle the rest. Search for
-         // ICINTR1A_ISR in the i2c_eeprom_isr.c file.
-         if (Error == I2C_SUCCESS)
-         {
-            CurrentMsgPtr = &I2cMsgOut1;
-            I2cMsgOut1.MsgStatus = I2C_MSGSTAT_WRITE_BUSY;
-         }
-      }  // end of write section
-
-      ///////////////////////////////////
-      // Read data from EEPROM section //
-      ///////////////////////////////////
-
-      // Check outgoing message status. Bypass read section if status is
-      // not inactive.
-      if (I2cMsgOut1.MsgStatus == I2C_MSGSTAT_INACTIVE)
-      {
-         // Check incoming message status.
-         if(I2cMsgIn1.MsgStatus == I2C_MSGSTAT_SEND_NOSTOP)
-         {
-            // EEPROM address setup portion
-            while(I2CA_ReadData(&I2cMsgIn1) != I2C_SUCCESS)
-            {
-               // Maybe setup an attempt counter to break an infinite while
-               // loop. The EEPROM will send back a NACK while it is performing
-               // a write operation. Even though the write communique is
-               // complete at this point, the EEPROM could still be busy
-               // programming the data. Therefore, multiple attempts are
-               // necessary.
-            }
-            // Update current message pointer and message status
-            CurrentMsgPtr = &I2cMsgIn1;
-            I2cMsgIn1.MsgStatus = I2C_MSGSTAT_SEND_NOSTOP_BUSY;
-         }
-
-         // Once message has progressed past setting up the internal address
-         // of the EEPROM, send a restart to read the data bytes from the
-         // EEPROM. Complete the communique with a stop bit. MsgStatus is
-         // updated in the interrupt service routine.
-         else if(I2cMsgIn1.MsgStatus == I2C_MSGSTAT_RESTART)
-         {
-            // Read data portion
-            while(I2CA_ReadData(&I2cMsgIn1) != I2C_SUCCESS)
-            {
-               // Maybe setup an attempt counter to break an infinite while
-               // loop.
-            }
-            // Update current message pointer and message status
-            CurrentMsgPtr = &I2cMsgIn1;
-            I2cMsgIn1.MsgStatus = I2C_MSGSTAT_READ_BUSY;
-         }
-      }  // end of read section
+	   while( 1 == GpioDataRegs.GPADAT.bit.GPIO12){
+		   led_on(0x0000);
+	   }
 
    }   // end of for(;;)
 }   // end of main
@@ -258,39 +197,41 @@ void led_on(Uint16 led_msk)
 {
 	//led0
 	if(led_msk & ( 0x0001 << 0) ){
-		GpioDataRegs.GPASET.bit.GPIO0 = 1;
+		GpioDataRegs.GPACLEAR.bit.GPIO0 = 1;
 	}
 	else{
-		GpioDataRegs.GPACLEAR.bit.GPIO0 = 1;
+		GpioDataRegs.GPASET.bit.GPIO0 = 1;
 	}
 	//led1
 	if(led_msk & ( 0x0001 << 1) ){
-		GpioDataRegs.GPASET.bit.GPIO1 = 1;
+		GpioDataRegs.GPACLEAR.bit.GPIO1 = 1;
 	}
 	else{
-		GpioDataRegs.GPACLEAR.bit.GPIO1 = 1;
+		GpioDataRegs.GPASET.bit.GPIO1 = 1;
 	}
 	//led2
 	if(led_msk & ( 0x0001 << 2) ){
-		GpioDataRegs.GPASET.bit.GPIO2 = 1;
-	}
-	else{
 		GpioDataRegs.GPACLEAR.bit.GPIO2 = 1;
 	}
-	//led2
+	else{
+		GpioDataRegs.GPASET.bit.GPIO2 = 1;
+	}
+	//led3
 	if(led_msk & ( 0x0001 << 3) ){
-		GpioDataRegs.GPASET.bit.GPIO3 = 1;
+		GpioDataRegs.GPACLEAR.bit.GPIO3 = 1;
 	}
 	else{
-		GpioDataRegs.GPACLEAR.bit.GPIO3 = 1;
+		GpioDataRegs.GPASET.bit.GPIO3 = 1;
 	}
 }
 
 void button_init(void)
 {
+	EALLOW;
 	GpioCtrlRegs.GPAMUX1.bit.GPIO12 = 0;	// gpio12 as general purpose
 	GpioCtrlRegs.GPADIR.bit.GPIO12 = 0;    	// gpio12 input dir
 	GpioCtrlRegs.GPAPUD.bit.GPIO12 = 1;		// gpio12 pull-up enable
+	EDIS;
 }
 
 /*
