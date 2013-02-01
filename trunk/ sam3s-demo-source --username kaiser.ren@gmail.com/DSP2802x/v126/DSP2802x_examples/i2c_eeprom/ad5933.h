@@ -21,8 +21,15 @@
 #define AD5933_ADDR_SLAVE_WR	0x00	//write bit following addr
 #define AD5933_ADDR_SLAVE_RD	0x01	//read bit following addr
 
-#define AD5933_BOARD_SYS_CLK_SRC	(1 << 3)
+#define AD5933_REG_CTRL_CLK	(1 << 3)
+#define AD5933_REG_CTRL_RST	(1 << 4)
 #define AD5933_BOARD_SYS_CLK_FREQ	16000000ul
+
+#define AD5933_BOARD_CALC_FACTOR	0x8000000ul
+
+#define AD5933_BOARD_CMD_BLOCK_WR	0xa0
+#define AD5933_BOARD_CMD_BLOCK_RD 	0xa1
+#define AD5933_BOARD_CMD_ADDR_PTR	0xb0
 
 #define AD5933_BOARD_FREQ_START 	1000ul
 #define AD5933_BOARD_FREQ_END		100000ul
@@ -95,5 +102,7 @@ void   I2CA_Init(void);
 Uint16 I2CA_WriteData(struct I2CMSG *msg);
 Uint16 I2CA_ReadData(struct I2CMSG *msg);
 interrupt void i2c_int1a_isr(void);
+void ad5933_init(void);
+void I2CA_Init(void);
 
 #endif /* AD5933_H_ */

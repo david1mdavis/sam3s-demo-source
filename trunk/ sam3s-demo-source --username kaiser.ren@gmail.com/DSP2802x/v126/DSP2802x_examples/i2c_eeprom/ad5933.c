@@ -22,8 +22,8 @@
 struct I2CMSG I2cMsgOut1={I2C_MSGSTAT_SEND_WITHSTOP,
                           I2C_SLAVE_ADDR,
                           I2C_NUMBYTES,
-                          I2C_EEPROM_HIGH_ADDR,
-                          I2C_EEPROM_LOW_ADDR,
+                          0,
+                          0,
                           0x12,                   // Msg Byte 1
                           0x34};                  // Msg Byte 2
 
@@ -44,6 +44,8 @@ void   I2CA_Init(void);
 Uint16 I2CA_WriteData(struct I2CMSG *msg);
 Uint16 I2CA_ReadData(struct I2CMSG *msg);
 interrupt void i2c_int1a_isr(void);
+void ad5933_init(void);
+void ad5933_mode(ad5933_state_t state);
 /**********************************************************
  * 				function
  **********************************************************/
@@ -52,6 +54,40 @@ interrupt void i2c_int1a_isr(void);
  */
 void ad5933_init(void)
 {
+	Uint32 start_freq;
+	Uint32 incre_freq;
+	Uint16 incre_num;
+	Uint16 cycle_set;
+
+	start_freq = 4 * AD5933_BOARD_FREQ_START * AD5933_BOARD_CALC_FACTOR / AD5933_BOARD_SYS_CLK_FREQ;
+	incre_freq = 4 * AD5933_BOARD_FREQ_ICMT * AD5933_BOARD_CALC_FACTOR / AD5933_BOARD_SYS_CLK_FREQ;
+	incre_num = AD5933_BOARD_CNT_ICMT;
+	cycle_set = 511;
+
+	//set address pointer, to 0x82,
+	I2cMsgOut1.NumOfBytes = 2;	//POINTER CMD and REG Addr
+	I2cMsgOut1.MsgBuffer[0] = AD5933_BOARD_CMD_ADDR_PTR;
+	I2cMsgOut1.MsgBuffer[1] = AD5933_ADDR_FREQ_REG_MSB;
+	I2CA_WriteData(&I2cMsgOut1);
+
+	//set start freq, number of incre and freq incre
+	I2cMsgOut1.NumOfBytes = 12;	//2+10
+	I2cMsgOut1.MsgBuffer[0] = AD5933_CMD_CODE_BLOCK_WR;
+	I2cMsgOut1.MsgBuffer[1] = 10;
+	I2cMsgOut1.MsgBuffer[2] = start_freq >> 16;	//start frequency
+	I2cMsgOut1.MsgBuffer[3] = start_freq >> 8;
+	I2cMsgOut1.MsgBuffer[4] = start_freq >> 0;
+	I2cMsgOut1.MsgBuffer[5] = incre_freq >> 16;	//freq increment
+	I2cMsgOut1.MsgBuffer[6] = incre_freq >> 8;
+	I2cMsgOut1.MsgBuffer[7] = incre_freq >> 0;
+	I2cMsgOut1.MsgBuffer[8] = incre_num >> 8;	//number of increment
+	I2cMsgOut1.MsgBuffer[9] = incre_num >> 0;
+	I2cMsgOut1.MsgBuffer[10] = cycle_set >> 8;	//number of settling cycle
+	I2cMsgOut1.MsgBuffer[11] = cycle_set >> 0;
+	I2CA_WriteData(&I2cMsgOut1);
+
+	ad5933_mode(stand_by);
+	ad5933_mode(init_freq);
 }
 
 /*
@@ -59,6 +95,11 @@ void ad5933_init(void)
  */
 void ad5933_mode(ad5933_state_t state)
 {
+	//WR in reg 0x80
+	I2cMsgOut1.NumOfBytes = 2;	//
+	I2cMsgOut1.MsgBuffer[0] = AD5933_ADDR_CTRL_REG_MSB;
+	I2cMsgOut1.MsgBuffer[1] = (Uint16)state;
+	I2CA_WriteData(&I2cMsgOut1);
 }
 
 /*

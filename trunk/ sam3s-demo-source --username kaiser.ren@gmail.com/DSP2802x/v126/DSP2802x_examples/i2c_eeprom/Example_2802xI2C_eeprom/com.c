@@ -103,7 +103,7 @@ void scia_msg(char * msg)
 /*
  * Debug Print.
  */
-void Debug_Print(char *format, ...)
+/*void Debug_Print(char *format, ...)
 {
 	va_list args;
 	    char * ptr;
@@ -119,5 +119,5 @@ void Debug_Print(char *format, ...)
 	    }
 	    va_end(args);
 
-}
+}*/
 //eof
