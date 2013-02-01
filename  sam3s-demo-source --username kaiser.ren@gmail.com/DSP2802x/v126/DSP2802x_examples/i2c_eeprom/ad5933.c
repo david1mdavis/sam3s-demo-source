@@ -107,15 +107,17 @@ void ad5933_mode(ad5933_state_t state)
  */
 Uint16 ad5993_status(void)
 {
-	//setup address pointer
-	//I2CA_Write( (AD5933_ADDR_SLAVE << 1) | 0x00);	//slave address, WR
-	//I2CA_Write( AD5933_CMD_CODE_ADDRS_PTR);			//address pointer
-	//I2CA_Write( AD5933_ADDR_STAT_REG_MSB);			//address pointer
+	//set address pointer, to 0x82,
+	I2cMsgOut1.NumOfBytes = 2;	//POINTER CMD and REG Addr
+	I2cMsgOut1.MsgBuffer[0] = AD5933_BOARD_CMD_ADDR_PTR;
+	I2cMsgOut1.MsgBuffer[1] = AD5933_ADDR_STAT_REG_MSB;
+	I2CA_WriteData(&I2cMsgOut1);
 
 	//read status
-	//I2CA_Write( (AD5933_ADDR_SLAVE << 1) | 0x01);	//slave address, RD
-	//return (I2CA_Read());
+	I2cMsgIn1.NumOfBytes = 1;
+	I2CA_ReadData(&I2cMsgIn1);
 }
+
 void I2CA_Init(void)
 {
    // Initialize I2C
