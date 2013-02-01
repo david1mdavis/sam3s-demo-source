@@ -73,6 +73,7 @@
 // Prototype statements for functions found within this file.
 void led_init(void);
 void led_on(Uint16 led_msk);
+void led_off(Uint16 led_msk);
 void button_init(void);
 //void pass(void);
 //void fail(void);
@@ -86,9 +87,6 @@ void button_init(void);
 
 void main(void)
 {
-   Uint16 Error;
-   Uint16 i;
-
    CurrentMsgPtr = &I2cMsgOut1;
 
 // Step 1. Initialize System Control:
@@ -147,16 +145,14 @@ void main(void)
    button_init();
 
    led_on(0x000f);
-   led_on(0x0000);
+   led_off(0x000f);
    led_on(0x000f);
-   led_on(0x0000);
+   led_off(0x000f);
    led_on(0x000f);
 
-   // Clear incoming message buffer
-   for (i = 0; i < (I2C_MAX_BUFFER_SIZE - 2); i++)
-   {
-       I2cMsgIn1.MsgBuffer[i] = i;
-   }
+// Step 7. Initial AD5933
+   I2CA_Init();
+   ad5933_init();
 
 // Enable interrupts required for this example
 
@@ -199,32 +195,45 @@ void led_on(Uint16 led_msk)
 	if(led_msk & ( 0x0001 << 0) ){
 		GpioDataRegs.GPACLEAR.bit.GPIO0 = 1;
 	}
-	else{
-		GpioDataRegs.GPASET.bit.GPIO0 = 1;
-	}
+
 	//led1
 	if(led_msk & ( 0x0001 << 1) ){
 		GpioDataRegs.GPACLEAR.bit.GPIO1 = 1;
 	}
-	else{
-		GpioDataRegs.GPASET.bit.GPIO1 = 1;
-	}
+
 	//led2
 	if(led_msk & ( 0x0001 << 2) ){
 		GpioDataRegs.GPACLEAR.bit.GPIO2 = 1;
 	}
-	else{
-		GpioDataRegs.GPASET.bit.GPIO2 = 1;
-	}
+
 	//led3
 	if(led_msk & ( 0x0001 << 3) ){
 		GpioDataRegs.GPACLEAR.bit.GPIO3 = 1;
 	}
-	else{
-		GpioDataRegs.GPASET.bit.GPIO3 = 1;
-	}
 }
 
+void led_off(Uint16 led_msk)
+{
+	//led0
+		if(led_msk & ( 0x0001 << 0) ){
+			GpioDataRegs.GPASET.bit.GPIO0 = 1;
+		}
+
+		//led1
+		if(led_msk & ( 0x0001 << 1) ){
+			GpioDataRegs.GPASET.bit.GPIO1 = 1;
+		}
+
+		//led2
+		if(led_msk & ( 0x0001 << 2) ){
+			GpioDataRegs.GPASET.bit.GPIO2 = 1;
+		}
+
+		//led3
+		if(led_msk & ( 0x0001 << 3) ){
+			GpioDataRegs.GPASET.bit.GPIO3 = 1;
+		}
+}
 void button_init(void)
 {
 	EALLOW;
