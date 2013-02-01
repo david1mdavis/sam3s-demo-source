@@ -167,7 +167,22 @@ void main(void)
    for(;;)
    {
 	   while( 1 == GpioDataRegs.GPADAT.bit.GPIO12){
-		   led_on(0x0000);
+		   //start freq sweep
+		   ad5933_mode(start_sweep);
+
+		   //check whether sweep is completed?
+		   while( 0 == ( AD5933_STATUS_SWEEP_RDY & ad5993_status() ) ){
+			   //wait for data valid
+			   while( 0 == ( AD5933_STATUS_DATA_RDY & ad5993_status() ) );
+
+			   //read real and imaginary data
+
+			   //go to next freq point
+			   ad5933_mode(icmt_freq);
+		   }
+
+		   //sweep complete, goto power-down mode
+		   ad5933_mode(powr_down);
 	   }
 
    }   // end of for(;;)
