@@ -34,13 +34,23 @@
 			<Add option="-mcpu=arm7tdmi" />
 			<Add option="-T ld/target.ld" />
 		</Linker>
-		<Unit filename="h\at91sam7a3.h" />
-		<Unit filename="h\sam7a3ek.h" />
-		<Unit filename="ld\target.ld" />
-		<Unit filename="ld\targetRAM.ld" />
-		<Unit filename="src\main.c">
+		<Unit filename="..\AD5933.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="..\AD5933.h" />
+		<Unit filename="..\Communication.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\Communication.h" />
+		<Unit filename="..\Console.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\Console.h" />
+		<Unit filename="..\Main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ld\target.ld" />
+		<Unit filename="ld\targetRAM.ld" />
 		<Unit filename="src\vectors.S" />
 		<Extensions>
 			<code_completion />
