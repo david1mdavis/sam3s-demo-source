@@ -1,68 +1,12 @@
-// TI File $Revision: /main/2 $
-// Checkin $Date: October 16, 2009   15:43:28 $
-//###########################################################################
-//
-// FILE:    Example_2802xI2c_eeprom.c
-//
-// TITLE:   DSP2802x I2C EEPROM Example
-//
-// ASSUMPTIONS:
-//
-//    This program requires the DSP2802x header files.
-//
-//    This program requires an external I2C EEPROM connected to
-//    the I2C bus at address 0x50.
-//
-//    As supplied, this project is configured for "boot to SARAM"
-//    operation.  The 2802x Boot Mode table is shown below.
-//    For information on configuring the boot mode of an eZdsp,
-//    please refer to the documentation included with the eZdsp,
-//
-//    $Boot_Table
-//    While an emulator is connected to your device, the TRSTn pin = 1,
-//    which sets the device into EMU_BOOT boot mode. In this mode, the
-//    peripheral boot modes are as follows:
-//
-//      Boot Mode:   EMU_KEY        EMU_BMODE
-//                   (0xD00)         (0xD01)
-//      ---------------------------------------
-//      Wait         !=0x55AA        X
-//      I/O          0x55AA          0x0000
-//      SCI          0x55AA          0x0001
-//      Wait         0x55AA          0x0002
-//      Get_Mode     0x55AA          0x0003
-//      SPI          0x55AA          0x0004
-//      I2C          0x55AA          0x0005
-//      OTP          0x55AA          0x0006
-//      Wait         0x55AA          0x0007
-//      Wait         0x55AA          0x0008
-//      SARAM        0x55AA          0x000A   <-- "Boot to SARAM"
-//      Flash        0x55AA          0x000B
-//      Wait         0x55AA          Other
-//
-//   Write EMU_KEY to 0xD00 and EMU_BMODE to 0xD01 via the debugger
-//   according to the Boot Mode Table above. Build/Load project,
-//   Reset the device, and Run example
-//
-//   $End_Boot_Table
-//
-// DESCRIPTION:
-//
-//    This program will write 1-14 words to EEPROM and read them back.
-//    The data written and the EEPROM address written to are contained
-//    in the message structure, I2cMsgOut1. The data read back will be
-//    contained in the message structure I2cMsgIn1.
-//
-//    This program will work with the on-board I2C EEPROM supplied on
-//    the F2802x eZdsp.
-//
-//
-//###########################################################################
-// Original Author: D.F.
-//
-// $TI Release: 2802x C/C++ Header Files V1.26 $
-// $Release Date: February 2, 2010 $
-//###########################################################################
+/*
+ * main.c
+ *
+ *  Created on: 2013-1-24
+ *      Author: kren
+ */
+/**********************************************************
+ * 				Include
+ **********************************************************/
 
 #include "DSP28x_Project.h"     // Device Headerfile and Examples Include File
 #include "ad5933.h"
@@ -150,10 +94,6 @@ void main(void)
    led_off(0x000f);
    led_on(0x000f);
 
-// Step 7. Initial AD5933
-   I2CA_Init();
-   ad5933_init();
-
 // Enable interrupts required for this example
 
 // Enable I2C interrupt 1 in the PIE: Group 8 interrupt 1
@@ -162,6 +102,9 @@ void main(void)
 // Enable CPU INT8 which is connected to PIE group 8
    IER |= M_INT8;
    EINT;
+
+// Step 7. Initial AD5933
+   ad5933_init();
 
    // Application loop
    for(;;)
@@ -230,24 +173,24 @@ void led_on(Uint16 led_msk)
 void led_off(Uint16 led_msk)
 {
 	//led0
-		if(led_msk & ( 0x0001 << 0) ){
-			GpioDataRegs.GPASET.bit.GPIO0 = 1;
-		}
+	if(led_msk & ( 0x0001 << 0) ){
+		GpioDataRegs.GPASET.bit.GPIO0 = 1;
+	}
 
-		//led1
-		if(led_msk & ( 0x0001 << 1) ){
-			GpioDataRegs.GPASET.bit.GPIO1 = 1;
-		}
+	//led1
+	if(led_msk & ( 0x0001 << 1) ){
+		GpioDataRegs.GPASET.bit.GPIO1 = 1;
+	}
 
-		//led2
-		if(led_msk & ( 0x0001 << 2) ){
-			GpioDataRegs.GPASET.bit.GPIO2 = 1;
-		}
+	//led2
+	if(led_msk & ( 0x0001 << 2) ){
+		GpioDataRegs.GPASET.bit.GPIO2 = 1;
+	}
 
-		//led3
-		if(led_msk & ( 0x0001 << 3) ){
-			GpioDataRegs.GPASET.bit.GPIO3 = 1;
-		}
+	//led3
+	if(led_msk & ( 0x0001 << 3) ){
+		GpioDataRegs.GPASET.bit.GPIO3 = 1;
+	}
 }
 void button_init(void)
 {
