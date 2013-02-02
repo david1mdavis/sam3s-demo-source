@@ -87,6 +87,16 @@
 			<locationURI>SRC_ROOT/DSP2802x_common/cmd/28027_RAM_lnk.cmd</locationURI>
 		</link>
 		<link>
+			<name>Communication.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Communication.c</locationURI>
+		</link>
+		<link>
+			<name>Communication.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Communication.h</locationURI>
+		</link>
+		<link>
 			<name>DSP2802x_CodeStartBranch.asm</name>
 			<type>1</type>
 			<locationURI>SRC_ROOT/DSP2802x_common/source/DSP2802x_CodeStartBranch.asm</locationURI>
