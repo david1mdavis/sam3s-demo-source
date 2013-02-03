@@ -116,7 +116,7 @@ Uint16 I2C_Write(Uint16 DestAddr, Uint16 DataValue)
 	                						// bit  9 TRX = 1    Transmit
 	                						// bit  5 IRS = 1 to Reset I2C bus .
 
-	while( !( I2caRegs.I2CSTR.all & 0x0030 ) );	//ARDY
+	while( !( I2caRegs.I2CSTR.all & 0x0030 ) );	//XRDY && SCD
 	if( I2caRegs.I2CSTR.bit.NACK == 1){
 		I2caRegs.I2CMDR.bit.STP = 1;
 		I2caRegs.I2CSTR.bit.NACK = 0;
@@ -135,6 +135,8 @@ Uint16 I2C_Write(Uint16 DestAddr, Uint16 DataValue)
 Uint16 I2C_Read(Uint16 SourceAddr)
 {
     // Add your code here.
+	Uint16 temp;
+
 	//g_enRD_Mode = Read_Byte ;
 	if(I2caRegs .I2CMDR.bit.STP == 1)
 	{
@@ -148,19 +150,27 @@ Uint16 I2C_Read(Uint16 SourceAddr)
 	I2caRegs.I2CDXR = SourceAddr;
 	I2caRegs.I2CMDR.all = 0x6620;	//bit 14 FREE = 1
 	                				//bit 13 STT = 1    (Start condition)
-	               	   	   	   	   	// bit 11 STP =0    (No Stop condi tion afte r transfe r of 17 bytes .)
-	                						// bi t 10 MST = 1    Maste r
-	                						// bi t    9 TRX = 1    Transmi t
-	               	   	   	   	   	   	   // bi t    5 IRS = 1 to Rese t I 2C bus .
-	DELAY_US(50);    // Dela y 50us , wait
-	I2caRegs.I2CCNT = 1;  //Se t up re ce vie  of 1 byte
-	I2caRegs.I2CMDR.all = 0x6c20;          // bi t 14 FREE = 1
-	               // bi t 13 STT = 1    (Re Sta rt condi tion)
-	                // bi t 11 STP =1    (Stop condi tion a fte r transfe r of bytes .)
-	                // bi t 10 MST = 1    Maste r
-	                // bi t    9 TRX = 0    Re cei ve r
-	               // bi t    5 IRS = 1 to Rese t I 2C bus .
-	//II CA_Wait();
-	return(1);
+	               	   	   	   	   	//bit 11 STP =0    (No Stop condition after transfer of 17 bytes .)
+	                				//bit 10 MST = 1    Master
+	                				//bit  9 TRX = 1    Transmit
+	               	   	   	   	    //bit  5 IRS = 1    to Reset I2C bus .
+	DELAY_US(50);    // Delay 50us , wait
+	I2caRegs.I2CCNT = 2;  			//Set up receive of 1 byte
+	I2caRegs.I2CMDR.all = 0x6c20;   // bit 14 FREE = 1
+	               	   	   	   	   	// bit 13 STT = 1    (Re Start condition)
+	                				// bit 11 STP =1    (Stop condition after transfer of bytes .)
+	                				// bit 10 MST = 1    Master
+	                				// bit  9 TRX = 0    Receiver
+	               	   	   	   	   	// bit  5 IRS = 1 to Reset I2C bus .
+	//while( I2caRegs.I2CCNT )
+	{
+		while(I2caRegs.I2CSTR.all & 0x0010){
+			temp = I2caRegs.I2CDRR;
+			if(I2caRegs.I2CSTR.all & 0x2000)
+				break;
+		}
+	}
+
+	return(temp);
 }
 
