@@ -32,6 +32,8 @@ void button_init(void);
 
 void main(void)
 {
+	Uint16 value1, value2;
+
    CurrentMsgPtr = &I2cMsgOut1;
 
 // Step 1. Initialize System Control:
@@ -112,7 +114,8 @@ void main(void)
    for(;;)
    {
 	   I2C_Write(0x01, 0xFC);
-	   DELAY_US(50);    // Dela y 50us , wait
+	   DELAY_US(50);    // Delay 50us ,wait
+	   value1 = I2C_Read(0x00);
 #if 0
 	   while( 1 == GpioDataRegs.GPADAT.bit.GPIO12){
 		   //start freq sweep
