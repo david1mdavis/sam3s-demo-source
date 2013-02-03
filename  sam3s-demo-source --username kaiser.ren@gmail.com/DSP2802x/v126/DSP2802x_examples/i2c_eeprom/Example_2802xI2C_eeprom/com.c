@@ -41,7 +41,7 @@ void scia_fifo_init(void)
 /*
  * Test 1,SCIA  DLB, 8-bit word, baud rate 0x000F, default, 1 STOP bit, no parity
  */
-void scia_echoback_init()
+void scia_echoback_init(void)
 {
 	// For this example, only init the pins for the SCI-A port.
 	// This function is found in the DSP2802x_Sci.c file.

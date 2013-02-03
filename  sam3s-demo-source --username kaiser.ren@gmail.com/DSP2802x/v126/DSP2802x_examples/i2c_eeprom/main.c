@@ -11,6 +11,7 @@
 #include "DSP28x_Project.h"     // Device Headerfile and Examples Include File
 #include "ad5933.h"
 #include "Communication.h"
+#include "Example_2802xI2C_eeprom/com.h"
 // Note: I2C Macros used in this example can be found in the
 // DSP2802x_I2C_defines.h file
 
@@ -20,10 +21,6 @@ void led_init(void);
 void led_on(Uint16 led_msk);
 void led_off(Uint16 led_msk);
 void button_init(void);
-//void pass(void);
-//void fail(void);
-
-
 
 // Global variables
 // Two bytes will be used for the outgoing address,
@@ -84,21 +81,16 @@ void main(void)
 
 // Step 5. User specific code
 
-   // Clear Counters
-   PassCount = 0;
-   FailCount = 0;
-
-// Step 6. LEDs and Button init
+// Step 6. LEDs & Button & COM initial
    led_init();
    button_init();
+   scia_echoback_init();
 
    led_on(0x000f);
    led_off(0x000f);
-   led_on(0x000f);
-   led_off(0x000f);
-   led_on(0x000f);
-
-// Enable interrupts required for this example
+   //led_on(0x000f);
+   //led_off(0x000f);
+   //led_on(0x000f);
 
 // Enable I2C interrupt 1 in the PIE: Group 8 interrupt 1
    //PieCtrlRegs.PIEIER8.bit.INTx1 = 1;
@@ -108,15 +100,16 @@ void main(void)
    //EINT;
 
 // Step 7. Initial AD5933
-   //ad5933_init();
+   ad5933_init();
 
    // Application loop
    for(;;)
    {
+#if 0	//comment out AD7414
 	   I2C_Write(0x01, 0xFC);
 	   DELAY_US(50);    // Delay 50us ,wait
 	   value1 = I2C_Read(0x00);
-#if 0
+#else
 	   while( 1 == GpioDataRegs.GPADAT.bit.GPIO12){
 		   //start freq sweep
 		   ad5933_mode(start_sweep);
@@ -126,7 +119,21 @@ void main(void)
 			   //wait for data valid
 			   while( 0 == ( AD5933_STATUS_DATA_RDY & ad5993_status() ) );
 
-			   //read real and imaginary data
+			   //read real data
+			   value1 = I2C_Read(AD5933_ADDR_REAL_REG_MSB);
+			   value2 = I2C_Read(AD5933_ADDR_REAL_REG_LSB);
+			   scia_msg("Real: ");
+			   scia_xmit(value1);
+			   scia_xmit(value2);
+			   scia_msg("\r\n");
+
+			   //read imaginary data
+			   value1 = I2C_Read(AD5933_ADDR_IMGN_REG_MSB);
+			   value2 = I2C_Read(AD5933_ADDR_IMGN_REG_LSB);
+			   scia_msg("Imaginary: ");
+			   scia_xmit(value1);
+			   scia_xmit(value2);
+			   scia_msg("\r\n");
 
 			   //go to next freq point
 			   ad5933_mode(icmt_freq);
@@ -209,19 +216,6 @@ void button_init(void)
 	EDIS;
 }
 
-/*
-void pass()
-{
-    asm("   ESTOP0");
-    for(;;);
-}
-
-void fail()
-{
-    asm("   ESTOP0");
-    for(;;);
-}
-*/
 //===========================================================================
 // No more.
 //===========================================================================
