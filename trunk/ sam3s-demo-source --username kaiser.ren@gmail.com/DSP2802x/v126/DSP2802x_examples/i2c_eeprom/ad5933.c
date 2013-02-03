@@ -254,31 +254,7 @@ interrupt void i2c_int1a_isr(void)     // I2C-A
             {
               CurrentMsgPtr->MsgBuffer[i] = I2caRegs.I2CDRR;
             }
-         {
-         // Check recieved data
-         for(i=0; i < I2C_NUMBYTES; i++)
-         {
-            if(I2cMsgIn1.MsgBuffer[i] == I2cMsgOut1.MsgBuffer[i])
-            {
-                PassCount++;
-            }
-            else
-            {
-                FailCount++;
-            }
          }
-         if(PassCount == I2C_NUMBYTES)
-         {
-            //pass();
-         }
-         else
-         {
-            //fail();
-         }
-
-      }
-
-    }
       }
    }  // end of stop condition detected
 
@@ -300,11 +276,10 @@ interrupt void i2c_int1a_isr(void)     // I2C-A
          CurrentMsgPtr->MsgStatus = I2C_MSGSTAT_RESTART;
       }
    }  // end of register access ready
-
-   else
+   else if(IntSource == I2C_NACK_ISRC)
    {
-      // Generate some error due to invalid interrupt source
-      asm("   ESTOP0");
+	   I2caRegs.I2CMDR.bit.STP = 1;
+	   I2caRegs.I2CSTR.bit.NACK = 0;
    }
 
    // Enable future I2C (PIE Group 8) interrupts

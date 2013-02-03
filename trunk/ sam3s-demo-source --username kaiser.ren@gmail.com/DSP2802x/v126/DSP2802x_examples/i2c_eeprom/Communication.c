@@ -55,11 +55,11 @@
  *                  Example: 1 - if initialization was successful;
  *                           0 - if initialization was unsuccessful.
 *******************************************************************************/
-Uint16 I2C_Init(void)
+void I2C_Init(void)
 {
     // Add your code here.
 	// Initialize I2C
-	I2caRegs.I2CSAR = AD5933_ADDR_SLAVE;        // Slave address
+	I2caRegs.I2CSAR = 0x90;		//ad7414 addr //AD5933_ADDR_SLAVE;        // Slave address
 	// I2CCLK = SYSCLK/(I2CPSC+1)
 	#if (CPU_FRQ_40MHZ||CPU_FRQ_50MHZ)
 		I2caRegs.I2CPSC.all = 4;       // Prescaler - need 7-12 Mhz on module clk
@@ -70,15 +70,13 @@ Uint16 I2C_Init(void)
 	#endif
 	I2caRegs.I2CCLKL = 10;           // NOTE: must be non zero
 	I2caRegs.I2CCLKH = 5;            // NOTE: must be non zero
-	//I2caRegs.I2CIER.all = 0x24;      // Enable SCD & ARDY interrupts
+	//I2caRegs.I2CIER.all = 0x26;      // Enable SCD & ARDY & NACK interrupts
 
 	I2caRegs.I2CMDR.all = 0x0020;    // Take I2C out of reset
 	                                    // Stop I2C when suspended
 
 	I2caRegs.I2CFFTX.all = 0x6000;   // Enable FIFO mode and TXFIFO
 	I2caRegs.I2CFFRX.all = 0x2040;   // Enable RXFIFO, clear RXFFINT,
-
-	return;
 }
 
 /***************************************************************************//**
@@ -96,7 +94,7 @@ Uint16 I2C_Init(void)
 Uint16 I2C_Write(Uint16 DestAddr, Uint16 DataValue)
 {
     // Add your code here.
-	I2caRegs.I2CSAR = AD5933_ADDR_SLAVE;        // Slave address
+	I2caRegs.I2CSAR = 0x48;        // Slave address
 
 	if(I2caRegs.I2CMDR.bit.STP == 1)
 	{
@@ -107,16 +105,22 @@ Uint16 I2C_Write(Uint16 DestAddr, Uint16 DataValue)
 		return(I2C_BUS_BUSY_ERROR);
 	}
 	I2caRegs.I2CCNT = 2;        // 2 addi tional  bytes  being transfe rre d
-	//28035 has 4-le vel FIFO, so we can process up to 4 da ta one  time .
-	I2caRegs.I2CDXR = DestAddr & 0xff;  // Address should be  8 bi t
-	I2caRegs.I2CDXR = DataValue & 0xff;    // 8bi t da tavalue
+	//28035 has 4-level FIFO, so we can process up to 4 da ta one  time .
+	I2caRegs.I2CDXR = DestAddr & 0xff;  	// Address should be  8 bi t
+	I2caRegs.I2CDXR = DataValue & 0xff;    	// 8bit datavalue
 
-	I2caRegs.I2CMDR.all = 0x6E20;        // bi t 14 FREE = 1
-	                					// bi t 13 STT = 1    (Start condi tion)
-	                					// bi t 11 STP =1    (Stop condi tion a fte r transfe r of bytes .)
-	                					// bi t 10 MST = 1    Maste r
-	                					// bi t    9 TRX = 1    Transmi t
-	                					// bi t    5 IRS = 1 to Rese t I 2C bus .
+	I2caRegs.I2CMDR.all = 0x6E20;        	// bit 14 FREE = 1
+	                						// bit 13 STT = 1    (Start condition)
+	                						// bit 11 STP =1    (Stop condition after transfer of bytes .)
+	                						// bit 10 MST = 1    Master
+	                						// bit  9 TRX = 1    Transmit
+	                						// bit  5 IRS = 1 to Reset I2C bus .
+
+	while( !( I2caRegs.I2CSTR.all & 0x0030 ) );	//ARDY
+	if( I2caRegs.I2CSTR.bit.NACK == 1){
+		I2caRegs.I2CMDR.bit.STP = 1;
+		I2caRegs.I2CSTR.bit.NACK = 0;
+	}
 	return(I2C_SUCCESS);
 }
 
@@ -148,7 +152,7 @@ Uint16 I2C_Read(Uint16 SourceAddr)
 	                						// bi t 10 MST = 1    Maste r
 	                						// bi t    9 TRX = 1    Transmi t
 	               	   	   	   	   	   	   // bi t    5 IRS = 1 to Rese t I 2C bus .
-	DELAY_US(50);    // Dela y 50us , wai t
+	DELAY_US(50);    // Dela y 50us , wait
 	I2caRegs.I2CCNT = 1;  //Se t up re ce vie  of 1 byte
 	I2caRegs.I2CMDR.all = 0x6c20;          // bi t 14 FREE = 1
 	               // bi t 13 STT = 1    (Re Sta rt condi tion)

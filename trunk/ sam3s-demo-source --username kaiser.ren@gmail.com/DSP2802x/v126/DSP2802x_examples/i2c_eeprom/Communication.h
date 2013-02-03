@@ -51,7 +51,7 @@
 /******************************************************************************/
 
 /*! Initializes the I2C communication peripheral. */
-Uint16 I2C_Init(void);
+void I2C_Init(void);
 
 /*! Writes data to a slave device. */
 Uint16 I2C_Write(Uint16 slaveAddress, Uint16 dataBuffer);

@@ -10,6 +10,7 @@
 
 #include "DSP28x_Project.h"     // Device Headerfile and Examples Include File
 #include "ad5933.h"
+#include "Communication.h"
 // Note: I2C Macros used in this example can be found in the
 // DSP2802x_I2C_defines.h file
 
@@ -76,7 +77,8 @@ void main(void)
 // Step 4. Initialize all the Device Peripherals:
 // This function is found in DSP2802x_InitPeripherals.c
 // InitPeripherals(); // Not required for this example
-   I2CA_Init();
+   //I2CA_Init();	//use interrupt
+   I2C_Init();		//use polling
 
 // Step 5. User specific code
 
@@ -97,18 +99,21 @@ void main(void)
 // Enable interrupts required for this example
 
 // Enable I2C interrupt 1 in the PIE: Group 8 interrupt 1
-   PieCtrlRegs.PIEIER8.bit.INTx1 = 1;
+   //PieCtrlRegs.PIEIER8.bit.INTx1 = 1;
 
 // Enable CPU INT8 which is connected to PIE group 8
-   IER |= M_INT8;
-   EINT;
+   //IER |= M_INT8;
+   //EINT;
 
 // Step 7. Initial AD5933
-   ad5933_init();
+   //ad5933_init();
 
    // Application loop
    for(;;)
    {
+	   I2C_Write(0x01, 0xFC);
+	   DELAY_US(50);    // Dela y 50us , wait
+#if 0
 	   while( 1 == GpioDataRegs.GPADAT.bit.GPIO12){
 		   //start freq sweep
 		   ad5933_mode(start_sweep);
@@ -127,7 +132,7 @@ void main(void)
 		   //sweep complete, goto power-down mode
 		   ad5933_mode(powr_down);
 	   }
-
+#endif
    }   // end of for(;;)
 }   // end of main
 
