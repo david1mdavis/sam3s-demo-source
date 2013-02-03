@@ -65,13 +65,27 @@ void ad5933_init(void)
 	cycle_set = 511;
 
 	//set address pointer, to 0x82,
-	I2cMsgOut1.NumOfBytes = 2;	//POINTER CMD and REG Addr
+	/*I2cMsgOut1.NumOfBytes = 2;	//POINTER CMD and REG Addr
 	I2cMsgOut1.MsgBuffer[0] = AD5933_BOARD_CMD_ADDR_PTR;
 	I2cMsgOut1.MsgBuffer[1] = AD5933_ADDR_FREQ_REG_MSB;
-	I2CA_WriteData(&I2cMsgOut1);
+	I2CA_WriteData(&I2cMsgOut1);*/
 
 	//set start freq, number of incre and freq incre
-	I2cMsgOut1.NumOfBytes = 12;	//2+10
+	I2C_Write(AD5933_ADDR_FREQ_REG_MSB, start_freq >> 16);	//REG 0x82
+	I2C_Write(AD5933_ADDR_FREQ_REG_MMB, start_freq >> 8);	//REG 0x83
+	I2C_Write(AD5933_ADDR_FREQ_REG_LSB, start_freq >> 0);	//REG 0x84
+
+	I2C_Write(AD5933_ADDR_FICT_REG_MSB, incre_freq >> 16);	//REG 0x85
+	I2C_Write(AD5933_ADDR_FICT_REG_MMB, incre_freq >> 8);	//REG 0x86
+	I2C_Write(AD5933_ADDR_FICT_REG_LSB, incre_freq >> 0);	//REG 0x87
+
+	I2C_Write(AD5933_ADDR_NICT_REG_MSB, incre_num >> 8);	//REG 0x88
+	I2C_Write(AD5933_ADDR_NICT_REG_LSB, incre_num >> 0);	//REG 0x89
+
+	I2C_Write(AD5933_ADDR_STCY_REG_MSB, cycle_set >> 8);	//REG 0x8a
+	I2C_Write(AD5933_ADDR_STCY_REG_LSB, cycle_set >> 0);	//REG 0x8b
+
+	/*I2cMsgOut1.NumOfBytes = 12;	//2+10
 	I2cMsgOut1.MsgBuffer[0] = AD5933_CMD_CODE_BLOCK_WR;
 	I2cMsgOut1.MsgBuffer[1] = 10;
 	I2cMsgOut1.MsgBuffer[2] = start_freq >> 16;	//start frequency
@@ -84,7 +98,7 @@ void ad5933_init(void)
 	I2cMsgOut1.MsgBuffer[9] = incre_num >> 0;
 	I2cMsgOut1.MsgBuffer[10] = cycle_set >> 8;	//number of settling cycle
 	I2cMsgOut1.MsgBuffer[11] = cycle_set >> 0;
-	I2CA_WriteData(&I2cMsgOut1);
+	I2CA_WriteData(&I2cMsgOut1);*/
 
 	ad5933_mode(stand_by);
 	ad5933_mode(init_freq);
@@ -96,10 +110,13 @@ void ad5933_init(void)
 void ad5933_mode(ad5933_state_t state)
 {
 	//WR in reg 0x80
+	I2C_Write(AD5933_ADDR_CTRL_REG_MSB, (Uint16)state);	//REG 0x80
+	/*
 	I2cMsgOut1.NumOfBytes = 2;	//
 	I2cMsgOut1.MsgBuffer[0] = AD5933_ADDR_CTRL_REG_MSB;
 	I2cMsgOut1.MsgBuffer[1] = (Uint16)state;
 	I2CA_WriteData(&I2cMsgOut1);
+	*/
 }
 
 /*
@@ -108,14 +125,15 @@ void ad5933_mode(ad5933_state_t state)
 Uint16 ad5993_status(void)
 {
 	//set address pointer, to 0x82,
+	/*
 	I2cMsgOut1.NumOfBytes = 2;	//POINTER CMD and REG Addr
 	I2cMsgOut1.MsgBuffer[0] = AD5933_BOARD_CMD_ADDR_PTR;
 	I2cMsgOut1.MsgBuffer[1] = AD5933_ADDR_STAT_REG_MSB;
 	I2CA_WriteData(&I2cMsgOut1);
+	*/
 
 	//read status
-	I2cMsgIn1.NumOfBytes = 1;
-	I2CA_ReadData(&I2cMsgIn1);
+	return (I2C_Read(AD5933_ADDR_STAT_REG_MSB));
 }
 
 void I2CA_Init(void)
