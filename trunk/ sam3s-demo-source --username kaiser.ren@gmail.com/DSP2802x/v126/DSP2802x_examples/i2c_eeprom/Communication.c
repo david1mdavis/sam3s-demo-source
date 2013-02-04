@@ -7,8 +7,10 @@
 /**********************************************************
  * 				Include
  **********************************************************/
+#include <stdlib.h>
 #include "ad5933.h"
 #include "Communication.h"
+#include "Example_2802xI2C_eeprom/com.h"
 
 /***************************************************************************//**
  * @brief Initializes the I2C communication peripheral.
@@ -99,7 +101,8 @@ Uint16 I2C_Write(Uint16 DestAddr, Uint16 DataValue)
 Uint16 I2C_Read(Uint16 SourceAddr)
 {
     // Add your code here.
-	Uint16 temp;
+	Uint16 temp, cnt;
+	unsigned char  tempString[12] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 	//g_enRD_Mode = Read_Byte ;
 	if(I2caRegs .I2CMDR.bit.STP == 1)
@@ -126,14 +129,14 @@ Uint16 I2C_Read(Uint16 SourceAddr)
 	                				// bit 10 MST = 1    Master
 	                				// bit  9 TRX = 0    Receiver
 	               	   	   	   	   	// bit  5 IRS = 1 to Reset I2C bus .
-	//while( I2caRegs.I2CCNT )
-	{
-		while(I2caRegs.I2CSTR.all & 0x0010){
-			temp = I2caRegs.I2CDRR;
-			if(I2caRegs.I2CSTR.all & 0x2000)
-				break;
-		}
-	}
+
+	while( 0 == ( I2caRegs.I2CSTR.all & 0x2000 ) );
+	cnt = I2caRegs.I2CFFRX.bit.RXFFST;
+	FloatToString(tempString, cnt);
+	scia_msg(tempString);
+	//while(I2caRegs.I2CCNT){
+		temp = I2caRegs.I2CDRR;
+	//}
 
 	return(temp);
 }
