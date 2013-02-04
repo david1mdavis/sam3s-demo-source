@@ -4,7 +4,7 @@
 
 SHELL = cmd.exe
 
-CG_TOOL_ROOT := F:/ti/ccsv5/tools/compiler/c2000_6.1.0
+CG_TOOL_ROOT := D:/Program Files/ti ccs 5.2/ccsv5/tools/compiler/c2000_6.1.0
 
 ORDERED_OBJS += \
 $(GEN_CMDS__FLAG) \
@@ -25,8 +25,8 @@ $(GEN_CMDS__FLAG) \
 "C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/DSP2802x_CodeStartBranch.obj" \
 "C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/Communication.obj" \
 -l"rts2800_ml.lib" \
-"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/cmd/28027_RAM_lnk.cmd" \
-"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_headers/cmd/DSP2802x_Headers_nonBIOS.cmd" \
+"E:/kren/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/cmd/28027_RAM_lnk.cmd" \
+"E:/kren/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_headers/cmd/DSP2802x_Headers_nonBIOS.cmd" \
 
 -include ../makefile.init
 
@@ -125,19 +125,19 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: F:/\ Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Example_2802xI2C_eeprom/../../../DSP2802x_examples/i2c_eeprom/Debug/Example_2802xI2C_eeprom.out
+all: E:/kren/Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Example_2802xI2C_eeprom/../../../DSP2802x_examples/i2c_eeprom/Debug/Example_2802xI2C_eeprom.out
 
 # Tool invocations
-F:/\ Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Example_2802xI2C_eeprom/../../../DSP2802x_examples/i2c_eeprom/Debug/Example_2802xI2C_eeprom.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+E:/kren/Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Example_2802xI2C_eeprom/../../../DSP2802x_examples/i2c_eeprom/Debug/Example_2802xI2C_eeprom.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: C2000 Linker'
-	"F:/ti/ccsv5/tools/compiler/c2000_6.1.0/bin/cl2000" -v28 -ml -mt -g --define="_DEBUG" --define="LARGE_MODEL" --quiet --display_error_number --issue_remarks --asm_directory="C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug" --obj_directory="C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug" -z --stack_size=0x300 -m"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/Example_2802xI2C_eeprom.map" --warn_sections -i"F:/ti/ccsv5/tools/compiler/c2000_6.1.0/lib" -i"F:/ti/ccsv5/tools/compiler/c2000_6.1.0/include" -i"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Example_2802xI2C_eeprom" -i"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom" -i"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_headers/include" --reread_libs --display_error_number --entry_point=code_start --rom_model -o "F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Example_2802xI2C_eeprom/../../../DSP2802x_examples/i2c_eeprom/Debug/Example_2802xI2C_eeprom.out" $(ORDERED_OBJS)
+	"D:/Program Files/ti ccs 5.2/ccsv5/tools/compiler/c2000_6.1.0/bin/cl2000" -v28 -ml -mt -g --define="_DEBUG" --define="LARGE_MODEL" --quiet --display_error_number --issue_remarks --asm_directory="C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug" --obj_directory="C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug" -z --stack_size=0x300 -m"E:/kren/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/Example_2802xI2C_eeprom.map" --warn_sections -i"D:/Program Files/ti ccs 5.2/ccsv5/tools/compiler/c2000_6.1.0/lib" -i"D:/Program Files/ti ccs 5.2/ccsv5/tools/compiler/c2000_6.1.0/include" -i"E:/kren/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Example_2802xI2C_eeprom" -i"E:/kren/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom" -i"E:/kren/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_headers/include" --reread_libs --display_error_number --entry_point=code_start --rom_model -o "E:/kren/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Example_2802xI2C_eeprom/../../../DSP2802x_examples/i2c_eeprom/Debug/Example_2802xI2C_eeprom.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(C2000_EXECUTABLE_OUTPUTS__QUOTED) "F:\ Firmware\sam3s-demo-source\trunk\ sam3s-demo-source --username kaiser.ren@gmail.com\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\Example_2802xI2C_eeprom.out"
+	-$(RM) $(C2000_EXECUTABLE_OUTPUTS__QUOTED) "E:\kren\Firmware\sam3s-demo-source\trunk\ sam3s-demo-source --username kaiser.ren@gmail.com\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\Example_2802xI2C_eeprom.out"
 	-$(RM) "Communication.pp" "DSP2802x_CpuTimers.pp" "DSP2802x_DefaultIsr.pp" "DSP2802x_GlobalVariableDefs.pp" "DSP2802x_Gpio.pp" "DSP2802x_I2C.pp" "DSP2802x_PieCtrl.pp" "DSP2802x_PieVect.pp" "DSP2802x_Sci.pp" "DSP2802x_SysCtrl.pp" "ad5933.pp" "calc.pp" "com.pp" "main.pp" 
 	-$(RM) "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\Communication.obj" "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\DSP2802x_CodeStartBranch.obj" "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\DSP2802x_CpuTimers.obj" "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\DSP2802x_DefaultIsr.obj" "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\DSP2802x_GlobalVariableDefs.obj" "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\DSP2802x_Gpio.obj" "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\DSP2802x_I2C.obj" "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\DSP2802x_PieCtrl.obj" "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\DSP2802x_PieVect.obj" "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\DSP2802x_Sci.obj" "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\DSP2802x_SysCtrl.obj" "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\DSP2802x_usDelay.obj" 
 	-$(RM) "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\ad5933.obj" "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\calc.obj" "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\com.obj" "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\main.obj" 
