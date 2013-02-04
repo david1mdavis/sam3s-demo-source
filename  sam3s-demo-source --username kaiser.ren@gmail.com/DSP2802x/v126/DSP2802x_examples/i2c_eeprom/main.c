@@ -30,6 +30,7 @@ void button_init(void);
 void main(void)
 {
 	Uint16 value1, value2;
+	unsigned char  tempString[12] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 // Step 1. Initialize System Control:
 // PLL, WatchDog, enable Peripheral Clocks
@@ -107,6 +108,8 @@ void main(void)
 	   I2C_Write(0x03, 0x5a);	//AD7414 t-low reg
 	   DELAY_US(50);    		//Delay 50us ,wait
 	   value1 = I2C_Read(0x00);	//read ctrl reg
+	   FloatToString(tempString, (double) value1);
+	   scia_msg(tempString);
 	   value1 = 0;
 	   value1 = I2C_Read(0x01);	//read ctrl reg
 	   value1 = 0;

@@ -9,8 +9,6 @@
  **********************************************************/
 #include <stdlib.h>
 #include "ad5933.h"
-#include "Communication.h"
-#include "Example_2802xI2C_eeprom/com.h"
 
 /***************************************************************************//**
  * @brief Initializes the I2C communication peripheral.
@@ -101,8 +99,7 @@ Uint16 I2C_Write(Uint16 DestAddr, Uint16 DataValue)
 Uint16 I2C_Read(Uint16 SourceAddr)
 {
     // Add your code here.
-	Uint16 temp, cnt;
-	unsigned char  tempString[12] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	Uint16 temp;
 
 	//g_enRD_Mode = Read_Byte ;
 	if(I2caRegs .I2CMDR.bit.STP == 1)
@@ -122,7 +119,13 @@ Uint16 I2C_Read(Uint16 SourceAddr)
 	                				//bit  9 TRX = 1    Transmit
 	               	   	   	   	    //bit  5 IRS = 1    to Reset I2C bus .
 	DELAY_US(50);    // Delay 50us , wait
-	I2caRegs.I2CCNT = 1;  			//Set up receive of 1 byte
+	if( 0 == SourceAddr ){
+		I2caRegs.I2CCNT = 2;  			//Set up receive of 1 byte
+	}
+	else{
+		I2caRegs.I2CCNT = 1;  			//Set up receive of 1 byte
+	}
+
 	I2caRegs.I2CMDR.all = 0x6c20;   // bit 14 FREE = 1
 	               	   	   	   	   	// bit 13 STT = 1    (Re Start condition)
 	                				// bit 11 STP =1    (Stop condition after transfer of bytes .)
@@ -131,12 +134,9 @@ Uint16 I2C_Read(Uint16 SourceAddr)
 	               	   	   	   	   	// bit  5 IRS = 1 to Reset I2C bus .
 
 	while( 0 == ( I2caRegs.I2CSTR.all & 0x2000 ) );
-	cnt = I2caRegs.I2CFFRX.bit.RXFFST;
-	FloatToString(tempString, cnt);
-	scia_msg(tempString);
-	//while(I2caRegs.I2CCNT){
+	while(I2caRegs.I2CFFRX.all & 0x1f00){
 		temp = I2caRegs.I2CDRR;
-	//}
+	}
 
 	return(temp);
 }
