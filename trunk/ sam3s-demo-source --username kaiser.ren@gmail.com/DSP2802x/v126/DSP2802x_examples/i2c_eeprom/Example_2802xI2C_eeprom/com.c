@@ -45,7 +45,10 @@ void scia_echoback_init(void)
 {
 	// For this example, only init the pins for the SCI-A port.
 	// This function is found in the DSP2802x_Sci.c file.
-	   InitSciaGpio();
+	InitSciaGpio();
+
+	/* Init scia fifo. */
+	scia_fifo_init();
 
     // Note: Clocks were turned on to the SCIA peripheral
     // in the InitSysCtrl() function
@@ -71,9 +74,6 @@ void scia_echoback_init(void)
     #endif
 
     SciaRegs.SCICTL1.all =0x0023;  // Relinquish SCI from Reset
-
-    /* Init scia fifo. */
-    scia_fifo_init();
 }
 
 /*

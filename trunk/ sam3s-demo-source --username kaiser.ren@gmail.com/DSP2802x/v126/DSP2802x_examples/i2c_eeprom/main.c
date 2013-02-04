@@ -31,8 +31,6 @@ void main(void)
 {
 	Uint16 value1, value2;
 
-   CurrentMsgPtr = &I2cMsgOut1;
-
 // Step 1. Initialize System Control:
 // PLL, WatchDog, enable Peripheral Clocks
 // This example function is found in the DSP2802x_SysCtrl.c file.
@@ -79,18 +77,16 @@ void main(void)
    //I2CA_Init();	//use interrupt
    I2C_Init();		//use polling
 
-// Step 5. User specific code
+// Step 5. Com port initial
+   scia_echoback_init();
+   scia_msg("-- Network Analyzer V0.01--\r\n");
 
-// Step 6. LEDs & Button & COM initial
+// Step 6. BSP init, LEDs & Button
    led_init();
    button_init();
-   scia_echoback_init();
-
+   //blink
    led_on(0x000f);
    led_off(0x000f);
-   //led_on(0x000f);
-   //led_off(0x000f);
-   //led_on(0x000f);
 
 // Enable I2C interrupt 1 in the PIE: Group 8 interrupt 1
    //PieCtrlRegs.PIEIER8.bit.INTx1 = 1;
@@ -100,15 +96,22 @@ void main(void)
    //EINT;
 
 // Step 7. Initial AD5933
-   ad5933_init();
+   //ad5933_init();
 
    // Application loop
    for(;;)
    {
-#if 0	//comment out AD7414
-	   I2C_Write(0x01, 0xFC);
-	   DELAY_US(50);    // Delay 50us ,wait
-	   value1 = I2C_Read(0x00);
+#if 1	//comment out AD7414
+	   I2C_Write(0x01, 0x40);	//AD7414 ctrl reg
+	   I2C_Write(0x02, 0xa5);	//AD7414 t-high reg
+	   I2C_Write(0x03, 0x5a);	//AD7414 t-low reg
+	   DELAY_US(50);    		//Delay 50us ,wait
+	   value1 = I2C_Read(0x01);	//read ctrl reg
+	   value1 = 0;
+	   value1 = I2C_Read(0x02);	//read t-high reg
+	   value1 = 0;
+	   value1 = I2C_Read(0x03);	//read t-low reg
+	   value1 = 0;
 #else
 	   while( 1 == GpioDataRegs.GPADAT.bit.GPIO12){
 		   //start freq sweep

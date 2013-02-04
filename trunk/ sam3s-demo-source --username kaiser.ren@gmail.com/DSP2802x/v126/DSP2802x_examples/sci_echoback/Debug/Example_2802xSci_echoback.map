@@ -1,9 +1,9 @@
 ******************************************************************************
              TMS320C2000 Linker PC v6.1.0                      
 ******************************************************************************
->> Linked Thu Jan 31 18:51:23 2013
+>> Linked Mon Feb 04 09:36:31 2013
 
-OUTPUT FILE NAME:   <F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/sci_echoback/Example_2802xSci_Echoback/../../../DSP2802x_examples/sci_echoback/Debug/Example_2802xSci_echoback.out>
+OUTPUT FILE NAME:   <E:/kren/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/sci_echoback/Example_2802xSci_Echoback/../../../DSP2802x_examples/sci_echoback/Debug/Example_2802xSci_echoback.out>
 ENTRY POINT SYMBOL: "code_start"  address: 00000000
 
 
