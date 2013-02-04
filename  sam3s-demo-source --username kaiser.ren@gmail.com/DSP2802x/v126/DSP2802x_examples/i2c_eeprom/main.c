@@ -106,6 +106,8 @@ void main(void)
 	   I2C_Write(0x02, 0xa5);	//AD7414 t-high reg
 	   I2C_Write(0x03, 0x5a);	//AD7414 t-low reg
 	   DELAY_US(50);    		//Delay 50us ,wait
+	   value1 = I2C_Read(0x00);	//read ctrl reg
+	   value1 = 0;
 	   value1 = I2C_Read(0x01);	//read ctrl reg
 	   value1 = 0;
 	   value1 = I2C_Read(0x02);	//read t-high reg

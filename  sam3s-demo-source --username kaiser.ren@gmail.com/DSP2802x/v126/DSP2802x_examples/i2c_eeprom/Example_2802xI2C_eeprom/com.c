@@ -19,6 +19,7 @@ void scia_echoback_init(void);
 void scia_fifo_init(void);
 void scia_xmit(int a);
 void scia_msg(char *msg);
+void FloatToString(char * buf, double val);
 
 /**********************************************************
  * 				Global Variable
@@ -98,6 +99,50 @@ void scia_msg(char * msg)
         scia_xmit(msg[i]);
         i++;
     }
+}
+
+/***************************************************************************//**
+ * @brief Converts a float value to a character array with 3 digits of accuracy.
+ *
+ * @param *buf - returns the converterd value
+ * @param val - value to be converted
+ *
+ * @return None.
+*******************************************************************************/
+void FloatToString(char * buf, double val)
+{
+    long  intPart  = 0;
+    short fracPart = 0;
+    char  charPos  = 0;
+    char  localBuf[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    char  i = sizeof(localBuf) - 1;
+
+    intPart = (long)val;
+    fracPart = (short)((val - intPart) * 1000 + 0.5);
+    while(i > (sizeof(localBuf) - 4))
+    {
+        localBuf[i] = (fracPart % 10) + 0x30;
+        fracPart /= 10;
+        i--;
+    }
+    localBuf[i] = '.';
+    if(intPart == 0)
+    {
+        i --;
+        localBuf[i] = '0';
+    }
+    while(intPart)
+    {
+        i --;
+        localBuf[i] =(intPart % 10)  + 0x30;
+        intPart /= 10;
+    }
+    for(charPos = i; charPos < sizeof(localBuf); charPos ++)
+    {
+        *buf = localBuf[charPos];
+        buf ++;
+    }
+    *buf = 0;
 }
 
 /*
