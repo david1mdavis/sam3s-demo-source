@@ -97,12 +97,12 @@ void main(void)
    //EINT;
 
 // Step 7. Initial AD5933
-   //ad5933_init();
+   ad5933_init();
 
    // Application loop
    for(;;)
    {
-#if 1	//comment out AD7414
+#if 0	//comment out AD7414
 	   I2C_Write(0x01, 0x40);	//AD7414 ctrl reg
 	   I2C_Write(0x02, 0xa5);	//AD7414 t-high reg
 	   I2C_Write(0x03, 0x5a);	//AD7414 t-low reg
