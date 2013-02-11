@@ -1,7 +1,7 @@
 ******************************************************************************
              TMS320C2000 Linker PC v6.1.0                      
 ******************************************************************************
->> Linked Thu Jan 31 18:53:32 2013
+>> Linked Sun Feb 10 16:09:07 2013
 
 OUTPUT FILE NAME:   <F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/timed_led_blink/Example_2802xLEDBlink/../../../DSP2802x_examples/timed_led_blink/Debug/Example_2802xLEDBlink.out>
 ENTRY POINT SYMBOL: "code_start"  address: 00000000

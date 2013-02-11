@@ -59,8 +59,10 @@ void ad5933_init(void)
 	Uint16 incre_num;
 	Uint16 cycle_set;
 
-	start_freq = 4 * AD5933_BOARD_FREQ_START * AD5933_BOARD_CALC_FACTOR / AD5933_BOARD_SYS_CLK_FREQ;
-	incre_freq = 4 * AD5933_BOARD_FREQ_ICMT * AD5933_BOARD_CALC_FACTOR / AD5933_BOARD_SYS_CLK_FREQ;
+	start_freq = AD5933_BOARD_FREQ_START * ( 4 * AD5933_BOARD_CALC_FACTOR / AD5933_BOARD_SYS_CLK_FREQ);
+	start_freq = start_freq/1000;
+	incre_freq = AD5933_BOARD_FREQ_ICMT * ( 4 * AD5933_BOARD_CALC_FACTOR / AD5933_BOARD_SYS_CLK_FREQ);
+	incre_freq = incre_freq/1000;
 	incre_num = AD5933_BOARD_CNT_ICMT;
 	cycle_set = 511;
 
@@ -139,7 +141,7 @@ Uint16 ad5993_status(void)
 void I2CA_Init(void)
 {
    // Initialize I2C
-   I2caRegs.I2CSAR = 0x0050;        // Slave address - EEPROM control code
+   I2caRegs.I2CSAR = 0x000D;        // Slave address - AD5933
    // I2CCLK = SYSCLK/(I2CPSC+1)
    #if (CPU_FRQ_40MHZ||CPU_FRQ_50MHZ)
      I2caRegs.I2CPSC.all = 4;       // Prescaler - need 7-12 Mhz on module clk

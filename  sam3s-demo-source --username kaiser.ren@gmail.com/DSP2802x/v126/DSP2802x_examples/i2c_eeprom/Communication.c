@@ -23,7 +23,8 @@ void I2C_Init(void)
 {
     // Add your code here.
 	// Initialize I2C
-	I2caRegs.I2CSAR = 0x90;		//ad7414 addr //AD5933_ADDR_SLAVE;        // Slave address
+	I2caRegs.I2CSAR = 0x0D;		//ad7414 addr 0x48
+								//AD5933_ADDR_SLAVE 0x0D
 	// I2CCLK = SYSCLK/(I2CPSC+1)
 	#if (CPU_FRQ_40MHZ||CPU_FRQ_50MHZ)
 		I2caRegs.I2CPSC.all = 4;       // Prescaler - need 7-12 Mhz on module clk
@@ -58,7 +59,8 @@ void I2C_Init(void)
 Uint16 I2C_Write(Uint16 DestAddr, Uint16 DataValue)
 {
     // Add your code here.
-	I2caRegs.I2CSAR = 0x48;        // Slave address
+	I2caRegs.I2CSAR = 0x0D;			//ad7414 addr 0x48
+									//AD5933_ADDR_SLAVE 0x0D
 
 	if(I2caRegs.I2CMDR.bit.STP == 1)
 	{
@@ -119,12 +121,7 @@ Uint16 I2C_Read(Uint16 SourceAddr)
 	                				//bit  9 TRX = 1    Transmit
 	               	   	   	   	    //bit  5 IRS = 1    to Reset I2C bus .
 	DELAY_US(50);    // Delay 50us , wait
-	if( 0 == SourceAddr ){
-		I2caRegs.I2CCNT = 2;  			//Set up receive of 1 byte
-	}
-	else{
-		I2caRegs.I2CCNT = 1;  			//Set up receive of 1 byte
-	}
+	I2caRegs.I2CCNT = 1;  			//Set up receive of 1 byte
 
 	I2caRegs.I2CMDR.all = 0x6c20;   // bit 14 FREE = 1
 	               	   	   	   	   	// bit 13 STT = 1    (Re Start condition)
