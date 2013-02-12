@@ -103,6 +103,7 @@ Uint16 I2CA_WriteData(struct I2CMSG *msg);
 Uint16 I2CA_ReadData(struct I2CMSG *msg);
 interrupt void i2c_int1a_isr(void);
 void ad5933_init(void);
+void ad5933_test(void);
 void ad5933_mode(ad5933_state_t state);
 Uint16 ad5993_status(void);
 

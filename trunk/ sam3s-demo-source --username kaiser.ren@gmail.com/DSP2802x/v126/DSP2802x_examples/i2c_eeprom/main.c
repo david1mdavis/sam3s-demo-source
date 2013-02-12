@@ -98,6 +98,7 @@ void main(void)
 
 // Step 7. Initial AD5933
    ad5933_init();
+   ad5933_test();
 
    // Application loop
    for(;;)
