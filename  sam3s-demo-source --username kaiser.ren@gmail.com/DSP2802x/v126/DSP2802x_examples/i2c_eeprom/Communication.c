@@ -103,7 +103,8 @@ Uint16 I2C_Read(Uint16 SourceAddr)
     // Add your code here.
 	Uint16 temp;
 
-	//g_enRD_Mode = Read_Byte ;
+	//I2C_Write(AD5933_BOARD_CMD_ADDR_PTR, SourceAddr);
+
 	if(I2caRegs .I2CMDR.bit.STP == 1)
 	{
 		return(I2C_STP_NOT_READY_ERROR);
@@ -112,8 +113,12 @@ Uint16 I2C_Read(Uint16 SourceAddr)
 	{
 		return(I2C_BUS_BUSY_ERROR);
 	}
-	I2caRegs.I2CCNT = 1;
-	I2caRegs.I2CDXR = SourceAddr;
+
+	I2caRegs.I2CCNT = 2;        // 2 addi tional  bytes  being transfe rre d
+	//28035 has 4-level FIFO, so we can process up to 4 da ta one  time .
+	I2caRegs.I2CDXR = AD5933_BOARD_CMD_ADDR_PTR;  	// Address should be  8 bi t
+	I2caRegs.I2CDXR = SourceAddr & 0xff;    	// 8bit datavalue
+
 	I2caRegs.I2CMDR.all = 0x6620;	//bit 14 FREE = 1
 	                				//bit 13 STT = 1    (Start condition)
 	               	   	   	   	   	//bit 11 STP =0    (No Stop condition after transfer of 17 bytes .)
@@ -135,6 +140,6 @@ Uint16 I2C_Read(Uint16 SourceAddr)
 		temp = I2caRegs.I2CDRR;
 	}
 
-	return(temp);
+	return(temp&0x00FF);
 }
 

@@ -66,12 +66,6 @@ void ad5933_init(void)
 	incre_num = AD5933_BOARD_CNT_ICMT;
 	cycle_set = 511;
 
-	//set address pointer, to 0x82,
-	/*I2cMsgOut1.NumOfBytes = 2;	//POINTER CMD and REG Addr
-	I2cMsgOut1.MsgBuffer[0] = AD5933_BOARD_CMD_ADDR_PTR;
-	I2cMsgOut1.MsgBuffer[1] = AD5933_ADDR_FREQ_REG_MSB;
-	I2CA_WriteData(&I2cMsgOut1);*/
-
 	//set start freq, number of incre and freq incre
 	I2C_Write(AD5933_ADDR_FREQ_REG_MSB, start_freq >> 16);	//REG 0x82
 	I2C_Write(AD5933_ADDR_FREQ_REG_MMB, start_freq >> 8);	//REG 0x83
@@ -87,23 +81,34 @@ void ad5933_init(void)
 	I2C_Write(AD5933_ADDR_STCY_REG_MSB, cycle_set >> 8);	//REG 0x8a
 	I2C_Write(AD5933_ADDR_STCY_REG_LSB, cycle_set >> 0);	//REG 0x8b
 
-	/*I2cMsgOut1.NumOfBytes = 12;	//2+10
-	I2cMsgOut1.MsgBuffer[0] = AD5933_CMD_CODE_BLOCK_WR;
-	I2cMsgOut1.MsgBuffer[1] = 10;
-	I2cMsgOut1.MsgBuffer[2] = start_freq >> 16;	//start frequency
-	I2cMsgOut1.MsgBuffer[3] = start_freq >> 8;
-	I2cMsgOut1.MsgBuffer[4] = start_freq >> 0;
-	I2cMsgOut1.MsgBuffer[5] = incre_freq >> 16;	//freq increment
-	I2cMsgOut1.MsgBuffer[6] = incre_freq >> 8;
-	I2cMsgOut1.MsgBuffer[7] = incre_freq >> 0;
-	I2cMsgOut1.MsgBuffer[8] = incre_num >> 8;	//number of increment
-	I2cMsgOut1.MsgBuffer[9] = incre_num >> 0;
-	I2cMsgOut1.MsgBuffer[10] = cycle_set >> 8;	//number of settling cycle
-	I2cMsgOut1.MsgBuffer[11] = cycle_set >> 0;
-	I2CA_WriteData(&I2cMsgOut1);*/
-
 	ad5933_mode(stand_by);
 	ad5933_mode(init_freq);
+}
+
+/**
+ * ad5933 test
+ */
+void ad5933_test(void)
+{
+	Uint16 i, temp = 0;
+
+	for(i = 0x0080; i < 0x008a; i++ )
+	{
+		temp = I2C_Read( i );
+	}
+
+	//temp = I2C_Read( AD5933_ADDR_FREQ_REG_MSB );	//0x82
+	//temp = I2C_Read( AD5933_ADDR_FREQ_REG_MMB );	//0x83
+	//temp = I2C_Read( AD5933_ADDR_FREQ_REG_LSB );	//0x84
+}
+/***************************************************************************//**
+ * @brief Reads the value of a register.
+ *
+ * @return registerValue - Value of the register.
+*******************************************************************************/
+Uint16 AD5933_GetRegValue(Uint16 registerAddress)
+{
+	I2C_Write(AD5933_BOARD_CMD_ADDR_PTR, registerAddress);
 }
 
 /*
