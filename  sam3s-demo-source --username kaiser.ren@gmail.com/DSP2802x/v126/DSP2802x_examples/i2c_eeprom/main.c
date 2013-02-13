@@ -29,7 +29,7 @@ void button_init(void);
 
 void main(void)
 {
-	Uint16 value1, value2;
+	Uint16 value1, value2, revByte;
 	unsigned char  tempString[12] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 // Step 1. Initialize System Control:
@@ -119,7 +119,22 @@ void main(void)
 	   value1 = I2C_Read(0x03);	//read t-low reg
 	   value1 = 0;
 #else
-	   while( 1 == GpioDataRegs.GPADAT.bit.GPIO12){
+	   //while( 1 == GpioDataRegs.GPADAT.bit.GPIO12){
+	   revByte = scia_read();
+	   switch(revByte)
+	   {
+	   	   case 'a':
+	   	   case 'A':
+	   		   /* add operation. */
+	   		   asm("NOP");
+	   		   scia_msg("Input 'A'\r\n");
+	   		   break;
+	   		   //
+	   	   default:
+	   		   break;
+	   		   //
+	   }
+	   //{
 		   //start freq sweep
 		   ad5933_mode(start_sweep);
 
@@ -150,7 +165,7 @@ void main(void)
 
 		   //sweep complete, goto power-down mode
 		   ad5933_mode(powr_down);
-	   }
+	   //}
 #endif
    }   // end of for(;;)
 }   // end of main

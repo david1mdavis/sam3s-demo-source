@@ -16,5 +16,6 @@ void scia_echoback_init(void);
 void scia_fifo_init(void);
 void scia_xmit(int a);
 void scia_msg(char *msg);
+Uint16 scia_read(void);
 
 #endif /* COM_H_ */

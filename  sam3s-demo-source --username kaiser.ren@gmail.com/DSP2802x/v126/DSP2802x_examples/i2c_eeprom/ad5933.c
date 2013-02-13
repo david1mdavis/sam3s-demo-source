@@ -8,6 +8,7 @@
  * 				Include
  **********************************************************/
 #include "ad5933.h"
+#include "Communication.h"
 
 /**********************************************************
  * 				Macro
@@ -64,12 +65,12 @@ void ad5933_init(void)
 	incre_freq = AD5933_BOARD_FREQ_ICMT * ( 4 * AD5933_BOARD_CALC_FACTOR / AD5933_BOARD_SYS_CLK_FREQ);
 	incre_freq = incre_freq/1000;
 	incre_num = AD5933_BOARD_CNT_ICMT;
-	cycle_set = 511;
+	cycle_set = 0x0066;
 
 	//set start freq, number of incre and freq incre
-	I2C_Write(AD5933_ADDR_FREQ_REG_MSB, start_freq >> 16);	//REG 0x82
-	I2C_Write(AD5933_ADDR_FREQ_REG_MMB, start_freq >> 8);	//REG 0x83
-	I2C_Write(AD5933_ADDR_FREQ_REG_LSB, start_freq >> 0);	//REG 0x84
+	I2C_Write(AD5933_ADDR_FREQ_REG_MSB, 0x11/*start_freq >> 16*/);	//REG 0x82
+	I2C_Write(AD5933_ADDR_FREQ_REG_MMB, 0x22/*start_freq >> 8*/);	//REG 0x83
+	I2C_Write(AD5933_ADDR_FREQ_REG_LSB, 0x33/*start_freq >> 0*/);	//REG 0x84
 
 	I2C_Write(AD5933_ADDR_FICT_REG_MSB, incre_freq >> 16);	//REG 0x85
 	I2C_Write(AD5933_ADDR_FICT_REG_MMB, incre_freq >> 8);	//REG 0x86
@@ -90,11 +91,11 @@ void ad5933_init(void)
  */
 void ad5933_test(void)
 {
-	Uint16 i, temp = 0;
+	Uint16 i;
 
 	for(i = 0x0080; i < 0x008a; i++ )
 	{
-		temp = I2C_Read( i );
+		I2C_Read( i );
 	}
 
 	//temp = I2C_Read( AD5933_ADDR_FREQ_REG_MSB );	//0x82
