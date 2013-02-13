@@ -34,8 +34,8 @@ void FloatToString(char * buf, double val);
 void scia_fifo_init(void)
 {
     SciaRegs.SCIFFTX.all=0xE040;
-    //SciaRegs.SCIFFRX.all=0x2044;
-    SciaRegs.SCIFFRX.all=0x0000;
+    SciaRegs.SCIFFRX.all=0x2044;
+    //SciaRegs.SCIFFRX.all=0x0000;
     SciaRegs.SCIFFCT.all=0x0;
 
 }
@@ -107,8 +107,7 @@ void scia_msg(char * msg)
  */
 Uint16 scia_read(void)
 {
-	while (SciaRegs.SCIRXST.bit.RXRDY == 0) {}
-	SciaRegs.SCIRXST.bit.RXRDY = 1;
+	while(SciaRegs.SCIFFRX.bit.RXFFST !=1) { } // wait for XRDY =1 for empty state
 	return (SciaRegs.SCIRXBUF.all);
 }
 /***************************************************************************//**

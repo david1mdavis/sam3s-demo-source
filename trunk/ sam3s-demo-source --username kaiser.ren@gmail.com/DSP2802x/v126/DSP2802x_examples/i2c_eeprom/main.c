@@ -81,6 +81,7 @@ void main(void)
 // Step 5. Com port initial
    scia_echoback_init();
    scia_msg("-- Network Analyzer V0.01--\r\n");
+   scia_msg("-- Build On: "__DATE__" "__TIME__"--\r\n");
 
 // Step 6. BSP init, LEDs & Button
    led_init();
@@ -88,13 +89,6 @@ void main(void)
    //blink
    led_on(0x000f);
    led_off(0x000f);
-
-// Enable I2C interrupt 1 in the PIE: Group 8 interrupt 1
-   //PieCtrlRegs.PIEIER8.bit.INTx1 = 1;
-
-// Enable CPU INT8 which is connected to PIE group 8
-   //IER |= M_INT8;
-   //EINT;
 
 // Step 7. Initial AD5933
    ad5933_init();
@@ -126,8 +120,15 @@ void main(void)
 	   	   case 'a':
 	   	   case 'A':
 	   		   /* add operation. */
-	   		   asm("NOP");
+	   		   //asm("NOP");
 	   		   scia_msg("Input 'A'\r\n");
+	   		   break;
+	   		   //
+	   	   case 's':
+	   	   case 'S':
+	   		   /* add operation. */
+	   		   //asm("NOP");
+	   		   scia_msg("Input 'S'\r\n");
 	   		   break;
 	   		   //
 	   	   default:
