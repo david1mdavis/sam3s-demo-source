@@ -1,7 +1,7 @@
 ******************************************************************************
              TMS320C2000 Linker PC v6.1.0                      
 ******************************************************************************
->> Linked Mon Feb 11 22:24:31 2013
+>> Linked Wed Feb 13 15:22:40 2013
 
 OUTPUT FILE NAME:   <F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Example_2802xI2C_eeprom/../../../DSP2802x_examples/i2c_eeprom/Debug/Example_2802xI2C_eeprom.out>
 ENTRY POINT SYMBOL: "code_start"  address: 00000000
@@ -14,7 +14,7 @@ MEMORY CONFIGURATION
 PAGE 0:
   BEGIN                 00000000   00000002  00000002  00000000  RWIX
   RAMM0                 00000050   000003b0  00000047  00000369  RWIX
-  PRAML0                00008000   00000fff  00000898  00000767  RWIX
+  PRAML0                00008000   00000fff  000008a2  0000075d  RWIX
   IQTABLES              003fe000   00000b50  00000000  00000b50  RWIX
   IQTABLES2             003feb50   0000008c  00000000  0000008c  RWIX
   IQTABLES3             003febdc   000000aa  00000000  000000aa  RWIX
@@ -77,32 +77,32 @@ ramfuncs   0    00000078    0000001f
                   00000078    0000001b     DSP2802x_SysCtrl.obj (ramfuncs)
                   00000093    00000004     DSP2802x_usDelay.obj (ramfuncs)
 
-.text      0    00008000    00000898     
+.text      0    00008000    000008a2     
                   00008000    0000012b     DSP2802x_SysCtrl.obj (.text)
                   0000812b    000000ff     DSP2802x_DefaultIsr.obj (.text:retain)
-                  0000822a    000000ea     ad5933.obj (.text)
-                  00008314    000000d2     main.obj (.text)
-                  000083e6    000000cb     com.obj (.text)
-                  000084b1    00000078     rts2800_ml.lib : fs_add.obj (.text)
-                  00008529    00000075     Communication.obj (.text)
-                  0000859e    00000075     DSP2802x_CpuTimers.obj (.text)
-                  00008613    0000005f     ad5933.obj (.text:retain)
-                  00008672    0000005a     rts2800_ml.lib : fs_mpy.obj (.text)
-                  000086cc    00000044                    : boot.obj (.text)
-                  00008710    0000002a                    : l_div.obj (.text)
-                  0000873a    00000029                    : fs_tol.obj (.text)
-                  00008763    00000028     DSP2802x_PieCtrl.obj (.text)
-                  0000878b    00000025     DSP2802x_PieVect.obj (.text)
-                  000087b0    00000025     rts2800_ml.lib : fs_toi.obj (.text)
-                  000087d5    00000022                    : i_div.obj (.text)
-                  000087f7    0000001a     DSP2802x_Sci.obj (.text)
-                  00008811    0000001a     rts2800_ml.lib : l_tofs.obj (.text)
-                  0000882b    00000019                    : args_main.obj (.text)
-                  00008844    00000019                    : exit.obj (.text)
-                  0000885d    00000017     DSP2802x_I2C.obj (.text)
-                  00008874    00000013     DSP2802x_Gpio.obj (.text)
-                  00008887    00000009     rts2800_ml.lib : _lock.obj (.text)
-                  00008890    00000008     DSP2802x_CodeStartBranch.obj (.text)
+                  0000822a    000000e7     ad5933.obj (.text)
+                  00008311    000000d8     main.obj (.text)
+                  000083e9    000000d2     com.obj (.text)
+                  000084bb    00000078     rts2800_ml.lib : fs_add.obj (.text)
+                  00008533    00000075     Communication.obj (.text)
+                  000085a8    00000075     DSP2802x_CpuTimers.obj (.text)
+                  0000861d    0000005f     ad5933.obj (.text:retain)
+                  0000867c    0000005a     rts2800_ml.lib : fs_mpy.obj (.text)
+                  000086d6    00000044                    : boot.obj (.text)
+                  0000871a    0000002a                    : l_div.obj (.text)
+                  00008744    00000029                    : fs_tol.obj (.text)
+                  0000876d    00000028     DSP2802x_PieCtrl.obj (.text)
+                  00008795    00000025     DSP2802x_PieVect.obj (.text)
+                  000087ba    00000025     rts2800_ml.lib : fs_toi.obj (.text)
+                  000087df    00000022                    : i_div.obj (.text)
+                  00008801    0000001a     DSP2802x_Sci.obj (.text)
+                  0000881b    0000001a     rts2800_ml.lib : l_tofs.obj (.text)
+                  00008835    00000019                    : args_main.obj (.text)
+                  0000884e    00000019                    : exit.obj (.text)
+                  00008867    00000017     DSP2802x_I2C.obj (.text)
+                  0000887e    00000013     DSP2802x_Gpio.obj (.text)
+                  00008891    00000009     rts2800_ml.lib : _lock.obj (.text)
+                  0000889a    00000008     DSP2802x_CodeStartBranch.obj (.text)
 
 .reset     0    003fffc0    00000002     DSECT
                   003fffc0    00000002     rts2800_ml.lib : boot.obj (.reset)
@@ -234,16 +234,15 @@ I2caRegsFile
 *          1    00007900    00000022     UNINITIALIZED
                   00007900    00000022     DSP2802x_GlobalVariableDefs.obj (I2caRegsFile)
 
-.econst    1    00008900    00000136     
+.econst    1    00008900    00000142     
                   00008900    00000100     DSP2802x_PieVect.obj (.econst)
-                  00008a00    00000036     main.obj (.econst:.string)
+                  00008a00    00000042     main.obj (.econst:.string)
 
-.ebss      1    00008a36    00000062     UNINITIALIZED
-                  00008a36    00000004     rts2800_ml.lib : _lock.obj (.ebss)
-                  00008a3a    00000004                    : exit.obj (.ebss)
-                  00008a3e    00000002     --HOLE--
-                  00008a40    0000002c     ad5933.obj (.ebss)
-                  00008a6c    00000014     --HOLE--
+.ebss      1    00008a42    00000056     UNINITIALIZED
+                  00008a42    0000002c     ad5933.obj (.ebss)
+                  00008a6e    00000004     rts2800_ml.lib : _lock.obj (.ebss)
+                  00008a72    00000004                    : exit.obj (.ebss)
+                  00008a76    0000000a     --HOLE--
                   00008a80    00000018     DSP2802x_CpuTimers.obj (.ebss)
 
 PartIdRegsFile 
@@ -260,20 +259,20 @@ GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name
 address    name
 --------   ----
 00008000   .text
-00008844   C$$EXIT
-000084b6   FS$$ADD
-00008672   FS$$MPY
-000084b1   FS$$SUB
-000087b0   FS$$TOI
-0000873a   FS$$TOL
-000087d5   I$$DIV
-000087e6   I$$MOD
-00008710   L$$DIV
-0000871f   L$$MOD
-00008811   L$$TOFS
-0000872d   UL$$DIV
-00008734   UL$$MOD
-0000828f   _AD5933_GetRegValue
+0000884e   C$$EXIT
+000084c0   FS$$ADD
+0000867c   FS$$MPY
+000084bb   FS$$SUB
+000087ba   FS$$TOI
+00008744   FS$$TOL
+000087df   I$$DIV
+000087f0   I$$MOD
+0000871a   L$$DIV
+00008729   L$$MOD
+0000881b   L$$TOFS
+00008737   UL$$DIV
+0000873e   UL$$MOD
+0000828c   _AD5933_GetRegValue
 0000818a   _ADCINT1_ISR
 0000818f   _ADCINT2_ISR
 000081f8   _ADCINT3_ISR
@@ -287,7 +286,7 @@ address    name
 00000b00   _AdcResult
 00006400   _Comp1Regs
 00006420   _Comp2Regs
-000085df   _ConfigCpuTimer
+000085e9   _ConfigCpuTimer
 00008a90   _CpuTimer0
 00000c00   _CpuTimer0Regs
 00008a80   _CpuTimer1
@@ -297,7 +296,7 @@ address    name
 003f7ff8   _CsmPwl
 00000ae0   _CsmRegs
 000080ae   _CsmUnlock
-00008a42   _CurrentMsgPtr
+00008a44   _CurrentMsgPtr
 00008135   _DATALOG_ISR
 00000093   _DSP28x_usDelay
 00000880   _DevEmuRegs
@@ -320,42 +319,42 @@ address    name
 000068c0   _EPwm4Regs
 00000d01   _EmuBMode
 00000d00   _EmuKey
-00008782   _EnableInterrupts
+0000878c   _EnableInterrupts
 00008115   _ExtOscSel
-00008a41   _FailCount
+00008a43   _FailCount
 00000a80   _FlashRegs
 00000d04   _Flash_CPUScaleFactor
 00000d02   _Flash_CallbackPtr
-00008423   _FloatToString
+0000842d   _FloatToString
 00006f80   _GpioCtrlRegs
 00006fc0   _GpioDataRegs
 00006fe0   _GpioIntRegs
-000082a3   _I2CA_Init
-000082e2   _I2CA_ReadData
-000082b6   _I2CA_WriteData
+000082a0   _I2CA_Init
+000082df   _I2CA_ReadData
+000082b3   _I2CA_WriteData
 000081e4   _I2CINT1A_ISR
 000081e9   _I2CINT2A_ISR
-00008529   _I2C_Init
-0000856a   _I2C_Read
-0000853a   _I2C_Write
-00008a58   _I2cMsgIn1
-00008a44   _I2cMsgOut1
+00008533   _I2C_Init
+00008574   _I2C_Read
+00008544   _I2C_Write
+00008a5a   _I2cMsgIn1
+00008a46   _I2cMsgOut1
 00007900   _I2caRegs
 00008149   _ILLEGAL_ISR
 0000812b   _INT13_ISR
 00008130   _INT14_ISR
-0000859e   _InitCpuTimers
+000085a8   _InitCpuTimers
 00000078   _InitFlash
-00008874   _InitGpio
-0000885d   _InitI2C
-0000885e   _InitI2CGpio
+0000887e   _InitGpio
+00008867   _InitI2C
+00008868   _InitI2CGpio
 0000807c   _InitPeripheralClocks
-00008763   _InitPieCtrl
-0000878b   _InitPieVectTable
+0000876d   _InitPieCtrl
+00008795   _InitPieVectTable
 0000802c   _InitPll
-000087f7   _InitSci
-000087f8   _InitSciGpio
-000087fb   _InitSciaGpio
+00008801   _InitSci
+00008802   _InitSciGpio
+00008805   _InitSciaGpio
 00008000   _InitSysCtrl
 000080df   _IntOsc1Sel
 000080ef   _IntOsc2Sel
@@ -363,7 +362,7 @@ address    name
 00007060   _NmiIntruptRegs
 00008220   _PIE_RESERVED
 003d7fff   _PartIdRegs
-00008a40   _PassCount
+00008a42   _PassCount
 00000ce0   _PieCtrlRegs
 00000d00   _PieVectTable
 00008900   _PieVectTableInit
@@ -402,40 +401,41 @@ address    name
 ffffffff   ___binit__
 ffffffff   ___c_args__
 00000050   ___cinit__
-00008898   ___etext__
+000088a2   ___etext__
 ffffffff   ___pinit__
 00008000   ___text__
-0000882b   __args_main
-00008a3a   __cleanup_ptr
-00008a3c   __dtors_ptr
-00008a38   __lock
-0000888f   __nop
-0000888b   __register_lock
-00008887   __register_unlock
+00008835   __args_main
+00008a72   __cleanup_ptr
+00008a74   __dtors_ptr
+00008a70   __lock
+00008899   __nop
+00008895   __register_lock
+00008891   __register_unlock
 00000400   __stack
-00008a36   __unlock
-00008844   _abort
+00008a6e   __unlock
+0000884e   _abort
 0000822a   _ad5933_init
-00008297   _ad5933_mode
-0000827f   _ad5933_test
-0000829f   _ad5993_status
-000083da   _button_init
-000086cc   _c_int00
-00008846   _exit
-00008613   _i2c_int1a_isr
-0000838c   _led_init
-000083be   _led_off
-000083a2   _led_on
-00008314   _main
+00008294   _ad5933_mode
+0000827e   _ad5933_test
+0000829c   _ad5993_status
+000083dd   _button_init
+000086d6   _c_int00
+00008850   _exit
+0000861d   _i2c_int1a_isr
+0000838f   _led_init
+000083c1   _led_off
+000083a5   _led_on
+00008311   _main
 00008225   _rsvd_ISR
-000083ee   _scia_echoback_init
-000083e6   _scia_fifo_init
-0000840e   _scia_msg
-00008402   _scia_xmit
+000083f0   _scia_echoback_init
+000083e9   _scia_fifo_init
+00008410   _scia_msg
+00008425   _scia_read
+00008404   _scia_xmit
 ffffffff   binit
 00000050   cinit
 00000000   code_start
-00008898   etext
+000088a2   etext
 ffffffff   pinit
 
 
@@ -547,70 +547,71 @@ address    name
 00008220   _PIE_RESERVED
 00008225   _rsvd_ISR
 0000822a   _ad5933_init
-0000827f   _ad5933_test
-0000828f   _AD5933_GetRegValue
-00008297   _ad5933_mode
-0000829f   _ad5993_status
-000082a3   _I2CA_Init
-000082b6   _I2CA_WriteData
-000082e2   _I2CA_ReadData
-00008314   _main
-0000838c   _led_init
-000083a2   _led_on
-000083be   _led_off
-000083da   _button_init
-000083e6   _scia_fifo_init
-000083ee   _scia_echoback_init
-00008402   _scia_xmit
-0000840e   _scia_msg
-00008423   _FloatToString
-000084b1   FS$$SUB
-000084b6   FS$$ADD
-00008529   _I2C_Init
-0000853a   _I2C_Write
-0000856a   _I2C_Read
-0000859e   _InitCpuTimers
-000085df   _ConfigCpuTimer
-00008613   _i2c_int1a_isr
-00008672   FS$$MPY
-000086cc   _c_int00
-00008710   L$$DIV
-0000871f   L$$MOD
-0000872d   UL$$DIV
-00008734   UL$$MOD
-0000873a   FS$$TOL
-00008763   _InitPieCtrl
-00008782   _EnableInterrupts
-0000878b   _InitPieVectTable
-000087b0   FS$$TOI
-000087d5   I$$DIV
-000087e6   I$$MOD
-000087f7   _InitSci
-000087f8   _InitSciGpio
-000087fb   _InitSciaGpio
-00008811   L$$TOFS
-0000882b   __args_main
-00008844   C$$EXIT
-00008844   _abort
-00008846   _exit
-0000885d   _InitI2C
-0000885e   _InitI2CGpio
-00008874   _InitGpio
-00008887   __register_unlock
-0000888b   __register_lock
-0000888f   __nop
-00008898   ___etext__
-00008898   etext
+0000827e   _ad5933_test
+0000828c   _AD5933_GetRegValue
+00008294   _ad5933_mode
+0000829c   _ad5993_status
+000082a0   _I2CA_Init
+000082b3   _I2CA_WriteData
+000082df   _I2CA_ReadData
+00008311   _main
+0000838f   _led_init
+000083a5   _led_on
+000083c1   _led_off
+000083dd   _button_init
+000083e9   _scia_fifo_init
+000083f0   _scia_echoback_init
+00008404   _scia_xmit
+00008410   _scia_msg
+00008425   _scia_read
+0000842d   _FloatToString
+000084bb   FS$$SUB
+000084c0   FS$$ADD
+00008533   _I2C_Init
+00008544   _I2C_Write
+00008574   _I2C_Read
+000085a8   _InitCpuTimers
+000085e9   _ConfigCpuTimer
+0000861d   _i2c_int1a_isr
+0000867c   FS$$MPY
+000086d6   _c_int00
+0000871a   L$$DIV
+00008729   L$$MOD
+00008737   UL$$DIV
+0000873e   UL$$MOD
+00008744   FS$$TOL
+0000876d   _InitPieCtrl
+0000878c   _EnableInterrupts
+00008795   _InitPieVectTable
+000087ba   FS$$TOI
+000087df   I$$DIV
+000087f0   I$$MOD
+00008801   _InitSci
+00008802   _InitSciGpio
+00008805   _InitSciaGpio
+0000881b   L$$TOFS
+00008835   __args_main
+0000884e   C$$EXIT
+0000884e   _abort
+00008850   _exit
+00008867   _InitI2C
+00008868   _InitI2CGpio
+0000887e   _InitGpio
+00008891   __register_unlock
+00008895   __register_lock
+00008899   __nop
+000088a2   ___etext__
+000088a2   etext
 00008900   _PieVectTableInit
-00008a36   __unlock
-00008a38   __lock
-00008a3a   __cleanup_ptr
-00008a3c   __dtors_ptr
-00008a40   _PassCount
-00008a41   _FailCount
-00008a42   _CurrentMsgPtr
-00008a44   _I2cMsgOut1
-00008a58   _I2cMsgIn1
+00008a42   _PassCount
+00008a43   _FailCount
+00008a44   _CurrentMsgPtr
+00008a46   _I2cMsgOut1
+00008a5a   _I2cMsgIn1
+00008a6e   __unlock
+00008a70   __lock
+00008a72   __cleanup_ptr
+00008a74   __dtors_ptr
 00008a80   _CpuTimer1
 00008a88   _CpuTimer2
 00008a90   _CpuTimer0
@@ -622,4 +623,4 @@ ffffffff   ___pinit__
 ffffffff   binit
 ffffffff   pinit
 
-[178 symbols]
+[179 symbols]
