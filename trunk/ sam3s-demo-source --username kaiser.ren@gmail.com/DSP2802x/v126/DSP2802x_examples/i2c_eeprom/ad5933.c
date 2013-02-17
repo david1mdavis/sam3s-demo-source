@@ -66,7 +66,7 @@ void ad5933_init(void)
 	incre_freq = AD5933_BOARD_FREQ_ICMT * ( 4 * AD5933_BOARD_CALC_FACTOR / AD5933_BOARD_SYS_CLK_FREQ);
 	incre_freq = incre_freq/1000;
 	incre_num = AD5933_BOARD_CNT_ICMT;
-	cycle_set = 0x0066;
+	cycle_set = 511;
 
 	//set start freq, number of incre and freq incre
 	I2C_Write(AD5933_ADDR_FREQ_REG_MSB, start_freq >> 16);	//REG 0x82
@@ -92,9 +92,9 @@ void ad5933_init(void)
  */
 void ad5933_test(void)
 {
-	Uint16 i;
+	unsigned char i;
 
-	for(i = 0x0080; i < 0x008a; i++ )
+	for(i = 0x80; i < 0x8a; i++ )
 	{
 		I2C_Read( i );
 	}
@@ -105,7 +105,7 @@ void ad5933_test(void)
  *
  * @return registerValue - Value of the register.
 *******************************************************************************/
-Uint16 AD5933_GetRegValue(Uint16 registerAddress)
+Uint16 AD5933_GetRegValue(unsigned char registerAddress)
 {
 	I2C_Write(AD5933_BOARD_CMD_ADDR_PTR, registerAddress);
 }
