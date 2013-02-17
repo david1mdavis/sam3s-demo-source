@@ -29,7 +29,7 @@ void button_init(void);
 
 void main(void)
 {
-	Uint16 value1, value2, revByte;
+	Uint16 value1, value2, revByte, i;
 	unsigned char  tempString[12] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 // Step 1. Initialize System Control:
@@ -92,7 +92,10 @@ void main(void)
 
 // Step 7. Initial AD5933
    ad5933_init();
-   ad5933_test();
+   for(i = 0x82; i < 0x8a; i++)
+   {
+	   revByte = I2C_Read( i );
+   }
 
    // Application loop
    for(;;)

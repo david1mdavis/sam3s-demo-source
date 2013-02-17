@@ -103,9 +103,9 @@ Uint16 I2C_Read(Uint16 SourceAddr)
     // Add your code here.
 	Uint16 temp;
 
-	//I2C_Write(AD5933_BOARD_CMD_ADDR_PTR, SourceAddr);
+	I2C_Write(AD5933_BOARD_CMD_ADDR_PTR, SourceAddr);
 
-	if(I2caRegs .I2CMDR.bit.STP == 1)
+	/*if(I2caRegs .I2CMDR.bit.STP == 1)
 	{
 		return(I2C_STP_NOT_READY_ERROR);
 	}
@@ -125,6 +125,7 @@ Uint16 I2C_Read(Uint16 SourceAddr)
 	                				//bit 10 MST = 1    Master
 	                				//bit  9 TRX = 1    Transmit
 	               	   	   	   	    //bit  5 IRS = 1    to Reset I2C bus .
+	*/
 	DELAY_US(50);    // Delay 50us , wait
 	I2caRegs.I2CCNT = 1;  			//Set up receive of 1 byte
 
