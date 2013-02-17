@@ -66,8 +66,10 @@ void scia_echoback_init(void)
 
     // SCI BRR = LSPCLK/(SCI BAUDx8) - 1
     #if (CPU_FRQ_60MHZ)
-        SciaRegs.SCIHBAUD    =0x0000;  // 9600 baud @LSPCLK = 15MHz (60 MHz SYSCLK).
-        SciaRegs.SCILBAUD    =0x00C2;
+        //SciaRegs.SCIHBAUD    =0x0000;  // 9600 baud @LSPCLK = 15MHz (60 MHz SYSCLK).
+        //SciaRegs.SCILBAUD    =0x00C2;	// 9600 baud @LSPCLK = 15MHz (60 MHz SYSCLK).
+        SciaRegs.SCIHBAUD    =0x0000;  // 38400 baud @LSPCLK = 15MHz (60 MHz SYSCLK).
+        SciaRegs.SCILBAUD    =0x0030;	// 38400 baud @LSPCLK = 15MHz (60 MHz SYSCLK).
     #elif (CPU_FRQ_50MHZ)
         SciaRegs.SCHBAUD     =0x0000;  // 9600 baud @LSPCLK = 12.5 MHz (50 MHz SYSCLK)
     #elif (CPU_FRQ_40MHZ)    =0x00A1;

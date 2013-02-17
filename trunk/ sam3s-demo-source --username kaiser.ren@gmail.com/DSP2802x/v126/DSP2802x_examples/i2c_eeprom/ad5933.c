@@ -9,6 +9,7 @@
  **********************************************************/
 #include "ad5933.h"
 #include "Communication.h"
+#include "Example_2802xI2C_eeprom/com.h"
 
 /**********************************************************
  * 				Macro
@@ -44,7 +45,7 @@ Uint16 FailCount;
 void   I2CA_Init(void);
 Uint16 I2CA_WriteData(struct I2CMSG *msg);
 Uint16 I2CA_ReadData(struct I2CMSG *msg);
-interrupt void i2c_int1a_isr(void);
+//interrupt void i2c_int1a_isr(void);
 void ad5933_init(void);
 void ad5933_mode(ad5933_state_t state);
 /**********************************************************
@@ -68,9 +69,9 @@ void ad5933_init(void)
 	cycle_set = 0x0066;
 
 	//set start freq, number of incre and freq incre
-	I2C_Write(AD5933_ADDR_FREQ_REG_MSB, 0x11/*start_freq >> 16*/);	//REG 0x82
-	I2C_Write(AD5933_ADDR_FREQ_REG_MMB, 0x22/*start_freq >> 8*/);	//REG 0x83
-	I2C_Write(AD5933_ADDR_FREQ_REG_LSB, 0x33/*start_freq >> 0*/);	//REG 0x84
+	I2C_Write(AD5933_ADDR_FREQ_REG_MSB, start_freq >> 16);	//REG 0x82
+	I2C_Write(AD5933_ADDR_FREQ_REG_MMB, start_freq >> 8);	//REG 0x83
+	I2C_Write(AD5933_ADDR_FREQ_REG_LSB, start_freq >> 0);	//REG 0x84
 
 	I2C_Write(AD5933_ADDR_FICT_REG_MSB, incre_freq >> 16);	//REG 0x85
 	I2C_Write(AD5933_ADDR_FICT_REG_MMB, incre_freq >> 8);	//REG 0x86
@@ -98,9 +99,6 @@ void ad5933_test(void)
 		I2C_Read( i );
 	}
 
-	//temp = I2C_Read( AD5933_ADDR_FREQ_REG_MSB );	//0x82
-	//temp = I2C_Read( AD5933_ADDR_FREQ_REG_MMB );	//0x83
-	//temp = I2C_Read( AD5933_ADDR_FREQ_REG_LSB );	//0x84
 }
 /***************************************************************************//**
  * @brief Reads the value of a register.
