@@ -8,6 +8,7 @@
  * 				Include
  **********************************************************/
 #include "ad5933.h"
+#include "Example_2802xI2C_eeprom/com.h"
 
 /***************************************************************************//**
  * @brief Initializes the I2C communication peripheral.
@@ -74,14 +75,15 @@ Uint16 I2C_Write(unsigned char DestAddr, unsigned char DataValue)
 	I2caRegs.I2CDXR = DestAddr & 0xff;  	// Address should be  8 bi t
 	I2caRegs.I2CDXR = DataValue & 0xff;    	// 8bit datavalue
 
-	I2caRegs.I2CMDR.all = 0x6E20;        	// bit 14 FREE = 1
+	I2caRegs.I2CMDR.all = 0x2E20;        	// bit 14 FREE = 1
 	                						// bit 13 STT = 1    (Start condition)
 	                						// bit 11 STP =1    (Stop condition after transfer of bytes .)
 	                						// bit 10 MST = 1    Master
 	                						// bit  9 TRX = 1    Transmit
 	                						// bit  5 IRS = 1 to Reset I2C bus .
-	DELAY_US(50);    // Delay 50us , wait
-	while( !( I2caRegs.I2CSTR.all & 0x0030 ) );	//XRDY && SCD
+	DELAY_US(500);    // Delay 500us , wait
+	//while( !( I2caRegs.I2CSTR.all & 0x0030 ) );	//XRDY && SCD
+	while( I2caRegs.I2CSTR.all & 0x1000 ){};	//XRDY && SCD
 	if( I2caRegs.I2CSTR.bit.NACK == 1){
 		I2caRegs.I2CMDR.bit.STP = 1;
 		I2caRegs.I2CSTR.bit.NACK = 0;
@@ -108,17 +110,19 @@ unsigned char I2C_Read(unsigned char SourceAddr)
 	DELAY_US(50);    // Delay 50us , wait
 	I2caRegs.I2CCNT = 1;  			//Set up receive of 1 byte
 
-	I2caRegs.I2CMDR.all = 0x6c20;   // bit 14 FREE = 1
+	I2caRegs.I2CMDR.all = 0x2c20;   // bit 14 FREE = 1
 	               	   	   	   	   	// bit 13 STT = 1    (Re Start condition)
 	                				// bit 11 STP =1    (Stop condition after transfer of bytes .)
 	                				// bit 10 MST = 1    Master
 	                				// bit  9 TRX = 0    Receiver
 	               	   	   	   	   	// bit  5 IRS = 1 to Reset I2C bus .
 
-	DELAY_US(50);    // Delay 50us , wait
-	while( 0 == ( I2caRegs.I2CSTR.all & 0x2000 ) );
-	while(I2caRegs.I2CFFRX.all & 0x1f00){
-		temp = I2caRegs.I2CDRR;
+	DELAY_US(500);    // Delay 500us , wait
+	//while( 0 == ( I2caRegs.I2CSTR.all & 0x2000 ) );
+	while(I2caRegs.I2CFFRX.bit.RXFFST){
+		if(1 == I2caRegs.I2CFFRX.bit.RXFFST){
+			temp = I2caRegs.I2CDRR;
+		}
 	}
 
 	return( temp );

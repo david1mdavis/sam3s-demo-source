@@ -121,8 +121,11 @@ static unsigned char btoh( unsigned char num )
 
 void UTL_Byte2Hex( unsigned char byte, unsigned char *buff )
 {
+	*buff++ = '0';
+	*buff++ = 'x';
    *buff++ = btoh( byte>>4 );
    *buff++ = btoh( byte );
+   *buff++ = ' ';
    *buff = '\0';
 }
 /***************************************************************************//**
@@ -168,25 +171,4 @@ void FloatToString(char * buf, double val)
     }
     *buf = 0;
 }
-
-/*
- * Debug Print.
- */
-/*void Debug_Print(char *format, ...)
-{
-	va_list args;
-	    char * ptr;
-	    char buf[5];
-	    int  i;
-	    va_start(args, format);
-	    //i = vsprintf((char *)buf, format, args);
-	    ptr = buf;
-	    while((*ptr))
-	    {
-	    	scia_msg(ptr);
-	        ptr++;
-	    }
-	    va_end(args);
-
-}*/
 //eof
