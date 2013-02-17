@@ -100,15 +100,6 @@ void ad5933_test(void)
 	}
 
 }
-/***************************************************************************//**
- * @brief Reads the value of a register.
- *
- * @return registerValue - Value of the register.
-*******************************************************************************/
-Uint16 AD5933_GetRegValue(unsigned char registerAddress)
-{
-	I2C_Write(AD5933_BOARD_CMD_ADDR_PTR, registerAddress);
-}
 
 /*
  * ad5933 mode switch
@@ -116,13 +107,7 @@ Uint16 AD5933_GetRegValue(unsigned char registerAddress)
 void ad5933_mode(ad5933_state_t state)
 {
 	//WR in reg 0x80
-	I2C_Write(AD5933_ADDR_CTRL_REG_MSB, (Uint16)state);	//REG 0x80
-	/*
-	I2cMsgOut1.NumOfBytes = 2;	//
-	I2cMsgOut1.MsgBuffer[0] = AD5933_ADDR_CTRL_REG_MSB;
-	I2cMsgOut1.MsgBuffer[1] = (Uint16)state;
-	I2CA_WriteData(&I2cMsgOut1);
-	*/
+	I2C_Write(AD5933_ADDR_CTRL_REG_MSB, (unsigned char)state);	//REG 0x80
 }
 
 /*

@@ -92,11 +92,17 @@ void main(void)
 
 // Step 7. Initial AD5933
    ad5933_init();
+   
+   scia_msg("reg    value\r\n");
+   I2C_Read( 0x82 );
    for(i = 0x82; i < 0x8c; i++)
    {
 	   revByte = I2C_Read( i );
-	   UTL_Byte2Hex(revByte, tempString);
-	   scia_msg(tempString);
+   	   //UTL_Byte2Hex(i, tempString);
+   	   //scia_msg(tempString);
+   	   UTL_Byte2Hex(revByte, tempString);
+   	   scia_msg(tempString);
+   	   scia_msg("\r\n");
    }
 
    // Application loop
@@ -124,15 +130,11 @@ void main(void)
 	   {
 	   	   case 'a':
 	   	   case 'A':
-	   		   /* add operation. */
-	   		   //asm("NOP");
 	   		   scia_msg("Input 'A'\r\n");
 	   		   break;
 	   		   //
 	   	   case 's':
 	   	   case 'S':
-	   		   /* add operation. */
-	   		   //asm("NOP");
 	   		   scia_msg("Input 'S'\r\n");
 	   		   break;
 	   		   //
