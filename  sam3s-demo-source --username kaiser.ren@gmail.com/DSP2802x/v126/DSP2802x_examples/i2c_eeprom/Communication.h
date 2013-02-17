@@ -19,9 +19,9 @@
 void I2C_Init(void);
 
 /*! Writes data to a slave device. */
-Uint16 I2C_Write(Uint16 slaveAddress, Uint16 dataBuffer);
+Uint16 I2C_Write(unsigned char DestAddr, unsigned char DataValue);
 
 /*! Reads data from a slave device. */
-Uint16 I2C_Read(Uint16 SourceAddr);
+unsigned char I2C_Read(unsigned char SourceAddr);
 
 #endif // _COMMUNICATION_H_

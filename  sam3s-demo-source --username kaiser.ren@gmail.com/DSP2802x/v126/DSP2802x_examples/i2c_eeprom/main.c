@@ -7,7 +7,7 @@
 /**********************************************************
  * 				Include
  **********************************************************/
-
+#include <stdlib.h>
 #include "DSP28x_Project.h"     // Device Headerfile and Examples Include File
 #include "ad5933.h"
 #include "Communication.h"
@@ -29,8 +29,8 @@ void button_init(void);
 
 void main(void)
 {
-	Uint16 value1, value2, revByte, i;
-	unsigned char  tempString[12] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	unsigned char value1, value2, revByte, i;
+	unsigned char tempString[12] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 // Step 1. Initialize System Control:
 // PLL, WatchDog, enable Peripheral Clocks
@@ -92,9 +92,11 @@ void main(void)
 
 // Step 7. Initial AD5933
    ad5933_init();
-   for(i = 0x82; i < 0x8a; i++)
+   for(i = 0x82; i < 0x8c; i++)
    {
 	   revByte = I2C_Read( i );
+	   UTL_Byte2Hex(revByte, tempString);
+	   scia_msg(tempString);
    }
 
    // Application loop

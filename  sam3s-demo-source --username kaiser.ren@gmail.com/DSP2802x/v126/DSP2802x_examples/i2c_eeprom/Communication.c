@@ -7,7 +7,6 @@
 /**********************************************************
  * 				Include
  **********************************************************/
-#include <stdlib.h>
 #include "ad5933.h"
 
 /***************************************************************************//**
@@ -56,12 +55,12 @@ void I2C_Init(void)
  *
  * @return status - Number of written bytes.
 *******************************************************************************/
-Uint16 I2C_Write(Uint16 DestAddr, Uint16 DataValue)
+Uint16 I2C_Write(unsigned char DestAddr, unsigned char DataValue)
 {
     // Add your code here.
 	I2caRegs.I2CSAR = 0x0D;			//ad7414 addr 0x48
 									//AD5933_ADDR_SLAVE 0x0D
-
+	DELAY_US(50);    // Delay 50us , wait
 	if(I2caRegs.I2CMDR.bit.STP == 1)
 	{
 		return(I2C_STP_NOT_READY_ERROR);
@@ -81,7 +80,7 @@ Uint16 I2C_Write(Uint16 DestAddr, Uint16 DataValue)
 	                						// bit 10 MST = 1    Master
 	                						// bit  9 TRX = 1    Transmit
 	                						// bit  5 IRS = 1 to Reset I2C bus .
-
+	DELAY_US(50);    // Delay 50us , wait
 	while( !( I2caRegs.I2CSTR.all & 0x0030 ) );	//XRDY && SCD
 	if( I2caRegs.I2CSTR.bit.NACK == 1){
 		I2caRegs.I2CMDR.bit.STP = 1;
@@ -98,34 +97,14 @@ Uint16 I2C_Write(Uint16 DestAddr, Uint16 DataValue)
  *
  * @return status - Number of read bytes.
 *******************************************************************************/
-Uint16 I2C_Read(Uint16 SourceAddr)
+unsigned char I2C_Read(unsigned char SourceAddr)
 {
     // Add your code here.
-	Uint16 temp;
+	unsigned char temp;
 
+	//set addr pointer of AD5933
 	I2C_Write(AD5933_BOARD_CMD_ADDR_PTR, SourceAddr);
 
-	/*if(I2caRegs .I2CMDR.bit.STP == 1)
-	{
-		return(I2C_STP_NOT_READY_ERROR);
-	}
-	if(I2caRegs.I2CSTR.bit.BB == 1)
-	{
-		return(I2C_BUS_BUSY_ERROR);
-	}
-
-	I2caRegs.I2CCNT = 2;        // 2 addi tional  bytes  being transfe rre d
-	//28035 has 4-level FIFO, so we can process up to 4 da ta one  time .
-	I2caRegs.I2CDXR = AD5933_BOARD_CMD_ADDR_PTR;  	// Address should be  8 bi t
-	I2caRegs.I2CDXR = SourceAddr & 0xff;    	// 8bit datavalue
-
-	I2caRegs.I2CMDR.all = 0x6620;	//bit 14 FREE = 1
-	                				//bit 13 STT = 1    (Start condition)
-	               	   	   	   	   	//bit 11 STP =0    (No Stop condition after transfer of 17 bytes .)
-	                				//bit 10 MST = 1    Master
-	                				//bit  9 TRX = 1    Transmit
-	               	   	   	   	    //bit  5 IRS = 1    to Reset I2C bus .
-	*/
 	DELAY_US(50);    // Delay 50us , wait
 	I2caRegs.I2CCNT = 1;  			//Set up receive of 1 byte
 
@@ -136,11 +115,12 @@ Uint16 I2C_Read(Uint16 SourceAddr)
 	                				// bit  9 TRX = 0    Receiver
 	               	   	   	   	   	// bit  5 IRS = 1 to Reset I2C bus .
 
+	DELAY_US(50);    // Delay 50us , wait
 	while( 0 == ( I2caRegs.I2CSTR.all & 0x2000 ) );
 	while(I2caRegs.I2CFFRX.all & 0x1f00){
 		temp = I2caRegs.I2CDRR;
 	}
 
-	return(temp&0x00FF);
+	return( temp );
 }
 

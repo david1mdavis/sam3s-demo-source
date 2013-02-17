@@ -112,6 +112,19 @@ Uint16 scia_read(void)
 	while(SciaRegs.SCIFFRX.bit.RXFFST !=1) { } // wait for XRDY =1 for empty state
 	return (SciaRegs.SCIRXBUF.all);
 }
+
+static unsigned char btoh( unsigned char num )
+{
+   num = num & 0x0F;
+   return ( num<10 )? num+'0' : num-10+'A';
+}
+
+void UTL_Byte2Hex( unsigned char byte, unsigned char *buff )
+{
+   *buff++ = btoh( byte>>4 );
+   *buff++ = btoh( byte );
+   *buff = '\0';
+}
 /***************************************************************************//**
  * @brief Converts a float value to a character array with 3 digits of accuracy.
  *
