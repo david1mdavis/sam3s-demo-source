@@ -68,20 +68,26 @@ void ad5933_init(void)
 	incre_num = AD5933_BOARD_CNT_ICMT;
 	cycle_set = 511;
 
-	//set start freq, number of incre and freq incre
+	//set start frequency
 	I2C_Write(AD5933_ADDR_FREQ_REG_MSB, start_freq >> 16);	//REG 0x82
 	I2C_Write(AD5933_ADDR_FREQ_REG_MMB, start_freq >> 8);	//REG 0x83
 	I2C_Write(AD5933_ADDR_FREQ_REG_LSB, start_freq >> 0);	//REG 0x84
 
+	//set frequency increment
 	I2C_Write(AD5933_ADDR_FICT_REG_MSB, incre_freq >> 16);	//REG 0x85
 	I2C_Write(AD5933_ADDR_FICT_REG_MMB, incre_freq >> 8);	//REG 0x86
 	I2C_Write(AD5933_ADDR_FICT_REG_LSB, incre_freq >> 0);	//REG 0x87
 
+	//set number of increment
 	I2C_Write(AD5933_ADDR_NICT_REG_MSB, incre_num >> 8);	//REG 0x88
 	I2C_Write(AD5933_ADDR_NICT_REG_LSB, incre_num >> 0);	//REG 0x89
 
+	//set number of setting time cycle
 	I2C_Write(AD5933_ADDR_STCY_REG_MSB, cycle_set >> 8);	//REG 0x8a
 	I2C_Write(AD5933_ADDR_STCY_REG_LSB, cycle_set >> 0);	//REG 0x8b
+
+	//set clock source selection to access CTRL LSB, EXT_CLK
+	//I2C_Write(AD5933_ADDR_CTRL_REG_LSB, AD5933_REG_CTRL_CLK);	//REG 0x81
 
 	ad5933_mode(stand_by);
 	ad5933_mode(init_freq);
@@ -113,18 +119,13 @@ void ad5933_mode(ad5933_state_t state)
 /*
  * ad5933 status read.
  */
-Uint16 ad5993_status(void)
+unsigned char ad5993_status(void)
 {
-	//set address pointer, to 0x82,
-	/*
-	I2cMsgOut1.NumOfBytes = 2;	//POINTER CMD and REG Addr
-	I2cMsgOut1.MsgBuffer[0] = AD5933_BOARD_CMD_ADDR_PTR;
-	I2cMsgOut1.MsgBuffer[1] = AD5933_ADDR_STAT_REG_MSB;
-	I2CA_WriteData(&I2cMsgOut1);
-	*/
+	unsigned char c;
 
 	//read status
-	return (I2C_Read(AD5933_ADDR_STAT_REG_MSB));
+	c = I2C_Read(AD5933_ADDR_STAT_REG_MSB);
+	return ( c );
 }
 
 void I2CA_Init(void)

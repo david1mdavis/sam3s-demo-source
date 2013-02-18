@@ -133,6 +133,7 @@ void scia_Byte2Hex( Uint16 byte )
 	    c = btoh( digit );
 	    scia_xmit( c );
 	}
+	scia_xmit( ' ' );
 }
 /*
  * print "/r/n"
