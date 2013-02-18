@@ -152,11 +152,6 @@
 			<locationURI>SRC_ROOT/DSP2802x_common/source/DSP2802x_SysCtrl.c</locationURI>
 		</link>
 		<link>
-			<name>DSP2802x_TempSensorConv.c</name>
-			<type>1</type>
-			<locationURI>PARENT-3-PROJECT_LOC/DSP2802x_common/source/DSP2802x_TempSensorConv.c</locationURI>
-		</link>
-		<link>
 			<name>DSP2802x_usDelay.asm</name>
 			<type>1</type>
 			<locationURI>SRC_ROOT/DSP2802x_common/source/DSP2802x_usDelay.asm</locationURI>
