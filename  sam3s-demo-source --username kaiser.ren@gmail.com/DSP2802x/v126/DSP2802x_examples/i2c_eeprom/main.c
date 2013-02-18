@@ -67,16 +67,9 @@ void main(void)
 // This function is found in DSP2802x_PieVect.c.
    InitPieVectTable();
 
-// Interrupts that are used in this example are re-mapped to
-// ISR functions found within this file.
-   EALLOW;  // This is needed to write to EALLOW protected registers
-   PieVectTable.I2CINT1A = &i2c_int1a_isr;
-   EDIS;   // This is needed to disable write to EALLOW protected registers
-
 // Step 4. Initialize all the Device Peripherals:
 // This function is found in DSP2802x_InitPeripherals.c
 // InitPeripherals(); // Not required for this example
-   //I2CA_Init();	//use interrupt
    I2C_Init();		//use polling
 
 // Step 5. Com port initial
