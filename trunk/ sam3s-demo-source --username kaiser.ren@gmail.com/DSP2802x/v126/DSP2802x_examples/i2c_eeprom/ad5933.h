@@ -69,9 +69,9 @@
 #define AD5933_ADDR_IMGN_REG_MSB	0x96	//Imaginary data  addr msb
 #define AD5933_ADDR_IMGN_REG_LSB	0x97	//Imaginary data  addr lsb
 
-#define AD5933_STATUS_TEMP_RDY		(1 << 0)	//temperature is ready
-#define AD5933_STATUS_DATA_RDY		(1 << 1)	//data is ready
-#define AD5933_STATUS_SWEEP_RDY		(1 << 2)	//sweep is ready
+#define AD5933_STATUS_TEMP_RDY		(0x01 << 0)	//temperature is ready
+#define AD5933_STATUS_DATA_RDY		(0x01 << 1)	//data is ready
+#define AD5933_STATUS_SWEEP_RDY		(0x01 << 2)	//sweep is ready
 
 /**********************************************************
  * 				Typedef
@@ -107,5 +107,6 @@ void ad5933_init(void);
 void ad5933_test(void);
 void ad5933_mode(ad5933_state_t state);
 unsigned char ad5993_status(void);
+char ad5993_GetTemperature(void);
 
 #endif /* AD5933_H_ */
