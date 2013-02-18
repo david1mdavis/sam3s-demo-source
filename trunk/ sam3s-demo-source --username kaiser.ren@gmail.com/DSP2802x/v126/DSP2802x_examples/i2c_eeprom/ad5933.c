@@ -64,9 +64,6 @@ void ad5933_init(void)
 
 	//set clock source selection to access CTRL LSB, EXT_CLK
 	//I2C_Write(AD5933_ADDR_CTRL_REG_LSB, AD5933_REG_CTRL_CLK);	//REG 0x81
-
-	ad5933_mode(stand_by);
-	ad5933_mode(init_freq);
 }
 
 /**

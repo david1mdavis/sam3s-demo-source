@@ -20,7 +20,11 @@ void scia_fifo_init(void);
 void scia_xmit(int a);
 void scia_msg(char *msg);
 void FloatToString(char * buf, double val);
-
+static unsigned char btoh( unsigned char num );
+void scia_Byte2Hex( Uint16 byte );
+void scia_Byte2Decimal( Uint16 byte );
+void scia_PrintLF( void );
+Uint16 scia_read(void);
 /**********************************************************
  * 				Global Variable
  **********************************************************/
@@ -119,6 +123,9 @@ static unsigned char btoh( unsigned char num )
    return ( num<10 )? num+'0' : num-10+'A';
 }
 
+/*
+ * print uint16 to hex style
+ */
 void scia_Byte2Hex( Uint16 byte )
 {
 	unsigned char c;
