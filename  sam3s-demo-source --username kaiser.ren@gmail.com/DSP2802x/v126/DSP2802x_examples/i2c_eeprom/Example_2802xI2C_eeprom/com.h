@@ -19,5 +19,6 @@ void scia_fifo_init(void);
 void scia_xmit(int a);
 void scia_msg(char *msg);
 Uint16 scia_read(void);
-void UTL_Byte2Hex( unsigned char byte, char *buff );
+void scia_Byte2Hex( unsigned char byte);
+void scia_PrintLF( void );
 #endif /* COM_H_ */
