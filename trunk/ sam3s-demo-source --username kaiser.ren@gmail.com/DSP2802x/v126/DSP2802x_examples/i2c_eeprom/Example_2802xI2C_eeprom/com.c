@@ -119,14 +119,27 @@ static unsigned char btoh( unsigned char num )
    return ( num<10 )? num+'0' : num-10+'A';
 }
 
-void UTL_Byte2Hex( unsigned char byte, unsigned char *buff )
+void scia_Byte2Hex( Uint16 byte )
 {
-	*buff++ = '0';
-	*buff++ = 'x';
-   *buff++ = btoh( byte>>4 );
-   *buff++ = btoh( byte );
-   *buff++ = ' ';
-   *buff = '\0';
+	unsigned char c;
+	int i;
+	Uint16 digit;
+
+	scia_xmit( '0' );
+	scia_xmit( 'x' );
+	for (i = 3; i >= 0; i--)
+	{
+	    digit = (byte >> (i * 4)) & 0xf;
+	    c = btoh( digit );
+	    scia_xmit( c );
+	}
+}
+/*
+ * print "/r/n"
+ */
+void scia_PrintLF( void )
+{
+	scia_msg("\r\n");
 }
 /***************************************************************************//**
  * @brief Converts a float value to a character array with 3 digits of accuracy.

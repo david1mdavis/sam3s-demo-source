@@ -94,15 +94,12 @@ void main(void)
    ad5933_init();
    
    scia_msg("reg    value\r\n");
-   I2C_Read( 0x82 );
+   //I2C_Read( 0x82 );
    for(i = 0x82; i < 0x8c; i++)
    {
 	   revByte = I2C_Read( i );
-   	   //UTL_Byte2Hex(i, tempString);
-   	   //scia_msg(tempString);
-   	   UTL_Byte2Hex(revByte, tempString);
-   	   scia_msg(tempString);
-   	   scia_msg("\r\n");
+	   scia_Byte2Hex( revByte );
+	   scia_PrintLF();
    }
 
    // Application loop
