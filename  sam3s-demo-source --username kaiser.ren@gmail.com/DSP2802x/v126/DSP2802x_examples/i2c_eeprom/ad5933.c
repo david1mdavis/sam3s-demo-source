@@ -112,7 +112,7 @@ unsigned char ad5993_status(void)
 *******************************************************************************/
 char ad5993_GetTemperature(void)
 {
-    Uint16 temp, temperature = 0;
+    Uint16 temp= 0;
     unsigned char status = 0;
 
     ad5933_mode(meas_temp);
@@ -123,20 +123,19 @@ char ad5993_GetTemperature(void)
     }
 
     temp = I2C_Read(AD5933_ADDR_TEMP_REG_MSB);
-    temperature = temp << 8;
-    temp = I2C_Read(AD5933_ADDR_TEMP_REG_LSB);
-    temperature |= temp & 0x00ff;
-    if(temperature < 8192)
+    temp = temp << 8;
+    temp |= I2C_Read(AD5933_ADDR_TEMP_REG_LSB);
+    if(temp < 8192)
     {
-        temperature = temperature >> 5;
+    	temp = temp >> 5;
     }
     else
     {
-        temperature -= 16384;
-        temperature /= 32;
+    	temp -= 16384;
+    	temp /= 32;
     }
 
-    return((char)temperature);
+    return((char)temp);
 }
 
 //eof

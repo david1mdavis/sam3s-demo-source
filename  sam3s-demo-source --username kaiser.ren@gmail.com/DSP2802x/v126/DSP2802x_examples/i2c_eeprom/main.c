@@ -112,7 +112,7 @@ void main(void)
 	   {
 	   	   case 'a':
 	   	   case 'A':
-	   		   scia_msg("Input 'A' temperature\r\n");
+	   		   scia_msg("Input 'A' temperature: ");
 	   		   scia_Byte2Hex( ad5993_GetTemperature() );
 	   		   scia_PrintLF();
 	   		   break;
