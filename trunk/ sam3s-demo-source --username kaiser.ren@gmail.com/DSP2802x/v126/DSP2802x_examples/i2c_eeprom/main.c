@@ -29,6 +29,7 @@ void button_init(void);
 
 void main(void)
 {
+	Uint16 temp;
 	unsigned char value1, value2, revByte, i;
 	unsigned char tempString[12] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
@@ -92,15 +93,6 @@ void main(void)
 
 // Step 7. Initial AD5933
    ad5933_init();
-   
-   scia_msg("reg    value\r\n");
-   //I2C_Read( 0x82 );
-   for(i = 0x82; i < 0x8c; i++)
-   {
-	   revByte = I2C_Read( i );
-	   scia_Byte2Hex( revByte );
-	   scia_PrintLF();
-   }
 
    // Application loop
    for(;;)
@@ -135,6 +127,17 @@ void main(void)
 	   		   scia_msg("Input 'S'\r\n");
 	   		   break;
 	   		   //
+	   	   case 't':
+	   	   case 'T':
+	   		   scia_msg("\r\nreg    value\r\n");
+	   		   for(i = 0x80; i < 0x8c; i++)
+	   		   {
+	   			   revByte = I2C_Read( i );
+	   			   scia_Byte2Hex( revByte );
+	   			   scia_PrintLF();
+	   		   }
+	   		   break;
+	   		   //
 	   	   default:
 	   		   break;
 	   		   //
@@ -151,18 +154,17 @@ void main(void)
 			   //read real data
 			   value1 = I2C_Read(AD5933_ADDR_REAL_REG_MSB);
 			   value2 = I2C_Read(AD5933_ADDR_REAL_REG_LSB);
-			   scia_msg("Real: ");
-			   scia_xmit(value1);
-			   scia_xmit(value2);
-			   scia_msg("\r\n");
+			   temp = ( (Uint16)value1 ) << 8 | value2;
+			   scia_msg("R:");
+			   scia_Byte2Hex(temp);
 
 			   //read imaginary data
 			   value1 = I2C_Read(AD5933_ADDR_IMGN_REG_MSB);
 			   value2 = I2C_Read(AD5933_ADDR_IMGN_REG_LSB);
-			   scia_msg("Imaginary: ");
-			   scia_xmit(value1);
-			   scia_xmit(value2);
-			   scia_msg("\r\n");
+			   temp = ( (Uint16)value1 ) << 8 | value2;
+			   scia_msg("I:");
+			   scia_Byte2Hex(temp);
+			   scia_PrintLF();;
 
 			   //go to next freq point
 			   ad5933_mode(icmt_freq);

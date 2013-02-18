@@ -21,8 +21,8 @@
 #define AD5933_ADDR_SLAVE_WR	0x00	//write bit following addr
 #define AD5933_ADDR_SLAVE_RD	0x01	//read bit following addr
 
-#define AD5933_REG_CTRL_CLK	(1 << 3)
-#define AD5933_REG_CTRL_RST	(1 << 4)
+#define AD5933_REG_CTRL_CLK	(0x01 << 3)	//ext clock
+#define AD5933_REG_CTRL_RST	(0x01 << 4)
 #define AD5933_BOARD_SYS_CLK_FREQ	16000ul
 
 #define AD5933_BOARD_CALC_FACTOR	0x8000000ul
@@ -76,6 +76,7 @@
 /**********************************************************
  * 				Typedef
  **********************************************************/
+//PGA gain = x1
 typedef enum _ad5933_state_tag_{
 	init_freq = 0x11,
 	start_sweep = 0x21,
@@ -105,6 +106,6 @@ interrupt void i2c_int1a_isr(void);
 void ad5933_init(void);
 void ad5933_test(void);
 void ad5933_mode(ad5933_state_t state);
-Uint16 ad5993_status(void);
+unsigned char ad5993_status(void);
 
 #endif /* AD5933_H_ */
