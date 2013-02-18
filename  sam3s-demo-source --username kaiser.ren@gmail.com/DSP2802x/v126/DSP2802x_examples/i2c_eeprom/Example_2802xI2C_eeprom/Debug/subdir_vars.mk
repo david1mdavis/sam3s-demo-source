@@ -22,6 +22,7 @@ D:/Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@
 D:/Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/source/DSP2802x_PieVect.c \
 D:/Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/source/DSP2802x_Sci.c \
 D:/Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/source/DSP2802x_SysCtrl.c \
+D:/Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/source/DSP2802x_TempSensorConv.c \
 D:/Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/ad5933.c \
 ../calc.c \
 ../com.c \
@@ -39,6 +40,7 @@ C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/DSP2802x_PieCtrl.o
 C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/DSP2802x_PieVect.obj \
 C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/DSP2802x_Sci.obj \
 C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/DSP2802x_SysCtrl.obj \
+C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/DSP2802x_TempSensorConv.obj \
 C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/DSP2802x_usDelay.obj \
 C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/ad5933.obj \
 C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/calc.obj \
@@ -60,6 +62,7 @@ C_DEPS += \
 ./DSP2802x_PieVect.pp \
 ./DSP2802x_Sci.pp \
 ./DSP2802x_SysCtrl.pp \
+./DSP2802x_TempSensorConv.pp \
 ./ad5933.pp \
 ./calc.pp \
 ./com.pp \
@@ -76,6 +79,7 @@ C_DEPS__QUOTED += \
 "DSP2802x_PieVect.pp" \
 "DSP2802x_Sci.pp" \
 "DSP2802x_SysCtrl.pp" \
+"DSP2802x_TempSensorConv.pp" \
 "ad5933.pp" \
 "calc.pp" \
 "com.pp" \
@@ -93,6 +97,7 @@ OBJS__QUOTED += \
 "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\DSP2802x_PieVect.obj" \
 "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\DSP2802x_Sci.obj" \
 "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\DSP2802x_SysCtrl.obj" \
+"C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\DSP2802x_TempSensorConv.obj" \
 "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\DSP2802x_usDelay.obj" \
 "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\ad5933.obj" \
 "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\calc.obj" \
@@ -114,6 +119,7 @@ C_SRCS__QUOTED += \
 "D:/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/source/DSP2802x_PieVect.c" \
 "D:/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/source/DSP2802x_Sci.c" \
 "D:/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/source/DSP2802x_SysCtrl.c" \
+"D:/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/source/DSP2802x_TempSensorConv.c" \
 "D:/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/ad5933.c" \
 "../calc.c" \
 "../com.c" \

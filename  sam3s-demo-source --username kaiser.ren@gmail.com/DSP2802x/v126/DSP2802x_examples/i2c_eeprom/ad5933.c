@@ -104,4 +104,39 @@ unsigned char ad5993_status(void)
 	return ( c );
 }
 
+/***************************************************************************//**
+ * @brief Reads the temperature from the part and returns the data in
+ *        degrees Celsius.
+ *
+ * @return temperature - Temperature.
+*******************************************************************************/
+char ad5993_GetTemperature(void)
+{
+    Uint16 temp, temperature = 0;
+    unsigned char status = 0;
+
+    ad5933_mode(meas_temp);
+
+    while((status & AD5933_STATUS_TEMP_RDY) == 0)
+    {
+        status = ad5993_status();
+    }
+
+    temp = I2C_Read(AD5933_ADDR_TEMP_REG_MSB);
+    temperature = temp << 8;
+    temp = I2C_Read(AD5933_ADDR_TEMP_REG_LSB);
+    temperature |= temp & 0x00ff;
+    if(temperature < 8192)
+    {
+        temperature = temperature >> 5;
+    }
+    else
+    {
+        temperature -= 16384;
+        temperature /= 32;
+    }
+
+    return((char)temperature);
+}
+
 //eof

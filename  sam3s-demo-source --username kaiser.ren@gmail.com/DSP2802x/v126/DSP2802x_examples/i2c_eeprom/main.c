@@ -112,7 +112,9 @@ void main(void)
 	   {
 	   	   case 'a':
 	   	   case 'A':
-	   		   scia_msg("Input 'A'\r\n");
+	   		   scia_msg("Input 'A' temperature\r\n");
+	   		   scia_Byte2Hex( ad5993_GetTemperature() );
+	   		   scia_PrintLF();
 	   		   break;
 	   		   //
 	   	   case 's':
@@ -137,11 +139,13 @@ void main(void)
 	   }
 	   //{
 		   //start freq sweep
-		   ad5933_mode(start_sweep);
-
+/*		   ad5933_mode(start_sweep);
+		   DELAY_US(100000);    // Delay 100ms , wait
 		   //check whether sweep is completed?
 		   while( 0 == ( AD5933_STATUS_SWEEP_RDY & ad5993_status() ) ){
 			   //wait for data valid
+			   DELAY_US(100000);    // Delay 100ms , wait
+
 			   while( 0 == ( AD5933_STATUS_DATA_RDY & ad5993_status() ) );
 
 			   //read real data
@@ -161,7 +165,8 @@ void main(void)
 
 			   //go to next freq point
 			   ad5933_mode(icmt_freq);
-		   }
+
+		   }*/
 
 		   //sweep complete, goto power-down mode
 		   ad5933_mode(powr_down);
