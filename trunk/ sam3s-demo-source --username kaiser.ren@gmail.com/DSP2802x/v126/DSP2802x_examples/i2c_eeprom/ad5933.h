@@ -108,5 +108,5 @@ void ad5933_test(void);
 void ad5933_mode(ad5933_state_t state);
 unsigned char ad5993_status(void);
 char ad5993_GetTemperature(void);
-
+void ad5933_sweep(void);
 #endif /* AD5933_H_ */
