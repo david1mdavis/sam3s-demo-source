@@ -1,8 +1,8 @@
 /*
  * ad5933.h
  *
- *  Created on: 2013-1-24
- *      Author: kren
+ *  Created on: 2012-11-26
+ *      Author: cui
  */
 
 #ifndef AD5933_H_
@@ -33,9 +33,8 @@
 
 #define AD5933_BOARD_FREQ_START 	45000ul
 #define AD5933_BOARD_FREQ_END		100000ul
-#define AD5933_BOARD_FREQ_ICMT		100ul
-#define AD5933_BOARD_CNT_ICMT		( (AD5933_BOARD_FREQ_END - AD5933_BOARD_FREQ_START)\
-									/AD5933_BOARD_FREQ_ICMT + 1 )
+#define AD5933_BOARD_FREQ_ICMT		125ul
+#define AD5933_BOARD_CNT_ICMT		511ul	//maximum
 
 #define AD5933_CMD_CODE_BLOCK_WR	0XA0	//command code, block write
 #define AD5933_CMD_CODE_BLOCK_RD	0XA1	//command code, block read
@@ -104,7 +103,7 @@ Uint16 I2CA_WriteData(struct I2CMSG *msg);
 Uint16 I2CA_ReadData(struct I2CMSG *msg);
 interrupt void i2c_int1a_isr(void);
 void ad5933_init(void);
-void ad5933_test(void);
+void ad5933_print(void);
 void ad5933_mode(ad5933_state_t state);
 unsigned char ad5993_status(void);
 char ad5993_GetTemperature(void);

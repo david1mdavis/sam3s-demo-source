@@ -1,8 +1,8 @@
 /*
  * ad5933.c
  *
- *  Created on: 2013-1-24
- *      Author: kren
+ *  Created on: 2012-11-26
+ *      Author: cui
  */
 /**********************************************************
  * 				Include
@@ -22,8 +22,7 @@
 /**********************************************************
  * 				Prototype
  **********************************************************/
-void ad5933_init(void);
-void ad5933_mode(ad5933_state_t state);
+
 /**********************************************************
  * 				function
  **********************************************************/
@@ -37,7 +36,8 @@ void ad5933_init(void)
 	Uint16 incre_num;
 	Uint16 cycle_set;
 
-	start_freq = AD5933_BOARD_FREQ_START * ( 4 * AD5933_BOARD_CALC_FACTOR / AD5933_BOARD_SYS_CLK_FREQ);
+	start_freq = AD5933_BOARD_FREQ_END - AD5933_BOARD_FREQ_ICMT*AD5933_BOARD_CNT_ICMT;
+	start_freq = start_freq * ( 4 * AD5933_BOARD_CALC_FACTOR / AD5933_BOARD_SYS_CLK_FREQ);
 	start_freq = start_freq/1000;
 	incre_freq = AD5933_BOARD_FREQ_ICMT * ( 4 * AD5933_BOARD_CALC_FACTOR / AD5933_BOARD_SYS_CLK_FREQ);
 	incre_freq = incre_freq/1000;
@@ -55,8 +55,8 @@ void ad5933_init(void)
 	I2C_Write(AD5933_ADDR_FICT_REG_LSB, incre_freq >> 0);	//REG 0x87
 
 	//set number of increment, this reg allow maximum value, 0x1FF
-	I2C_Write(AD5933_ADDR_NICT_REG_MSB, 0x01/*incre_num >> 8*/);	//REG 0x88
-	I2C_Write(AD5933_ADDR_NICT_REG_LSB, 0xFF/*incre_num >> 0*/);	//REG 0x89
+	I2C_Write(AD5933_ADDR_NICT_REG_MSB, incre_num >> 8);	//REG 0x88
+	I2C_Write(AD5933_ADDR_NICT_REG_LSB, incre_num >> 0);	//REG 0x89
 
 	//set number of setting time cycle
 	I2C_Write(AD5933_ADDR_STCY_REG_MSB, cycle_set >> 8);	//REG 0x8a
@@ -69,15 +69,16 @@ void ad5933_init(void)
 /**
  * ad5933 test
  */
-void ad5933_test(void)
+void ad5933_print(void)
 {
-	unsigned char i;
+	unsigned char i, revByte;
 
-	for(i = 0x80; i < 0x8a; i++ )
+	for(i = 0x80; i < 0x8c; i++)
 	{
-		I2C_Read( i );
+		revByte = I2C_Read( i );
+		scia_Byte2Hex( revByte );
+		scia_PrintLF();
 	}
-
 }
 
 /*
@@ -123,7 +124,8 @@ void ad5933_sweep(void)
 		{
 			status = ad5993_status();
 		}
-
+		scia_msg("I:");
+	    scia_Byte2Hex(cnt);
 		//read real data
 		value1 = I2C_Read(AD5933_ADDR_REAL_REG_MSB);
 		value2 = I2C_Read(AD5933_ADDR_REAL_REG_LSB);
@@ -151,8 +153,6 @@ void ad5933_sweep(void)
 	}
 
 	//sweep complete, goto power-down mode
-	scia_msg("I:");
-	scia_Byte2Hex(cnt);
 	scia_PrintLF();
 	ad5933_mode(powr_down);
 }

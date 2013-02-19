@@ -1,8 +1,8 @@
 /*
  * calc.h
  *
- *  Created on: 2013-1-25
- *      Author: kren
+ *  Created on: 2012-11-26
+ *      Author: cui
  */
 
 #ifndef CALC_H_

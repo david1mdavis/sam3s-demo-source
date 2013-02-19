@@ -1,8 +1,8 @@
 /*
  * Communication.c
  *
- *  Created on: 2013-2-3
- *      Author: kren
+ *  Created on: 2012-11-26
+ *      Author: cui
  */
 /**********************************************************
  * 				Include

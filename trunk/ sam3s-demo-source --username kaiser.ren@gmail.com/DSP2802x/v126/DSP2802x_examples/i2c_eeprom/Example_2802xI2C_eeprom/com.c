@@ -1,8 +1,8 @@
 /*
  * com.c
  *
- *  Created on: 2013-1-25
- *      Author: kren
+ *  Created on: 2012-11-26
+ *      Author: cui
  */
 #include "DSP28x_Project.h"     // Device Headerfile and Examples Include File
 #include <stdio.h>
