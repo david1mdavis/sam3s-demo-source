@@ -106,25 +106,25 @@ void main(void)
 	   value1 = I2C_Read(0x03);	//read t-low reg
 	   value1 = 0;
 #else
-	   //while( 1 == GpioDataRegs.GPADAT.bit.GPIO12){
 	   revByte = scia_read();
 	   switch(revByte)
 	   {
-	   	   case 'a':
-	   	   case 'A':
-	   		   scia_msg("Input 'A' temperature: ");
+	   	   case 't':
+	   	   case 'T':
+	   		   scia_msg("Input 't' \r\ntemperature: ");
 	   		   scia_Byte2Hex( ad5993_GetTemperature() );
 	   		   scia_PrintLF();
 	   		   break;
 	   		   //
 	   	   case 's':
 	   	   case 'S':
-	   		   scia_msg("Input 'S'\r\n");
+	   		   scia_msg("Input 's'\r\n");
+	   		   ad5933_sweep();
 	   		   break;
 	   		   //
-	   	   case 't':
-	   	   case 'T':
-	   		   scia_msg("\r\nreg    value\r\n");
+	   	   case 'r':
+	   	   case 'R':
+	   		   scia_msg("Input 'r' reg 80~8B\r\n");
 	   		   for(i = 0x80; i < 0x8c; i++)
 	   		   {
 	   			   revByte = I2C_Read( i );
@@ -133,53 +133,19 @@ void main(void)
 	   		   }
 	   		   break;
 	   		   //
+	   	   case 'h':
+	   	   case 'H':
+	   		   scia_msg("-- help menu --\r\n");
+	   		   scia_msg("h: print help menu\r\n");
+	   		   scia_msg("t: print temperature\r\n");
+	   		   scia_msg("s: start ad5933 sweep\r\n");
+	   		   scia_msg("r: read ad5933 register\r\n");
+	   		   break;
+	   		   //
 	   	   default:
 	   		   break;
 	   		   //
 	   }
-		   //start freq sweep
-	   	   ad5933_mode(stand_by);
-	   	   ad5933_mode(init_freq);
-		   ad5933_mode(start_sweep);
-		   DELAY_US(100000);    // Delay 100ms , wait
-		   //check whether sweep is completed?
-		   status = 0;
-		   i = 0;
-		   while( 1 )
-		   {
-		   	   while( 0 == (status & AD5933_STATUS_DATA_RDY) )
-			   {
-        			status = ad5993_status();
-    		   }
-
-			   //read real data
-			   value1 = I2C_Read(AD5933_ADDR_REAL_REG_MSB);
-			   	   value2 = I2C_Read(AD5933_ADDR_REAL_REG_LSB);
-			   	   temp = ( (Uint16)value1 ) << 8 | value2;
-			   	   scia_msg("R:");
-			   	   scia_Byte2Hex(temp);
-
-			   	   //read imaginary data
-			   	   value1 = I2C_Read(AD5933_ADDR_IMGN_REG_MSB);
-			   	   value2 = I2C_Read(AD5933_ADDR_IMGN_REG_LSB);
-			   	   temp = ( (Uint16)value1 ) << 8 | value2;
-			   	   scia_msg("I:");
-			   	   scia_Byte2Hex(temp);
-			   	   scia_PrintLF();
-			   	   i++;
-        		   status = ad5993_status();
-    		   	   if( AD5933_STATUS_SWEEP_RDY & status ){
-    		   	   	   break;
-    		   	   }
-    		   	   else
-    		   	   {
-    		   	   	   //go to next freq point
-			   	   	   ad5933_mode(icmt_freq);
-    		   	   }
-		   }
-		   //sweep complete, goto power-down mode
-		   scia_Byte2Hex(i);
-		   ad5933_mode(powr_down);
 #endif
    }   // end of for(;;)
 }   // end of main

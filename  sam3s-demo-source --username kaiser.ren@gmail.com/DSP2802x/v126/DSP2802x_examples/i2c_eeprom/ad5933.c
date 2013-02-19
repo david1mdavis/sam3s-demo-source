@@ -54,9 +54,9 @@ void ad5933_init(void)
 	I2C_Write(AD5933_ADDR_FICT_REG_MMB, incre_freq >> 8);	//REG 0x86
 	I2C_Write(AD5933_ADDR_FICT_REG_LSB, incre_freq >> 0);	//REG 0x87
 
-	//set number of increment
-	I2C_Write(AD5933_ADDR_NICT_REG_MSB, incre_num >> 8);	//REG 0x88
-	I2C_Write(AD5933_ADDR_NICT_REG_LSB, incre_num >> 0);	//REG 0x89
+	//set number of increment, this reg allow maximum value, 0x1FF
+	I2C_Write(AD5933_ADDR_NICT_REG_MSB, 0x01/*incre_num >> 8*/);	//REG 0x88
+	I2C_Write(AD5933_ADDR_NICT_REG_LSB, 0xFF/*incre_num >> 0*/);	//REG 0x89
 
 	//set number of setting time cycle
 	I2C_Write(AD5933_ADDR_STCY_REG_MSB, cycle_set >> 8);	//REG 0x8a
@@ -99,6 +99,62 @@ unsigned char ad5993_status(void)
 	//read status
 	c = I2C_Read(AD5933_ADDR_STAT_REG_MSB);
 	return ( c );
+}
+
+/*
+ * ad5933 sweep
+ */
+void ad5933_sweep(void)
+{
+	Uint16 temp, cnt;
+	unsigned char value1, value2, status;
+
+	//start freq sweep
+	ad5933_mode(stand_by);
+	ad5933_mode(init_freq);
+	ad5933_mode(start_sweep);
+	DELAY_US(100000);    // Delay 100ms , wait
+	//check whether sweep is completed?
+	status = 0;
+	cnt = 0;
+	while( 1 )
+	{
+		while( 0 == (status & AD5933_STATUS_DATA_RDY) )
+		{
+			status = ad5993_status();
+		}
+
+		//read real data
+		value1 = I2C_Read(AD5933_ADDR_REAL_REG_MSB);
+		value2 = I2C_Read(AD5933_ADDR_REAL_REG_LSB);
+		temp = ( (Uint16)value1 ) << 8 | value2;
+		scia_msg("R:");
+		scia_Byte2Hex(temp);
+
+		//read imaginary data
+		value1 = I2C_Read(AD5933_ADDR_IMGN_REG_MSB);
+		value2 = I2C_Read(AD5933_ADDR_IMGN_REG_LSB);
+		temp = ( (Uint16)value1 ) << 8 | value2;
+		scia_msg("I:");
+		scia_Byte2Hex(temp);
+		scia_PrintLF();
+		cnt++;
+		status = ad5993_status();
+		if( AD5933_STATUS_SWEEP_RDY & status ){
+			break;
+		}
+		else
+		{
+			//go to next freq point
+			ad5933_mode(icmt_freq);
+		}
+	}
+
+	//sweep complete, goto power-down mode
+	scia_msg("I:");
+	scia_Byte2Hex(cnt);
+	scia_PrintLF();
+	ad5933_mode(powr_down);
 }
 
 /***************************************************************************//**
