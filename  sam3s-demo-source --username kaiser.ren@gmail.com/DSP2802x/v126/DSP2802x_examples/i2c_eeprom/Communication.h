@@ -1,8 +1,8 @@
 /*
  * Communication.h
  *
- *  Created on: 2013-2-3
- *      Author: kren
+ *  Created on: 2012-11-26
+ *      Author: cui
  */
 #ifndef _COMMUNICATION_H_
 #define _COMMUNICATION_H_

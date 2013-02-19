@@ -1,8 +1,8 @@
 /*
  * main.c
  *
- *  Created on: 2013-1-24
- *      Author: kren
+ *  Created on: 2012-11-26
+ *      Author: cui
  */
 /**********************************************************
  * 				Include
@@ -29,9 +29,7 @@ void button_init(void);
 
 void main(void)
 {
-	Uint16 temp;
-	unsigned char value1, value2, revByte, i, status;
-	//unsigned char tempString[12] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	unsigned char revByte;
 
 // Step 1. Initialize System Control:
 // PLL, WatchDog, enable Peripheral Clocks
@@ -76,7 +74,10 @@ void main(void)
    scia_echoback_init();
    scia_msg("-- Network Analyzer V0.01--\r\n");
    scia_msg("-- Build On: "__DATE__" "__TIME__"--\r\n");
-
+   scia_msg("-- Start: 36.125KHz--\r\n");
+   scia_msg("-- End:   100kHz   --\r\n");
+   scia_msg("-- Step : 125Hz    --\r\n");
+   scia_msg("-- Point: 511      --\r\n");
 // Step 6. BSP init, LEDs & Button
    led_init();
    button_init();
@@ -114,23 +115,24 @@ void main(void)
 	   		   scia_msg("Input 't' \r\ntemperature: ");
 	   		   scia_Byte2Hex( ad5993_GetTemperature() );
 	   		   scia_PrintLF();
+	   		   scia_PrintLF();
+	   		   scia_PrintLF();
 	   		   break;
 	   		   //
 	   	   case 's':
 	   	   case 'S':
 	   		   scia_msg("Input 's'\r\n");
 	   		   ad5933_sweep();
+	   		   scia_PrintLF();
+	   		   scia_PrintLF();
 	   		   break;
 	   		   //
 	   	   case 'r':
 	   	   case 'R':
-	   		   scia_msg("Input 'r' reg 80~8B\r\n");
-	   		   for(i = 0x80; i < 0x8c; i++)
-	   		   {
-	   			   revByte = I2C_Read( i );
-	   			   scia_Byte2Hex( revByte );
-	   			   scia_PrintLF();
-	   		   }
+	   		   scia_msg("Input 'r' \r\nreg 80~8B\r\n");
+	   		   ad5933_print();
+	   		   scia_PrintLF();
+	   		   scia_PrintLF();
 	   		   break;
 	   		   //
 	   	   case 'h':
@@ -140,6 +142,8 @@ void main(void)
 	   		   scia_msg("t: print temperature\r\n");
 	   		   scia_msg("s: start ad5933 sweep\r\n");
 	   		   scia_msg("r: read ad5933 register\r\n");
+	   		   scia_PrintLF();
+	   		   scia_PrintLF();
 	   		   break;
 	   		   //
 	   	   default:
