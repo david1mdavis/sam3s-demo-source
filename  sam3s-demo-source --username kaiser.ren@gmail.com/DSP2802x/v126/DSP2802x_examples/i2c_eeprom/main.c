@@ -72,7 +72,7 @@ void main(void)
 
 // Step 5. Com port initial
    scia_echoback_init();
-   scia_msg("-- Network Analyzer V0.02--\r\n");
+   scia_msg("-- Network Analyzer V0.03--\r\n");
    scia_msg("-- Build On: "__DATE__" "__TIME__"--\r\n");
    scia_msg("-- Start: 36.125KHz--\r\n");
    scia_msg("-- End:   100kHz   --\r\n");
