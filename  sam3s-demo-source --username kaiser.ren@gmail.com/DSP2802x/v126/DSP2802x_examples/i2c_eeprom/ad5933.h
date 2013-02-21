@@ -86,6 +86,13 @@ typedef enum _ad5933_state_tag_{
 	stand_by = 0xb1
 }ad5933_state_t;
 
+typedef struct _ad5933_data_field_tag_
+{
+	int16 real;
+	int16 imaginary;
+	//float magnitude;
+}ad5933_data_field_t;
+
 /**********************************************************
  * 				Extern
  **********************************************************/
@@ -108,4 +115,7 @@ void ad5933_mode(ad5933_state_t state);
 unsigned char ad5993_status(void);
 char ad5993_GetTemperature(void);
 void ad5933_sweep(void);
+
+void led_on(Uint16 led_msk);
+void led_off(Uint16 led_msk);
 #endif /* AD5933_H_ */

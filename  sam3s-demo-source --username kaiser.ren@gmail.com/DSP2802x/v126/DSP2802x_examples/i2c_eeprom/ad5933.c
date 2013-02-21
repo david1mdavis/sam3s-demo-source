@@ -18,7 +18,8 @@
 /**********************************************************
  * 				Global Variable
  **********************************************************/
-
+ad5933_data_field_t data_part[AD5933_BOARD_CNT_ICMT];
+Uint16 ad5933_temp = 0;
 /**********************************************************
  * 				Prototype
  **********************************************************/
@@ -124,6 +125,9 @@ void ad5933_sweep(void)
 		{
 			status = ad5993_status();
 		}
+		//blink for start indicator
+		led_on(0x000f);
+
 		scia_msg("I:");
 	    scia_Byte2Hex(cnt);
 		//read real data
@@ -132,6 +136,7 @@ void ad5933_sweep(void)
 		temp = ( (Uint16)value1 ) << 8 | value2;
 		scia_msg("R:");
 		scia_Byte2Hex(temp);
+		data_part[cnt].real = temp;
 
 		//read imaginary data
 		value1 = I2C_Read(AD5933_ADDR_IMGN_REG_MSB);
@@ -139,7 +144,12 @@ void ad5933_sweep(void)
 		temp = ( (Uint16)value1 ) << 8 | value2;
 		scia_msg("I:");
 		scia_Byte2Hex(temp);
+		data_part[cnt].imaginary = temp;
 		scia_PrintLF();
+
+		//blink for stop indicator
+		led_off(0x000f);
+
 		cnt++;
 		status = ad5993_status();
 		if( AD5933_STATUS_SWEEP_RDY & status ){
@@ -187,7 +197,7 @@ char ad5993_GetTemperature(void)
     	temp -= 16384;
     	temp /= 32;
     }
-
+    ad5933_temp = temp;
     return((char)temp);
 }
 
