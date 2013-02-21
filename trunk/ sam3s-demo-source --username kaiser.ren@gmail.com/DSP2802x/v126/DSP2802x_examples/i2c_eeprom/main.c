@@ -29,7 +29,7 @@ void button_init(void);
 
 void main(void)
 {
-	unsigned char revByte;
+	//unsigned char revByte;
 
 // Step 1. Initialize System Control:
 // PLL, WatchDog, enable Peripheral Clocks
@@ -91,66 +91,19 @@ void main(void)
    // Application loop
    for(;;)
    {
-#if 0	//comment out AD7414
-	   I2C_Write(0x01, 0x40);	//AD7414 ctrl reg
-	   I2C_Write(0x02, 0xa5);	//AD7414 t-high reg
-	   I2C_Write(0x03, 0x5a);	//AD7414 t-low reg
-	   DELAY_US(50);    		//Delay 50us ,wait
-	   value1 = I2C_Read(0x00);	//read ctrl reg
-	   FloatToString(tempString, (double) value1);
-	   scia_msg(tempString);
-	   value1 = 0;
-	   value1 = I2C_Read(0x01);	//read ctrl reg
-	   value1 = 0;
-	   value1 = I2C_Read(0x02);	//read t-high reg
-	   value1 = 0;
-	   value1 = I2C_Read(0x03);	//read t-low reg
-	   value1 = 0;
-#else
-	   revByte = scia_read();
-	   switch(revByte)
-	   {
-	   	   case 't':
-	   	   case 'T':
-	   		   scia_msg("Input 't' \r\ntemperature: ");
-	   		   scia_Byte2Hex( ad5993_GetTemperature() );
-	   		   scia_PrintLF();
-	   		   scia_PrintLF();
-	   		   scia_PrintLF();
-	   		   break;
-	   		   //
-	   	   case 's':
-	   	   case 'S':
-	   		   scia_msg("Input 's'\r\n");
-	   		   ad5933_sweep();
-	   		   scia_PrintLF();
-	   		   scia_PrintLF();
-	   		   break;
-	   		   //
-	   	   case 'r':
-	   	   case 'R':
-	   		   scia_msg("Input 'r' \r\nreg 80~8B\r\n");
-	   		   ad5933_print();
-	   		   scia_PrintLF();
-	   		   scia_PrintLF();
-	   		   break;
-	   		   //
-	   	   case 'h':
-	   	   case 'H':
-	   		   scia_msg("-- help menu --\r\n");
-	   		   scia_msg("h: print help menu\r\n");
-	   		   scia_msg("t: print temperature\r\n");
-	   		   scia_msg("s: start ad5933 sweep\r\n");
-	   		   scia_msg("r: read ad5933 register\r\n");
-	   		   scia_PrintLF();
-	   		   scia_PrintLF();
-	   		   break;
-	   		   //
-	   	   default:
-	   		   break;
-	   		   //
-	   }
-#endif
+	   //wait for button pressed
+	   while( 0 == GpioDataRegs.GPADAT.bit.GPIO12){};
+	   //get button, start operation
+	   DELAY_US(100000);    // Delay 100ms , wait
+	   scia_msg("\r\ntemperature: ");
+	   scia_Byte2Hex( ad5993_GetTemperature() );
+	   scia_PrintLF();
+	   scia_PrintLF();
+	   scia_PrintLF();
+	   ad5933_sweep();
+	   scia_PrintLF();
+	   scia_PrintLF();
+	   scia_PrintLF();
    }   // end of for(;;)
 }   // end of main
 
