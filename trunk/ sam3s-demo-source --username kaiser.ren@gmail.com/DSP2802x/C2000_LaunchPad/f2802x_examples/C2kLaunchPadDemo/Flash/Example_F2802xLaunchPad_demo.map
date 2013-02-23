@@ -1,7 +1,7 @@
 ******************************************************************************
              TMS320C2000 Linker PC v6.1.0                      
 ******************************************************************************
->> Linked Sat Feb 23 14:42:25 2013
+>> Linked Sat Feb 23 15:43:37 2013
 
 OUTPUT FILE NAME:   <Example_F2802xLaunchPad_demo.out>
 ENTRY POINT SYMBOL: "code_start"  address: 003f7ff6
@@ -29,7 +29,7 @@ PAGE 0:
 
 PAGE 1:
   BOOT_RSVD             00000000   00000050  00000000  00000050  RWIX
-  RAMM0                 00000050   000003b0  00000300  000000b0  RWIX
+  RAMM0                 00000050   000003b0  000003b0  00000000  RWIX
   RAMM1                 00000400   00000400  00000000  00000400  RWIX
   DEV_EMU               00000880   00000105  00000004  00000101  RWIX
   SYS_PWR_CTL           00000985   00000003  00000003  00000000  RWIX
@@ -189,8 +189,8 @@ codestart
 
 vectors    0    003fffc2    00000000     DSECT
 
-.stack     1    00000050    00000300     UNINITIALIZED
-                  00000050    00000300     --HOLE--
+.stack     1    00000050    000003b0     UNINITIALIZED
+                  00000050    000003b0     --HOLE--
 
 DevEmuRegsFile 
 *          1    00000880    00000004     UNINITIALIZED
@@ -453,8 +453,8 @@ ffffffff   .text
 003f6804   _XINT2_ISR
 003f6809   _XINT3_ISR
 00007070   _XIntruptRegs
-00000350   __STACK_END
-00000300   __STACK_SIZE
+00000400   __STACK_END
+000003b0   __STACK_SIZE
 00000001   __TI_args_main
 ffffffff   ___binit__
 ffffffff   ___c_args__
@@ -507,8 +507,8 @@ address    name
 00000001   __TI_args_main
 00000004   _RamfuncsLoadSize
 00000050   __stack
-00000300   __STACK_SIZE
-00000350   __STACK_END
+000003b0   __STACK_SIZE
+00000400   __STACK_END
 00000880   _DevEmuRegs
 00000985   _SysPwrCtrlRegs
 00000a80   _FlashRegs

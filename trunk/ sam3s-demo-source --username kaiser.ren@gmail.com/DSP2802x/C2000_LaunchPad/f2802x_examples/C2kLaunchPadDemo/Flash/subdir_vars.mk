@@ -6,9 +6,6 @@
 CMD_SRCS += \
 F:/\ Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/C2000_LaunchPad/f2802x_headers/cmd/F2802x_Headers_nonBIOS.cmd 
 
-LIB_SRCS += \
-F:/\ Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/C2000_LaunchPad/f2802x_common/lib/driverlib.lib 
-
 ASM_SRCS += \
 F:/\ Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/C2000_LaunchPad/f2802x_common/source/F2802x_CodeStartBranch.asm \
 F:/\ Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/C2000_LaunchPad/f2802x_common/source/F2802x_usDelay.asm 
