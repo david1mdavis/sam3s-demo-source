@@ -96,11 +96,7 @@ typedef struct _ad5933_data_field_tag_
 /**********************************************************
  * 				Extern
  **********************************************************/
-extern struct I2CMSG I2cMsgOut1;
-extern struct I2CMSG I2cMsgIn1;
-extern struct I2CMSG *CurrentMsgPtr;
-extern Uint16 PassCount;
-extern Uint16 FailCount;
+extern ad5933_data_field_t data_part[AD5933_BOARD_CNT_ICMT];
 
 /**********************************************************
  * 				Prototype

@@ -25,8 +25,9 @@ $(GEN_CMDS__FLAG) \
 "C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/DSP2802x_CodeStartBranch.obj" \
 "C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/Communication.obj" \
 -l"rts2800_ml.lib" \
-"../F28027.cmd" \
-"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/F2802x_Headers_nonBIOS.cmd" \
+-l"IQmath.lib" \
+"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/cmd/28027_RAM_lnk.cmd" \
+"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_headers/cmd/DSP2802x_Headers_nonBIOS.cmd" \
 
 -include ../makefile.init
 
@@ -131,7 +132,7 @@ all: F:/\ Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kais
 F:/\ Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Example_2802xI2C_eeprom/../../../DSP2802x_examples/i2c_eeprom/Debug/Example_2802xI2C_eeprom.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: C2000 Linker'
-	"F:/ti/ccsv5/tools/compiler/c2000_6.1.0/bin/cl2000" -v28 -ml -mt -g --define="_DEBUG" --define="LARGE_MODEL" --quiet --display_error_number --issue_remarks --asm_directory="C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug" --obj_directory="C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug" -z --stack_size=0x300 -m"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/Example_2802xI2C_eeprom.map" --warn_sections -i"F:/ti/ccsv5/tools/compiler/c2000_6.1.0/lib" -i"F:/ti/ccsv5/tools/compiler/c2000_6.1.0/include" -i"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Example_2802xI2C_eeprom" -i"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom" -i"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_headers/include" --reread_libs --display_error_number --entry_point=code_start --rom_model -o "F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Example_2802xI2C_eeprom/../../../DSP2802x_examples/i2c_eeprom/Debug/Example_2802xI2C_eeprom.out" $(ORDERED_OBJS)
+	"F:/ti/ccsv5/tools/compiler/c2000_6.1.0/bin/cl2000" -v28 -ml -mt -g --define="_DEBUG" --define="LARGE_MODEL" --quiet --display_error_number --issue_remarks --asm_directory="C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug" --obj_directory="C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug" -z --stack_size=0x300 -m"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/Example_2802xI2C_eeprom.map" --warn_sections -i"F:/ti/ccsv5/tools/compiler/c2000_6.1.0/lib" -i"F:/ti/ccsv5/tools/compiler/c2000_6.1.0/include" -i"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Example_2802xI2C_eeprom" -i"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom" -i"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_headers/include" -i"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/lib" --reread_libs --display_error_number --entry_point=code_start --rom_model -o "F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Example_2802xI2C_eeprom/../../../DSP2802x_examples/i2c_eeprom/Debug/Example_2802xI2C_eeprom.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

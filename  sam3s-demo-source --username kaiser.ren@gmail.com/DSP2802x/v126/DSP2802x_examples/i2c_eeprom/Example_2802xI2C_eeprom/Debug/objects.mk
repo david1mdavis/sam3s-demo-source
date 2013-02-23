@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := $(GEN_CMDS__FLAG) -l"rts2800_ml.lib"
+LIBS := $(GEN_CMDS__FLAG) -l"rts2800_ml.lib" -l"IQmath.lib"
 

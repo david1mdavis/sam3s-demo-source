@@ -3,6 +3,13 @@
 ################################################################################
 
 # Each subdirectory must supply rules for building sources it contributes
+28027_RAM_lnk.exe: F:/\ Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/cmd/28027_RAM_lnk.cmd $(GEN_CMDS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: C2000 Linker'
+	"F:/ti/ccsv5/tools/compiler/c2000_6.1.0/bin/cl2000" -v28 -ml -mt -g --define="_DEBUG" --define="LARGE_MODEL" --quiet --display_error_number --issue_remarks --asm_directory="C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug" --obj_directory="C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug" -z --stack_size=0x300 -m"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/Example_2802xI2C_eeprom.map" --heap_size=0x400 --warn_sections -i"F:/ti/ccsv5/tools/compiler/c2000_6.1.0/lib" -i"F:/ti/ccsv5/tools/compiler/c2000_6.1.0/include" -i"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Example_2802xI2C_eeprom" -i"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom" -i"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_headers/include" -i"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/lib" --reread_libs --display_error_number --entry_point=code_start --rom_model -o "$@" "$<" "../28027_RAM_lnk.cmd" "../DSP2802x_Headers_nonBIOS.cmd"
+	@echo 'Finished building: $<'
+	@echo ' '
+
 C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/Communication.obj: F:/\ Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Communication.c $(GEN_OPTS) $(GEN_SRCS)
 	@echo 'Building file: $<'
 	@echo 'Invoking: C2000 Compiler'
