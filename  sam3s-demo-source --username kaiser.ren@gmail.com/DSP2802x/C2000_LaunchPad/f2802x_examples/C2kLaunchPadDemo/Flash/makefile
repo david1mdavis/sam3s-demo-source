@@ -136,6 +136,7 @@ Example_F2802xLaunchPad_demo.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 	"F:/ti/ccsv5/tools/compiler/c2000_6.1.0/bin/cl2000" -v28 -ml -mt -O0 -g --define="_FLASH" --define=NDEBUG --define="_DEBUG" --define="LARGE_MODEL" --quiet --verbose_diagnostics --diag_warning=225 --gen_func_subsections=on --output_all_syms --cdebug_asm_data -z --stack_size=0x300 -m"Example_F2802xLaunchPad_demo.map" --heap_size=0x200 --warn_sections -i"F:/ti/ccsv5/tools/compiler/c2000_6.1.0/lib" -i"F:/ti/ccsv5/tools/compiler/c2000_6.1.0/include" -i"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/C2000_LaunchPad/f2802x_examples/C2kLaunchPadDemo" -i"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/C2000_LaunchPad/F2802x_common/lib" --reread_libs --verbose_diagnostics --issue_remarks --entry_point=code_start --rom_model -o "Example_F2802xLaunchPad_demo.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
+	$(MAKE) --no-print-directory post-build
 
 # Other Targets
 clean:
@@ -146,7 +147,12 @@ clean:
 	-@echo 'Finished clean'
 	-@echo ' '
 
+post-build:
+	-@echo 'Create flash image: TI-TXT'
+	-"F:/ti/ccsv5/tools/compiler/c2000_6.1.0/bin/hex2000" --ti_txt "Example_F2802xLaunchPad_demo.out" -o "Example_F2802xLaunchPad_demo.txt" -order MS -romwidth 16
+	-@echo ' '
+
 .PHONY: all clean dependents
-.SECONDARY:
+.SECONDARY: post-build
 
 -include ../makefile.targets
