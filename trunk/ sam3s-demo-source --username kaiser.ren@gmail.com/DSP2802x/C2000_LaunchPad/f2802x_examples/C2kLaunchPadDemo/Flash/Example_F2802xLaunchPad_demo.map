@@ -1,7 +1,7 @@
 ******************************************************************************
              TMS320C2000 Linker PC v6.1.0                      
 ******************************************************************************
->> Linked Sat Feb 23 14:18:35 2013
+>> Linked Sat Feb 23 14:42:25 2013
 
 OUTPUT FILE NAME:   <Example_F2802xLaunchPad_demo.out>
 ENTRY POINT SYMBOL: "code_start"  address: 003f7ff6
@@ -16,7 +16,7 @@ PAGE 0:
   OTP                   003d7800   00000400  00000000  00000400  RWIX
   FLASHD                003f0000   00002000  00000000  00002000  RWIX
   FLASHC                003f2000   00002000  00000000  00002000  RWIX
-  FLASHA                003f6000   00001f80  0000083d  00001743  RWIX
+  FLASHA                003f6000   00001f80  0000083b  00001745  RWIX
   CSM_RSVD              003f7f80   00000076  00000000  00000076  RWIX
   BEGIN                 003f7ff6   00000002  00000002  00000000  RWIX
   CSM_PWL_P0            003f7ff8   00000008  00000000  00000008  RWIX
@@ -81,7 +81,7 @@ section   page    origin      length       input sections
 ramfuncs   0    003f61bf    00000004     RUN ADDR = 00008000
                   003f61bf    00000004     F2802x_usDelay.obj (ramfuncs)
 
-.text      0    003f61c3    00000660     
+.text      0    003f61c3    0000065e     
                   003f61c3    00000078     rts2800_ml.lib : fs_add.obj (.text)
                   003f623b    0000006d     ad5933.obj (.text:_ad5933_sweep)
                   003f62a8    0000005a     rts2800_ml.lib : fs_mpy.obj (.text)
@@ -105,80 +105,80 @@ ramfuncs   0    003f61bf    00000004     RUN ADDR = 00008000
                   003f65f2    00000019     main.obj (.text:_led_on)
                   003f660b    00000019     rts2800_ml.lib : args_main.obj (.text)
                   003f6624    00000019                    : exit.obj (.text)
-                  003f663d    00000018     F2802x_I2C.obj (.text:_InitI2CGpio)
-                  003f6655    00000016     F2802x_Sci.obj (.text:_InitSciaGpio)
-                  003f666b    00000016     main.obj (.text:_led_init)
-                  003f6681    00000016     com.obj (.text:_scia_msg)
-                  003f6697    00000014     F2802x_PieVect.obj (.text:_InitPieVectTable)
-                  003f66ab    00000014     com.obj (.text:_scia_echoback_init)
-                  003f66bf    00000011     Communication.obj (.text:_I2C_Init)
-                  003f66d0    00000010     F2802x_SysCtrl.obj (.text:_IntOsc1Sel)
-                  003f66e0    0000000c     main.obj (.text:_button_init)
-                  003f66ec    00000009     rts2800_ml.lib : _lock.obj (.text)
-                  003f66f5    00000008     F2802x_CodeStartBranch.obj (.text)
-                  003f66fd    00000008     F2802x_SysCtrl.obj (.text:_DisableDog)
-                  003f6705    00000008     com.obj (.text:_scia_fifo_init)
-                  003f670d    00000007     com.obj (.text:_btoh)
-                  003f6714    00000007     com.obj (.text:_scia_xmit)
-                  003f671b    00000005     F2802x_DefaultIsr.obj (.text:_ADCINT1_ISR)
-                  003f6720    00000005     F2802x_DefaultIsr.obj (.text:_ADCINT2_ISR)
-                  003f6725    00000005     F2802x_DefaultIsr.obj (.text:_ADCINT3_ISR)
-                  003f672a    00000005     F2802x_DefaultIsr.obj (.text:_ADCINT4_ISR)
-                  003f672f    00000005     F2802x_DefaultIsr.obj (.text:_ADCINT5_ISR)
-                  003f6734    00000005     F2802x_DefaultIsr.obj (.text:_ADCINT6_ISR)
-                  003f6739    00000005     F2802x_DefaultIsr.obj (.text:_ADCINT7_ISR)
-                  003f673e    00000005     F2802x_DefaultIsr.obj (.text:_ADCINT8_ISR)
-                  003f6743    00000005     F2802x_DefaultIsr.obj (.text:_ADCINT9_ISR)
-                  003f6748    00000005     F2802x_DefaultIsr.obj (.text:_DATALOG_ISR)
-                  003f674d    00000005     F2802x_DefaultIsr.obj (.text:_ECAP1_INT_ISR)
-                  003f6752    00000005     F2802x_DefaultIsr.obj (.text:_EMUINT_ISR)
-                  003f6757    00000005     F2802x_DefaultIsr.obj (.text:_EPWM1_INT_ISR)
-                  003f675c    00000005     F2802x_DefaultIsr.obj (.text:_EPWM1_TZINT_ISR)
-                  003f6761    00000005     F2802x_DefaultIsr.obj (.text:_EPWM2_INT_ISR)
-                  003f6766    00000005     F2802x_DefaultIsr.obj (.text:_EPWM2_TZINT_ISR)
-                  003f676b    00000005     F2802x_DefaultIsr.obj (.text:_EPWM3_INT_ISR)
-                  003f6770    00000005     F2802x_DefaultIsr.obj (.text:_EPWM3_TZINT_ISR)
-                  003f6775    00000005     F2802x_DefaultIsr.obj (.text:_EPWM4_INT_ISR)
-                  003f677a    00000005     F2802x_DefaultIsr.obj (.text:_EPWM4_TZINT_ISR)
-                  003f677f    00000005     F2802x_DefaultIsr.obj (.text:_I2CINT1A_ISR)
-                  003f6784    00000005     F2802x_DefaultIsr.obj (.text:_I2CINT2A_ISR)
-                  003f6789    00000005     F2802x_DefaultIsr.obj (.text:_ILLEGAL_ISR)
-                  003f678e    00000005     F2802x_DefaultIsr.obj (.text:_INT13_ISR)
-                  003f6793    00000005     F2802x_DefaultIsr.obj (.text:_INT14_ISR)
-                  003f6798    00000005     F2802x_DefaultIsr.obj (.text:_NMI_ISR)
-                  003f679d    00000005     F2802x_DefaultIsr.obj (.text:_PIE_RESERVED)
-                  003f67a2    00000005     F2802x_DefaultIsr.obj (.text:_RTOSINT_ISR)
-                  003f67a7    00000005     F2802x_DefaultIsr.obj (.text:_SCIRXINTA_ISR)
-                  003f67ac    00000005     F2802x_DefaultIsr.obj (.text:_SCITXINTA_ISR)
-                  003f67b1    00000005     F2802x_DefaultIsr.obj (.text:_SPIRXINTA_ISR)
-                  003f67b6    00000005     F2802x_DefaultIsr.obj (.text:_SPITXINTA_ISR)
-                  003f67bb    00000005     F2802x_DefaultIsr.obj (.text:_TINT0_ISR)
-                  003f67c0    00000005     F2802x_DefaultIsr.obj (.text:_USER10_ISR)
-                  003f67c5    00000005     F2802x_DefaultIsr.obj (.text:_USER11_ISR)
-                  003f67ca    00000005     F2802x_DefaultIsr.obj (.text:_USER12_ISR)
-                  003f67cf    00000005     F2802x_DefaultIsr.obj (.text:_USER1_ISR)
-                  003f67d4    00000005     F2802x_DefaultIsr.obj (.text:_USER2_ISR)
-                  003f67d9    00000005     F2802x_DefaultIsr.obj (.text:_USER3_ISR)
-                  003f67de    00000005     F2802x_DefaultIsr.obj (.text:_USER4_ISR)
-                  003f67e3    00000005     F2802x_DefaultIsr.obj (.text:_USER5_ISR)
-                  003f67e8    00000005     F2802x_DefaultIsr.obj (.text:_USER6_ISR)
-                  003f67ed    00000005     F2802x_DefaultIsr.obj (.text:_USER7_ISR)
-                  003f67f2    00000005     F2802x_DefaultIsr.obj (.text:_USER8_ISR)
-                  003f67f7    00000005     F2802x_DefaultIsr.obj (.text:_USER9_ISR)
-                  003f67fc    00000005     F2802x_DefaultIsr.obj (.text:_WAKEINT_ISR)
-                  003f6801    00000005     F2802x_DefaultIsr.obj (.text:_XINT1_ISR)
-                  003f6806    00000005     F2802x_DefaultIsr.obj (.text:_XINT2_ISR)
-                  003f680b    00000005     F2802x_DefaultIsr.obj (.text:_XINT3_ISR)
-                  003f6810    00000005     ad5933.obj (.text:_ad5933_mode)
-                  003f6815    00000005     F2802x_DefaultIsr.obj (.text:_rsvd_ISR)
-                  003f681a    00000005     com.obj (.text:_scia_PrintLF)
-                  003f681f    00000004     ad5933.obj (.text:_ad5993_status)
+                  003f663d    00000016     F2802x_I2C.obj (.text:_InitI2CGpio)
+                  003f6653    00000016     F2802x_Sci.obj (.text:_InitSciaGpio)
+                  003f6669    00000016     main.obj (.text:_led_init)
+                  003f667f    00000016     com.obj (.text:_scia_msg)
+                  003f6695    00000014     F2802x_PieVect.obj (.text:_InitPieVectTable)
+                  003f66a9    00000014     com.obj (.text:_scia_echoback_init)
+                  003f66bd    00000011     Communication.obj (.text:_I2C_Init)
+                  003f66ce    00000010     F2802x_SysCtrl.obj (.text:_IntOsc1Sel)
+                  003f66de    0000000c     main.obj (.text:_button_init)
+                  003f66ea    00000009     rts2800_ml.lib : _lock.obj (.text)
+                  003f66f3    00000008     F2802x_CodeStartBranch.obj (.text)
+                  003f66fb    00000008     F2802x_SysCtrl.obj (.text:_DisableDog)
+                  003f6703    00000008     com.obj (.text:_scia_fifo_init)
+                  003f670b    00000007     com.obj (.text:_btoh)
+                  003f6712    00000007     com.obj (.text:_scia_xmit)
+                  003f6719    00000005     F2802x_DefaultIsr.obj (.text:_ADCINT1_ISR)
+                  003f671e    00000005     F2802x_DefaultIsr.obj (.text:_ADCINT2_ISR)
+                  003f6723    00000005     F2802x_DefaultIsr.obj (.text:_ADCINT3_ISR)
+                  003f6728    00000005     F2802x_DefaultIsr.obj (.text:_ADCINT4_ISR)
+                  003f672d    00000005     F2802x_DefaultIsr.obj (.text:_ADCINT5_ISR)
+                  003f6732    00000005     F2802x_DefaultIsr.obj (.text:_ADCINT6_ISR)
+                  003f6737    00000005     F2802x_DefaultIsr.obj (.text:_ADCINT7_ISR)
+                  003f673c    00000005     F2802x_DefaultIsr.obj (.text:_ADCINT8_ISR)
+                  003f6741    00000005     F2802x_DefaultIsr.obj (.text:_ADCINT9_ISR)
+                  003f6746    00000005     F2802x_DefaultIsr.obj (.text:_DATALOG_ISR)
+                  003f674b    00000005     F2802x_DefaultIsr.obj (.text:_ECAP1_INT_ISR)
+                  003f6750    00000005     F2802x_DefaultIsr.obj (.text:_EMUINT_ISR)
+                  003f6755    00000005     F2802x_DefaultIsr.obj (.text:_EPWM1_INT_ISR)
+                  003f675a    00000005     F2802x_DefaultIsr.obj (.text:_EPWM1_TZINT_ISR)
+                  003f675f    00000005     F2802x_DefaultIsr.obj (.text:_EPWM2_INT_ISR)
+                  003f6764    00000005     F2802x_DefaultIsr.obj (.text:_EPWM2_TZINT_ISR)
+                  003f6769    00000005     F2802x_DefaultIsr.obj (.text:_EPWM3_INT_ISR)
+                  003f676e    00000005     F2802x_DefaultIsr.obj (.text:_EPWM3_TZINT_ISR)
+                  003f6773    00000005     F2802x_DefaultIsr.obj (.text:_EPWM4_INT_ISR)
+                  003f6778    00000005     F2802x_DefaultIsr.obj (.text:_EPWM4_TZINT_ISR)
+                  003f677d    00000005     F2802x_DefaultIsr.obj (.text:_I2CINT1A_ISR)
+                  003f6782    00000005     F2802x_DefaultIsr.obj (.text:_I2CINT2A_ISR)
+                  003f6787    00000005     F2802x_DefaultIsr.obj (.text:_ILLEGAL_ISR)
+                  003f678c    00000005     F2802x_DefaultIsr.obj (.text:_INT13_ISR)
+                  003f6791    00000005     F2802x_DefaultIsr.obj (.text:_INT14_ISR)
+                  003f6796    00000005     F2802x_DefaultIsr.obj (.text:_NMI_ISR)
+                  003f679b    00000005     F2802x_DefaultIsr.obj (.text:_PIE_RESERVED)
+                  003f67a0    00000005     F2802x_DefaultIsr.obj (.text:_RTOSINT_ISR)
+                  003f67a5    00000005     F2802x_DefaultIsr.obj (.text:_SCIRXINTA_ISR)
+                  003f67aa    00000005     F2802x_DefaultIsr.obj (.text:_SCITXINTA_ISR)
+                  003f67af    00000005     F2802x_DefaultIsr.obj (.text:_SPIRXINTA_ISR)
+                  003f67b4    00000005     F2802x_DefaultIsr.obj (.text:_SPITXINTA_ISR)
+                  003f67b9    00000005     F2802x_DefaultIsr.obj (.text:_TINT0_ISR)
+                  003f67be    00000005     F2802x_DefaultIsr.obj (.text:_USER10_ISR)
+                  003f67c3    00000005     F2802x_DefaultIsr.obj (.text:_USER11_ISR)
+                  003f67c8    00000005     F2802x_DefaultIsr.obj (.text:_USER12_ISR)
+                  003f67cd    00000005     F2802x_DefaultIsr.obj (.text:_USER1_ISR)
+                  003f67d2    00000005     F2802x_DefaultIsr.obj (.text:_USER2_ISR)
+                  003f67d7    00000005     F2802x_DefaultIsr.obj (.text:_USER3_ISR)
+                  003f67dc    00000005     F2802x_DefaultIsr.obj (.text:_USER4_ISR)
+                  003f67e1    00000005     F2802x_DefaultIsr.obj (.text:_USER5_ISR)
+                  003f67e6    00000005     F2802x_DefaultIsr.obj (.text:_USER6_ISR)
+                  003f67eb    00000005     F2802x_DefaultIsr.obj (.text:_USER7_ISR)
+                  003f67f0    00000005     F2802x_DefaultIsr.obj (.text:_USER8_ISR)
+                  003f67f5    00000005     F2802x_DefaultIsr.obj (.text:_USER9_ISR)
+                  003f67fa    00000005     F2802x_DefaultIsr.obj (.text:_WAKEINT_ISR)
+                  003f67ff    00000005     F2802x_DefaultIsr.obj (.text:_XINT1_ISR)
+                  003f6804    00000005     F2802x_DefaultIsr.obj (.text:_XINT2_ISR)
+                  003f6809    00000005     F2802x_DefaultIsr.obj (.text:_XINT3_ISR)
+                  003f680e    00000005     ad5933.obj (.text:_ad5933_mode)
+                  003f6813    00000005     F2802x_DefaultIsr.obj (.text:_rsvd_ISR)
+                  003f6818    00000005     com.obj (.text:_scia_PrintLF)
+                  003f681d    00000004     ad5933.obj (.text:_ad5993_status)
 
-.cinit     0    003f6823    0000001a     
-                  003f6823    0000000a     rts2800_ml.lib : _lock.obj (.cinit)
-                  003f682d    0000000a                    : exit.obj (.cinit)
-                  003f6837    00000004     ad5933.obj (.cinit)
-                  003f683b    00000002     --HOLE-- [fill = 0]
+.cinit     0    003f6821    0000001a     
+                  003f6821    0000000a     rts2800_ml.lib : _lock.obj (.cinit)
+                  003f682b    0000000a                    : exit.obj (.cinit)
+                  003f6835    00000004     ad5933.obj (.cinit)
+                  003f6839    00000002     --HOLE-- [fill = 0]
 
 codestart 
 *          0    003f7ff6    00000002     
@@ -350,15 +350,15 @@ ffffffff   .text
 003f65bf   L$$TOFS
 003f64a7   UL$$DIV
 003f64ae   UL$$MOD
-003f671b   _ADCINT1_ISR
-003f6720   _ADCINT2_ISR
-003f6725   _ADCINT3_ISR
-003f672a   _ADCINT4_ISR
-003f672f   _ADCINT5_ISR
-003f6734   _ADCINT6_ISR
-003f6739   _ADCINT7_ISR
-003f673e   _ADCINT8_ISR
-003f6743   _ADCINT9_ISR
+003f6719   _ADCINT1_ISR
+003f671e   _ADCINT2_ISR
+003f6723   _ADCINT3_ISR
+003f6728   _ADCINT4_ISR
+003f672d   _ADCINT5_ISR
+003f6732   _ADCINT6_ISR
+003f6737   _ADCINT7_ISR
+003f673c   _ADCINT8_ISR
+003f6741   _ADCINT9_ISR
 00007100   _AdcRegs
 00000b00   _AdcResult
 00006400   _Comp1Regs
@@ -371,21 +371,21 @@ ffffffff   .text
 00000c10   _CpuTimer2Regs
 003f7ff8   _CsmPwl
 00000ae0   _CsmRegs
-003f6748   _DATALOG_ISR
+003f6746   _DATALOG_ISR
 00008000   _DSP28x_usDelay
 00000880   _DevEmuRegs
-003f66fd   _DisableDog
-003f674d   _ECAP1_INT_ISR
+003f66fb   _DisableDog
+003f674b   _ECAP1_INT_ISR
 00006a00   _ECap1Regs
-003f6752   _EMUINT_ISR
-003f6757   _EPWM1_INT_ISR
-003f675c   _EPWM1_TZINT_ISR
-003f6761   _EPWM2_INT_ISR
-003f6766   _EPWM2_TZINT_ISR
-003f676b   _EPWM3_INT_ISR
-003f6770   _EPWM3_TZINT_ISR
-003f6775   _EPWM4_INT_ISR
-003f677a   _EPWM4_TZINT_ISR
+003f6750   _EMUINT_ISR
+003f6755   _EPWM1_INT_ISR
+003f675a   _EPWM1_TZINT_ISR
+003f675f   _EPWM2_INT_ISR
+003f6764   _EPWM2_TZINT_ISR
+003f6769   _EPWM3_INT_ISR
+003f676e   _EPWM3_TZINT_ISR
+003f6773   _EPWM4_INT_ISR
+003f6778   _EPWM4_TZINT_ISR
 00006800   _EPwm1Regs
 00006840   _EPwm2Regs
 00006880   _EPwm3Regs
@@ -398,67 +398,67 @@ ffffffff   .text
 00006f80   _GpioCtrlRegs
 00006fc0   _GpioDataRegs
 00006fe0   _GpioIntRegs
-003f677f   _I2CINT1A_ISR
-003f6784   _I2CINT2A_ISR
-003f66bf   _I2C_Init
+003f677d   _I2CINT1A_ISR
+003f6782   _I2CINT2A_ISR
+003f66bd   _I2C_Init
 003f654b   _I2C_Read
 003f6424   _I2C_Write
 00007900   _I2caRegs
-003f6789   _ILLEGAL_ISR
-003f678e   _INT13_ISR
-003f6793   _INT14_ISR
+003f6787   _ILLEGAL_ISR
+003f678c   _INT13_ISR
+003f6791   _INT14_ISR
 003f663d   _InitI2CGpio
 003f6458   _InitPeripheralClocks
 003f656a   _InitPieCtrl
-003f6697   _InitPieVectTable
+003f6695   _InitPieVectTable
 003f6358   _InitPll
-003f6655   _InitSciGpio
-003f6655   _InitSciaGpio
+003f6653   _InitSciGpio
+003f6653   _InitSciaGpio
 003f65a5   _InitSysCtrl
-003f66d0   _IntOsc1Sel
-003f6798   _NMI_ISR
+003f66ce   _IntOsc1Sel
+003f6796   _NMI_ISR
 00007060   _NmiIntruptRegs
-003f679d   _PIE_RESERVED
+003f679b   _PIE_RESERVED
 003d7fff   _PartIdRegs
 00000ce0   _PieCtrlRegs
 00000d00   _PieVectTable
 003f6000   _PieVectTableInit
-003f67a2   _RTOSINT_ISR
+003f67a0   _RTOSINT_ISR
 00000004   _RamfuncsLoadSize
 003f61bf   _RamfuncsLoadStart
 00008000   _RamfuncsRunStart
-003f67a7   _SCIRXINTA_ISR
-003f67ac   _SCITXINTA_ISR
-003f67b1   _SPIRXINTA_ISR
-003f67b6   _SPITXINTA_ISR
+003f67a5   _SCIRXINTA_ISR
+003f67aa   _SCITXINTA_ISR
+003f67af   _SPIRXINTA_ISR
+003f67b4   _SPITXINTA_ISR
 00007050   _SciaRegs
 00007040   _SpiaRegs
 00007010   _SysCtrlRegs
 00000985   _SysPwrCtrlRegs
-003f67bb   _TINT0_ISR
-003f67c0   _USER10_ISR
-003f67c5   _USER11_ISR
-003f67ca   _USER12_ISR
-003f67cf   _USER1_ISR
-003f67d4   _USER2_ISR
-003f67d9   _USER3_ISR
-003f67de   _USER4_ISR
-003f67e3   _USER5_ISR
-003f67e8   _USER6_ISR
-003f67ed   _USER7_ISR
-003f67f2   _USER8_ISR
-003f67f7   _USER9_ISR
-003f67fc   _WAKEINT_ISR
-003f6801   _XINT1_ISR
-003f6806   _XINT2_ISR
-003f680b   _XINT3_ISR
+003f67b9   _TINT0_ISR
+003f67be   _USER10_ISR
+003f67c3   _USER11_ISR
+003f67c8   _USER12_ISR
+003f67cd   _USER1_ISR
+003f67d2   _USER2_ISR
+003f67d7   _USER3_ISR
+003f67dc   _USER4_ISR
+003f67e1   _USER5_ISR
+003f67e6   _USER6_ISR
+003f67eb   _USER7_ISR
+003f67f0   _USER8_ISR
+003f67f5   _USER9_ISR
+003f67fa   _WAKEINT_ISR
+003f67ff   _XINT1_ISR
+003f6804   _XINT2_ISR
+003f6809   _XINT3_ISR
 00007070   _XIntruptRegs
 00000350   __STACK_END
 00000300   __STACK_SIZE
 00000001   __TI_args_main
 ffffffff   ___binit__
 ffffffff   ___c_args__
-003f6823   ___cinit__
+003f6821   ___cinit__
 ffffffff   ___etext__
 ffffffff   ___pinit__
 ffffffff   ___text__
@@ -466,35 +466,35 @@ ffffffff   ___text__
 00008c5c   __cleanup_ptr
 00008c5e   __dtors_ptr
 00008c5a   __lock
-003f66f4   __nop
-003f66f0   __register_lock
-003f66ec   __register_unlock
+003f66f2   __nop
+003f66ee   __register_lock
+003f66ea   __register_unlock
 00000050   __stack
 00008c58   __unlock
 003f6624   _abort
 003f63e7   _ad5933_init
-003f6810   _ad5933_mode
+003f680e   _ad5933_mode
 003f623b   _ad5933_sweep
 00008800   _ad5933_temp
 003f64dd   _ad5993_GetTemperature
-003f681f   _ad5993_status
-003f66e0   _button_init
+003f681d   _ad5993_status
+003f66de   _button_init
 003f63a3   _c_int00
 00008840   _data_part
 003f6626   _exit
-003f666b   _led_init
+003f6669   _led_init
 003f65d9   _led_off
 003f65f2   _led_on
 003f6302   _main
-003f6815   _rsvd_ISR
+003f6813   _rsvd_ISR
 003f6589   _scia_Byte2Hex
-003f681a   _scia_PrintLF
-003f66ab   _scia_echoback_init
-003f6705   _scia_fifo_init
-003f6681   _scia_msg
-003f6714   _scia_xmit
+003f6818   _scia_PrintLF
+003f66a9   _scia_echoback_init
+003f6703   _scia_fifo_init
+003f667f   _scia_msg
+003f6712   _scia_xmit
 ffffffff   binit
-003f6823   cinit
+003f6821   cinit
 003f7ff6   code_start
 ffffffff   etext
 ffffffff   pinit
@@ -585,76 +585,76 @@ address    name
 003f6624   _abort
 003f6626   _exit
 003f663d   _InitI2CGpio
-003f6655   _InitSciGpio
-003f6655   _InitSciaGpio
-003f666b   _led_init
-003f6681   _scia_msg
-003f6697   _InitPieVectTable
-003f66ab   _scia_echoback_init
-003f66bf   _I2C_Init
-003f66d0   _IntOsc1Sel
-003f66e0   _button_init
-003f66ec   __register_unlock
-003f66f0   __register_lock
-003f66f4   __nop
-003f66fd   _DisableDog
-003f6705   _scia_fifo_init
-003f6714   _scia_xmit
-003f671b   _ADCINT1_ISR
-003f6720   _ADCINT2_ISR
-003f6725   _ADCINT3_ISR
-003f672a   _ADCINT4_ISR
-003f672f   _ADCINT5_ISR
-003f6734   _ADCINT6_ISR
-003f6739   _ADCINT7_ISR
-003f673e   _ADCINT8_ISR
-003f6743   _ADCINT9_ISR
-003f6748   _DATALOG_ISR
-003f674d   _ECAP1_INT_ISR
-003f6752   _EMUINT_ISR
-003f6757   _EPWM1_INT_ISR
-003f675c   _EPWM1_TZINT_ISR
-003f6761   _EPWM2_INT_ISR
-003f6766   _EPWM2_TZINT_ISR
-003f676b   _EPWM3_INT_ISR
-003f6770   _EPWM3_TZINT_ISR
-003f6775   _EPWM4_INT_ISR
-003f677a   _EPWM4_TZINT_ISR
-003f677f   _I2CINT1A_ISR
-003f6784   _I2CINT2A_ISR
-003f6789   _ILLEGAL_ISR
-003f678e   _INT13_ISR
-003f6793   _INT14_ISR
-003f6798   _NMI_ISR
-003f679d   _PIE_RESERVED
-003f67a2   _RTOSINT_ISR
-003f67a7   _SCIRXINTA_ISR
-003f67ac   _SCITXINTA_ISR
-003f67b1   _SPIRXINTA_ISR
-003f67b6   _SPITXINTA_ISR
-003f67bb   _TINT0_ISR
-003f67c0   _USER10_ISR
-003f67c5   _USER11_ISR
-003f67ca   _USER12_ISR
-003f67cf   _USER1_ISR
-003f67d4   _USER2_ISR
-003f67d9   _USER3_ISR
-003f67de   _USER4_ISR
-003f67e3   _USER5_ISR
-003f67e8   _USER6_ISR
-003f67ed   _USER7_ISR
-003f67f2   _USER8_ISR
-003f67f7   _USER9_ISR
-003f67fc   _WAKEINT_ISR
-003f6801   _XINT1_ISR
-003f6806   _XINT2_ISR
-003f680b   _XINT3_ISR
-003f6810   _ad5933_mode
-003f6815   _rsvd_ISR
-003f681a   _scia_PrintLF
-003f681f   _ad5993_status
-003f6823   ___cinit__
-003f6823   cinit
+003f6653   _InitSciGpio
+003f6653   _InitSciaGpio
+003f6669   _led_init
+003f667f   _scia_msg
+003f6695   _InitPieVectTable
+003f66a9   _scia_echoback_init
+003f66bd   _I2C_Init
+003f66ce   _IntOsc1Sel
+003f66de   _button_init
+003f66ea   __register_unlock
+003f66ee   __register_lock
+003f66f2   __nop
+003f66fb   _DisableDog
+003f6703   _scia_fifo_init
+003f6712   _scia_xmit
+003f6719   _ADCINT1_ISR
+003f671e   _ADCINT2_ISR
+003f6723   _ADCINT3_ISR
+003f6728   _ADCINT4_ISR
+003f672d   _ADCINT5_ISR
+003f6732   _ADCINT6_ISR
+003f6737   _ADCINT7_ISR
+003f673c   _ADCINT8_ISR
+003f6741   _ADCINT9_ISR
+003f6746   _DATALOG_ISR
+003f674b   _ECAP1_INT_ISR
+003f6750   _EMUINT_ISR
+003f6755   _EPWM1_INT_ISR
+003f675a   _EPWM1_TZINT_ISR
+003f675f   _EPWM2_INT_ISR
+003f6764   _EPWM2_TZINT_ISR
+003f6769   _EPWM3_INT_ISR
+003f676e   _EPWM3_TZINT_ISR
+003f6773   _EPWM4_INT_ISR
+003f6778   _EPWM4_TZINT_ISR
+003f677d   _I2CINT1A_ISR
+003f6782   _I2CINT2A_ISR
+003f6787   _ILLEGAL_ISR
+003f678c   _INT13_ISR
+003f6791   _INT14_ISR
+003f6796   _NMI_ISR
+003f679b   _PIE_RESERVED
+003f67a0   _RTOSINT_ISR
+003f67a5   _SCIRXINTA_ISR
+003f67aa   _SCITXINTA_ISR
+003f67af   _SPIRXINTA_ISR
+003f67b4   _SPITXINTA_ISR
+003f67b9   _TINT0_ISR
+003f67be   _USER10_ISR
+003f67c3   _USER11_ISR
+003f67c8   _USER12_ISR
+003f67cd   _USER1_ISR
+003f67d2   _USER2_ISR
+003f67d7   _USER3_ISR
+003f67dc   _USER4_ISR
+003f67e1   _USER5_ISR
+003f67e6   _USER6_ISR
+003f67eb   _USER7_ISR
+003f67f0   _USER8_ISR
+003f67f5   _USER9_ISR
+003f67fa   _WAKEINT_ISR
+003f67ff   _XINT1_ISR
+003f6804   _XINT2_ISR
+003f6809   _XINT3_ISR
+003f680e   _ad5933_mode
+003f6813   _rsvd_ISR
+003f6818   _scia_PrintLF
+003f681d   _ad5993_status
+003f6821   ___cinit__
+003f6821   cinit
 003f7ff6   code_start
 003f7ff8   _CsmPwl
 ffffffff   .text

@@ -17,7 +17,7 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactExtension="out" artifactName="Example_F2802xLaunchPad_demo" buildProperties="" description="" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1394142716" name="Flash" parent="com.ti.ccstudio.buildDefinitions.C2000.Debug">
+				<configuration artifactExtension="out" artifactName="Example_F2802xLaunchPad_demo" buildProperties="" description="" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1394142716" name="Flash" parent="com.ti.ccstudio.buildDefinitions.C2000.Debug" postannouncebuildStep="Create flash image: TI-TXT" postbuildStep="&quot;${CG_TOOL_HEX}&quot; --ti_txt &quot;${BuildArtifactFileName}&quot; -o &quot;${BuildArtifactFileBaseName}.txt&quot; -order MS -romwidth 16">
 					<folderInfo id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1394142716.2031004318" name="/" resourcePath="">
 						<toolChain id="com.ti.ccstudio.buildDefinitions.C2000_6.1.exe.DebugToolchain.959496425" name="TI Build Tools" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.1.exe.DebugToolchain" targetTool="com.ti.ccstudio.buildDefinitions.C2000_6.1.exe.linkerDebug.1419510316">
 							<option id="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS.82007309" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS" valueType="stringList">
