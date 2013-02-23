@@ -82,6 +82,11 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>28027_RAM_lnk.cmd</name>
+			<type>1</type>
+			<locationURI>SRC_ROOT/DSP2802x_common/cmd/28027_RAM_lnk.cmd</locationURI>
+		</link>
+		<link>
 			<name>Communication.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/Communication.c</locationURI>
@@ -117,6 +122,11 @@
 			<locationURI>PARENT-3-PROJECT_LOC/DSP2802x_common/source/DSP2802x_Gpio.c</locationURI>
 		</link>
 		<link>
+			<name>DSP2802x_Headers_nonBIOS.cmd</name>
+			<type>1</type>
+			<locationURI>SRC_ROOT/DSP2802x_headers/cmd/DSP2802x_Headers_nonBIOS.cmd</locationURI>
+		</link>
+		<link>
 			<name>DSP2802x_I2C.c</name>
 			<type>1</type>
 			<locationURI>SRC_ROOT/DSP2802x_common/source/DSP2802x_I2C.c</locationURI>
@@ -150,11 +160,6 @@
 			<name>Example_2802xI2C_eeprom.pjt</name>
 			<type>1</type>
 			<locationURI>SRC_ROOT/DSP2802x_examples/i2c_eeprom/Example_2802xI2C_eeprom.pjt</locationURI>
-		</link>
-		<link>
-			<name>F2802x_Headers_nonBIOS.cmd</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/F2802x_Headers_nonBIOS.cmd</locationURI>
 		</link>
 		<link>
 			<name>ad5933.c</name>

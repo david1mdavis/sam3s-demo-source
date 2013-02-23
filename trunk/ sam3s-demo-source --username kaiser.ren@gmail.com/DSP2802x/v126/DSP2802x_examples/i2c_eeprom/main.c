@@ -25,11 +25,13 @@ void button_init(void);
 // Global variables
 // Two bytes will be used for the outgoing address,
 // thus only setup 14 bytes maximum
-
+double magnitude, real, imaginary;
 
 void main(void)
 {
-	//unsigned char revByte;
+	double result;
+	char cnt = 0;
+	Uint16 i;
 
 // Step 1. Initialize System Control:
 // PLL, WatchDog, enable Peripheral Clocks
@@ -91,19 +93,29 @@ void main(void)
    // Application loop
    for(;;)
    {
+	   result = 100;
+	   result = log10(result);
+	   cnt++;
+	   scia_xmit(result);
 	   //wait for button pressed
-	   while( 0 == GpioDataRegs.GPADAT.bit.GPIO12){};
-	   //get button, start operation
-	   DELAY_US(100000);    // Delay 100ms , wait
-	   scia_msg("\r\ntemperature: ");
-	   scia_Byte2Hex( ad5993_GetTemperature() );
-	   scia_PrintLF();
-	   scia_PrintLF();
-	   scia_PrintLF();
-	   ad5933_sweep();
-	   scia_PrintLF();
-	   scia_PrintLF();
-	   scia_PrintLF();
+	   /*while( 0 == GpioDataRegs.GPADAT.bit.GPIO12 ){};
+	   {
+		  DELAY_US(100000);    // Delay 100ms , wait
+		  scia_msg("\r\ntemperature: ");
+		  scia_Byte2Hex( ad5993_GetTemperature() );
+		  scia_PrintLF();
+		  scia_PrintLF();
+		  scia_PrintLF();
+		  ad5933_sweep();
+		  scia_PrintLF();
+		  scia_PrintLF();
+		  scia_PrintLF();
+		  for(i = 0; i < AD5933_BOARD_CNT_ICMT; i++)
+		  {
+			  real = pow(data_part[i].real,2);
+		  }
+	   }*/
+
    }   // end of for(;;)
 }   // end of main
 

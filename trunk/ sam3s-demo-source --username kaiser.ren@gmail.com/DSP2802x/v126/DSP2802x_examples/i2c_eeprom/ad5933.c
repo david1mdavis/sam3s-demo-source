@@ -7,6 +7,7 @@
 /**********************************************************
  * 				Include
  **********************************************************/
+#include <math.h>
 #include "ad5933.h"
 #include "Communication.h"
 #include "Example_2802xI2C_eeprom/com.h"
@@ -144,9 +145,11 @@ void ad5933_sweep(void)
 		temp = ( (Uint16)value1 ) << 8 | value2;
 		scia_msg("I:");
 		scia_Byte2Hex(temp);
-		data_part[cnt].imaginary = temp;
 		scia_PrintLF();
+		data_part[cnt].imaginary = temp;
 
+		//magnitude = real+imaginary;
+		//magnitude = sqrt(  );
 		//blink for stop indicator
 		led_off(0x000f);
 
