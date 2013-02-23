@@ -8,7 +8,22 @@ CG_TOOL_ROOT := F:/ti/ccsv5/tools/compiler/c2000_6.1.0
 
 ORDERED_OBJS += \
 $(GEN_CMDS__FLAG) \
-"./Example_F2802xLaunchPadDemo.obj" \
+"./main.obj" \
+"./com.obj" \
+"./calc.obj" \
+"./ad5933.obj" \
+"./F2802x_usDelay.obj" \
+"./F2802x_SysCtrl.obj" \
+"./F2802x_Sci.obj" \
+"./F2802x_PieVect.obj" \
+"./F2802x_PieCtrl.obj" \
+"./F2802x_I2C.obj" \
+"./F2802x_Gpio.obj" \
+"./F2802x_GlobalVariableDefs.obj" \
+"./F2802x_DefaultIsr.obj" \
+"./F2802x_CpuTimers.obj" \
+"./F2802x_CodeStartBranch.obj" \
+"./Communication.obj" \
 -l"F:/ Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/C2000_LaunchPad/f2802x_examples/C2kLaunchPadDemo/../../f2802x_common/cmd/F28027.cmd" \
 -l"rts2800_ml.lib" \
 -l"IQmath.lib" \
@@ -125,8 +140,9 @@ Example_F2802xLaunchPad_demo.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 # Other Targets
 clean:
 	-$(RM) $(C2000_EXECUTABLE_OUTPUTS__QUOTED) "Example_F2802xLaunchPad_demo.out"
-	-$(RM) "Example_F2802xLaunchPadDemo.pp" 
-	-$(RM) "Example_F2802xLaunchPadDemo.obj" 
+	-$(RM) "Communication.pp" "F2802x_CpuTimers.pp" "F2802x_DefaultIsr.pp" "F2802x_GlobalVariableDefs.pp" "F2802x_Gpio.pp" "F2802x_I2C.pp" "F2802x_PieCtrl.pp" "F2802x_PieVect.pp" "F2802x_Sci.pp" "F2802x_SysCtrl.pp" "ad5933.pp" "calc.pp" "com.pp" "main.pp" 
+	-$(RM) "Communication.obj" "F2802x_CodeStartBranch.obj" "F2802x_CpuTimers.obj" "F2802x_DefaultIsr.obj" "F2802x_GlobalVariableDefs.obj" "F2802x_Gpio.obj" "F2802x_I2C.obj" "F2802x_PieCtrl.obj" "F2802x_PieVect.obj" "F2802x_Sci.obj" "F2802x_SysCtrl.obj" "F2802x_usDelay.obj" "ad5933.obj" "calc.obj" "com.obj" "main.obj" 
+	-$(RM) "F2802x_CodeStartBranch.pp" "F2802x_usDelay.pp" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
