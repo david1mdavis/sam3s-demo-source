@@ -137,6 +137,11 @@
 			<locationURI>SRC_ROOT/DSP2802x_common/source/DSP2802x_I2C.c</locationURI>
 		</link>
 		<link>
+			<name>DSP2802x_MemCopy.c</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/DSP2802x_common/source/DSP2802x_MemCopy.c</locationURI>
+		</link>
+		<link>
 			<name>DSP2802x_PieCtrl.c</name>
 			<type>1</type>
 			<locationURI>SRC_ROOT/DSP2802x_common/source/DSP2802x_PieCtrl.c</locationURI>
@@ -183,6 +188,11 @@
 		</link>
 		<link>
 			<name>Debug/Example_2802xI2C_eeprom.out</name>
+			<type>1</type>
+			<locationURI>EXTERNAL_BUILD_ARTIFACT</locationURI>
+		</link>
+		<link>
+			<name>Release/Example_2802xI2C_eeprom.out</name>
 			<type>1</type>
 			<locationURI>EXTERNAL_BUILD_ARTIFACT</locationURI>
 		</link>

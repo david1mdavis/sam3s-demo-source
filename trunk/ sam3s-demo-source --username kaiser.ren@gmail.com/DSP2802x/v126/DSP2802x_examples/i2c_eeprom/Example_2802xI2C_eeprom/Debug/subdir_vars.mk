@@ -19,6 +19,7 @@ D:/Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@
 D:/Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_headers/source/DSP2802x_GlobalVariableDefs.c \
 D:/Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/source/DSP2802x_Gpio.c \
 D:/Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/source/DSP2802x_I2C.c \
+D:/Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/source/DSP2802x_MemCopy.c \
 D:/Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/source/DSP2802x_PieCtrl.c \
 D:/Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/source/DSP2802x_PieVect.c \
 D:/Firmware/sam3s-demo-source/trunk/\ sam3s-demo-source\ --username\ kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/source/DSP2802x_Sci.c \
@@ -37,6 +38,7 @@ C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/DSP2802x_DefaultIs
 C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/DSP2802x_GlobalVariableDefs.obj \
 C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/DSP2802x_Gpio.obj \
 C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/DSP2802x_I2C.obj \
+C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/DSP2802x_MemCopy.obj \
 C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/DSP2802x_PieCtrl.obj \
 C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/DSP2802x_PieVect.obj \
 C:/tidcs/c28/DSP2802x/v126/DSP2802x_examples/i2c_eeprom/Debug/DSP2802x_Sci.obj \
@@ -59,6 +61,7 @@ C_DEPS += \
 ./DSP2802x_GlobalVariableDefs.pp \
 ./DSP2802x_Gpio.pp \
 ./DSP2802x_I2C.pp \
+./DSP2802x_MemCopy.pp \
 ./DSP2802x_PieCtrl.pp \
 ./DSP2802x_PieVect.pp \
 ./DSP2802x_Sci.pp \
@@ -75,6 +78,7 @@ C_DEPS__QUOTED += \
 "DSP2802x_GlobalVariableDefs.pp" \
 "DSP2802x_Gpio.pp" \
 "DSP2802x_I2C.pp" \
+"DSP2802x_MemCopy.pp" \
 "DSP2802x_PieCtrl.pp" \
 "DSP2802x_PieVect.pp" \
 "DSP2802x_Sci.pp" \
@@ -93,6 +97,7 @@ OBJS__QUOTED += \
 "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\DSP2802x_GlobalVariableDefs.obj" \
 "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\DSP2802x_Gpio.obj" \
 "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\DSP2802x_I2C.obj" \
+"C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\DSP2802x_MemCopy.obj" \
 "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\DSP2802x_PieCtrl.obj" \
 "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\DSP2802x_PieVect.obj" \
 "C:\tidcs\c28\DSP2802x\v126\DSP2802x_examples\i2c_eeprom\Debug\DSP2802x_Sci.obj" \
@@ -115,6 +120,7 @@ C_SRCS__QUOTED += \
 "D:/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_headers/source/DSP2802x_GlobalVariableDefs.c" \
 "D:/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/source/DSP2802x_Gpio.c" \
 "D:/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/source/DSP2802x_I2C.c" \
+"D:/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/source/DSP2802x_MemCopy.c" \
 "D:/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/source/DSP2802x_PieCtrl.c" \
 "D:/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/source/DSP2802x_PieVect.c" \
 "D:/Firmware/sam3s-demo-source/trunk/ sam3s-demo-source --username kaiser.ren@gmail.com/DSP2802x/v126/DSP2802x_common/source/DSP2802x_Sci.c" \
