@@ -12,6 +12,7 @@
 #include "ad5933.h"
 #include "Communication.h"
 #include "Example_2802xI2C_eeprom/com.h"
+#include "IQmathLib.h"
 // Note: I2C Macros used in this example can be found in the
 // DSP2802x_I2C_defines.h file
 
@@ -25,14 +26,9 @@ void button_init(void);
 // Global variables
 // Two bytes will be used for the outgoing address,
 // thus only setup 14 bytes maximum
-double magnitude, real, imaginary;
 
 void main(void)
 {
-	double result;
-	char cnt = 0;
-	Uint16 i;
-
 // Step 1. Initialize System Control:
 // PLL, WatchDog, enable Peripheral Clocks
 // This example function is found in the DSP2802x_SysCtrl.c file.
@@ -93,12 +89,8 @@ void main(void)
    // Application loop
    for(;;)
    {
-	   result = 100;
-	   result = log10(result);
-	   cnt++;
-	   scia_xmit(result);
 	   //wait for button pressed
-	   /*while( 0 == GpioDataRegs.GPADAT.bit.GPIO12 ){};
+	   while( 0 == GpioDataRegs.GPADAT.bit.GPIO12 ){};
 	   {
 		  DELAY_US(100000);    // Delay 100ms , wait
 		  scia_msg("\r\ntemperature: ");
@@ -110,11 +102,7 @@ void main(void)
 		  scia_PrintLF();
 		  scia_PrintLF();
 		  scia_PrintLF();
-		  for(i = 0; i < AD5933_BOARD_CNT_ICMT; i++)
-		  {
-			  real = pow(data_part[i].real,2);
-		  }
-	   }*/
+	   }
 
    }   // end of for(;;)
 }   // end of main

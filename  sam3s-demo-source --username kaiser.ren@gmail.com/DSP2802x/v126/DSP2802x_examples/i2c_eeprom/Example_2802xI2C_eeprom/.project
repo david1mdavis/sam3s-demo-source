@@ -97,6 +97,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/Communication.h</locationURI>
 		</link>
 		<link>
+			<name>DSP2802x_CSMPasswords.asm</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/DSP2802x_common/source/DSP2802x_CSMPasswords.asm</locationURI>
+		</link>
+		<link>
 			<name>DSP2802x_CodeStartBranch.asm</name>
 			<type>1</type>
 			<locationURI>SRC_ROOT/DSP2802x_common/source/DSP2802x_CodeStartBranch.asm</locationURI>
@@ -124,7 +129,7 @@
 		<link>
 			<name>DSP2802x_Headers_nonBIOS.cmd</name>
 			<type>1</type>
-			<locationURI>SRC_ROOT/DSP2802x_headers/cmd/DSP2802x_Headers_nonBIOS.cmd</locationURI>
+			<locationURI>PARENT-3-PROJECT_LOC/DSP2802x_headers/cmd/DSP2802x_Headers_nonBIOS.cmd</locationURI>
 		</link>
 		<link>
 			<name>DSP2802x_I2C.c</name>

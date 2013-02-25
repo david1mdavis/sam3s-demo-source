@@ -11,6 +11,7 @@
 #include "ad5933.h"
 #include "Communication.h"
 #include "Example_2802xI2C_eeprom/com.h"
+#include "IQmathLib.h"
 
 /**********************************************************
  * 				Macro
@@ -19,7 +20,8 @@
 /**********************************************************
  * 				Global Variable
  **********************************************************/
-ad5933_data_field_t data_part[AD5933_BOARD_CNT_ICMT];
+//ad5933_data_field_t data_part[AD5933_BOARD_CNT_ICMT];
+double magnitude[AD5933_BOARD_CNT_ICMT];
 Uint16 ad5933_temp = 0;
 /**********************************************************
  * 				Prototype
@@ -110,6 +112,7 @@ unsigned char ad5993_status(void)
 void ad5933_sweep(void)
 {
 	Uint16 temp, cnt;
+	int16  real, imaginary;
 	unsigned char value1, value2, status;
 
 	//start freq sweep
@@ -137,7 +140,7 @@ void ad5933_sweep(void)
 		temp = ( (Uint16)value1 ) << 8 | value2;
 		scia_msg("R:");
 		scia_Byte2Hex(temp);
-		data_part[cnt].real = temp;
+		real = temp;
 
 		//read imaginary data
 		value1 = I2C_Read(AD5933_ADDR_IMGN_REG_MSB);
@@ -146,11 +149,9 @@ void ad5933_sweep(void)
 		scia_msg("I:");
 		scia_Byte2Hex(temp);
 		scia_PrintLF();
-		data_part[cnt].imaginary = temp;
+		imaginary = temp;
 
-		//magnitude = real+imaginary;
-		//magnitude = sqrt(  );
-		//blink for stop indicator
+		magnitude[cnt] = _IQmag(real , imaginary);
 		led_off(0x000f);
 
 		cnt++;

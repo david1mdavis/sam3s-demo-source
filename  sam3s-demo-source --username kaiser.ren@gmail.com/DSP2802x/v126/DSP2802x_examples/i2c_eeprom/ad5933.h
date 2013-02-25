@@ -96,7 +96,7 @@ typedef struct _ad5933_data_field_tag_
 /**********************************************************
  * 				Extern
  **********************************************************/
-extern ad5933_data_field_t data_part[AD5933_BOARD_CNT_ICMT];
+//extern ad5933_data_field_t data_part[AD5933_BOARD_CNT_ICMT];
 
 /**********************************************************
  * 				Prototype
