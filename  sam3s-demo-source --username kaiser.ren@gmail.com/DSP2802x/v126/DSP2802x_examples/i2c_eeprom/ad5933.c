@@ -12,7 +12,7 @@
 #include "Communication.h"
 #include "Example_2802xI2C_eeprom/com.h"
 #include "IQmathLib.h"
-
+#include <stdio.h>
 /**********************************************************
  * 				Macro
  **********************************************************/
@@ -114,6 +114,7 @@ void ad5933_sweep(void)
 	Uint16 temp, cnt;
 	int16  real, imaginary;
 	unsigned char value1, value2, status;
+	char s1[64];
 
 	//start freq sweep
 	ad5933_mode(stand_by);
@@ -132,27 +133,30 @@ void ad5933_sweep(void)
 		//blink for start indicator
 		led_on(0x000f);
 
-		scia_msg("I:");
-	    scia_Byte2Hex(cnt);
+		//scia_msg("I:");
+	    //scia_Byte2Hex(cnt);
 		//read real data
 		value1 = I2C_Read(AD5933_ADDR_REAL_REG_MSB);
 		value2 = I2C_Read(AD5933_ADDR_REAL_REG_LSB);
 		temp = ( (Uint16)value1 ) << 8 | value2;
-		scia_msg("R:");
-		scia_Byte2Hex(temp);
+		//scia_msg("R:");
+		//scia_Byte2Hex(temp);
 		real = temp;
 
 		//read imaginary data
 		value1 = I2C_Read(AD5933_ADDR_IMGN_REG_MSB);
 		value2 = I2C_Read(AD5933_ADDR_IMGN_REG_LSB);
 		temp = ( (Uint16)value1 ) << 8 | value2;
-		scia_msg("I:");
-		scia_Byte2Hex(temp);
-		scia_PrintLF();
+		//scia_msg("I:");
+		//scia_Byte2Hex(temp);
+		//scia_PrintLF();
 		imaginary = temp;
 
 		magnitude[cnt] = _IQmag(real , imaginary);
 		led_off(0x000f);
+
+		sprintf(s1,"C=%d R=%d I=%d \r\n", cnt, real, imaginary);
+		scia_msg(s1);
 
 		cnt++;
 		status = ad5993_status();

@@ -13,6 +13,7 @@
 #include "Communication.h"
 #include "Example_2802xI2C_eeprom/com.h"
 #include "IQmathLib.h"
+#include <stdio.h>
 // Note: I2C Macros used in this example can be found in the
 // DSP2802x_I2C_defines.h file
 
@@ -29,6 +30,10 @@ void button_init(void);
 
 void main(void)
 {
+	char s1[32];
+	float floatvar1 = 23.456;
+	int intvar1 = 1234;
+
 // Step 1. Initialize System Control:
 // PLL, WatchDog, enable Peripheral Clocks
 // This example function is found in the DSP2802x_SysCtrl.c file.
@@ -62,7 +67,18 @@ void main(void)
 // The shell ISR routines are found in DSP2802x_DefaultIsr.c.
 // This function is found in DSP2802x_PieVect.c.
    InitPieVectTable();
+#ifndef _DEBUG
+   // Copy time critical code and Flash setup code to RAM
+   // This includes the following ISR functions: EPwm1_timer_isr(), EPwm2_timer_isr()
+   // EPwm3_timer_isr and and InitFlash();
+   // The  RamfuncsLoadStart, RamfuncsLoadEnd, and RamfuncsRunStart
+   // symbols are created by the linker. Refer to the F2808.cmd file.
+      MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
 
+   // Call Flash Initialization to setup flash waitstates
+   // This function must reside in RAM
+      InitFlash();
+#endif
 // Step 4. Initialize all the Device Peripherals:
 // This function is found in DSP2802x_InitPeripherals.c
 // InitPeripherals(); // Not required for this example
@@ -76,6 +92,10 @@ void main(void)
    scia_msg("-- End:   100kHz   --\r\n");
    scia_msg("-- Step : 125Hz    --\r\n");
    scia_msg("-- Point: 511      --\r\n");
+
+   sprintf(s1,"floatValue=%f Int Value=%d\r\n",floatvar1, intvar1);
+   scia_msg(s1);
+
 // Step 6. BSP init, LEDs & Button
    led_init();
    button_init();
@@ -93,8 +113,10 @@ void main(void)
 	   while( 0 == GpioDataRegs.GPADAT.bit.GPIO12 ){};
 	   {
 		  DELAY_US(100000);    // Delay 100ms , wait
-		  scia_msg("\r\ntemperature: ");
-		  scia_Byte2Hex( ad5993_GetTemperature() );
+		  //scia_msg("\r\ntemperature: ");
+		  //scia_Byte2Hex( ad5993_GetTemperature() );
+		  sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
+		  scia_msg(s1);
 		  scia_PrintLF();
 		  scia_PrintLF();
 		  scia_PrintLF();
