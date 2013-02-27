@@ -12,7 +12,7 @@
 #include "IQmathLib.h"
 
 
-const double mag_ref[511] = {
+const double mag_ref[AD5933_BOARD_CNT_ICMT] = {
 		82.05654132,
 		83.36025304,
 		84.81483357,

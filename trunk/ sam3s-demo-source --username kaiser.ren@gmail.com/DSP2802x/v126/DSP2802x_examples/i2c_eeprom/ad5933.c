@@ -8,11 +8,14 @@
  * 				Include
  **********************************************************/
 #include <math.h>
+#include <stdio.h>
 #include "ad5933.h"
 #include "Communication.h"
+#include "calc.h"
 #include "Example_2802xI2C_eeprom/com.h"
 #include "IQmathLib.h"
-#include <stdio.h>
+#include "IQlog.h"
+
 /**********************************************************
  * 				Macro
  **********************************************************/
@@ -21,8 +24,10 @@
  * 				Global Variable
  **********************************************************/
 //ad5933_data_field_t data_part[AD5933_BOARD_CNT_ICMT];
-double magnitude[AD5933_BOARD_CNT_ICMT];
+double diff_array[AD5933_BOARD_CNT_ICMT];
 Uint16 ad5933_temp = 0;
+double magnitude;
+double magLog;
 /**********************************************************
  * 				Prototype
  **********************************************************/
@@ -114,7 +119,10 @@ void ad5933_sweep(void)
 	Uint16 temp, cnt;
 	int16  real, imaginary;
 	unsigned char value1, value2, status;
-	char s1[64];
+	char s1[128];
+	_iq x;
+	_iq y;
+
 
 	//start freq sweep
 	ad5933_mode(stand_by);
@@ -152,10 +160,24 @@ void ad5933_sweep(void)
 		//scia_PrintLF();
 		imaginary = temp;
 
-		magnitude[cnt] = _IQmag(real , imaginary);
+		magnitude = _IQmag(real , imaginary);
+#if 1
+		x = _IQ(magnitude);
+		y = _IQ(10.0);
+		magLog = _IQlog(x)/_IQlog(y);
+		diff_array[cnt] = mag_ref[cnt] - magLog;
+#else
+		diff_array[cnt] = magnitude;
+#endif
+
 		led_off(0x000f);
 
-		sprintf(s1,"C=%d R=%d I=%d \r\n", cnt, real, imaginary);
+		sprintf(s1,"C=%d R=%d I=%d M=%f logM=%f dif=%f\r\n", cnt,
+				real,
+				imaginary,
+				magnitude,
+				magLog,
+				diff_array[cnt]);
 		scia_msg(s1);
 
 		cnt++;
