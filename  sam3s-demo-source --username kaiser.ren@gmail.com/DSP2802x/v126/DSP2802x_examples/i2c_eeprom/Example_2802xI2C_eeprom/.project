@@ -182,6 +182,16 @@
 			<locationURI>PARENT-1-PROJECT_LOC/ad5933.h</locationURI>
 		</link>
 		<link>
+			<name>calc.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/calc.c</locationURI>
+		</link>
+		<link>
+			<name>calc.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/calc.h</locationURI>
+		</link>
+		<link>
 			<name>main.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/main.c</locationURI>
@@ -193,11 +203,6 @@
 		</link>
 		<link>
 			<name>Release/Example_2802xI2C_eeprom.out</name>
-			<type>1</type>
-			<locationURI>EXTERNAL_BUILD_ARTIFACT</locationURI>
-		</link>
-		<link>
-			<name>Release/Example_281xCpuTimer.out</name>
 			<type>1</type>
 			<locationURI>EXTERNAL_BUILD_ARTIFACT</locationURI>
 		</link>
