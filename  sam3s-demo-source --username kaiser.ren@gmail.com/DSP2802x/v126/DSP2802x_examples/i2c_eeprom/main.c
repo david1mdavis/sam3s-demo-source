@@ -31,7 +31,7 @@ void button_init(void);
 void main(void)
 {
 	char s1[32];
-	float floatvar1 = 23.456;
+	double floatvar1 = 23.456;
 	int intvar1 = 1234;
 
 // Step 1. Initialize System Control:
