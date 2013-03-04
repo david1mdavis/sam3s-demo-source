@@ -13,6 +13,7 @@
 #include "Communication.h"
 #include "Example_2802xI2C_eeprom/com.h"
 #include "IQmathLib.h"
+#include "IQlog.h"
 #include <stdio.h>
 // Note: I2C Macros used in this example can be found in the
 // DSP2802x_I2C_defines.h file
@@ -27,12 +28,15 @@ void button_init(void);
 // Global variables
 // Two bytes will be used for the outgoing address,
 // thus only setup 14 bytes maximum
+float a, b, c;
+_iq x;
+_iq y;
+_iq z;
 
 void main(void)
 {
 	char s1[32];
-	double floatvar1 = 23.456;
-	int intvar1 = 1234;
+
 
 // Step 1. Initialize System Control:
 // PLL, WatchDog, enable Peripheral Clocks
@@ -93,7 +97,20 @@ void main(void)
    scia_msg("-- Step : 125Hz    --\r\n");
    scia_msg("-- Point: 511      --\r\n");
 
-   sprintf(s1,"floatValue=%f Int Value=%d\r\n",floatvar1, intvar1);
+   y = _IQ(50000.0);
+   z = _IQ(10.0);
+
+   x = _IQlog(y);
+   a = _IQtoF(x);
+
+   x = _IQlog(z);
+   b = _IQtoF(x);
+
+   //x = _IQlog(y)/_IQlog(z);
+
+   c = _IQtoF(x);
+
+   sprintf(s1,"a=%f b=%f\r\n", a, b);
    scia_msg(s1);
 
 // Step 6. BSP init, LEDs & Button

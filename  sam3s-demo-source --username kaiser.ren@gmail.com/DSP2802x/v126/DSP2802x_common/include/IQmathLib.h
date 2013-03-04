@@ -73,7 +73,7 @@
 //        30 <= GLOBAL_Q <=  1
 //
 #ifndef   GLOBAL_Q
-#define   GLOBAL_Q       24
+#define   GLOBAL_Q       15
 #endif
 
 //---------------------------------------------------------------------------
