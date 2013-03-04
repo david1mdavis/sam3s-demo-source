@@ -27,7 +27,6 @@
 double diff_array[AD5933_BOARD_CNT_ICMT];
 Uint16 ad5933_temp = 0;
 double magnitude;
-double magLog;
 /**********************************************************
  * 				Prototype
  **********************************************************/
@@ -120,8 +119,8 @@ void ad5933_sweep(void)
 	int16  real, imaginary;
 	unsigned char value1, value2, status;
 	char s1[128];
-	_iq x;
-	_iq y;
+	float LnMag, Ln10, LgMag;
+	_iq x, y, z;
 
 
 	//start freq sweep
@@ -139,44 +138,50 @@ void ad5933_sweep(void)
 			status = ad5993_status();
 		}
 		//blink for start indicator
-		led_on(0x000f);
+		led_on(0x0001);
 
-		//scia_msg("I:");
-	    //scia_Byte2Hex(cnt);
-		//read real data
 		value1 = I2C_Read(AD5933_ADDR_REAL_REG_MSB);
 		value2 = I2C_Read(AD5933_ADDR_REAL_REG_LSB);
 		temp = ( (Uint16)value1 ) << 8 | value2;
-		//scia_msg("R:");
-		//scia_Byte2Hex(temp);
 		real = temp;
 
 		//read imaginary data
 		value1 = I2C_Read(AD5933_ADDR_IMGN_REG_MSB);
 		value2 = I2C_Read(AD5933_ADDR_IMGN_REG_LSB);
 		temp = ( (Uint16)value1 ) << 8 | value2;
-		//scia_msg("I:");
-		//scia_Byte2Hex(temp);
-		//scia_PrintLF();
 		imaginary = temp;
 
+		//calculate magnutude
 		magnitude = _IQmag(real , imaginary);
 #if 1
+		//format converting
 		x = _IQ(magnitude);
 		y = _IQ(10.0);
-		magLog = _IQlog(x)/_IQlog(y);
-		diff_array[cnt] = mag_ref[cnt] - magLog;
+
+		//calculate ln(magnitude)
+		z = _IQlog(x);
+		LnMag = _IQtoF(z);
+
+		//calculate ln(10)
+		z = _IQlog(y);
+		Ln10 = _IQtoF(z);
+
+		//calculate lg(magnitude)
+		LgMag = LnMag/Ln10;
+
+		//get diff array
+		diff_array[cnt] = mag_ref[cnt] - LgMag;
 #else
 		diff_array[cnt] = magnitude;
 #endif
 
-		led_off(0x000f);
+		led_off(0x0001);
 
-		sprintf(s1,"C=%d R=%d I=%d M=%f logM=%f dif=%f\r\n", cnt,
+		sprintf(s1,"C=%d R=%d I=%d M=%f lgM=%f dif=%f\r\n", cnt,
 				real,
 				imaginary,
 				magnitude,
-				magLog,
+				LgMag,
 				diff_array[cnt]);
 		scia_msg(s1);
 
