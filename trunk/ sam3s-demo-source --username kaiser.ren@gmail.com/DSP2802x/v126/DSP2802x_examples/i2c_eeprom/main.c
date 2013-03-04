@@ -28,15 +28,15 @@ void button_init(void);
 // Global variables
 // Two bytes will be used for the outgoing address,
 // thus only setup 14 bytes maximum
-float a, b, c;
-_iq x;
-_iq y;
-_iq z;
+
 
 void main(void)
 {
 	char s1[32];
-
+	float a, b;
+	_iq x;
+	_iq y;
+	_iq z;
 
 // Step 1. Initialize System Control:
 // PLL, WatchDog, enable Peripheral Clocks
@@ -106,11 +106,7 @@ void main(void)
    x = _IQlog(z);
    b = _IQtoF(x);
 
-   //x = _IQlog(y)/_IQlog(z);
-
-   c = _IQtoF(x);
-
-   sprintf(s1,"a=%f b=%f\r\n", a, b);
+   sprintf(s1,"ln5000=%f ln10=%f\r\n", a, b);
    scia_msg(s1);
 
 // Step 6. BSP init, LEDs & Button
