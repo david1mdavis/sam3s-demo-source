@@ -25,6 +25,8 @@
  **********************************************************/
 //ad5933_data_field_t data_part[AD5933_BOARD_CNT_ICMT];
 double diff_array[AD5933_BOARD_CNT_ICMT];
+double diff_average;
+double diff_variance;
 Uint16 ad5933_temp = 0;
 double magnitude;
 /**********************************************************
@@ -167,7 +169,7 @@ void ad5933_sweep(void)
 		Ln10 = _IQtoF(z);
 
 		//calculate lg(magnitude)
-		LgMag = LnMag/Ln10;
+		LgMag = 20*LnMag/Ln10;
 
 		//get diff array
 		diff_array[cnt] = mag_ref[cnt] - LgMag;
@@ -177,7 +179,7 @@ void ad5933_sweep(void)
 
 		led_off(0x0001);
 
-		sprintf(s1,"C=%d R=%d I=%d M=%f lgM=%f dif=%f\r\n", cnt,
+		sprintf(s1,"C=%d R=%d I=%d M=%f M(dB)=%f dif=%f\r\n", cnt,
 				real,
 				imaginary,
 				magnitude,
@@ -196,6 +198,26 @@ void ad5933_sweep(void)
 			ad5933_mode(icmt_freq);
 		}
 	}
+
+	//calculate diff average
+	diff_average = 0.0;
+	for(cnt = 0; cnt < AD5933_BOARD_CNT_ICMT; cnt++)
+	{
+		diff_average += diff_array[cnt];
+	}
+	diff_average /= AD5933_BOARD_CNT_ICMT;
+	sprintf(s1,"diff_average=%f\r\n", diff_average);
+
+	//calculate diff variance
+	/*diff_variance = 0.0;
+	for(cnt = 0; cnt < AD5933_BOARD_CNT_ICMT; cnt++)
+	{
+		x = _IQ( diff_array[cnt] - diff_average );
+		z = _IQsqrt( x );
+		diff_variance += _IQtoF(z);
+	}
+	diff_variance /= AD5933_BOARD_CNT_ICMT;
+	sprintf(s1,"diff_variance=%f\r\n", diff_variance);*/
 
 	//sweep complete, goto power-down mode
 	scia_PrintLF();
