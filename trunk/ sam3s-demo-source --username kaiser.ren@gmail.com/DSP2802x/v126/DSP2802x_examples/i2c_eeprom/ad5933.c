@@ -155,7 +155,7 @@ void ad5933_sweep(void)
 
 		//calculate magnutude
 		magnitude = _IQmag(real , imaginary);
-#if 1
+#if 0
 		//format converting
 		x = _IQ(magnitude);
 		y = _IQ(10.0);
