@@ -123,11 +123,14 @@ void main(void)
    for(;;)
    {
 	   //wait for button pressed
-	   while( 0 == GpioDataRegs.GPADAT.bit.GPIO12 ){};
+	   while( (0 == GpioDataRegs.GPADAT.bit.GPIO12)
+			   && ( 0 == GpioDataRegs.GPADAT.bit.GPIO19 ) ){};
+	   //GPIO12 pressed
+	   if(1 == GpioDataRegs.GPADAT.bit.GPIO12)
 	   {
+		   //clear GPIO0~GPIO3
+		   led_on(0x000f);
 		  DELAY_US(100000);    // Delay 100ms , wait
-		  //scia_msg("\r\ntemperature: ");
-		  //scia_Byte2Hex( ad5993_GetTemperature() );
 		  sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
 		  scia_msg(s1);
 		  scia_PrintLF();
@@ -137,6 +140,88 @@ void main(void)
 		  scia_PrintLF();
 		  scia_PrintLF();
 		  scia_PrintLF();
+	   }
+
+	   //GPIO19 pressed
+	   if( 1 == GpioDataRegs.GPADAT.bit.GPIO19)
+	   {
+		   //GROUP1--0b1010
+		   //clear GPIO0~GPIO3
+		   led_on(0x000f);
+		   //set GPIO1 GPIO3
+		   led_off(0x000A);
+		   // Delay 100ms , wait
+		   DELAY_US(100000);
+		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
+		   scia_msg(s1);
+		   scia_PrintLF();
+		   ad5933_sweep();
+		   scia_PrintLF();
+
+		   //GROUP2--0b0101
+		   //clear GPIO0~GPIO3
+		   led_on(0x000f);
+		   //set GPIO0 GPIO2
+		   led_off(0x0005);
+		   // Delay 100ms , wait
+		   DELAY_US(100000);
+		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
+		   scia_msg(s1);
+		   scia_PrintLF();
+		   ad5933_sweep();
+		   scia_PrintLF();
+
+		   //GROUP3--0b1111
+		   //clear GPIO0~GPIO3
+		   led_on(0x000f);
+		   //set GPIO0~GPIO3
+		   led_off(0x000F);
+		   // Delay 100ms , wait
+		   DELAY_US(100000);
+		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
+		   scia_msg(s1);
+		   scia_PrintLF();
+		   ad5933_sweep();
+		   scia_PrintLF();
+
+		   //GROUP4--0b1110
+		   //clear GPIO0~GPIO3
+		   led_on(0x000f);
+		   //set GPIO1~GPIO3
+		   led_off(0x000E);
+		   // Delay 100ms , wait
+		   DELAY_US(100000);
+		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
+		   scia_msg(s1);
+		   scia_PrintLF();
+		   ad5933_sweep();
+		   scia_PrintLF();
+
+		   //GROUP5--0b0110
+		   //clear GPIO0~GPIO3
+		   led_on(0x000f);
+		   //set GPIO2~GPIO3
+		   led_off(0x0006);
+		   // Delay 100ms , wait
+		   DELAY_US(100000);
+		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
+		   scia_msg(s1);
+		   scia_PrintLF();
+		   ad5933_sweep();
+		   scia_PrintLF();
+
+		   //GROUP6--0b1101
+		   //clear GPIO0~GPIO3
+		   led_on(0x000f);
+		   //set GPIO0 GPIO2 GPIO3
+		   led_off(0x0006);
+		   // Delay 100ms , wait
+		   DELAY_US(100000);
+		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
+		   scia_msg(s1);
+		   scia_PrintLF();
+		   ad5933_sweep();
+		   scia_PrintLF();
 	   }
 
    }   // end of for(;;)
@@ -209,6 +294,10 @@ void button_init(void)
 	GpioCtrlRegs.GPAMUX1.bit.GPIO12 = 0;	// gpio12 as general purpose
 	GpioCtrlRegs.GPADIR.bit.GPIO12 = 0;    	// gpio12 input dir
 	GpioCtrlRegs.GPAPUD.bit.GPIO12 = 1;		// gpio12 pull-up enable
+
+	GpioCtrlRegs.GPAMUX2.bit.GPIO19 = 0;	// gpio19 as general purpose
+	GpioCtrlRegs.GPADIR.bit.GPIO19 = 0;    	// gpio19 input dir
+	GpioCtrlRegs.GPAPUD.bit.GPIO19 = 1;		// gpio19 pull-up enable
 	EDIS;
 }
 
