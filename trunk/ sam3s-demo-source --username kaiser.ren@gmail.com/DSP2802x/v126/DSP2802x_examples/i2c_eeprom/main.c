@@ -214,7 +214,7 @@ void main(void)
 		   //clear GPIO0~GPIO3
 		   led_on(0x000f);
 		   //set GPIO0 GPIO2 GPIO3
-		   led_off(0x0006);
+		   led_off(0x000D);
 		   // Delay 100ms , wait
 		   DELAY_US(100000);
 		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
