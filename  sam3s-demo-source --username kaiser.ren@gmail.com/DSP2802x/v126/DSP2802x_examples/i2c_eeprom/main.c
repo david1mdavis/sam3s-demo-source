@@ -222,6 +222,10 @@ void main(void)
 		   scia_PrintLF();
 		   ad5933_sweep();
 		   scia_PrintLF();
+
+		   //the end
+		   //clear GPIO0~GPIO3
+		   led_on(0x000f);
 	   }
 
    }   // end of for(;;)
