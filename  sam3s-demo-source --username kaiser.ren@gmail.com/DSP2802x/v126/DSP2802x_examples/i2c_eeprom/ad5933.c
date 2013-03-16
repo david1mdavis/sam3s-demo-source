@@ -76,20 +76,7 @@ void ad5933_init(void)
 	//I2C_Write(AD5933_ADDR_CTRL_REG_LSB, AD5933_REG_CTRL_CLK);	//REG 0x81
 }
 
-/**
- * ad5933 test
- */
-void ad5933_print(void)
-{
-	unsigned char i, revByte;
 
-	for(i = 0x80; i < 0x8c; i++)
-	{
-		revByte = I2C_Read( i );
-		scia_Byte2Hex( revByte );
-		scia_PrintLF();
-	}
-}
 
 /*
  * ad5933 mode switch
@@ -140,7 +127,7 @@ void ad5933_sweep(void)
 			status = ad5993_status();
 		}
 		//blink for start indicator
-		led_on(0x0001);
+		//led_on(0x0001);
 
 		value1 = I2C_Read(AD5933_ADDR_REAL_REG_MSB);
 		value2 = I2C_Read(AD5933_ADDR_REAL_REG_LSB);
@@ -155,7 +142,7 @@ void ad5933_sweep(void)
 
 		//calculate magnutude
 		magnitude = _IQmag(real , imaginary);
-#if 0
+#if 1
 		//format converting
 		x = _IQ(magnitude);
 		y = _IQ(10.0);
@@ -177,7 +164,7 @@ void ad5933_sweep(void)
 		diff_array[cnt] = magnitude;
 #endif
 
-		led_off(0x0001);
+		//led_off(0x0001);
 
 		sprintf(s1,"C=%d R=%d I=%d M=%f M(dB)=%f dif=%f\r\n", cnt,
 				real,
