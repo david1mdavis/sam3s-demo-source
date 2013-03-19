@@ -194,9 +194,10 @@ void ad5933_sweep(void)
 	}
 	diff_average /= AD5933_BOARD_CNT_ICMT;
 	sprintf(s1,"diff_average=%f\r\n", diff_average);
+	scia_msg(s1);
 
 	//calculate diff variance
-	/*diff_variance = 0.0;
+	diff_variance = 0.0;
 	for(cnt = 0; cnt < AD5933_BOARD_CNT_ICMT; cnt++)
 	{
 		x = _IQ( diff_array[cnt] - diff_average );
@@ -204,7 +205,8 @@ void ad5933_sweep(void)
 		diff_variance += _IQtoF(z);
 	}
 	diff_variance /= AD5933_BOARD_CNT_ICMT;
-	sprintf(s1,"diff_variance=%f\r\n", diff_variance);*/
+	sprintf(s1,"diff_variance=%f\r\n", diff_variance);
+	scia_msg(s1);
 
 	//sweep complete, goto power-down mode
 	scia_PrintLF();
