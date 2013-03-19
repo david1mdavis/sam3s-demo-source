@@ -33,10 +33,6 @@ void button_init(void);
 void main(void)
 {
 	char s1[32];
-	float a, b;
-	_iq x;
-	_iq y;
-	_iq z;
 
 // Step 1. Initialize System Control:
 // PLL, WatchDog, enable Peripheral Clocks
@@ -96,18 +92,6 @@ void main(void)
    scia_msg("-- End:   100kHz   --\r\n");
    scia_msg("-- Step : 125Hz    --\r\n");
    scia_msg("-- Point: 511      --\r\n");
-
-   y = _IQ(50000.0);
-   z = _IQ(10.0);
-
-   x = _IQlog(y);
-   a = _IQtoF(x);
-
-   x = _IQlog(z);
-   b = _IQtoF(x);
-
-   sprintf(s1,"ln5000=%f ln10=%f\r\n", a, b);
-   scia_msg(s1);
 
 // Step 6. BSP init, LEDs & Button
    led_init();
