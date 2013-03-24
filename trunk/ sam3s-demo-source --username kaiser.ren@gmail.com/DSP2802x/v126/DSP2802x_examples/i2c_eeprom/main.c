@@ -24,6 +24,9 @@ void led_init(void);
 void led_on(Uint16 led_msk);
 void led_off(Uint16 led_msk);
 void button_init(void);
+void GPIOx_Init(void);
+void GPIOx_Set(Uint16 pin );
+void GPIOx_Clear(Uint16 pin );
 
 // Global variables
 // Two bytes will be used for the outgoing address,
@@ -96,6 +99,7 @@ void main(void)
 // Step 6. BSP init, LEDs & Button
    led_init();
    button_init();
+   GPIOx_Init();
    //blink
    led_on(0x000f);
    led_off(0x000f);
@@ -274,6 +278,65 @@ void led_off(Uint16 led_msk)
 	//led3
 	if(led_msk & ( 0x0001 << 3) ){
 		GpioDataRegs.GPASET.bit.GPIO3 = 1;
+	}
+}
+
+/*
+ * GPIOx initial.
+ */
+void GPIOx_Init(void)
+{
+	EALLOW;
+	// GPIO0, 1, 2, 3, 4, 5, 6, 16, 17, 18, 34 as general purpose
+	GpioCtrlRegs.GPAMUX1.bit.GPIO0 = 0;
+	GpioCtrlRegs.GPAMUX1.bit.GPIO1 = 0;
+	GpioCtrlRegs.GPAMUX1.bit.GPIO2 = 0;
+	GpioCtrlRegs.GPAMUX1.bit.GPIO3 = 0;
+	GpioCtrlRegs.GPAMUX1.bit.GPIO4 = 0;
+	GpioCtrlRegs.GPAMUX1.bit.GPIO5 = 0;
+	GpioCtrlRegs.GPAMUX1.bit.GPIO6 = 0;
+	GpioCtrlRegs.GPAMUX2.bit.GPIO16 = 0;
+	GpioCtrlRegs.GPAMUX2.bit.GPIO17 = 0;
+	GpioCtrlRegs.GPAMUX2.bit.GPIO18 = 0;
+	GpioCtrlRegs.GPBMUX1.bit.GPIO34 = 0;
+
+	GpioCtrlRegs.GPADIR.bit.GPIO0 = 1;    //gpio0 output dir
+	GpioCtrlRegs.GPADIR.bit.GPIO1 = 1;    //gpio1 output dir
+	GpioCtrlRegs.GPADIR.bit.GPIO2 = 1;    //gpio2 output dir
+	GpioCtrlRegs.GPADIR.bit.GPIO3 = 1;    //gpio3 output dir
+	GpioCtrlRegs.GPADIR.bit.GPIO4 = 1;    //gpio3 output dir
+	GpioCtrlRegs.GPADIR.bit.GPIO5 = 1;    //gpio3 output dir
+	GpioCtrlRegs.GPADIR.bit.GPIO6 = 1;    //gpio3 output dir
+	GpioCtrlRegs.GPADIR.bit.GPIO16 = 1;    //gpio3 output dir
+	GpioCtrlRegs.GPADIR.bit.GPIO17 = 1;    //gpio3 output dir
+	GpioCtrlRegs.GPADIR.bit.GPIO18 = 1;    //gpio3 output dir
+	GpioCtrlRegs.GPBDIR.bit.GPIO34 = 1;    //gpio3 output dir
+	EDIS;
+}
+
+/*
+ * GPIOx Set.
+ */
+void GPIOx_Set(Uint16 pin )
+{
+	if (pin == 34){
+		GpioDataRegs.GPBSET.bit.GPIO34 = 1;
+	}
+	else{
+		GpioDataRegs.GPASET.all |= 1 << pin;
+	}
+}
+
+/*
+ * GPIOx Clear.
+ */
+void GPIOx_Clear(Uint16 pin )
+{
+	if (pin == 34){
+		GpioDataRegs.GPBCLEAR.bit.GPIO34 = 1;
+	}
+	else{
+		GpioDataRegs.GPACLEAR.all |= 1 << pin;
 	}
 }
 void button_init(void)
