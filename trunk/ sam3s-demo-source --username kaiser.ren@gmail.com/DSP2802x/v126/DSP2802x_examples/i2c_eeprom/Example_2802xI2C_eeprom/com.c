@@ -147,7 +147,7 @@ void scia_Byte2Hex( Uint16 byte )
  */
 void scia_PrintLF( void )
 {
-	scia_msg("\r\n");
+	scia_msg("\r\n\r\n");
 }
 /***************************************************************************//**
  * @brief Converts a float value to a character array with 3 digits of accuracy.

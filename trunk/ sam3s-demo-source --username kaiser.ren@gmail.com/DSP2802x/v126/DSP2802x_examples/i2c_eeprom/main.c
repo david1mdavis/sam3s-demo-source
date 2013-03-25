@@ -103,6 +103,8 @@ void main(void)
    //blink
    led_on(0x000f);
    led_off(0x000f);
+   //clear GPIO0~GPIO3
+   GPIOx_Clear(0x000f);
 
 // Step 7. Initial AD5933
    ad5933_init();
@@ -116,17 +118,12 @@ void main(void)
 	   //GPIO12 pressed
 	   if(1 == GpioDataRegs.GPADAT.bit.GPIO12)
 	   {
-		   //clear GPIO0~GPIO3
-		   led_on(0x000f);
+		  //clear GPIO0~GPIO3
+		  GPIOx_Clear(0x000f);
 		  DELAY_US(100000);    // Delay 100ms , wait
 		  sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
 		  scia_msg(s1);
-		  scia_PrintLF();
-		  scia_PrintLF();
-		  scia_PrintLF();
-		  ad5933_sweep();
-		  scia_PrintLF();
-		  scia_PrintLF();
+		  ad5933_sweep( 0x0001 << 0 );
 		  scia_PrintLF();
 	   }
 
@@ -135,85 +132,79 @@ void main(void)
 	   {
 		   //GROUP1--0b1010
 		   //clear GPIO0~GPIO3
-		   led_on(0x000f);
+		   GPIOx_Clear(0x000f);
 		   //set GPIO1 GPIO3
-		   led_off(0x000A);
+		   GPIOx_Set(0x000A);
 		   // Delay 100ms , wait
 		   DELAY_US(100000);
 		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
 		   scia_msg(s1);
-		   scia_PrintLF();
-		   ad5933_sweep();
+		   ad5933_sweep(0x0001 << 0);
 		   scia_PrintLF();
 
 		   //GROUP2--0b0101
 		   //clear GPIO0~GPIO3
-		   led_on(0x000f);
+		   GPIOx_Clear(0x000f);
 		   //set GPIO0 GPIO2
-		   led_off(0x0005);
+		   GPIOx_Set(0x0005);
 		   // Delay 100ms , wait
 		   DELAY_US(100000);
 		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
 		   scia_msg(s1);
-		   scia_PrintLF();
-		   ad5933_sweep();
+		   ad5933_sweep(0x0001 << 1);
 		   scia_PrintLF();
 
 		   //GROUP3--0b1111
 		   //clear GPIO0~GPIO3
-		   led_on(0x000f);
+		   GPIOx_Clear(0x000f);
 		   //set GPIO0~GPIO3
-		   led_off(0x000F);
+		   GPIOx_Set(0x000F);
 		   // Delay 100ms , wait
 		   DELAY_US(100000);
 		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
 		   scia_msg(s1);
-		   scia_PrintLF();
-		   ad5933_sweep();
+		   ad5933_sweep(0x0001 << 2);
 		   scia_PrintLF();
 
 		   //GROUP4--0b1110
 		   //clear GPIO0~GPIO3
-		   led_on(0x000f);
+		   GPIOx_Clear(0x000f);
 		   //set GPIO1~GPIO3
-		   led_off(0x000E);
+		   GPIOx_Set(0x000E);
 		   // Delay 100ms , wait
 		   DELAY_US(100000);
 		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
 		   scia_msg(s1);
-		   scia_PrintLF();
-		   ad5933_sweep();
+		   ad5933_sweep(0x0001 << 3);
 		   scia_PrintLF();
 
 		   //GROUP5--0b0110
 		   //clear GPIO0~GPIO3
-		   led_on(0x000f);
+		   GPIOx_Clear(0x000f);
 		   //set GPIO2~GPIO3
-		   led_off(0x0006);
+		   GPIOx_Set(0x0006);
 		   // Delay 100ms , wait
 		   DELAY_US(100000);
 		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
 		   scia_msg(s1);
-		   scia_PrintLF();
-		   ad5933_sweep();
+		   ad5933_sweep(0x0001 << 4);
 		   scia_PrintLF();
 
 		   //GROUP6--0b1101
 		   //clear GPIO0~GPIO3
-		   led_on(0x000f);
+		   GPIOx_Clear(0x000f);
 		   //set GPIO0 GPIO2 GPIO3
-		   led_off(0x000D);
+		   GPIOx_Set(0x000D);
 		   // Delay 100ms , wait
 		   DELAY_US(100000);
 		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
 		   scia_msg(s1);
-		   scia_PrintLF();
-		   ad5933_sweep();
+		   ad5933_sweep(0x0001 << 5);
 		   scia_PrintLF();
 
 		   //the end
 		   //clear GPIO0~GPIO3
-		   led_on(0x000f);
+		   GPIOx_Clear(0x000f);
 	   }
 
    }   // end of for(;;)
