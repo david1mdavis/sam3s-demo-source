@@ -110,7 +110,7 @@ void ad5933_print(void);
 void ad5933_mode(ad5933_state_t state);
 unsigned char ad5993_status(void);
 char ad5993_GetTemperature(void);
-void ad5933_sweep(void);
+void ad5933_sweep(Uint16 led_msk);
 
 void led_on(Uint16 led_msk);
 void led_off(Uint16 led_msk);

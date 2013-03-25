@@ -102,7 +102,7 @@ unsigned char ad5993_status(void)
 /*
  * ad5933 sweep
  */
-void ad5933_sweep(void)
+void ad5933_sweep(Uint16 led_msk)
 {
 	Uint16 temp, cnt;
 	int16  real, imaginary;
@@ -127,7 +127,7 @@ void ad5933_sweep(void)
 			status = ad5993_status();
 		}
 		//blink for start indicator
-		//led_on(0x0001);
+		led_on(led_msk);
 
 		value1 = I2C_Read(AD5933_ADDR_REAL_REG_MSB);
 		value2 = I2C_Read(AD5933_ADDR_REAL_REG_LSB);
@@ -164,7 +164,8 @@ void ad5933_sweep(void)
 		diff_array[cnt] = magnitude;
 #endif
 
-		//led_off(0x0001);
+		//for blink
+		led_off(led_msk);
 
 		sprintf(s1,"C=%d R=%d I=%d M=%f M(dB)=%f dif=%f\r\n", cnt,
 				real,
