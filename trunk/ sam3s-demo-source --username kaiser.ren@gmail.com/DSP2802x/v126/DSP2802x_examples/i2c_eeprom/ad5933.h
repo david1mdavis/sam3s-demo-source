@@ -72,6 +72,8 @@
 #define AD5933_STATUS_DATA_RDY		(0x01 << 1)	//data is ready
 #define AD5933_STATUS_SWEEP_RDY		(0x01 << 2)	//sweep is ready
 
+#define AD5933_STARDARD_VARIANCE	90.000
+
 /**********************************************************
  * 				Typedef
  **********************************************************/
@@ -97,6 +99,7 @@ typedef struct _ad5933_data_field_tag_
  * 				Extern
  **********************************************************/
 //extern ad5933_data_field_t data_part[AD5933_BOARD_CNT_ICMT];
+extern double diff_variance;
 
 /**********************************************************
  * 				Prototype
