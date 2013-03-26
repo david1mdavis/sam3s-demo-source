@@ -36,6 +36,7 @@ const unsigned char encoderArray[4] = {0, 1, 2, 3};
 void main(void)
 {
 	char s1[32];
+	unsigned char flag = 0;
 
 // Step 1. Initialize System Control:
 // PLL, WatchDog, enable Peripheral Clocks
@@ -112,7 +113,9 @@ void main(void)
    // Application loop
    for(;;)
    {
-	   //wait for button pressed
+	   /*
+	    * GPIO12 pressed routine
+	    */
 	   while( (0 == GpioDataRegs.GPADAT.bit.GPIO12)
 			   && ( 0 == GpioDataRegs.GPADAT.bit.GPIO19 ) ){};
 	   //GPIO12 pressed
@@ -124,12 +127,29 @@ void main(void)
 		  sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
 		  scia_msg(s1);
 		  ad5933_sweep( 0x0001 << 0 );
+		  //led indicator
+		  led_off(0x007f);
+		  if( diff_variance > AD5933_STARDARD_VARIANCE )
+		  {
+			  led_off(0x01 << 0);	//led0 off
+			  led_off(0x01 << 6);	//led6 off
+		  }
+		  else
+		  {
+			  led_on(0x01 << 0);	//led0 on
+			  led_on(0x01 << 6);	//led6 on
+		  }
 		  scia_PrintLF();
 	   }
 
-	   //GPIO19 pressed
+	   /*
+	    * GPIO19 pressed routine
+	    */
 	   if( 1 == GpioDataRegs.GPADAT.bit.GPIO19)
 	   {
+		   //clear flag
+		   flag = 0;
+
 		   //GROUP1--0b1010
 		   //clear GPIO0~GPIO3
 		   GPIOx_Clear(0x000f);
@@ -140,6 +160,17 @@ void main(void)
 		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
 		   scia_msg(s1);
 		   ad5933_sweep(0x0001 << 0);
+		   //led0 indicator
+		   led_off(0x007f);
+		   if( diff_variance > AD5933_STARDARD_VARIANCE )
+		   {
+		   	  led_off(0x01 << 0);	//led0 off
+		   }
+		   else
+		   {
+		   	  led_on(0x01 << 0);	//led0 on
+		   	  flag++;
+		   }
 		   scia_PrintLF();
 
 		   //GROUP2--0b0101
@@ -152,6 +183,17 @@ void main(void)
 		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
 		   scia_msg(s1);
 		   ad5933_sweep(0x0001 << 1);
+		   //led1 indicator
+		   led_off(0x007f);
+		   if( diff_variance > AD5933_STARDARD_VARIANCE )
+		   {
+		   	  led_off(0x01 << 1);	//led1 off
+		   }
+		   else
+		   {
+		   	  led_on(0x01 << 1);	//led1 on
+		   	  flag++;
+		   }
 		   scia_PrintLF();
 
 		   //GROUP3--0b1111
@@ -164,6 +206,17 @@ void main(void)
 		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
 		   scia_msg(s1);
 		   ad5933_sweep(0x0001 << 2);
+		   //led2 indicator
+		   led_off(0x007f);
+		   if( diff_variance > AD5933_STARDARD_VARIANCE )
+		   {
+		   	  led_off(0x01 << 2);	//led2 off
+		   }
+		   else
+		   {
+		   	  led_on(0x01 << 2);	//led2 on
+		   	  flag++;
+		   }
 		   scia_PrintLF();
 
 		   //GROUP4--0b1110
@@ -176,6 +229,17 @@ void main(void)
 		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
 		   scia_msg(s1);
 		   ad5933_sweep(0x0001 << 3);
+		   //led3 indicator
+		   led_off(0x007f);
+		   if( diff_variance > AD5933_STARDARD_VARIANCE )
+		   {
+		   	  led_off(0x01 << 3);	//led3 off
+		   }
+		   else
+		   {
+		   	  led_on(0x01 << 3);	//led3 on
+		   	  flag++;
+		   }
 		   scia_PrintLF();
 
 		   //GROUP5--0b0110
@@ -188,6 +252,17 @@ void main(void)
 		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
 		   scia_msg(s1);
 		   ad5933_sweep(0x0001 << 4);
+		   //led4 indicator
+		   led_off(0x007f);
+		   if( diff_variance > AD5933_STARDARD_VARIANCE )
+		   {
+		   	  led_off(0x01 << 4);	//led4 off
+		   }
+		   else
+		   {
+		   	  led_on(0x01 << 4);	//led4 on
+		   	  flag++;
+		   }
 		   scia_PrintLF();
 
 		   //GROUP6--0b1101
@@ -200,7 +275,27 @@ void main(void)
 		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
 		   scia_msg(s1);
 		   ad5933_sweep(0x0001 << 5);
+		   //led5 indicator
+		   led_off(0x007f);
+		   if( diff_variance > AD5933_STARDARD_VARIANCE )
+		   {
+		   	  led_off(0x01 << 5);	//led5 off
+		   }
+		   else
+		   {
+		   	  led_on(0x01 << 5);	//led5 on
+		   	  flag++;
+		   }
 		   scia_PrintLF();
+
+		   if(6 == flag)
+		   {
+			   led_on(0x01 << 6);	//led6 on
+		   }
+		   else
+		   {
+			   led_off(0x01 << 6);	//led6 off
+		   }
 
 		   //the end
 		   //clear GPIO0~GPIO3
