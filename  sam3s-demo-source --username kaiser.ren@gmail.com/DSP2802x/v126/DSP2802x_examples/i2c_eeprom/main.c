@@ -29,7 +29,7 @@ void GPIOx_Set(Uint16 pin );
 void GPIOx_Clear(Uint16 pin );
 
 // Global variables
-const unsigned char ledArray[7] = {4, 5, 6, 16, 17, 18, 34};
+const unsigned char ledArray[7] = {4, 5, 6, 7, 16, 17, 18};
 const unsigned char encoderArray[4] = {0, 1, 2, 3};
 
 
@@ -309,70 +309,109 @@ void main(void)
 void led_init(void)
 {
 	EALLOW;
-	// GPIO4, 5, 6, 16, 17, 18, 34 as general purpose
+	// GPIO4, 5, 6, 7, 16, 17, 18 as general purpose
 	GpioCtrlRegs.GPAMUX1.bit.GPIO4 = 0;
 	GpioCtrlRegs.GPAMUX1.bit.GPIO5 = 0;
 	GpioCtrlRegs.GPAMUX1.bit.GPIO6 = 0;
+	GpioCtrlRegs.GPAMUX1.bit.GPIO7 = 0;
 	GpioCtrlRegs.GPAMUX2.bit.GPIO16 = 0;
 	GpioCtrlRegs.GPAMUX2.bit.GPIO17 = 0;
 	GpioCtrlRegs.GPAMUX2.bit.GPIO18 = 0;
-	GpioCtrlRegs.GPBMUX1.bit.GPIO34 = 0;
+
 
 	//output direction
 	GpioCtrlRegs.GPADIR.bit.GPIO4 = 1;
 	GpioCtrlRegs.GPADIR.bit.GPIO5 = 1;
 	GpioCtrlRegs.GPADIR.bit.GPIO6 = 1;
+	GpioCtrlRegs.GPADIR.bit.GPIO7 = 1;
 	GpioCtrlRegs.GPADIR.bit.GPIO16 = 1;
 	GpioCtrlRegs.GPADIR.bit.GPIO17 = 1;
 	GpioCtrlRegs.GPADIR.bit.GPIO18 = 1;
-	GpioCtrlRegs.GPBDIR.bit.GPIO34 = 1;
+
 
 	//clear corresponding pin
 	GpioDataRegs.GPACLEAR.bit.GPIO4 = 1;
 	GpioDataRegs.GPACLEAR.bit.GPIO5 = 1;
 	GpioDataRegs.GPACLEAR.bit.GPIO6 = 1;
+	GpioDataRegs.GPACLEAR.bit.GPIO7 = 1;
 	GpioDataRegs.GPACLEAR.bit.GPIO16 = 1;
 	GpioDataRegs.GPACLEAR.bit.GPIO17 = 1;
 	GpioDataRegs.GPACLEAR.bit.GPIO18 = 1;
-	GpioDataRegs.GPBCLEAR.bit.GPIO34 = 1;
 	EDIS;
 }
 void led_on(Uint16 led_msk)
 {
-	unsigned char i;
-
-	//Led0~5
-	for(i = 0; i < 6; i++)
+	if( led_msk & (0x0001 << 0) )
 	{
-		if(led_msk & ( 0x0001 << i) )
-		{
-			GpioDataRegs.GPACLEAR.all = 1 << ledArray[i];
-		}
+		GpioDataRegs.GPACLEAR.bit.GPIO4 = 1;
 	}
 
-	//Led6
-	if(led_msk & ( 0x0001 << 6) )
+	if( led_msk & (0x0001 << 1) )
 	{
-		GpioDataRegs.GPBCLEAR.bit.GPIO34 = 1;
+		GpioDataRegs.GPACLEAR.bit.GPIO5 = 1;
+	}
+
+	if( led_msk & (0x0001 << 2) )
+	{
+		GpioDataRegs.GPACLEAR.bit.GPIO6 = 1;
+	}
+
+	if( led_msk & (0x0001 << 3) )
+	{
+		GpioDataRegs.GPACLEAR.bit.GPIO7 = 1;
+	}
+
+	if( led_msk & (0x0001 << 4) )
+	{
+		GpioDataRegs.GPACLEAR.bit.GPIO16 = 1;
+	}
+
+	if( led_msk & (0x0001 << 5) )
+	{
+		GpioDataRegs.GPACLEAR.bit.GPIO17 = 1;
+	}
+
+	if( led_msk & (0x0001 << 6) )
+	{
+		GpioDataRegs.GPACLEAR.bit.GPIO18 = 1;
 	}
 }
 
 void led_off(Uint16 led_msk)
 {
-	unsigned char i;
-
-	//Led0~5
-	for(i = 0; i < 6; i++)
+	if( led_msk & (0x0001 << 0) )
 	{
-		if(led_msk & ( 0x0001 << i) )
-		{
-			GpioDataRegs.GPASET.all = 1 << ledArray[i];
-		}
+		GpioDataRegs.GPASET.bit.GPIO4 = 1;
 	}
-	//Led6
-	if(led_msk & ( 0x0001 << 6) )
+
+	if( led_msk & (0x0001 << 1) )
 	{
-		GpioDataRegs.GPBSET.bit.GPIO34 = 1;
+		GpioDataRegs.GPASET.bit.GPIO5 = 1;
+	}
+
+	if( led_msk & (0x0001 << 2) )
+	{
+		GpioDataRegs.GPASET.bit.GPIO6 = 1;
+	}
+
+	if( led_msk & (0x0001 << 3) )
+	{
+		GpioDataRegs.GPASET.bit.GPIO7 = 1;
+	}
+
+	if( led_msk & (0x0001 << 4) )
+	{
+		GpioDataRegs.GPASET.bit.GPIO16 = 1;
+	}
+
+	if( led_msk & (0x0001 << 5) )
+	{
+		GpioDataRegs.GPASET.bit.GPIO17 = 1;
+	}
+
+	if( led_msk & (0x0001 << 6) )
+	{
+		GpioDataRegs.GPASET.bit.GPIO18 = 1;
 	}
 }
 
