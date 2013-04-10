@@ -72,7 +72,7 @@
 #define AD5933_STATUS_DATA_RDY		(0x01 << 1)	//data is ready
 #define AD5933_STATUS_SWEEP_RDY		(0x01 << 2)	//sweep is ready
 
-#define AD5933_STARDARD_VARIANCE	((float)60.000)
+#define AD5933_STANDARD_VARIANCE	((float)120.000)
 
 /**********************************************************
  * 				Typedef

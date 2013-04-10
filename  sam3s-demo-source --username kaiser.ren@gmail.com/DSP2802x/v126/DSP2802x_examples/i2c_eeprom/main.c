@@ -130,18 +130,18 @@ void main(void)
 		  ad5933_sweep( 0x0001 << 0, mag_ref);
 		  //led indicator
 		  led_off(0x007f);
-		  if( diff_variance > AD5933_STARDARD_VARIANCE )
+		  if( diff_variance > AD5933_STANDARD_VARIANCE )
 		  {
 			  led_off(0x01 << 0);	//led0 off
 			  led_off(0x01 << 6);	//led6 off
-			  sprintf(s1,"Ref larger than stardard.\r\n" );
+			  sprintf(s1,"Ref larger than standard.\r\n" );
 			  scia_msg(s1);
 		  }
 		  else
 		  {
 			  led_on(0x01 << 0);	//led0 on
 			  led_on(0x01 << 6);	//led6 on
-			  sprintf(s1,"Ref less than stardard.\r\n" );
+			  sprintf(s1,"Ref less than standard.\r\n" );
 			  scia_msg(s1);
 		  }
 		  scia_PrintLF();
@@ -167,17 +167,17 @@ void main(void)
 		   ad5933_sweep(0x0001 << 0, mag_ref0);;
 		   //led0 indicator
 		   led_off(0x007f);
-		   if( diff_variance > AD5933_STARDARD_VARIANCE )
+		   if( diff_variance > AD5933_STANDARD_VARIANCE )
 		   {
 		   	  led_off(0x01 << 0);	//led0 off
-			  sprintf(s1,"Ref larger than stardard.\r\n" );
+			  sprintf(s1,"Group0 Ref larger than standard.\r\n" );
 			  scia_msg(s1);
 		   }
 		   else
 		   {
 		   	  led_on(0x01 << 0);	//led0 on
 		   	  flag++;
-              sprintf(s1,"Ref less than stardard.\r\n" );
+              sprintf(s1,"Group0 Ref less than standard.\r\n" );
 			  scia_msg(s1);
 		   }
 		   scia_PrintLF();
@@ -194,17 +194,17 @@ void main(void)
 		   ad5933_sweep(0x0001 << 1, mag_ref1);
 		   //led1 indicator
 		   led_off(0x007f);
-		   if( diff_variance > AD5933_STARDARD_VARIANCE )
+		   if( diff_variance > AD5933_STANDARD_VARIANCE )
 		   {
 		   	  led_off(0x01 << 1);	//led1 off
-			  sprintf(s1,"Ref larger than stardard.\r\n" );
+			  sprintf(s1,"Group1 Ref larger than standard.\r\n" );
 			  scia_msg(s1);
 		   }
 		   else
 		   {
 		   	  led_on(0x01 << 1);	//led1 on
 		   	  flag++;
-			  sprintf(s1,"Ref less than stardard.\r\n" );
+			  sprintf(s1,"Group1 Ref less than standard.\r\n" );
 			  scia_msg(s1);
 		   }
 		   scia_PrintLF();
@@ -221,17 +221,17 @@ void main(void)
 		   ad5933_sweep(0x0001 << 2, mag_ref2);
 		   //led2 indicator
 		   led_off(0x007f);
-		   if( diff_variance > AD5933_STARDARD_VARIANCE )
+		   if( diff_variance > AD5933_STANDARD_VARIANCE )
 		   {
 		   	  led_off(0x01 << 2);	//led2 off
-              sprintf(s1,"Ref larger than stardard.\r\n" );
+              sprintf(s1,"Group2 Ref larger than standard.\r\n" );
 			  scia_msg(s1);
 		   }
 		   else
 		   {
 		   	  led_on(0x01 << 2);	//led2 on
 		   	  flag++;
-			  sprintf(s1,"Ref less than stardard.\r\n" );
+			  sprintf(s1,"Group2 Ref less than standard.\r\n" );
 			  scia_msg(s1);
 		   }
 		   scia_PrintLF();
@@ -248,17 +248,17 @@ void main(void)
 		   ad5933_sweep(0x0001 << 3, mag_ref3);
 		   //led3 indicator
 		   led_off(0x007f);
-		   if( diff_variance > AD5933_STARDARD_VARIANCE )
+		   if( diff_variance > AD5933_STANDARD_VARIANCE )
 		   {
 		   	  led_off(0x01 << 3);	//led3 off
-  			  sprintf(s1,"Ref larger than stardard.\r\n" );
+  			  sprintf(s1,"Group3 Ref larger than standard.\r\n" );
 			  scia_msg(s1);
 		   }
 		   else
 		   {
 		   	  led_on(0x01 << 3);	//led3 on
 		   	  flag++;
-			  sprintf(s1,"Ref less than stardard.\r\n" );
+			  sprintf(s1,"Group3 Ref less than standard.\r\n" );
 			  scia_msg(s1);
 		   }
 		   scia_PrintLF();
@@ -275,17 +275,17 @@ void main(void)
 		   ad5933_sweep(0x0001 << 4, mag_ref4);
 		   //led4 indicator
 		   led_off(0x007f);
-		   if( diff_variance > AD5933_STARDARD_VARIANCE )
+		   if( diff_variance > AD5933_STANDARD_VARIANCE )
 		   {
 		   	  led_off(0x01 << 4);	//led4 off
-			  sprintf(s1,"Ref larger than stardard.\r\n" );
+			  sprintf(s1,"Group4 Ref larger than standard.\r\n" );
 			  scia_msg(s1);
 		   }
 		   else
 		   {
 		   	  led_on(0x01 << 4);	//led4 on
 		   	  flag++;
-			  sprintf(s1,"Ref less than stardard.\r\n" );
+			  sprintf(s1,"Group4 Ref less than standard.\r\n" );
 			  scia_msg(s1);
 		   }
 		   scia_PrintLF();
@@ -302,17 +302,17 @@ void main(void)
 		   ad5933_sweep(0x0001 << 5, mag_ref5);
 		   //led5 indicator
 		   led_off(0x007f);
-		   if( diff_variance > AD5933_STARDARD_VARIANCE )
+		   if( diff_variance > AD5933_STANDARD_VARIANCE )
 		   {
 		   	  led_off(0x01 << 5);	//led5 off
-			  sprintf(s1,"Ref larger than stardard.\r\n" );
+			  sprintf(s1,"Group5 Ref larger than standard.\r\n" );
 			  scia_msg(s1);
 		   }
 		   else
 		   {
 		   	  led_on(0x01 << 5);	//led5 on
 		   	  flag++;
-			  sprintf(s1,"Ref less than stardard.\r\n" );
+			  sprintf(s1,"Group5 Ref less than standard.\r\n" );
 			  scia_msg(s1);
 		   }
 		   scia_PrintLF();
@@ -320,13 +320,13 @@ void main(void)
 		   if(6 == flag)
 		   {
 			   led_on(0x01 << 6);	//led6 on
- 			   sprintf(s1,"total larger than stardard.\r\n" );
+ 			   sprintf(s1,"total less than standard.\r\n" );
 			   scia_msg(s1);
 		   }
 		   else
 		   {
 			   led_off(0x01 << 6);	//led6 off
-			   sprintf(s1,"any less than stardard.\r\n" );
+			   sprintf(s1,"any larger than standard.\r\n" );
 			   scia_msg(s1);
 		   }
 

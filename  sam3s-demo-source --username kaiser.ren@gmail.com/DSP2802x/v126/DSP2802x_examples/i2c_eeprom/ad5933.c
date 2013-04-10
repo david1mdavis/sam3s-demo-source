@@ -167,13 +167,13 @@ void ad5933_sweep(Uint16 led_msk, const double* ref)
 		//for blink
 		led_off(led_msk);
 
-		sprintf(s1,"C=%d R=%d I=%d M=%f M(dB)=%f dif=%f\r\n", cnt,
+		/*sprintf(s1,"C=%d R=%d I=%d M=%f M(dB)=%f dif=%f\r\n", cnt,
 				real,
 				imaginary,
 				magnitude,
 				LgMag,
 				diff_array[cnt]);
-		scia_msg(s1);
+		scia_msg(s1);*/
 
 		cnt++;
 		status = ad5993_status();
@@ -194,8 +194,8 @@ void ad5933_sweep(Uint16 led_msk, const double* ref)
 		diff_average += diff_array[cnt];
 	}
 	diff_average /= AD5933_BOARD_CNT_ICMT;
-	sprintf(s1,"diff_average=%f\r\n", diff_average);
-	scia_msg(s1);
+	//sprintf(s1,"diff_average=%f\r\n", diff_average);
+	//scia_msg(s1);
 
 	//calculate diff variance
 	sprintf(s1,"diff_average start\r\n");
@@ -208,20 +208,20 @@ void ad5933_sweep(Uint16 led_msk, const double* ref)
 		LnMag = diff_array[cnt] - diff_average;
 		LgMag = LnMag*LnMag;
 		diff_variance += LgMag;
-		sprintf(s1,"array[%d]=%f diff=%f squr=%f variance=%f \r\n",
+		/*sprintf(s1,"array[%d]=%f diff=%f squr=%f variance=%f \r\n",
 						cnt,
 						diff_array[cnt],
 						LnMag,
 						LgMag,
 						diff_variance);
-				scia_msg(s1);
+				scia_msg(s1);*/
 	}
 	diff_variance /= AD5933_BOARD_CNT_ICMT;
 	sprintf(s1,"diff_variance=%f\r\n", diff_variance);
 	scia_msg(s1);
 
 	//sweep complete, goto power-down mode
-	scia_PrintLF();
+	//scia_PrintLF();
 	ad5933_mode(powr_down);
 }
 
