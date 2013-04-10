@@ -102,7 +102,7 @@ unsigned char ad5993_status(void)
 /*
  * ad5933 sweep
  */
-void ad5933_sweep(Uint16 led_msk)
+void ad5933_sweep(Uint16 led_msk, const double* ref)
 {
 	Uint16 temp, cnt;
 	int16  real, imaginary;
@@ -159,7 +159,7 @@ void ad5933_sweep(Uint16 led_msk)
 		LgMag = 20*LnMag/Ln10;
 
 		//get diff array
-		diff_array[cnt] = mag_ref[cnt] - LgMag;
+		diff_array[cnt] = ref[cnt] - LgMag;
 #else
 		diff_array[cnt] = magnitude;
 #endif

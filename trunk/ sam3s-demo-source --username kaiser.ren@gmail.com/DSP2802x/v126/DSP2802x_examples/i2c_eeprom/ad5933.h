@@ -72,7 +72,7 @@
 #define AD5933_STATUS_DATA_RDY		(0x01 << 1)	//data is ready
 #define AD5933_STATUS_SWEEP_RDY		(0x01 << 2)	//sweep is ready
 
-#define AD5933_STARDARD_VARIANCE	60.000
+#define AD5933_STARDARD_VARIANCE	((float)60.000)
 
 /**********************************************************
  * 				Typedef
@@ -113,7 +113,7 @@ void ad5933_print(void);
 void ad5933_mode(ad5933_state_t state);
 unsigned char ad5993_status(void);
 char ad5993_GetTemperature(void);
-void ad5933_sweep(Uint16 led_msk);
+void ad5933_sweep(Uint16 led_msk, const double* ref);
 
 void led_on(Uint16 led_msk);
 void led_off(Uint16 led_msk);

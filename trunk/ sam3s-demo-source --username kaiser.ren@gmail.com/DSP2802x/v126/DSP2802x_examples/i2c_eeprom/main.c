@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include "DSP28x_Project.h"     // Device Headerfile and Examples Include File
 #include "ad5933.h"
+#include "calc.h"
 #include "Communication.h"
 #include "Example_2802xI2C_eeprom/com.h"
 #include "IQmathLib.h"
@@ -126,18 +127,22 @@ void main(void)
 		  DELAY_US(100000);    // Delay 100ms , wait
 		  sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
 		  scia_msg(s1);
-		  ad5933_sweep( 0x0001 << 0 );
+		  ad5933_sweep( 0x0001 << 0, mag_ref);
 		  //led indicator
 		  led_off(0x007f);
 		  if( diff_variance > AD5933_STARDARD_VARIANCE )
 		  {
 			  led_off(0x01 << 0);	//led0 off
 			  led_off(0x01 << 6);	//led6 off
+			  sprintf(s1,"Ref larger than stardard.\r\n" );
+			  scia_msg(s1);
 		  }
 		  else
 		  {
 			  led_on(0x01 << 0);	//led0 on
 			  led_on(0x01 << 6);	//led6 on
+			  sprintf(s1,"Ref less than stardard.\r\n" );
+			  scia_msg(s1);
 		  }
 		  scia_PrintLF();
 	   }
@@ -159,17 +164,21 @@ void main(void)
 		   DELAY_US(100000);
 		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
 		   scia_msg(s1);
-		   ad5933_sweep(0x0001 << 0);
+		   ad5933_sweep(0x0001 << 0, mag_ref0);;
 		   //led0 indicator
 		   led_off(0x007f);
 		   if( diff_variance > AD5933_STARDARD_VARIANCE )
 		   {
 		   	  led_off(0x01 << 0);	//led0 off
+			  sprintf(s1,"Ref larger than stardard.\r\n" );
+			  scia_msg(s1);
 		   }
 		   else
 		   {
 		   	  led_on(0x01 << 0);	//led0 on
 		   	  flag++;
+              sprintf(s1,"Ref less than stardard.\r\n" );
+			  scia_msg(s1);
 		   }
 		   scia_PrintLF();
 
@@ -182,17 +191,21 @@ void main(void)
 		   DELAY_US(100000);
 		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
 		   scia_msg(s1);
-		   ad5933_sweep(0x0001 << 1);
+		   ad5933_sweep(0x0001 << 1, mag_ref1);
 		   //led1 indicator
 		   led_off(0x007f);
 		   if( diff_variance > AD5933_STARDARD_VARIANCE )
 		   {
 		   	  led_off(0x01 << 1);	//led1 off
+			  sprintf(s1,"Ref larger than stardard.\r\n" );
+			  scia_msg(s1);
 		   }
 		   else
 		   {
 		   	  led_on(0x01 << 1);	//led1 on
 		   	  flag++;
+			  sprintf(s1,"Ref less than stardard.\r\n" );
+			  scia_msg(s1);
 		   }
 		   scia_PrintLF();
 
@@ -205,17 +218,21 @@ void main(void)
 		   DELAY_US(100000);
 		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
 		   scia_msg(s1);
-		   ad5933_sweep(0x0001 << 2);
+		   ad5933_sweep(0x0001 << 2, mag_ref2);
 		   //led2 indicator
 		   led_off(0x007f);
 		   if( diff_variance > AD5933_STARDARD_VARIANCE )
 		   {
 		   	  led_off(0x01 << 2);	//led2 off
+              sprintf(s1,"Ref larger than stardard.\r\n" );
+			  scia_msg(s1);
 		   }
 		   else
 		   {
 		   	  led_on(0x01 << 2);	//led2 on
 		   	  flag++;
+			  sprintf(s1,"Ref less than stardard.\r\n" );
+			  scia_msg(s1);
 		   }
 		   scia_PrintLF();
 
@@ -228,17 +245,21 @@ void main(void)
 		   DELAY_US(100000);
 		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
 		   scia_msg(s1);
-		   ad5933_sweep(0x0001 << 3);
+		   ad5933_sweep(0x0001 << 3, mag_ref3);
 		   //led3 indicator
 		   led_off(0x007f);
 		   if( diff_variance > AD5933_STARDARD_VARIANCE )
 		   {
 		   	  led_off(0x01 << 3);	//led3 off
+  			  sprintf(s1,"Ref larger than stardard.\r\n" );
+			  scia_msg(s1);
 		   }
 		   else
 		   {
 		   	  led_on(0x01 << 3);	//led3 on
 		   	  flag++;
+			  sprintf(s1,"Ref less than stardard.\r\n" );
+			  scia_msg(s1);
 		   }
 		   scia_PrintLF();
 
@@ -251,17 +272,21 @@ void main(void)
 		   DELAY_US(100000);
 		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
 		   scia_msg(s1);
-		   ad5933_sweep(0x0001 << 4);
+		   ad5933_sweep(0x0001 << 4, mag_ref4);
 		   //led4 indicator
 		   led_off(0x007f);
 		   if( diff_variance > AD5933_STARDARD_VARIANCE )
 		   {
 		   	  led_off(0x01 << 4);	//led4 off
+			  sprintf(s1,"Ref larger than stardard.\r\n" );
+			  scia_msg(s1);
 		   }
 		   else
 		   {
 		   	  led_on(0x01 << 4);	//led4 on
 		   	  flag++;
+			  sprintf(s1,"Ref less than stardard.\r\n" );
+			  scia_msg(s1);
 		   }
 		   scia_PrintLF();
 
@@ -274,27 +299,35 @@ void main(void)
 		   DELAY_US(100000);
 		   sprintf(s1,"Temperature=%d\r\n", ad5993_GetTemperature());
 		   scia_msg(s1);
-		   ad5933_sweep(0x0001 << 5);
+		   ad5933_sweep(0x0001 << 5, mag_ref5);
 		   //led5 indicator
 		   led_off(0x007f);
 		   if( diff_variance > AD5933_STARDARD_VARIANCE )
 		   {
 		   	  led_off(0x01 << 5);	//led5 off
+			  sprintf(s1,"Ref larger than stardard.\r\n" );
+			  scia_msg(s1);
 		   }
 		   else
 		   {
 		   	  led_on(0x01 << 5);	//led5 on
 		   	  flag++;
+			  sprintf(s1,"Ref less than stardard.\r\n" );
+			  scia_msg(s1);
 		   }
 		   scia_PrintLF();
 
 		   if(6 == flag)
 		   {
 			   led_on(0x01 << 6);	//led6 on
+ 			   sprintf(s1,"total larger than stardard.\r\n" );
+			   scia_msg(s1);
 		   }
 		   else
 		   {
 			   led_off(0x01 << 6);	//led6 off
+			   sprintf(s1,"any less than stardard.\r\n" );
+			   scia_msg(s1);
 		   }
 
 		   //the end
