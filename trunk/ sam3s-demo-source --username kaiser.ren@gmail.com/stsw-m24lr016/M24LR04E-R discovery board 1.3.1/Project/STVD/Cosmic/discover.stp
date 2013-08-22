@@ -61,7 +61,7 @@ String.100.2=STM8 Cosmic
 String.100.3=ST7 Metrowerks V1.1
 String.100.4=Raisonance
 String.101.0=STM8 Cosmic
-String.102.0=C:\Program Files (x86)\COSMIC\CXSTM8_32K
+String.102.0=C:\Program Files\COSMIC\CXSTM8
 String.103.0=
 String.104.0=Hstm8
 String.105.0=Lib
@@ -102,11 +102,11 @@ String.8.0=
 
 [Root.Config.0.Settings.6]
 String.2.0=Running Linker
-String.3.0=clnk $(ToolsetLibOpts) -o $(OutputPath)$(TargetSName).sm8 -fakeInteger -fakeOutFile$(ProjectSFile).elf -fakeRunConv -fakeStartupcrtsi0.sm8 -fakeSemiAutoGen -fakeVectFile..\..\src\stm8_interrupt_vector.c -fakeVectAddr0x8000 -customMapFile -customMapFile-m$(OutputPath)$(TargetSName).map -customMapAddress -customCfgFile$(OutputPath)$(TargetSName).lkf 
+String.3.0=clnk $(ToolsetLibOpts) -o $(OutputPath)$(TargetSName).sm8 -fakeInteger -fakeFloat -fakeOutFile$(ProjectSFile).elf -fakeRunConv -fakeStartupcrtsi0.sm8 -fakeSemiAutoGen -fakeVectFile..\..\src\stm8_interrupt_vector.c -fakeVectAddr0x8000 -customMapFile -customMapFile-m$(OutputPath)$(TargetSName).map -customMapAddress -customCfgFile$(OutputPath)$(TargetSName).lkf 
 String.3.1=cvdwarf $(OutputPath)$(TargetSName).sm8
 String.4.0=$(OutputPath)$(TargetFName)
 String.5.0=$(OutputPath)$(ProjectSFile).elf $(OutputPath)$(TargetSName).map
-String.6.0=2012,5,14,13,55,28
+String.6.0=2013,8,22,21,3,16
 String.100.0=
 String.101.0=crtsi.st7
 String.102.0=+seg .const -b 0x8080 -m 0x7f80 -n .const -it
@@ -126,7 +126,7 @@ String.103.1=Eeprom[0x1000-0x13ff]=.eeprom,.dataeeprom
 String.103.2=Zero Page[0x0-0xff]=.bsct,.ubsct,.bit,.share
 String.103.3=Ram[0x100-0x5fe]=.data,.bss,.LPRUN,.DISPLAY
 String.104.0=0x7ff
-String.105.0=libis0.sm8;libm0.sm8
+String.105.0=libfs0.sm8;libis0.sm8;libm0.sm8
 Int.0=0
 Int.1=0
 
@@ -140,14 +140,14 @@ String.2.0=Performing Custom Build on $(InputFile)
 String.6.0=2010,9,16,17,51,46
 
 [Root.Config.1.Settings.0]
-String.6.0=2010,9,16,17,51,46
+String.6.0=2013,8,22,20,50,33
 String.100.0=ST Assembler Linker
 String.100.1=ST7 Cosmic
 String.100.2=STM8 Cosmic
 String.100.3=ST7 Metrowerks V1.1
 String.100.4=Raisonance
 String.101.0=STM8 Cosmic
-String.102.0=C:\Program Files\COSMIC\CXSTM8_32K
+String.102.0=C:\Program Files\COSMIC\CXSTM8
 String.103.0=
 String.104.0=Hstm8
 String.105.0=Lib
@@ -183,6 +183,7 @@ String.6.0=2010,9,16,17,51,46
 [Root.Config.1.Settings.5]
 String.2.0=Running Pre-Link step
 String.6.0=2010,9,16,17,51,46
+String.8.0=
 
 [Root.Config.1.Settings.6]
 String.2.0=Running Linker
