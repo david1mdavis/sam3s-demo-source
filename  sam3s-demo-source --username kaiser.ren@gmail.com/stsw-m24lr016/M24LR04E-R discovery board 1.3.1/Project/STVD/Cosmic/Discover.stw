@@ -8,5 +8,5 @@ Filename=discover.stp
 Dependencies=
 [Options]
 ActiveProject=discover
-ActiveConfig=Release
+ActiveConfig=Debug
 AddSortedElements=0
