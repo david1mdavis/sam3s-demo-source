@@ -5,7 +5,7 @@
 
 #include "stm8l15x_it.h"
 
-typedef void @far (*interrupt_handler_t)(void);
+typedef void (*interrupt_handler_t)(void);
 
 struct interrupt_vector {
 	uint8_t interrupt_instruction;

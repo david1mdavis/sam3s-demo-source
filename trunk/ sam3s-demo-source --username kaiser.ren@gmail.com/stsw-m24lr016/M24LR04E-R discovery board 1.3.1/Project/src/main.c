@@ -58,13 +58,13 @@ extern uint8_t t_bar[2];
 uint8_t NDEFmessage[0x40];
 const uint8_t ErrorMessage[]={'N','O','T',' ','A',' ','N','D','E','F',' ','T','E','X','T',' ','M','E','S','S','A','G','E',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '};
 
-volatile char FLASH_CR2     @0x5051;    
-volatile char FLASH_NCR2    @0x17ff;    
-volatile char FLASH_IAPSR   @0x5054;    
+__no_init volatile char FLASH_CR2     @0x5051;    
+__no_init volatile char FLASH_NCR2    @0x17ff;    
+__no_init volatile char FLASH_IAPSR   @0x5054;    
 
 
-EEPROM uint8_t 	EEMenuState;
-EEPROM uint8_t 	EEInitial = 0;
+__no_init EEPROM uint8_t 	EEMenuState;
+__no_init EEPROM uint8_t 	EEInitial /*= 0*/;
 const uint8_t 	FirmwareVersion[2] = {0x13,0x00}; // 4 MSB bits major version number & 4 LSB bits minor version number
 
 #define USE_HSI
@@ -157,7 +157,7 @@ uint8_t PayloadLength,
 						User_DisplayMessage (bufMessage,PayloadLength);
 	//					User_DisplayMessageActiveHaltMode (PayloadLength);
 					else 
-						User_DisplayMessage(ErrorMessage,20);		
+						User_DisplayMessage((uint8_t*)ErrorMessage,20);		
 		
 					
 	
