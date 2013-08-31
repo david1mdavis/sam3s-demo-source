@@ -126,7 +126,7 @@ int32_t I2C_TimeOut = I2C_TIMEOUT;
   /* Test on EV5 and clear it I2C_EVENT_MASTER_MODE_SELECT */
   while( !I2C_CheckEvent(STTS751_I2C,I2C_EVENT_MASTER_MODE_SELECT)&& I2C_TimeOut-->0); 
 	
-	/* Send EEPROM addreress(STTS751_I2C, STTS751_ADDRESS, I2C_Direction_Transmitter);
+	/* Send EEPROM addreress(STTS751_I2C, STTS751_ADDRESS, I2C_Direction_Transmitter); */
 	/* Send STLM75 slave address for write */
   I2C_Send7bitAddress(STTS751_I2C, STTS751_ADDRESS, I2C_Direction_Transmitter);
 	

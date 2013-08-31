@@ -437,10 +437,10 @@ void	LPR_Ram(void)
   * @retval None
   */
 /* Begin Section DISPLAY */ 	
-#ifdef _COSMIC_
-#pragma section (DISPLAY)
+//#ifdef _COSMIC_
+//#pragma section (DISPLAY)
 void	Display_Ram(void)
-#endif
+//#endif
 { 
   uint8_t NbCar = 0;
   uint8_t i = 0;
@@ -648,7 +648,7 @@ void display_MuAmp (uint16_t Current)
           
   convert_into_char((int)Current, tab);
   tab[5] = 'A';
-  tab[4] = 'µ';
+  tab[4] = '?;
 		
 // Test the significant digit for displays 3 or 4 digits
   if ( tab[0] != '0')

@@ -35,6 +35,6 @@
 ..\..\src\stm8_interrupt_vector.c
 ..\..\src\stm8l15x_it.c
 ..\..\src\stm8l_discovery_lcd.c
-..\..\..\..\..\..\..\..\..\..\program files (x86)\cosmic\cxstm8_32k\hstm8\mods0.h
 ..\..\..\libraries\stm8l15x_stdperiph_driver\inc\stm8l15x_rtc.h
 ..\..\..\libraries\stm8l15x_stdperiph_driver\inc\stm8l15x_tim4.h
+c:\program files\cosmic\cxstm8\hstm8\mods0.h

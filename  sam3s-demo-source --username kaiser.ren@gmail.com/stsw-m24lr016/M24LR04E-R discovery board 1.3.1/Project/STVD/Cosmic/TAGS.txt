@@ -1620,7 +1620,7 @@ IWDG_RLR_RESET_VALUE	..\..\..\libraries\stm8l15x_stdperiph_driver\inc\stm8l15x.h
 IWDG_TypeDef	..\..\..\libraries\stm8l15x_stdperiph_driver\inc\stm8l15x.h	1233;"	typedef	typeref:struct:IWDG_struct
 IWDG_struct	..\..\..\libraries\stm8l15x_stdperiph_driver\inc\stm8l15x.h	1227;"	struct
 InitializeBuffer	..\..\src\main.c	47;"	prototype	file:	signature:(uint8_t *Buffer ,uint8_t NbCar)
-InitializeBuffer	..\..\src\main.c	599;"	function	file:	signature:(uint8_t *Buffer ,uint8_t NbCar)
+InitializeBuffer	..\..\src\main.c	601;"	function	file:	signature:(uint8_t *Buffer ,uint8_t NbCar)
 KR	..\..\..\libraries\stm8l15x_stdperiph_driver\inc\stm8l15x.h	1229;"	member	struct:IWDG_struct
 KeyPressed	..\..\src\stm8l_discovery_lcd.c	28;"	variable
 LCD	..\..\..\libraries\stm8l15x_stdperiph_driver\inc\stm8l15x.h	2709;"	macro
@@ -3026,7 +3026,7 @@ __I2C_TSENSOR_H	..\..\inc\i2c_stts751.h	25;"	macro
 __ICC_MEASURE_H	..\..\inc\vcc_measure.h	23;"	macro
 __IO	..\..\..\libraries\stm8l15x_stdperiph_driver\inc\stm8l15x.h	183;"	macro
 __MISC_H	..\..\inc\misc.h	23;"	macro
-__MODS0__	..\..\..\..\..\..\..\..\..\..\program files (x86)\cosmic\cxstm8_32k\hstm8\mods0.h	11;"	macro
+__MODS0__	c:\program files\cosmic\cxstm8\hstm8\mods0.h	11;"	macro
 __O	..\..\..\libraries\stm8l15x_stdperiph_driver\inc\stm8l15x.h	182;"	macro
 __STM8L15X_STDPERIPH_VERSION	..\..\..\libraries\stm8l15x_stdperiph_driver\inc\stm8l15x.h	162;"	macro
 __STM8L15X_STDPERIPH_VERSION_MAIN	..\..\..\libraries\stm8l15x_stdperiph_driver\inc\stm8l15x.h	156;"	macro

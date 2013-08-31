@@ -28,7 +28,7 @@
 
 //extern bool KeyPressed;
 extern uint8_t state_machine;
-extern EEPROM uint8_t EEMenuState;
+extern __no_init EEPROM uint8_t EEMenuState;
 //extern bool Auto_test;
 extern uint8_t t_bar[2];
 
