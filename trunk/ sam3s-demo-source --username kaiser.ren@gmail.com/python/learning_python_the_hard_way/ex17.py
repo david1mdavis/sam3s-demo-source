@@ -16,9 +16,9 @@ print ("The input file is %d bytes long." %len(indata))
 print ("Does the output file exist? %r" %exists(to_file))
 print ("Ready, hit RETURN to continue, CTRL-C to abort.")
 
-abc = input('?')
+raw_input('?')
 
-output = open(to_file, 'w')
+output = open(to_file, 'a')
 output.write(indata)
 
 print ("Allright, all done.")
