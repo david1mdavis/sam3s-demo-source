@@ -1,0 +1,1 @@
+it is from atmel website, http://www.atmel.com/tools/SAM3S-EK.aspx
